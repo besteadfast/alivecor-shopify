@@ -19,7 +19,7 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text": "Includes annual KardiaCare membership",
             "text_style": "subtitle"
           }
         },
@@ -36,12 +36,26 @@
         },
         "f8d7b4a2-76a1-40d6-92cc-9ec38fc4d212": {
           "type": "info",
+          "disabled": true,
           "settings": {
-            "info_richtext": "<p>Monitor your hear activity on-the-go with the first and only personal EKG that can fit in your wallet.<\/p><p><\/p><p>With a KardiaCare membership, the KardiaMobile Card can detect more arrythmias than any other smart device<br\/><br\/><a href=\"\/products\/kardiamobile-card-code\" title=\"KardiaMobile Card for Current Monthly Customers\">MORE<\/a><\/p>"
+            "info_richtext": "<p>Monitor your hear activity on-the-go with the first and only personal EKG that can fit in your wallet.<\/p><p><\/p><p>With a KardiaCare membership, the KardiaMobile Card can detect more arrythmias than any other smart device<\/p>"
+          }
+        },
+        "7d60cf88-be8f-49f4-9e81-9d6dc319adba": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p>The future of heart health fits in your wallet.<\/p>\n\n<p class=\"faux-p-sm\">Arrhythmias don’t wait for the doctor’s office, so we created a portable, durable personal EKG that goes anywhere you go. KardiaMobile Card is as thin and light as a credit card, fits perfectly in your wallet, and records an accurate, medical-grade EKG in seconds. KardiaMobile Card includes an exclusive annual KardiaCare membership, so you can better manage and understand your heart health on the go.<\/p>"
+          }
+        },
+        "f9091bc7-73a1-461b-8031-d2edab22a2c9": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul>\n<li>Thin and light as a credit card<\/li>\n<li>Six FDA-cleared determinations<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>EKG reviews by a cardiologist<\/li>\n<\/ul>"
           }
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
           }
         },
@@ -59,6 +73,8 @@
         "price",
         "variant_picker",
         "f8d7b4a2-76a1-40d6-92cc-9ec38fc4d212",
+        "7d60cf88-be8f-49f4-9e81-9d6dc319adba",
+        "f9091bc7-73a1-461b-8031-d2edab22a2c9",
         "description",
         "buy_buttons"
       ],
@@ -93,6 +109,11 @@
       "settings": {
       }
     },
+    "additional-info-km-card": {
+      "type": "additional-info-km-card",
+      "settings": {
+      }
+    },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
       "settings": {
@@ -116,11 +137,6 @@
     },
     "stay-in-the-know": {
       "type": "stay-in-the-know",
-      "settings": {
-      }
-    },
-    "additional-info-km-card": {
-      "type": "additional-info-km-card",
       "settings": {
       }
     }

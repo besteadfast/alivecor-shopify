@@ -2325,11 +2325,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: -16px;
 }
 
-#app .mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #app .mt-s6 {
   margin-top: 24px;
 }
@@ -2490,10 +2485,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 46px;
 }
 
-#app .h-icon-24 {
-  height: 24px;
-}
-
 #app .max-h-\[600px\] {
   max-height: 600px;
 }
@@ -2536,10 +2527,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
-#app .w-icon-24 {
-  width: 24px;
-}
-
 #app .max-w-content {
   max-width: 1152px;
 }
@@ -2550,10 +2537,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .max-w-\[1400px\] {
   max-width: 1400px;
-}
-
-#app .max-w-content {
-  max-width: 1152px;
 }
 
 #app .flex-grow {
@@ -2582,10 +2565,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .list-disc {
   list-style-type: disc;
-}
-
-#app .list-none {
-  list-style-type: none;
 }
 
 #app .appearance-none {
@@ -2679,10 +2658,6 @@ Ensure the default browser behavior of the `hidden` attribute.
        column-gap: 64px;
 }
 
-#app .gap-y-s8 {
-  row-gap: 40px;
-}
-
 #app .divide-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(2px * var(--tw-divide-x-reverse));
@@ -2760,6 +2735,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .bg-primary-500 {
   background-color: var(--primary-500);
+}
+
+#app .object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#app .object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#app .object-left {
+  -o-object-position: left;
+     object-position: left;
 }
 
 #app .p-0 {
@@ -2872,16 +2862,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 2px;
 }
 
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
 #app .pl-s12 {
   padding-left: 96px;
 }
@@ -2991,10 +2971,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: var(--primary-800);
 }
 
-#app .text-primary-300 {
-  color: var(--primary-300);
-}
-
 #app .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -3056,16 +3032,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   #app .lg\:flex-row {
     flex-direction: row;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
   }
 
   #app .lg\:px-s11 {
