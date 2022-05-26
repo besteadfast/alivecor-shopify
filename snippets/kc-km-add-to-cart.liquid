@@ -1,0 +1,207 @@
+{% style %}
+    input[type="radio"]{
+        display:inline-grid;
+        place-content:center;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid var(--primary-300);
+        border-radius: 50%;
+        transform: translateY(-2px);
+    }
+
+    input[type="radio"]::before {
+        content: "";
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--primary-700);
+    }
+
+    input[type="radio"] + span{
+        opacity:.5;
+        transition: 120ms opacity ease-in-out;
+    }
+
+    input[type="radio"]:checked::before {
+        transform: scale(1);
+    }
+
+    input[type="radio"]:checked + span{
+        color: var(--primary-700);
+        opacity:1;
+    }
+{% endstyle %}
+
+<div class="form">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile')">
+      {% capture year_title %}
+          1-Year Plan
+        {% endcapture %}
+        {% capture two_year_title %}
+          2-Year Plan
+        {% endcapture %}
+        {% capture month_title %}
+          Monthly Plan
+        {% endcapture %}
+        {% assign month_price = "$9.99/month" %}
+        {% assign year_price = "$99/year" %}
+        {% assign two_year_price = "$179/2 years" %}
+        {% case shop.domain %}
+          {% when 'dev-alivecor-us.myshopify.com' %}
+            {% assign year_id = 32992175226983 %}
+            {% assign year_frequency = "12" %}
+      {% assign year_price_number = "99" %}
+            {% assign year_price_disclaimer = "$99 after your first year" %}
+            {% capture year_label %}
+            1-Year Plan ($99/year)
+            {% endcapture %}
+            {% assign two_year_id = 32992089899111 %}
+            {% assign two_year_frequency = "24" %}
+            {% capture two_year_label %}
+            2-Year Plan ($179/two yrs)
+            {% endcapture %}
+            {% assign month_id = 32991987204199 %}
+            {% assign month_frequency = "1" %}
+            {% assign month_price_number = "9.99" %}
+            {% assign month_price_disclaimer = "$9.99 each month" %}
+            {% capture month_label %}
+            Monthly Plan ($9.99/mo)
+            {% endcapture %}
+      {% assign kardiamobile_id = "57806915659" %}
+            {% assign kardiamobile6l_id = "28007532101697" %}
+            {% assign kardiamobile_price = product.price | money_without_currency %}
+            {% assign kardiamobile6l_price = product.price | money_without_currency %}
+            {% assign bundle_sale_amount_annual = "9" %}
+            {% assign bundle_sale_amount_monthly = "10" %}
+          {% when 'store.kardia.com' %}
+            {% assign year_id = 32194082472001 %}
+            {% assign year_frequency = "12" %}
+            {% assign year_price_number = "99" %}
+            {% assign year_price_disclaimer = "$99 after your first year" %}
+            {% capture year_label %}
+            1-Year Plan ($99/yr)
+            {% endcapture %}
+            {% assign two_year_id = 32283255341121 %}
+            {% assign two_year_frequency = "24" %}
+            {% assign two_year_price_number = "179" %}
+            {% assign two_year_price_disclaimer = "$179 after two years" %}
+            {% capture two_year_label %}
+            2-Year Plan ($179/2 yrs)
+            {% endcapture %}
+            {% assign month_id = 32283254751297 %}
+            {% assign month_frequency = "1" %}
+            {% assign month_price_number = "9.99" %}
+            {% assign month_price_disclaimer = "$9.99 each month" %}
+            {% capture month_label %}
+            Monthly Plan ($9.99/mo)
+            {% endcapture %}
+            {% assign kardiamobile_id = "20036084615" %}
+            {% assign kardiamobile6l_id = "28007532101697" %}
+            {% assign kardiamobile_price = product.price | money_without_currency %}
+            {% assign kardiamobile6l_price = product.price | money_without_currency %}
+            {% assign bundle_sale_amount_annual = "29" %}
+            {% assign bundle_sale_amount_monthly = "10" %}
+          {% else %}
+        {% endcase %}
+      <div class="kardiacare-products-bundle">
+        <fieldset>
+          <legend class="faux-p font-bold mb-s4">
+            Add a membership plan and save:
+          </legend>
+          <div class="form-radio">
+            <label for="{{ month_id }}" class="faux-p">
+              <input
+                id="{{ month_id }}"
+                name="kardiaCareMembershipLength"
+                type="radio"
+                data-frequency="{{ month_frequency }}"
+                data-price="{{ month_price }}"
+                data-price-number="{{ month_price_number }}"
+                data-price-disclaimer="{{ month_price_disclaimer }}"
+                data-device-price="{{ kardiamobile6l_price }}"
+                data-sale-amount="{{ bundle_sale_amount_monthly }}"
+                data-show-sale="true"
+                data-price-display-id="kc-km-price"
+                class="radio appearance-none"
+                value="{{ month_id }}"
+                tabindex="1"
+                onchange=""
+                checked="checked"
+                required
+                autocomplete="off"
+               />
+               <span>{{ month_label }}</span>
+            </label>
+          </div>
+          <div class="form-radio">
+            <label for="{{ year_id }}" class="faux-p">
+              <input
+                id="{{ year_id }}"
+                name="kardiaCareMembershipLength"
+                type="radio"
+                data-frequency="{{ year_frequency }}"
+                data-price="{{ year_price }}"
+                data-price-number="{{ year_price_number }}"
+                data-price-disclaimer="{{ year_price_disclaimer }}"
+                data-device-price="{{ kardiamobile_price }}"
+                data-sale-amount="{{ bundle_sale_amount_annual }}"
+                data-show-sale="true"
+                data-price-display-id="kc-km-price"
+                class="radio appearance-none"
+                value="{{ year_id }}"
+                tabindex="1"
+                onchange=""
+                required
+                autocomplete="off"
+               />
+               <span>{{ year_label }}</span>
+            </label>
+          </div>
+          <div class="form-radio">
+            <label for="non_mem" class="faux-p">
+              <input
+                id="non_mem"
+                name="kardiaCareMembershipLength"
+                type="radio"
+                data-frequency="none"
+                data-price-number="0"
+                data-device-price="{{ kardiamobile_price }}"
+                data-price-display-id="kc-km-price"
+                class="radio appearance-none"
+                value="no_mem"
+                tabindex="3"
+                onchange=""
+                required
+                autocomplete="off"
+               />
+               <span>No membership</span>
+            </label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="flex-items-bundle">
+        <button
+          type="submit"
+          name="add"
+          id="{{product.id}}AddToCart1"
+          class="btn btn--inverse border-2 border-primary-500 mt-s6 addToCart"
+          {% if sold_out %}
+            disabled
+          {% endif %}
+         >
+          <span id="AddToCartText">
+          {% if sold_out %}
+          {{ 'products.product.sold_out' | t }}
+          {% elsif preorder %}
+          {{ 'products.product.preorder' | t }}
+          {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+          </span>
+        </button>
+      </div>
+      <div style="clear: both;"></div>
+    </form>
+  </div>
