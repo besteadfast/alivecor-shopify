@@ -118,6 +118,11 @@
       "type": "stay-in-the-know",
       "settings": {
       }
+    },
+    "additional-info-km-card": {
+      "type": "additional-info-km-card",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -126,6 +131,7 @@
     "content-convenient",
     "content-credible",
     "content-durable",
+    "additional-info-km-card",
     "kardiacare-membership-module",
     "product-recommendations",
     "stay-in-the-know"

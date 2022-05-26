@@ -1,3 +1,21 @@
+{% style %}
+    #app .global-list__text{
+        margin-top: 12px;
+    }
+
+    #app .featured-list__items{
+      display:flex;
+      flex-wrap:wrap;
+      gap:48px;
+      justify-content:center;
+    }
+
+    #app .global-list__item{
+      width:350px;
+    }
+
+{% endstyle %}
+
 <article class="borders featured-list">
   <div class="featured-list__int">
     <ul class="featured-list__items list-none global-list">
@@ -5,65 +23,65 @@
         <div class="global-list__icon-container">
           <svg class="w-icon-32 h-icon-32">
             <use
-              xlink:href="/assets/icons/32/delivery-3.svg#icon-definition"
+              xlink:href="/assets/local_shipping.svg#icon-definition"
             ></use>
           </svg>
         </div>
         <div class="global-list__info">
-          <h3 class="global-list__heading break-word">Free shipping</h3>
-          <p class="global-list__text">On all orders over $89</p>
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Free shipping</h3>
+          <p class="global-list__text faux-p-xs">On all orders over $89</p>
         </div>
       </li>
       <li class="global-list__item">
         <div class="global-list__icon-container">
           <svg class="w-icon-32 h-icon-32">
             <use
-              xlink:href="/assets/icons/32/delivery-3.svg#icon-definition"
+              xlink:href="/assets/tablet_mac.svg#icon-definition"
             ></use>
           </svg>
         </div>
         <div class="global-list__info">
-          <h3 class="global-list__heading break-word">Smartphone/tablet compatible</h3>
-          <p  class="global-list__text">Compatibility chart<p>
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Smartphone/tablet compatible</h3>
+          <a href="https://alivecor.zendesk.com/hc/en-us/articles/1500000449521-Compatibility" class="global-list__text faux-p-xs text-primary-300 hover:text-primary-500">Compatibility chart</a>
         </div>
       </li>
       <li class="global-list__item">
         <div class="global-list__icon-container">
           <svg class="w-icon-32 h-icon-32">
             <use
-              xlink:href="/assets/icons/32/delivery-3.svg#icon-definition"
+              xlink:href="/assets/star_outline.svg#icon-definition"
             ></use>
           </svg>
         </div>
         <div class="global-list__info">
-          <h3 class="global-list__heading break-word">Recommended by doctors</h3>
-          <p class="global-list__text">#1 recommended personal EKG</p>
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Recommended by doctors</h3>
+          <p class="global-list__text faux-p-xs">#1 recommended personal EKG</p>
         </div>
       </li>
       <li class="global-list__item">
         <div class="global-list__icon-container">
           <svg class="w-icon-32 h-icon-32">
             <use
-              xlink:href="/assets/icons/32/delivery-3.svg#icon-definition"
+              xlink:href="/assets/touch_app.svg#icon-definition"
             ></use>
           </svg>
         </div>
         <div class="global-list__info">
-          <h3 class="global-list__heading break-word">Easy to use</h3>
-          <p class="global-list__text">Simply press your finers on the device</p>
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Easy to use</h3>
+          <p class="global-list__text faux-p-xs">Simply press your finers on the device</p>
         </div>
       </li>
       <li class="global-list__item">
         <div class="global-list__icon-container">
           <svg class="w-icon-32 h-icon-32">
             <use
-              xlink:href="/assets/icons/32/delivery-3.svg#icon-definition"
+              xlink:href="/assets/attach_money.svg#icon-definition"
             ></use>
           </svg>
         </div>
         <div class="global-list__info">
-          <h3 class="global-list__heading break-word">HSA/FSA Eligible</h3>
-          <p class="global-list__text">Confirm with your insurance provider first</p>
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">HSA/FSA Eligible</h3>
+          <p class="global-list__text faux-p-xs">Confirm with your insurance provider first</p>
         </div>
       </li>
     </ul>

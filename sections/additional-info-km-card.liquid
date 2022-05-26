@@ -1,0 +1,94 @@
+{% style %}
+    .accordion__content--flex-item{
+        width:410px;
+        text-align:center;
+    }
+
+    .accordion__content--flex-item p:before, .accordion__content--flex-item p:after{
+        display:none;
+    }
+
+    #app p + p {
+        margin-top:1rem;
+    }
+
+{% endstyle %}
+
+<article class="faq px-s8 lg:px-s11 py-s13 lg:py-s14">
+    <div class="max-w-content mx-auto">
+        <h2 class="mb-s8 lg:mb-s8 text-primary-800">Additional Information</h2> 
+        <div class="faq__accordion">
+            <ul class="accordion-items list-none accordion">
+                <li class="accordion__item accordion__item">
+                    <button aria-controls="accordionContent5" id="accordionBtn5" class="accordion__trigger accordion__trigger_active">
+                        <h2 class="accordion__heading faux-p uppercase text-primary-800">Compatibility</h2> 
+                        <span class="accordion__icon-wrapper">
+                            <svg class="w-icon-24 h-icon-24">
+                                <use xlink:href="/assets/icons/24/ctrl-down.svg#icon-definition"></use>
+                            </svg>
+                        </span>
+                    </button> 
+                    <div id="accordionContent5" aria-labelledby="accordionBtn5" class="accordion__content-wrapper">
+                        <div class="accordion__content">
+                            <p class="before:hidden after:hidden">KardiaMobile is a medical device that is regulated per federal and international regulations; we rigorously test and validate devices with smartphones and tablets to meet or exceed these regulations before we claim compatibility. We routinely add support for new phones and tablets. Check back if your device is not listed below. For a list of previously compatible devices, please see <a href="https://alivecor.zendesk.com/hc/en-us/articles/1500000449521-Compatibility" class="text-primary-300 hover:text-primary-500">this article</a></p>
+                            <p class="faux-p-sm after:hidden">(Last updated on July 14, 2021)</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion__item accordion__item">
+                    <button aria-controls="accordionContent5" id="accordionBtn5" class="accordion__trigger accordion__trigger_active">
+                        <h2 class="accordion__heading faux-p uppercase text-primary-800">Technical Specifications</h2> 
+                        <span class="accordion__icon-wrapper">
+                            <svg class="w-icon-24 h-icon-24">
+                                <use xlink:href="/assets/icons/24/ctrl-down.svg#icon-definition"></use>
+                            </svg>
+                        </span>
+                    </button> 
+                    <div id="accordionContent5" aria-labelledby="accordionBtn5" class="accordion__content-wrapper">
+                        <div class="accordion__content flex flex-wrap justify-center gap-x-s10 gap-y-s8">
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">Dimensions</p>
+                                <p>85.6 mm x 54.0 mm x 1.2 mm </br>Two 25 mm x 15 mm electrodes</p>
+                            </div>
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">Weight</p>
+                                <p>7.4 grams</p>
+                            </div>
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">Power</p>
+                                <p>Non-replacable battery<br/>2 years typical use</p>
+                            </div>
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">Connectivity</p>
+                                <p>Bluetooth Low Energy technology</br>1m wireless range</p>
+                            </div>
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">EKG characteristics</p>
+                                <p>Single Lead ECG </br>10 mV peak-to-peak input dynamic range </br>30 second to 5 minute recording duration </br>300 samples per second sampling rate </br>14 bit resolution</p>
+                            </div>
+                            <div class="accordion__content--flex-item">
+                                <p class="font-bold">Requirements</p>
+                                <p>Compatible Apple or Android device </br>Kardia App</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion__item accordion__item">
+                    <button aria-controls="accordionContent5" id="accordionBtn5" class="accordion__trigger accordion__trigger_active">
+                        <h2 class="accordion__heading faux-p uppercase text-primary-800">Reviews</h2> 
+                        <span class="accordion__icon-wrapper">
+                            <svg class="w-icon-24 h-icon-24">
+                                <use xlink:href="/assets/icons/24/ctrl-down.svg#icon-definition"></use>
+                            </svg>
+                        </span>
+                    </button> 
+                    <div id="accordionContent5" aria-labelledby="accordionBtn5" class="accordion__content-wrapper text-primary-800">
+                        <div class="accordion__content">
+                            <p>Reviews coming soon</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>

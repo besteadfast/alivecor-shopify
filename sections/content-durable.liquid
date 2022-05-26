@@ -1,6 +1,7 @@
 <article class="image-split image-split--right borders">
   <div class="image-split__media">
     <picture class="image__wrapper">
+      {% comment %}
       <source
         media="(max-width: 639px)"
         srcset="
@@ -13,8 +14,9 @@
           https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
         "
       />
+      {% endcomment %}
       <img
-        src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+        src="{{ "kardiamobile-feature-image-durable.png" | asset_url }}"
         alt=""
         class="image-split__image"
       />
