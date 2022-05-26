@@ -2325,11 +2325,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: -16px;
 }
 
-#app .my-s7 {
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
 #app .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2423,22 +2418,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 4px;
 }
 
-#app .mt-s6 {
-  margin-top: 24px;
-}
-
-#app .mt-s7 {
-  margin-top: 32px;
-}
-
-#app .mt-s8 {
-  margin-top: 40px;
-}
-
-#app .mt-s5 {
-  margin-top: 20px;
-}
-
 #app .mb-s8 {
   margin-bottom: 40px;
 }
@@ -2511,10 +2490,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 46px;
 }
 
-#app .h-icon-32 {
-  height: 32px;
-}
-
 #app .h-icon-24 {
   height: 24px;
 }
@@ -2561,22 +2536,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
-#app .w-max {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-#app .w-icon-32 {
-  width: 32px;
-}
-
 #app .w-icon-24 {
   width: 24px;
 }
 
-#app .min-w-\[120px\] {
-  min-width: 120px;
+#app .max-w-content {
+  max-width: 1152px;
 }
 
 #app .max-w-\[593px\] {
@@ -2627,6 +2592,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+#app .columns-2 {
+  -moz-columns: 2;
+       columns: 2;
+}
+
+#app .break-inside-avoid {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 
 #app .grid-cols-2 {
@@ -2699,6 +2674,15 @@ Ensure the default browser behavior of the `hidden` attribute.
        column-gap: 20px;
 }
 
+#app .gap-x-s10 {
+  -moz-column-gap: 64px;
+       column-gap: 64px;
+}
+
+#app .gap-y-s8 {
+  row-gap: 40px;
+}
+
 #app .divide-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(2px * var(--tw-divide-x-reverse));
@@ -2708,15 +2692,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 #app .divide-black-400 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: rgb(153 153 153 / var(--tw-divide-opacity));
-}
-
-#app .gap-x-s10 {
-  -moz-column-gap: 64px;
-       column-gap: 64px;
-}
-
-#app .gap-y-s8 {
-  row-gap: 40px;
 }
 
 #app .overflow-hidden {
@@ -2781,10 +2756,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .border-primary-800 {
   border-color: var(--primary-800);
-}
-
-#app .border-primary-500 {
-  border-color: var(--primary-500);
 }
 
 #app .bg-primary-500 {
@@ -2891,74 +2862,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 16px;
 }
 
+#app .py-s13 {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
 #app .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-#app .py-s10 {
-  padding-top: 64px;
-  padding-bottom: 64px;
-}
-
-#app .px-s4 {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-#app .py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-#app .px-s8 {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-#app .py-s13 {
-  padding-top: 120px;
-  padding-bottom: 120px;
 }
 
 #app .px-s8 {
@@ -3011,14 +2922,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 80px;
 }
 
-#app .pr-s11 {
-  padding-right: 80px;
-}
-
-#app .pl-s8 {
-  padding-left: 40px;
-}
-
 #app .text-center {
   text-align: center;
 }
@@ -3055,10 +2958,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: .825rem;
 }
 
-#app .text-\[1\.125rem\] {
-  font-size: 1.125rem;
-}
-
 #app .font-bold {
   font-weight: 700;
 }
@@ -3082,26 +2981,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 #app .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-#app .text-primary-300 {
-  color: var(--primary-300);
-}
-
-#app .text-primary-500 {
-  color: var(--primary-500);
-}
-
-#app .text-primary-800 {
-  color: var(--primary-800);
-}
-
-#app .text-primary-300 {
-  color: var(--primary-300);
-}
-
-#app .text-primary-800 {
-  color: var(--primary-800);
 }
 
 #app .text-primary-300 {
@@ -3167,84 +3046,41 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1024px) {
-  #app .lg\:hidden {
-    display: none;
-  }
-  #app .lg\:mb-s9 {
-    margin-bottom: 48px;
-  }
-
   #app .lg\:mb-s8 {
     margin-bottom: 40px;
   }
 
+  #app .lg\:hidden {
+    display: none;
+  }
+
   #app .lg\:flex-row {
     flex-direction: row;
+  }
+
+  #app .lg\:px-s11 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  #app .lg\:py-s14 {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  #app .lg\:px-s11 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  #app .lg\:py-s14 {
+    padding-top: 160px;
+    padding-bottom: 160px;
   }
 }
 
 @media (max-width: 1023px) {
   #app .to-lg\:hidden {
     display: none;
-  }
-  
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-
-  #app .lg\:px-s11 {
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-
-  #app .lg\:py-s14 {
-    padding-top: 160px;
-    padding-bottom: 160px;
   }
 }
