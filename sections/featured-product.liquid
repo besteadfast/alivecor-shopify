@@ -33,6 +33,23 @@
   }
 
   .price__container { margin-top: 7px; }
+
+	.featured-product-section {
+		background: linear-gradient(130deg, rgba(149,174,218,1) 0%, rgb(149 174 218 / 20%) 20%, rgba(149,174,218,0.0) 50%);
+	}
+
+	.featured-product {
+		background: transparent;
+	}
+
+	.product__media {
+		background: transparent;
+		border: none;
+	}
+
+	.product__media-icon {
+		display: none;
+	}
 {%- endstyle -%}
 
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -46,7 +63,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<section class="color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %} border-bottom-gray border-top-gray max-h-[600px]">
+<section class="featured-product-section color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %} border-bottom-gray border-top-gray max-h-[600px]">
   <div class="page-width p-0 {% if section.settings.secondary_background %} isolate{% endif %}">
     <div class="featured-product product flex gradient color-{{ section.settings.color_scheme }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper max-w-[593px] w-full">
@@ -680,7 +697,7 @@
           "id": "textarea",
           "default": "Text block",
           "label": "t:sections.featured-product.blocks.text.settings.textarea.label"
-        } 
+        }
       ]
     }
   ],

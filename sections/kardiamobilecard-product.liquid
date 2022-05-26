@@ -20,6 +20,33 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+	.product-hero {
+		background: linear-gradient(130deg, rgba(149,174,218, 0.7) 0%, rgb(149 174 218 / 20%) 20%, rgba(149,174,218,0.0) 50%);
+	}
+
+	.product__media-icon {
+		display: none;
+	}
+
+	.product__media {
+		background: transparent;
+		border: none;
+	}
+
+	.product__media-wrapper {
+		width: 50% !important;
+		max-width: 50% !important;
+	}
+
+	.product__info-wrapper {
+		padding: 2rem 4rem !important;
+		max-width: 50% !important;
+	}
+
+	.product--thumbnail_slider {
+		padding: 4rem 2rem;
+	}
 {%- endstyle -%}
 
 <script src="{{ 'product-form-card.js' | asset_url }}" defer="defer"></script>
@@ -31,7 +58,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<section class="full-width p-0">
+<section class="product-hero full-width p-0">
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} shopify-grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
@@ -226,7 +253,7 @@
               </div>
             {%- endif -%}
           {%- when 'info' -%}
-            <div>{{block.settings.info_richtext}}</div>    
+            <div>{{block.settings.info_richtext}}</div>
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}

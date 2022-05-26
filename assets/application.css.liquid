@@ -2284,6 +2284,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
+#app .relative {
+  position: relative;
+}
+
 #app .isolate {
   isolation: isolate;
 }
@@ -2314,6 +2318,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 #app .my-s5 {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#app .-mx-s4 {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+#app .my-s7 {
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 #app .mt-s6 {
@@ -2404,6 +2418,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 4px;
 }
 
+#app .mt-s6 {
+  margin-top: 24px;
+}
+
+#app .mt-s7 {
+  margin-top: 32px;
+}
+
+#app .mt-s8 {
+  margin-top: 40px;
+}
+
+#app .mt-s5 {
+  margin-top: 20px;
+}
+
 #app .block {
   display: block;
 }
@@ -2464,8 +2494,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 12px;
 }
 
-#app .h-\[50px\] {
-  height: 50px;
+#app .h-full {
+  height: 100%;
 }
 
 #app .h-\[46px\] {
@@ -2510,20 +2540,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 12px;
 }
 
-#app .w-\[400px\] {
-  width: 400px;
-}
-
-#app .w-\[150px\] {
-  width: 150px;
-}
-
 #app .w-1\/2 {
   width: 50%;
 }
 
-#app .min-w-\[120px\] {
-  min-width: 120px;
+#app .w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 #app .max-w-\[593px\] {
@@ -2634,6 +2658,17 @@ Ensure the default browser behavior of the `hidden` attribute.
        column-gap: 20px;
 }
 
+#app .divide-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(2px * var(--tw-divide-x-reverse));
+  border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
+#app .divide-black-400 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(153 153 153 / var(--tw-divide-opacity));
+}
+
 #app .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2658,6 +2693,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .border-t-2 {
   border-top-width: 2px;
+}
+
+#app .border-r-2 {
+  border-right-width: 2px;
 }
 
 #app .border-solid {
@@ -2688,6 +2727,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .border-primary-800 {
   border-color: var(--primary-800);
+}
+
+#app .border-primary-500 {
+  border-color: var(--primary-500);
 }
 
 #app .bg-primary-500 {
@@ -2784,9 +2827,34 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 24px;
 }
 
+#app .px-s3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#app .px-s4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 #app .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+#app .py-s10 {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+#app .px-s4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#app .py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #app .pl-s12 {
@@ -2829,6 +2897,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 80px;
 }
 
+#app .pr-s11 {
+  padding-right: 80px;
+}
+
+#app .pl-s8 {
+  padding-left: 40px;
+}
+
+#app .text-center {
+  text-align: center;
+}
+
 #app .text-right {
   text-align: right;
 }
@@ -2861,6 +2941,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: .825rem;
 }
 
+#app .text-\[1\.125rem\] {
+  font-size: 1.125rem;
+}
+
 #app .font-bold {
   font-weight: 700;
 }
@@ -2884,6 +2968,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 #app .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#app .text-primary-500 {
+  color: var(--primary-500);
 }
 
 #app .underline {
@@ -2933,7 +3021,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1024px) {
+  #app .lg\:hidden {
+    display: none;
+  }
+
   #app .lg\:flex-row {
     flex-direction: row;
+  }
+}
+
+@media (max-width: 1023px) {
+  #app .to-lg\:hidden {
+    display: none;
   }
 }
