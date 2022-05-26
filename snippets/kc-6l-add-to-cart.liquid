@@ -1,0 +1,90 @@
+{% capture 1year_title %}
+  1-Year Plan
+{% endcapture %}
+{% capture 2year_title %}
+  2-Year Plan
+{% endcapture %}
+{% capture 1month_title %}
+  Monthly Plan
+{% endcapture %}
+{% assign 1month_price = "$9.99/month" %}
+{% assign 1year_price = "$99/year" %}
+{% assign 2year_price = "$179/2 years" %}
+
+    {% assign 1year_id = 32194082472001 %}
+    {% assign 1year_frequency = "12" %}
+    {% assign 1year_price_number = "99" %}
+    {% assign 1year_price_disclaimer = "$99 after your first year" %}
+    {% capture 1year_label %}
+    1-Year Plan ($99/yr)
+    {% endcapture %}
+    {% assign 2year_id = 32283255341121 %}
+    {% assign 2year_frequency = "24" %}
+    {% assign 2year_price_number = "179" %}
+    {% assign 2year_price_disclaimer = "$179 after two years" %}
+    {% capture 2year_label %}
+    2-Year Plan ($179/2 yrs)
+    {% endcapture %}
+    {% assign 1month_id = 32283254751297 %}
+    {% assign 1month_frequency = "1" %}
+    {% assign 1month_price_number = "9.99" %}
+    {% assign 1month_price_disclaimer = "$9.99 each month" %}
+    {% capture 1month_label %}
+    Monthly Plan ($9.99/mo)
+    {% endcapture %}
+    {% assign kardiamobile_id = "20036084615" %}
+    {% assign kardiamobile6l_id = "28007532101697" %}
+    {% assign kardiamobile_price = "89" %}
+    {% assign kardiamobile6l_price = '{{product.price | money_without_currency}}' %}
+    {% assign bundle_sale_amount_annual = "9" %}
+    {% assign bundle_sale_amount_monthly = "10" %}
+
+
+<variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+  <fieldset class="js product-form__input">
+    <legend class="form__label">Choose your membership plan</legend>
+    <input
+     id="32283254751297"
+     name="kardiaCareMembershipLength"
+     type="radio"
+     data-frequency="1"
+     data-price="$9.99/month"
+     data-price-number="9.99"
+     data-price-disclaimer="$9.99 each month"
+     data-device-price="149.00"
+     data-sale-amount="10"
+     data-show-sale="false"
+     data-price-display-id="kc-6l-price"
+     class="field radio"
+     value="32283254751297"
+     tabindex="1"
+     onchange=""
+     checked="checked"
+     required=""
+     autocomplete="off">
+	<label for="32283254751297">
+		Monthly Plan ($9.99/mo)
+    </label>
+	<input
+     id="32194082472001"
+     name="kardiaCareMembershipLength"
+     type="radio"
+     data-frequency="12"
+     data-price="$99/year"
+     data-price-number="99"
+     data-price-disclaimer="$99 after your first year"
+     data-device-price="149.00"
+     data-sale-amount="9"
+     data-show-sale="false"
+     data-price-display-id="kc-6l-price"
+     class="field radio"
+     value="32194082472001"
+     tabindex="1"
+     onchange=""
+     required=""
+     autocomplete="off">
+	<label for="32194082472001">
+		1-Year Plan ($99/yr)
+	</label>
+  </fieldset>
+</variant-radios>

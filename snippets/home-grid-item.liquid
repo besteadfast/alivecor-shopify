@@ -1,0 +1,258 @@
+<!-- /snippets/home-grid-item.liquid -->
+{% comment %}
+
+  This snippet is used to showcase each product during the loop,
+  'for product in collection.products' in collection.liquid.
+
+  A liquid variable (grid_item_width) is set just before the this
+  snippet is included to change the size of the container.
+  Once the variable is set on a page, all future instances of this
+  snippet will use that width. Overwrite the variable to adjust this.
+
+  Example
+    - assign grid_item_width = 'large--one-quarter medium--one-half'
+
+{% endcomment %}
+
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% comment %}
+  Check tags
+{% endcomment %}
+{% assign lateship = false %}
+  {% for tag in product.tags %}
+    {% if tag == 'lateship' %}
+      {% assign lateship = true %}
+    {% endif %}
+  {% endfor%}
+
+<div class="home-grid-item w-full {{ product_name }} {{ product_collection }}">
+  {% comment %}
+    Link to your product with the 'within: collection' filter for the link to be aware of the collection.
+    This allows you to create collection-based navigation on the product page.
+
+    Results of using 'within: collection':
+    - Instead of a URL with /products/product-handle
+      you would get /collections/collection-handle/products/product-handle
+
+    For more info on navigation within a collection
+      - http://docs.shopify.com/support/your-store/collections/how-to-navigate-within-a-collection
+
+  {% endcomment %}
+  {% assign home_grid_img_id = "home-grid-" | append: product.handle %}
+  <a href="{% if product.handle =='kardiacare-monthly' %}/products/kardiacare{% else %}{{ product.url }}{% endif %}" class="grid__image" id="{{ home_grid_img_id }}">
+    {% if product.handle == 'kardiacare' %}
+      <div class="mobile">
+        {{ 'kc-annual.jpg' | asset_url | img_tag }}
+      </div>
+      <div class="desktop">
+        {{ 'kc-annual-desktop.jpg' | asset_url | img_tag }}
+      </div>
+    {% elsif product.handle =='kardiacare-monthly' %}
+      <div class="mobile">
+        {{ 'kc-monthly.jpg' | asset_url | img_tag }}
+      </div>
+      <div class="desktop">
+        {{ 'kc-monthly-desktop.jpg' | asset_url | img_tag }}
+      </div>
+    {% else %}
+    <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    {% endif %}
+    <div class="img-caption"></div>
+  </a>
+
+  <h3 class="faux-h3 text-primary-500 mt-s9">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </h3>
+  <div class="flex items-center justify-between  mt-s5">
+      <p class="mb-s1">
+        {% comment %}
+          You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+          if your variants have different prices.
+        {% endcomment %}
+        {% if on_sale and product.handle != 'kardiacare' %}
+          {% if product.price_varies %}
+            {% assign sale_price = product.price | money %}
+            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+          {% else %}
+            <span class="h2Price red">
+              {{ product.price | money_without_trailing_zeros }}
+            </span>
+            <span class="strikeout">
+              {{ product.compare_at_price | money }}
+            </span>
+          {% endif %}
+        {% else %}
+          {% if product.price_varies and product.handle != 'kardiacare' %}
+            {% assign price = product.price | money %}
+            {{ 'products.general.from_text_html' | t: price: price }}
+          {% elsif product.handle == 'kardiacare' %}
+            $ 99 Annual Plan
+          {% elsif product.handle == 'kardiacare-monthly' %}
+            $ 9.99 Monthly Plan
+          {% else %}
+            {{ product.price | money_without_trailing_zeros }}
+          {% endif %}
+        {% endif %}
+      </p>
+    
+      {% if product.handle contains 'kardiacare' %}
+        {% comment %}
+        <!-- /snippets/bv-inline-ratings.liquid --> <!-- Bazaarvoice Inline Rating -->
+        {% endcomment %}
+        <div data-bv-show="inline_rating"  data-bv-seo="false" data-bv-product-Id="4580030316609" data-bv-redirect-url="https://store.kardia.com/products/kardiacare/#reviews"></div>
+        {% comment %}
+        <!-- End Bazaarvoice Inline Rating -->
+        {% endcomment %}
+      {% else %}
+        {% comment %}
+        <!-- /snippets/bv-inline-ratings.liquid --> <!-- Bazaarvoice Inline Rating -->
+        {% endcomment %}
+        <div data-bv-show="inline_rating"  data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+        {% comment %}
+        <!-- End Bazaarvoice Inline Rating -->
+        {% endcomment %}
+      {% endif %}
+  </div>
+
+  {% if product.handle contains 'kardiacare' %}
+    {% if product.handle == 'kardiacare' %}
+      {% assign kc_freq = "12" %}
+    {% elsif product.handle == 'kardiacare-monthly' %}
+      {% assign kc_freq = "1" %}
+    {% endif %}
+    <button type="submit" name="add" id="{{product.id}}" class="btn mt-s8" {% if sold_out %}disabled{% endif %} onclick="kardiaCareCartAdd({{product.variants.first.id}}, {{ kc_freq }}, 'Months')" style="float:left;">
+      <span id="AddToCartText">
+      {% if sold_out %}
+      {{ 'products.product.sold_out' | t }}
+      {% else %}
+      {{ 'products.product.add_to_cart' | t }}
+      {% endif %}
+      </span>
+    </button>
+    <a href="/products/kardiacare" class="view-details">
+      View Details
+    </a>
+  {% else %}
+  <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="{{product.id}}AddToCartForm" class="AddToCartForm form-vertical">
+    {% if product.variants.size > 1 %}
+        <div class="flex items-center">
+          <div class="variant-title">
+            {%- for option in product.options_with_values -%}
+              <span class="text-[1rem]">{{ option.name | escape }}:</span>
+            {%- endfor -%}
+          </div>
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              {% assign add_price = variant.price | minus: product.price %}
+              <div class="variant-input-wrapper ml-s2">
+                <input type="radio"
+                   id="{{variant.id}}"
+                   name="id"
+                   data-sku="{{variant.sku}}"
+                   value="{{variant.id}}"
+                   class="variant-input hidden"
+                   data-index="{{forloop.index0}}"
+                   data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+                   data-img-id="{{ home_grid_img_id }}"
+                   data-productid="{{product.id}}"
+                   {% if forloop.first == true %}
+                     checked="true"
+                   {% endif %}
+                   >
+                <label for="{{variant.id}}" class="form-control text-[.825rem] font-bold py-[2px] px-s2 border-2 border-primary-500 uppercase">
+                  {{variant.title}}
+                  {% if add_price > 0 %}
+                  &nbsp;(add {{add_price | money_with_currency}})
+                  {% endif %}
+                </label>
+              </div>
+            {% else %}
+              <div class="variant-input-wrapper">
+                <input type="radio"
+                     class="variant-input"
+                     disabled>
+                <label class="form-control out-of-stock">
+                  {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+                </label>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+    {% else %}
+      {% comment %}
+        for only one variant, need to choose the id to add to cart
+      {% endcomment %}
+      <div class="variant-placeholder {{product.handle}}"></div>
+      {% for variant in product.variants %}
+        <input type="hidden"
+           id="{{variant.id}}"
+           name="id"
+           data-sku="{{variant.sku}}"
+           value="{{variant.id}}"
+           class="variant-input"
+           data-index="{{forloop.index0}}"
+           data-productid="{{product.id}}"
+           {% if forloop.first == true %}
+             checked="true"
+           {% endif %}
+        >
+      {% endfor %}
+      <div class="spacer block h-[46px] w-full"></div>
+    {% endif %}
+    {% comment %}
+      Note: forcing the quantities to be hidden
+    {% endcomment %}
+    <div class="visually-hidden">
+      <label for="{{product.id}}Quantity">Quantity</label>
+      <input type="number" id="{{product.id}}Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+    </div>
+
+    <div class="pb-s5">
+        <button type="submit" name="add" id="{{product.id}}" class="btn btn--inverse btn--sm border-2 border-primary-500 mt-s5" {% if sold_out %}disabled{% endif %}>
+          <span id="AddToCartText">
+          {% if sold_out %}
+          {{ 'products.product.sold_out' | t }}
+          {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+          </span>
+        </button>
+    </div>
+    {% comment %}
+      <div class="border-top-gray">
+          <a href="{{ product.url }}" class="view-details btn btn--underline py-0">
+              View Details
+          </a>
+          {% if lateship == true %}
+          <div class="late-ship home {{ product.handle }} show disclaimer">
+              Please allow 2-3 weeks for delivery.
+          </div>
+          {% endif %}
+      </div>
+    {% endcomment %}
+  </form>
+  {% endif %}
+
+</div>

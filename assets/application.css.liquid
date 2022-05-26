@@ -1,0 +1,2935 @@
+/* purgecss start ignore */
+
+/* ! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com */
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: currentColor;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: Inter, sans-serif;
+  /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
+
+[hidden] {
+  display: none;
+}
+
+:is(.faux-sh) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 500;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.1250000000rem;
+  line-height: 1.2;
+}
+
+:is(.faux-sh)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.24em - 1px);
+}
+
+:is(.faux-sh)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(.faux-sh) {
+  margin-top: 20px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-sh) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-sh) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-sh) {
+  margin-top: 32px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-sh) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-sh) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-sh) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-sh) {
+  margin-top: 64px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 700;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 2.7500000000rem;
+  line-height: 1.2;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.27em - 1px);
+}
+
+:is(h1:not([class*='faux-']), .faux-h1)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 32px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-lg) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h1:not([class*='faux-']), .faux-h1) {
+  margin-top: 64px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 700;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.7500000000rem;
+  line-height: 1.2;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.27em - 1px);
+}
+
+:is(h2:not([class*='faux-']), .faux-h2)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 32px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 48px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 40px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 40px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-lg) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h2:not([class*='faux-']), .faux-h2) {
+  margin-top: 64px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 700;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.3750000000rem;
+  line-height: 1.2;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.27em - 1px);
+}
+
+:is(h3:not([class*='faux-']), .faux-h3)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 32px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 40px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 40px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-lg) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h3:not([class*='faux-']), .faux-h3) {
+  margin-top: 64px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 500;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.9375000000rem;
+  line-height: 1.2;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.24em - 1px);
+}
+
+:is(h4:not([class*='faux-']), .faux-h4)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 40px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 40px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 40px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-lg) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h4:not([class*='faux-']), .faux-h4) {
+  margin-top: 64px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 500;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.1250000000rem;
+  line-height: 1.2;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.27em - 1px);
+}
+
+:is(h5:not([class*='faux-']), .faux-h5)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 40px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 40px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 40px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-lg) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h5:not([class*='faux-']), .faux-h5) {
+  margin-top: 64px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) {
+  font-family: DM Sans, sans-serif;
+  font-weight: 500;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.7500000000rem;
+  line-height: 1.2;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.24em - 1px);
+}
+
+:is(h6:not([class*='faux-']), .faux-h6)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.26em - 1px);
+}
+
+:is(.faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 40px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 32px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 40px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 40px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-lg) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-sm) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-xs) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h6:not([class*='faux-']), .faux-h6) {
+  margin-top: 64px;
+}
+
+:is(.faux-p-lg) {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.1250000000rem;
+  line-height: 1.4;
+}
+
+:is(.faux-p-lg)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(.faux-p-lg)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(.faux-sh) + :is(.faux-p-lg) {
+  margin-top: 24px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-lg) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-lg) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-lg) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-lg) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-sm) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-xs) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-lg) {
+  margin-top: 40px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.0000000000rem;
+  line-height: 1.4;
+}
+
+:is(p:not([class*='faux-']), .faux-p)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(p:not([class*='faux-']), .faux-p)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(.faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 24px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-sm) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-xs) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(p:not([class*='faux-']), .faux-p) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-sm) {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.9375000000rem;
+  line-height: 1.4;
+}
+
+:is(.faux-p-sm)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(.faux-p-sm)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(.faux-sh) + :is(.faux-p-sm) {
+  margin-top: 24px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-sm) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-sm) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-sm) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-sm) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-sm) + :is(.faux-p-sm) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-xs) + :is(.faux-p-sm) {
+  margin-top: 24px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-sm) {
+  margin-top: 40px;
+}
+
+:is(.faux-p-xs) {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 0.8750000000rem;
+  line-height: 1.2;
+}
+
+:is(.faux-p-xs)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.29em - 1px);
+}
+
+:is(.faux-p-xs)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.27em - 1px);
+}
+
+:is(.faux-sh) + :is(.faux-p-xs) {
+  margin-top: 24px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-xs) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-xs) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-xs) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-xs) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-sm) + :is(.faux-p-xs) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-xs) + :is(.faux-p-xs) {
+  margin-top: 24px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-xs) {
+  margin-top: 40px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) {
+}
+
+:is(.faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 16px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 32px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 24px;
+}
+
+:is(.faux-p-sm) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 24px;
+}
+
+:is(.faux-p-xs) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 24px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 24px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(ul:not(.list-none), ol:not(.list-none)) {
+  margin-top: 40px;
+}
+
+:is(ul, ol):not(.list-none) > li {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.0625000000rem;
+  line-height: 1.4;
+}
+
+:is(ul, ol):not(.list-none) > li::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(ul, ol):not(.list-none) > li::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(ul, ol):not(.list-none) > li > ul::before, :is(ul, ol):not(.list-none) > li > ol::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(ul, ol):not(.list-none) :is(ul, ol) > li {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.0625000000rem;
+  line-height: 1.4;
+}
+
+:is(ul, ol):not(.list-none) :is(ul, ol) > li::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(ul, ol):not(.list-none) :is(ul, ol) > li::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(ul, ol):not(.list-none) :is(ul, ol) > li > ul::before, :is(ul, ol):not(.list-none) :is(ul, ol) > li > ol::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  font-family: Atkinson Hyperlegible, sans-serif;
+  font-weight: 400;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 1.0625000000rem;
+  line-height: 1.4;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote)::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-top: calc(-0.38999999999999996em - 1px);
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote)::after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  margin-bottom: calc(-0.37em - 1px);
+}
+
+:is(.faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 16px;
+}
+
+:is(h1:not([class*='faux-']), .faux-h1) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 48px;
+}
+
+:is(h2:not([class*='faux-']), .faux-h2) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 40px;
+}
+
+:is(h3:not([class*='faux-']), .faux-h3) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 40px;
+}
+
+:is(h4:not([class*='faux-']), .faux-h4) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(h5:not([class*='faux-']), .faux-h5) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(h6:not([class*='faux-']), .faux-h6) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-lg) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(p:not([class*='faux-']), .faux-p) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-sm) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(.faux-p-xs) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(ul:not(.list-none), ol:not(.list-none)) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+:is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  :is(.faux-sh) {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(.faux-sh) + :is(.faux-sh) {
+    margin-top: 20px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-sh) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-sh) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-sh) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-sh) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-sh) {
+    margin-top: 96px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) {
+    font-size: 4.5000000000rem;
+  }
+
+  :is(.faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 40px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 64px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 48px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 48px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-lg) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 96px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) {
+    font-size: 2.2500000000rem;
+  }
+
+  :is(.faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 64px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 64px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 96px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) {
+    font-size: 1.7500000000rem;
+  }
+
+  :is(.faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 64px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 64px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 96px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(.faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 40px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 64px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 64px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 96px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) {
+    font-size: 1.3750000000rem;
+  }
+
+  :is(.faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 40px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 64px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 64px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 96px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) {
+    font-size: 0.8750000000rem;
+  }
+
+  :is(.faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 40px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 80px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 64px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 64px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-sm) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-xs) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 96px;
+  }
+
+  :is(.faux-p-lg) {
+    font-size: 1.7500000000rem;
+  }
+
+  :is(.faux-sh) + :is(.faux-p-lg) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-lg) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-lg) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-lg) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-sm) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-xs) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-lg) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(.faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-sm) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-xs) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-sm) {
+    font-size: 1.1250000000rem;
+  }
+
+  :is(.faux-sh) + :is(.faux-p-sm) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-sm) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-sm) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-sm) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-sm) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-sm) + :is(.faux-p-sm) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-xs) + :is(.faux-p-sm) {
+    margin-top: 32px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-sm) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-p-xs) {
+    font-size: 1.0000000000rem;
+    line-height: 1.4;
+  }
+
+  :is(.faux-p-xs)::before {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    margin-top: calc(-0.38999999999999996em - 1px);
+  }
+
+  :is(.faux-p-xs)::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    margin-bottom: calc(-0.37em - 1px);
+  }
+
+  :is(.faux-sh) + :is(.faux-p-xs) {
+    margin-top: 32px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(.faux-p-xs) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(.faux-p-xs) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(.faux-p-xs) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(.faux-p-xs) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-sm) + :is(.faux-p-xs) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-xs) + :is(.faux-p-xs) {
+    margin-top: 32px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.faux-p-xs) {
+    margin-top: 48px;
+  }
+
+  :is(.faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 20px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-sm) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-xs) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 40px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 48px;
+  }
+
+  :is(ul, ol):not(.list-none) > li {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(ul, ol):not(.list-none) :is(ul, ol) > li {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    font-size: 1.2500000000rem;
+  }
+
+  :is(.faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 20px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 48px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 48px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-lg) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 48px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-sm) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(.faux-p-xs) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 40px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 48px;
+  }
+}
+
+*, ::before, ::after {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+/* purgecss end ignore */
+
+#app .visible {
+  visibility: visible;
+}
+
+#app .invisible {
+  visibility: hidden;
+}
+
+#app .absolute {
+  position: absolute;
+}
+
+#app .isolate {
+  isolation: isolate;
+}
+
+#app .col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+#app .m-0 {
+  margin: 0px;
+}
+
+#app .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#app .my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#app .my-s7 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+#app .my-s5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#app .mt-s6 {
+  margin-top: 24px;
+}
+
+#app .mb-0 {
+  margin-bottom: 0px;
+}
+
+#app .mt-s4 {
+  margin-top: 16px;
+}
+
+#app .mt-s3 {
+  margin-top: 12px;
+}
+
+#app .mr-s3 {
+  margin-right: 12px;
+}
+
+#app .mt-s7 {
+  margin-top: 32px;
+}
+
+#app .mt-s5 {
+  margin-top: 20px;
+}
+
+#app .mt-s9 {
+  margin-top: 48px;
+}
+
+#app .mb-s1 {
+  margin-bottom: 4px;
+}
+
+#app .mt-s8 {
+  margin-top: 40px;
+}
+
+#app .ml-s2 {
+  margin-left: 8px;
+}
+
+#app .mt-s11 {
+  margin-top: 80px;
+}
+
+#app .mt-s2 {
+  margin-top: 8px;
+}
+
+#app .mt-s10 {
+  margin-top: 64px;
+}
+
+#app .mr-s8 {
+  margin-right: 40px;
+}
+
+#app .mr-s6 {
+  margin-right: 24px;
+}
+
+#app .mb-s2 {
+  margin-bottom: 8px;
+}
+
+#app .mb-s4 {
+  margin-bottom: 16px;
+}
+
+#app .mb-s5 {
+  margin-bottom: 20px;
+}
+
+#app .mb-s6 {
+  margin-bottom: 24px;
+}
+
+#app .mt-0 {
+  margin-top: 0px;
+}
+
+#app .mt-s1 {
+  margin-top: 4px;
+}
+
+#app .block {
+  display: block;
+}
+
+#app .inline-block {
+  display: inline-block;
+}
+
+#app .inline {
+  display: inline;
+}
+
+#app .flex {
+  display: flex;
+}
+
+#app .table {
+  display: table;
+}
+
+#app .grid {
+  display: grid;
+}
+
+#app .contents {
+  display: contents;
+}
+
+#app .hidden {
+  display: none;
+}
+
+#app .h-s5 {
+  height: 20px;
+}
+
+#app .h-s1 {
+  height: 4px;
+}
+
+#app .h-icon-64 {
+  height: 64px;
+}
+
+#app .h-icon-32 {
+  height: 32px;
+}
+
+#app .h-icon-24 {
+  height: 24px;
+}
+
+#app .h-icon-20 {
+  height: 20px;
+}
+
+#app .h-icon-12 {
+  height: 12px;
+}
+
+#app .h-\[50px\] {
+  height: 50px;
+}
+
+#app .h-\[46px\] {
+  height: 46px;
+}
+
+#app .max-h-\[600px\] {
+  max-height: 600px;
+}
+
+#app .w-full {
+  width: 100%;
+}
+
+#app .w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+#app .w-s5 {
+  width: 20px;
+}
+
+#app .w-icon-64 {
+  width: 64px;
+}
+
+#app .w-icon-32 {
+  width: 32px;
+}
+
+#app .w-icon-24 {
+  width: 24px;
+}
+
+#app .w-icon-20 {
+  width: 20px;
+}
+
+#app .w-icon-12 {
+  width: 12px;
+}
+
+#app .w-\[400px\] {
+  width: 400px;
+}
+
+#app .w-\[150px\] {
+  width: 150px;
+}
+
+#app .w-1\/2 {
+  width: 50%;
+}
+
+#app .min-w-\[120px\] {
+  min-width: 120px;
+}
+
+#app .max-w-\[593px\] {
+  max-width: 593px;
+}
+
+#app .max-w-\[1400px\] {
+  max-width: 1400px;
+}
+
+#app .flex-grow {
+  flex-grow: 1;
+}
+
+#app .grow {
+  flex-grow: 1;
+}
+
+#app .border-collapse {
+  border-collapse: collapse;
+}
+
+#app .transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+#app .resize {
+  resize: both;
+}
+
+#app .list-none {
+  list-style-type: none;
+}
+
+#app .appearance-none {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#app .grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#app .flex-col {
+  flex-direction: column;
+}
+
+#app .flex-wrap {
+  flex-wrap: wrap;
+}
+
+#app .items-center {
+  align-items: center;
+}
+
+#app .items-stretch {
+  align-items: stretch;
+}
+
+#app .justify-end {
+  justify-content: flex-end;
+}
+
+#app .justify-center {
+  justify-content: center;
+}
+
+#app .justify-between {
+  justify-content: space-between;
+}
+
+#app .justify-items-stretch {
+  justify-items: stretch;
+}
+
+#app .gap-s5 {
+  gap: 20px;
+}
+
+#app .gap-s8 {
+  gap: 40px;
+}
+
+#app .gap-s10 {
+  gap: 64px;
+}
+
+#app .gap-s4 {
+  gap: 16px;
+}
+
+#app .gap-x-s6 {
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+
+#app .gap-y-s8 {
+  row-gap: 40px;
+}
+
+#app .gap-x-s5 {
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
+#app .truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#app .border {
+  border-width: 1px;
+}
+
+#app .border-2 {
+  border-width: 2px;
+}
+
+#app .border-b-2 {
+  border-bottom-width: 2px;
+}
+
+#app .border-b {
+  border-bottom-width: 1px;
+}
+
+#app .border-t-2 {
+  border-top-width: 2px;
+}
+
+#app .border-solid {
+  border-style: solid;
+}
+
+#app .border-primary-500 {
+  border-color: var(--primary-500);
+}
+
+#app .border-primary-50 {
+  border-color: var(--primary-50);
+}
+
+#app .border-secondary-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 168 36 / var(--tw-border-opacity));
+}
+
+#app .border-tertiary-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(197 204 212 / var(--tw-border-opacity));
+}
+
+#app .border-primary-300 {
+  border-color: var(--primary-300);
+}
+
+#app .border-primary-800 {
+  border-color: var(--primary-800);
+}
+
+#app .bg-primary-500 {
+  background-color: var(--primary-500);
+}
+
+#app .p-0 {
+  padding: 0px;
+}
+
+#app .p-s12 {
+  padding: 96px;
+}
+
+#app .p-s5 {
+  padding: 20px;
+}
+
+#app .p-s2 {
+  padding: 8px;
+}
+
+#app .p-s1 {
+  padding: 4px;
+}
+
+#app .py-s5 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#app .py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#app .py-s12 {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+#app .px-s11 {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#app .py-s10 {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+#app .px-s2 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#app .px-s8 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#app .py-s1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#app .px-s1 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#app .py-s2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#app .py-s4 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+#app .px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#app .py-s7 {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+#app .py-s6 {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+#app .py-\[2px\] {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#app .pl-s12 {
+  padding-left: 96px;
+}
+
+#app .pr-s13 {
+  padding-right: 120px;
+}
+
+#app .pt-s4 {
+  padding-top: 16px;
+}
+
+#app .pr-s12 {
+  padding-right: 96px;
+}
+
+#app .pl-s8 {
+  padding-left: 40px;
+}
+
+#app .pl-s5 {
+  padding-left: 20px;
+}
+
+#app .pr-s11 {
+  padding-right: 80px;
+}
+
+#app .pb-s5 {
+  padding-bottom: 20px;
+}
+
+#app .pb-s3 {
+  padding-bottom: 12px;
+}
+
+#app .pl-s11 {
+  padding-left: 80px;
+}
+
+#app .text-right {
+  text-align: right;
+}
+
+#app .font-dm {
+  font-family: DM Sans, sans-serif;
+}
+
+#app .text-16 {
+  font-size: 1.0000000000rem;
+}
+
+#app .text-12 {
+  font-size: 0.7500000000rem;
+}
+
+#app .text-14 {
+  font-size: 0.8750000000rem;
+}
+
+#app .text-\[1\.125rem\] {
+  font-size: 1.125rem;
+}
+
+#app .text-\[1rem\] {
+  font-size: 1rem;
+}
+
+#app .text-\[\.825rem\] {
+  font-size: .825rem;
+}
+
+#app .font-bold {
+  font-weight: 700;
+}
+
+#app .uppercase {
+  text-transform: uppercase;
+}
+
+#app .capitalize {
+  text-transform: capitalize;
+}
+
+#app .italic {
+  font-style: italic;
+}
+
+#app .text-primary-500 {
+  color: var(--primary-500);
+}
+
+#app .text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#app .underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+#app .shadow-primary-800 {
+  --tw-shadow-color: var(--primary-800);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+#app .outline {
+  outline-style: solid;
+}
+
+#app .grayscale {
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+#app .invert {
+  --tw-invert: invert(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+#app .filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+#app .transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+#app .before\:hidden::before {
+  content: var(--tw-content);
+  display: none;
+}
+
+#app .after\:hidden::after {
+  content: var(--tw-content);
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  #app .lg\:flex-row {
+    flex-direction: row;
+  }
+}

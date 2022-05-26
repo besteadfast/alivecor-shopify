@@ -1,0 +1,39 @@
+{%- style -%}
+    :root {
+        --push-size: calc((100vw - 100%) / 2);
+        --neg-push-size: calc(var(--push-size) * -1);
+    }
+
+    #app .pushed-half-width{
+        width: 50vw;
+    }
+{%- endstyle -%}
+
+<section class="border-top-gray border-bottom-gray">
+    <div class="page-width flex">
+        <div class="w-1/2 flex flex-col justify-center pr-s11 pl-s8 py-s10">
+            <div class="border-bottom-gray">
+                <h2 class="text-primary-500">KardiaCare <br />Membership</h2>
+                <h3 class="font-400 mt-s7">Exclusive features that provide deeper insights about your heart.</h3>
+                <p class="mt-s7">$179 / 2 years</p>
+                <p class="mt-s5">$99 / year</p>
+                <p class="mt-s5">$9.99 / month</p>
+                <button class="btn btn--inverse border-2 border-primary-500 my-s7">
+                    Add To Cart
+                </button>
+            </div>
+            <div class="border-top-gray">
+                <ul class="mt-s8">
+                    <li class="text-[1.125rem] mt-s5">Six arrhythmia detections</li>
+                    <li class="text-[1.125rem] mt-s5">EKG reviews by a cardiologist</li>
+                    <li class="text-[1.125rem] mt-s5">Summary reports of your heart data</li>
+                    <li class="text-[1.125rem] mt-s5">Automatic EKG sharing with family</li>
+                </ul>
+                <a class=" btn btn--underline inline-block w-max py-0 mt-s7">
+                    Learn More
+                </a>
+            </div>
+        </div>
+        <img src="https://picsum.photos/500/600" class="push-right pushed-half-width">
+    </div>
+</section>
