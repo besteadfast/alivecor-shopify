@@ -89,13 +89,15 @@
         "padding_bottom": 36
       }
     },
-    "content-credible-km": {
-      "type": "content-credible-km",
+    "content-convenience": {
+      "type": "content-convenience",
+      "disabled": true,
       "settings": {
       }
     },
-    "content-convenience": {
-      "type": "content-convenience",
+    "content-credible-km": {
+      "type": "content-credible-km",
+      "disabled": true,
       "settings": {
       }
     },

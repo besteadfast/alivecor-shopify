@@ -78,15 +78,18 @@
       "settings": {
       }
     },
-    "content-credible": {
-      "type": "content-credible",
+    "content-accurate": {
+      "type": "content-accurate",
       "settings": {
       }
     },
-    "content-three-sensors": {
-      "type": "content-three-sensors",
+    "content-six-lead": {
+      "type": "content-six-lead",
       "settings": {
       }
+    },
+    "content-trust": {
+      "type": "content-trust"
     },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
@@ -113,13 +116,20 @@
       "type": "stay-in-the-know",
       "settings": {
       }
+    },
+    "additional-info-6l": {
+      "type": "additional-info-6l",
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
     "icon-grid-6l",
-    "content-credible",
-    "content-three-sensors",
+    "content-six-lead",
+    "content-trust",
+    "content-accurate",
+    "additional-info-6l",
     "kardiacare-membership-module",
     "product-recommendations",
     "stay-in-the-know"

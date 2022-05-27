@@ -106,8 +106,11 @@
           {% else %}
         {% endcase %}
       <div class="kardiacare-products-bundle">
+				<p class="faux-p product__text subtitle">
+					Take an EKG anytime, anywhere
+				</p>
         <fieldset>
-          <legend class="faux-p font-bold mb-s4">
+          <legend class="block faux-p product__text subtitle pt-s7 mb-s6 font-bold">
             Add a membership plan and save:
           </legend>
           <div class="form-radio">
@@ -186,7 +189,7 @@
           type="submit"
           name="add"
           id="{{product.id}}AddToCart1"
-          class="btn btn--inverse border-2 border-primary-500 mt-s6 addToCart"
+          class="btn btn--inverse border-2 border-primary-500 mt-s5 addToCart"
           {% if sold_out %}
             disabled
           {% endif %}

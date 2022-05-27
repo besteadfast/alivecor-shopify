@@ -1,32 +1,32 @@
-<article class="image-split image-split--right borders">
+<article class="image-split image-split--left borders">
   <div class="image-split__media">
-    <picture class="image__wrapper">
+    <picture class="image__wrapper"
+      >
+      {% comment %}
       <source
         media="(max-width: 639px)"
         srcset="
           https://kardia.steadfa.st/assets/images/_620x460_crop_center-center_95_none/hands-phone.png
-        "
-      />
+        " />
       <source
         media="(max-width: 1023px)"
         srcset="
           https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
-        "
-      />
+        " />
+        {% endcomment %}
       <img
-        src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+        src="{{ "km6l-feature-image-three-sensors.png" | asset_url }}"
         alt=""
         class="image-split__image"
-      />
-    </picture>
+    /></picture>
   </div>
-
+  
   <div class="image-split__content">
     <div class="image-split__content-int">
-      <h2>Three Sensors</h2>
+      <h2>Advanced six-lead technology</h2>
       <p class="faux-sh">Two sensors on top, a third on the bottom.</p>
       <p>
-        KardiaMobile 6L has two electrodes on the top for your fingers or thumbs and one on the bottom to contact the skin of your left leg. The 6L delivers EKG leads I, II, III, aVL, aVR, and aVF.
+        KardiaMobile 6L has two electrodes on the top for your fingers or thumbs and one on the bottom to contact the skin of your left leg. Record EKG leads I, II, III, aVL, aVR, and aVF.
       </p>
     </div>
   </div>

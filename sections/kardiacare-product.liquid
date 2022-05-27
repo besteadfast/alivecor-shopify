@@ -20,6 +20,33 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+	.product-hero {
+		background: linear-gradient(130deg, rgba(149,174,218, 0.7) 0%, rgb(149 174 218 / 20%) 20%, rgba(149,174,218,0.0) 50%);
+	}
+
+	.product__media-icon {
+		display: none;
+	}
+
+	.product__media {
+		background: transparent;
+		border: none;
+	}
+
+	.product__media-wrapper {
+		width: 50% !important;
+		max-width: 50% !important;
+	}
+
+	.product__info-wrapper {
+		padding: 2rem 4rem !important;
+		max-width: 50% !important;
+	}
+
+	.product--thumbnail_slider {
+		padding: 2rem;
+	}
 {%- endstyle -%}
 
 <script src="{{ 'product-form-card.js' | asset_url }}" defer="defer"></script>
@@ -33,7 +60,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<section class="page-width section-{{section.id}}-padding">
+<section class="product-hero section-{{section.id}}-padding">
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} shopify-grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
@@ -231,7 +258,7 @@
             {%- endif -%}
           {%- when 'info' -%}
             <div>{{block.settings.info_richtext}}</div>
-          {% endcomment %}   
+          {% endcomment %}
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
@@ -455,15 +482,16 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
-        <div class="border-t-2 border-b-2 border-primary-800 mt-s8 mb-s6 py-s7">
-            <p>KardiaCare is designed to help you get the most out of your Kardia device and better manage your heart health from home. When you join KardiaCare, you're creating your own virtual support system for your heart health management.</p>
-            <p class="faux-p-sm"> KardiaCare is the only heart health membership that offers Advanced Determinations. Now, you can detect more arrhythmias than any other personal EKG</p>
+        <div class="border-b-2 border-primary-300 pt-s5 pb-s7">
+            <p>KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health. As a member, you’ll gain access to exclusive features like Advanced Determinations, cardiologist EKG reviews, summary reports, and more.</p>
         </div>
-        <ul class="list-none list-disc">
-            <li class="font-bold faux-p-sm mt-s1 before:hidden after:hidden">EKG Storage on your phone</li>
-            <li class="font-bold faux-p-sm mt-s1 before:hidden after:hidden">Automatic EKG sharing</li>
-            <li class="font-bold faux-p-sm mt-s1 before:hidden after:hidden">Cloud storage and security</li>
+        <ul class="pt-s1">
+					<li>Detect six of the most common arrhythmias<sup>*</sup></li>
+					<li>Get your EKG reviewed by a board-certified cardiologist </li>
+					<li>Access our most accurate EKG technology</li>
+					<li>Unlimited cloud storage so you never lose your health data</li>
         </ul>
+				<p class="faux-p-xs">*This feature only available with a Kardia device</p>
       </div>
     </div>
   </div>
@@ -510,6 +538,143 @@
     </modal-dialog>
   {%- endfor -%}
 </section>
+
+{% style %}
+	#app .global-list__text{
+		margin-top: 12px;
+	}
+{% endstyle %}
+
+<article class="borders featured-list">
+  <div class="featured-list__int">
+    <ul class="featured-list__items list-none global-list">
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><path d="M3.999 29 4 22m7.999-9v16m8.019 0L20 22m7.999-9v16M3 13l9-9 8 8 9-9" stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" stroke-miterlimit="10"/></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Advanced determinations</h3>
+          <p class="global-list__text faux-p-xs">Detect more arrhythmias</p>
+        </div>
+      </li>
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><path d="M28.604 5.396A8.182 8.182 0 0 0 16 6.661 8.182 8.182 0 1 0 3.396 16.968L16 29.571l12.604-12.604a8.182 8.182 0 0 0 0-11.571z" stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" stroke-miterlimit="10"/></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Cardiologist EKG reviews</h3>
+          <p  class="global-list__text faux-p-xs">Four reviews per year included</p>
+        </div>
+      </li>
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><g stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" class="nc-icon-wrapper" stroke-miterlimit="10"><path d="M9 10h6m-6 6h6m-6 6h4"/><path d="M21 1v8h8" data-cap="butt" stroke-linecap="butt"/><path d="m30 30-3.465-3.465"/><circle cx="23" cy="23" r="5"/><path d="M29 15V9l-8-8H3v30h14"/></g></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Heart health summary report</h3>
+          <p class="global-list__text faux-p-xs">Track your heart health over time</p>
+        </div>
+      </li>
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><g stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" class="nc-icon-wrapper" stroke-miterlimit="10"><path data-cap="butt" stroke-linecap="butt" d="M30 2 14 18"/><path d="m30 2-9 28-7-12-12-7 28-9z"/></g></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Automatic EKG sharing</h3>
+          <p class="global-list__text faux-p-xs">Keep everyone informed of your heart activity</p>
+        </div>
+      </li>
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><g stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" class="nc-icon-wrapper" stroke-miterlimit="10"><path d="M16 7v9h9"/><path data-cap="butt" d="M2.618 22.783A15.005 15.005 0 1 0 1 16" stroke-linecap="butt"/><path d="m3.617 30.78-1-8 8 1"/></g></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Medication tracking</h3>
+          <p class="global-list__text faux-p-xs">Set reminders so you don't forget</p>
+        </div>
+      </li>
+      <li class="global-list__item">
+        <div class="global-list__icon-container">
+					<svg class="w-icon-32 h-icon-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="currentColor" id="icon-definition"><g stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" class="nc-icon-wrapper" stroke-miterlimit="10"><path d="m20.364 29.121 8.757-8.757a3 3 0 0 0 0-4.243L15 2H2v13l14.121 14.121a3 3 0 0 0 4.243 0z"/><circle cx="10" cy="10" r="3"/></g></svg>
+        </div>
+        <div class="global-list__info">
+          <h3 class="global-list__heading break-word faux-p-xs font-bold">Discount device replacement</h3>
+          <p class="global-list__text faux-p-xs">Replace a lost/stolen device for only $19.99</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</article>
+
+<article class="image-split image-split--right borders">
+  <div class="image-split__media">
+    {% comment %} <picture class="image__wrapper">
+      <img
+        src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+        alt=""
+        class="image-split__image"
+      />
+    </picture> {% endcomment %}
+		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+  </div>
+
+  <div class="image-split__content">
+    <div class="image-split__content-int">
+      <h2>Advanced Determinations</h2>
+      <p class="faux-sh">Detect six of the most common arrhythmias.</p>
+      <p>
+        Gain access to our advanced algorithm that analyzes your EKG with our most accurate technology. As a member, your Kardia device will be able to detect six of the most common arrhythmias—more than any other personal EKG.
+      </p>
+      {% comment %} <a class="btn btn--underline py-0 mt-s8">Learn More</a> {% endcomment %}
+    </div>
+  </div>
+</article>
+
+<article class="image-split image-split--left borders">
+	<div class="image-split__media">
+		{% comment %} <picture class="image__wrapper">
+			<img
+				src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+				alt=""
+				class="image-split__image"
+		/></picture> {% endcomment %}
+		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+	</div>
+	<div class="image-split__content">
+		<div class="image-split__content-int">
+			<h2>Board-Certified Cardiologist Review</h2>
+			{% comment %} <p class="faux-sh">Get your complimentary EKG reviews right in the Karida app.</p> {% endcomment %}
+			<p>
+				Select one of your EKGs to be reviewed by a board-certified cardiologist without leaving your home. Four reviews annually are included with your membership.
+			</p>
+		</div>
+	</div>
+</article>
+
+<article class="image-split image-split--right borders">
+	<div class="image-split__media">
+		{% comment %} <picture class="image__wrapper">
+			<img
+				src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+				alt=""
+				class="image-split__image"
+			/>
+		</picture> {% endcomment %}
+		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+	</div>
+
+	<div class="image-split__content">
+		<div class="image-split__content-int">
+			<h2>Heart Health Summary Report</h2>
+			{% comment %} <p class="faux-sh">Get a summary of your EKG and blood pressure data over a custom date range up to 30 days.</p> {% endcomment %}
+			<p>
+				View all of your heart data in one place. Generate a summary of your EKG, blood pressure, and weight data over a custom date range. Use this report to track your heart health over time, or share it with your doctor at your next appointment.
+			</p>
+			<p class="faux-p-sm font-bold">Your summary report includes an overview of:</p>
+		</div>
+	</div>
+</article>
+
 
 {% javascript %}
   class ProductModal extends ModalDialog {

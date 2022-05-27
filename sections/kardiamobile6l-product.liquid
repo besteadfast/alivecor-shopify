@@ -20,6 +20,33 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .product-hero {
+		background: linear-gradient(130deg, rgba(149,174,218, 0.7) 0%, rgb(149 174 218 / 20%) 20%, rgba(149,174,218,0.0) 50%);
+	}
+
+	.product__media-icon {
+		display: none;
+	}
+
+	.product__media {
+		background: transparent;
+		border: none;
+	}
+
+	.product__media-wrapper {
+		width: 50% !important;
+		max-width: 50% !important;
+	}
+
+	.product__info-wrapper {
+		padding: 2rem 4rem !important;
+		max-width: 50% !important;
+	}
+
+	.product--thumbnail_slider {
+		padding: 2rem;
+	}
 {%- endstyle -%}
 
 <script src="{{ 'product-form-bundle.js' | asset_url }}" defer="defer"></script>
@@ -31,7 +58,7 @@
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<section class="page-width section-{{ section.id }}-padding">
+<section class="product-hero section-{{ section.id }}-padding">
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} shopify-grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
@@ -186,19 +213,17 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
         {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
-          {%- when 'text' -%}
-            <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
-              {{- block.settings.text -}}
-            </p>
           {%- when 'title' -%}
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+          {%- when 'text' -%}
+            <p clas="product__text subtitle">Includes KardiaCare membership</p>
+
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
@@ -219,6 +244,7 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
+            {% comment %}
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">
@@ -477,8 +503,27 @@
                 <span class="visually-hidden">{{ product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
               </p>
             {%- endif -%}
+            {% endcomment %}
           {%- endcase -%}
+          
         {%- endfor -%}
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <meta itemprop="price" content="{{ product.price | money_without_currency }}">
+            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+            {% include 'kc-6l-add-to-cart', selectorType: 'radio' %}
+        </div>
+        <div class="border-primary-800 mt-s8 mb-s6 ">
+            <p>The world’s first and only six-lead personal EKG.</p>
+            <p class="faux-p-sm"> With KardiaMobile 6L, you can record unlimited six-lead EKGs from home. Six leads means six times the data, giving you and your doctor more detailed insight on your heart health from home.</p>
+        </div>
+        <ul class="">
+            <li>Records leads I, II, III, aVL, aVR, aVF</li>
+            <li>More heart data for you and your doctor</li>
+            <li>Detects six of the most common arrhythmias</li>
+            <li>Includes KardiaCare heart health membership</li>
+        </ul>
+        <p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack</p>
       </div>
     </div>
   </div>

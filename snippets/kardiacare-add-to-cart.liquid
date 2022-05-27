@@ -99,12 +99,16 @@
             {% assign year_price = "$126/year" %}
             {% assign two_year_price = "$228/2 years" %}
           {% endif %}
-    
+
           {% if selectorType == 'radio' %}
+					<p class="faux-p product__text subtitle">
+						Our one-of-a-kind heart health membership.
+					</p>
+
           <fieldset>
-              <legend class="faux-p font-bold mb-s4">
-                  Pick your plan:
-                </legend>
+						<legend class="block faux-p product__text subtitle pt-s7 mb-s6 font-bold">
+            	Pick your plan:
+						</legend>
             <div class="form-radio">
                 <label for="{{ two_year_id }}" class="faux-p">
                     <input
@@ -249,13 +253,13 @@
         {% endif %}
       {% endif %}
       </div>
-    
+
       {% comment %}
       <!-- removing quantities for now -->
       <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
       <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
       {% endcomment %}
-    
+
       <button
         type="submit"
         name="add"

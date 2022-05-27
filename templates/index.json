@@ -427,6 +427,103 @@
         "padding_bottom": 36
       }
     },
+    "16536006262e46746f": {
+      "type": "featured-product",
+      "blocks": {
+        "16536006261dd6f93b-0": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "16536006261dd6f93b-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "16536006261dd6f93b-2": {
+          "type": "text",
+          "settings": {
+            "text": "Take an EKG anytime, anywhere",
+            "text_style": "subtitle"
+          }
+        },
+        "16536006261dd6f93b-3": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "16536006261dd6f93b-4": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "16536006261dd6f93b-5": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "16536006261dd6f93b-6": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "0a4f4f9c-81dd-4d72-95d7-aaefd6ef6892": {
+          "type": "rating",
+          "settings": {
+          }
+        },
+        "fb8b0488-8463-4530-9f0d-2eeae810f568": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Record a medical-grade EKG from home<\/li>\n<li>Download and email your EKGs to your doctor<\/li>\n<li>FDA-cleared to detect AFib and more<\/li>\n<li>#1 doctor-recommended personal EKG<\/li>\n<\/ul>"
+          }
+        },
+        "16536006261dd6f93b-7": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "16536006261dd6f93b-8": {
+          "type": "textarea",
+          "disabled": true,
+          "settings": {
+            "textarea": "Text block"
+          }
+        }
+      },
+      "block_order": [
+        "16536006261dd6f93b-0",
+        "16536006261dd6f93b-1",
+        "16536006261dd6f93b-2",
+        "16536006261dd6f93b-3",
+        "16536006261dd6f93b-4",
+        "16536006261dd6f93b-5",
+        "16536006261dd6f93b-6",
+        "0a4f4f9c-81dd-4d72-95d7-aaefd6ef6892",
+        "fb8b0488-8463-4530-9f0d-2eeae810f568",
+        "16536006261dd6f93b-7",
+        "16536006261dd6f93b-8"
+      ],
+      "settings": {
+        "product": "kardiamobile",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "membership-section": {
       "type": "kardiacare-membership-module",
       "settings": {
@@ -453,6 +550,7 @@
     "16451441828c5b8f05",
     "16451441909619ef84",
     "16451442507aa8905f",
+    "16536006262e46746f",
     "membership-section",
     "home-grid"
   ]
