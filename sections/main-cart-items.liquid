@@ -1,298 +1,448 @@
-{{ 'component-cart.css' | asset_url | stylesheet_tag }}
-{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
-{{ 'component-totals.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
-{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{% if shop.domain != 'store.alivecor.co.uk' %}
+<!-- Begin ReCharge code -->
+{% include 'subscription-cart-footer' %}
+<!-- End ReCharge code -->
+{% endif %}
+<!-- /templates/cart.liquid -->
+{% comment %}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  For info on test orders:
+    - General http://docs.shopify.com/manual/your-store/orders/test-orders
+    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
+
+{% endcomment %}
+
+{% if cart.item_count > 0 %}
+{% assign km_in_cart = false %}
+{% assign kmc_in_cart = false %}
+{% assign km6l_in_cart = false %}
+{% assign kcare_in_cart = false %}
+{% assign kcare_in_cart_1_2_year = false %}
+{% assign kardiaCareUrl = '/products/kardiacare' %}
+{% assign kardiamobile6lUrl = '/products/kardiamobile6l' %}
+{% assign kardiamobileCardUrl = '/products/kardiamobile-card' %}
+{% assign canadaShop = false %}
+{% if request.host == 'shop.kardiamobile.ca' %}
+  {% assign canadaShop = true %}
+{% endif %}
+{% comment %}
+{% for testItem in cart.items %}
+  {% assign kc6lEmailPromo = false %}
+  {% if testItem.product.handle contains 'kardiacare' %}
+    {% for property in testItem.properties %}
+      {% if property.first == 'email_promo_6l_kc_year' %}
+        {% assign kc6lEmailPromo = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% endcomment %}
+
+
+{% style %}
+  .cart__row th, .cart__row td{
+    padding:15px;
   }
+{% endstyle %}
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+  <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
 
-<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
-
-<cart-items class="page-width{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="title-wrapper-with-link">
-    <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
-  </div>
-
-  <div class="cart__warnings">
-    <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="button">
-      {{ 'general.continue_shopping' | t }}
-    </a>
-
-    {%- if shop.customer_accounts_enabled and customer == nil -%}
-      <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-      <p class="cart__login-paragraph">
-        {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-      </p>
-    {%- endif -%}
-  </div>
-
-  <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-    <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
-      <div class="js-contents">
-        {%- if cart != empty -%}
-          <table class="cart-items">
-            <thead>
-              <tr>
-                <th class="caption-with-letter-spacing" colspan="2" scope="col">{{ 'sections.cart.headings.product' | t }}</th>
-                <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-                <th class="cart-items__heading--wide small-hide caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
-                <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.total' | t }}</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {%- for item in cart.items -%}
-                <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
-                  <td class="cart-item__media">
-                    {% if item.image %}
-                      {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
-                      <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container gradient global-media-settings">
-                          <img src="{{ item.image | image_url: width: 300 }}"
-                            class="cart-item__image"
-                            alt="{{ item.image.alt | escape }}"
-                            loading="lazy"
-                            width="150"
-                            height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
-                          >
-                        </div>
-                    {% endif %}
-                  </td>
-
-                  <td class="cart-item__details">
-                    {%- if section.settings.show_vendor -%}
-                      <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
-                    {%- endif -%}
-
-                    <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
-
-                    {%- if item.original_price != item.final_price -%}
-                      <div class="cart-item__discounted-prices">
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.regular_price' | t }}
-                        </span>
-                        <s class="cart-item__old-price product-option">
-                          {{- item.original_price | money -}}
-                        </s>
-                        <span class="visually-hidden">
-                          {{ 'products.product.price.sale_price' | t }}
-                        </span>
-                        <strong class="cart-item__final-price product-option">
-                          {{ item.final_price | money }}
-                        </strong>
-                      </div>
-                    {%- else -%}
-                      <div class="product-option">
-                        {{ item.original_price | money }}
-                      </div>
-                    {%- endif -%}
-
-                    {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
-                      <dl>
-                        {%- if item.product.has_only_default_variant == false -%}
-                          {%- for option in item.options_with_values -%}
-                            <div class="product-option">
-                              <dt>{{ option.name }}: </dt>
-                              <dd>{{ option.value }}</dd>
-                            </div>
-                          {%- endfor -%}
-                        {%- endif -%}
-
-                        {%- for property in item.properties -%}
-                          {%- assign property_first_char = property.first | slice: 0 -%}
-                          {%- if property.last != blank and property_first_char != '_' -%}
-                            <div class="product-option">
-                              <dt>{{ property.first }}: </dt>
-                              <dd>
-                                {%- if property.last contains '/uploads/' -%}
-                                  <a href="{{ property.last }}" class="link" target="_blank">
-                                    {{ property.last | split: '/' | last }}
-                                  </a>
-                                {%- else -%}
-                                  {{ property.last }}
-                                {%- endif -%}
-                              </dd>
-                            </div>
-                          {%- endif -%}
-                        {%- endfor -%}
-                      </dl>
-
-                      <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                    {%- endif -%}
-
-                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                      {%- for discount in item.discounts -%}
-                        <li class="discounts__discount">
-                          {%- render 'icon-discount' -%}
-                          {{ discount.title }}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </td>
-
-                  <td class="cart-item__totals right medium-hide large-up-hide">
-                    <div class="loading-overlay hidden">
-                      <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
-                    </div>
-                    <div class="cart-item__price-wrapper">
-                      {%- if item.original_line_price != item.final_line_price -%}
-                        <dl class="cart-item__discounted-prices">
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </dt>
-                          <dd>
-                            <s class="cart-item__old-price price price--end">
-                              {{ item.original_line_price | money }}
-                            </s>
-                          </dd>
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </dt>
-                          <dd class="price price--end">
-                            {{ item.final_line_price | money }}
-                          </dd>
-                        </dl>
-                      {%- else -%}
-                        <span class="price price--end">
-                          {{ item.original_line_price | money }}
-                        </span>
-                      {%- endif -%}
-
-                      {%- if item.variant.available and item.unit_price_measurement -%}
-                        <div class="unit-price caption">
-                          <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                          {{ item.variant.unit_price | money }}
-                          <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                          {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                            {{- item.variant.unit_price_measurement.reference_value -}}
-                          {%- endif -%}
-                          {{ item.variant.unit_price_measurement.reference_unit }}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </td>
-
-                  <td class="cart-item__quantity">
-                    <div class="cart-item__quantity-wrapper">
-                      <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
-                        {{ 'products.product.quantity.label' | t }}
-                      </label>
-                      <quantity-input class="quantity">
-                        <button class="quantity__button no-js-hidden" name="minus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-minus' %}
-                        </button>
-                        <input class="quantity__input"
-                          type="number"
-                          name="updates[]"
-                          value="{{ item.quantity }}"
-                          min="0"
-                          aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                          id="Quantity-{{ item.index | plus: 1 }}"
-                          data-index="{{ item.index | plus: 1 }}"
-                        >
-                        <button class="quantity__button no-js-hidden" name="plus" type="button">
-                          <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-                          {% render 'icon-plus' %}
-                        </button>
-                      </quantity-input>
-
-                      <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                        <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-                          {% render 'icon-remove' %}
-                        </a>
-                      </cart-remove-button>
-                    </div>
-                    <div class="cart-item__error" id="Line-item-error-{{ item.index | plus: 1 }}" role="alert">
-                      <small class="cart-item__error-text"></small>
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
-                        <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-                        <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-                        <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-                        <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-                      </svg>
-                    </div>
-                  </td>
-
-                  <td class="cart-item__totals right small-hide">
-                    <div class="loading-overlay hidden">
-                      <div class="loading-overlay__spinner">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div class="cart-item__price-wrapper">
-                      {%- if item.original_line_price != item.final_line_price -%}
-                        <dl class="cart-item__discounted-prices">
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                          </dt>
-                          <dd>
-                            <s class="cart-item__old-price price price--end">
-                              {{ item.original_line_price | money }}
-                            </s>
-                          </dd>
-                          <dt class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                          </dt>
-                          <dd class="price price--end">
-                            {{ item.final_line_price | money }}
-                          </dd>
-                        </dl>
-                      {%- else -%}
-                        <span class="price price--end">
-                          {{ item.original_line_price | money }}
-                        </span>
-                      {%- endif -%}
-
-                      {%- if item.variant.available and item.unit_price_measurement -%}
-                        <div class="unit-price caption">
-                          <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                          {{ item.variant.unit_price | money }}
-                          <span aria-hidden="true">/</span>
-                          <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                          {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                            {{- item.variant.unit_price_measurement.reference_value -}}
-                          {%- endif -%}
-                          {{ item.variant.unit_price_measurement.reference_unit }}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        {%- endif -%}
+    <!-- DISCOUNT CODE script for checkout ================================================== -->
+    {% include 'discount-code-cart' %}
+    {% comment %}
+  <div class="cart-header">
+      <div class="wrapper">
+        <div class="cart-title">
+          <h2 class="cart">Shopping Cart</h2>
+          <span><a href="/">&lt; Continue Shopping</a></span>
+        </div>
+        <a href="//www.shopify.com/pci-compliant?utm_source=secure&amp;utm_medium=shop" title="This online store is secured by Shopify" target="_blank" class="secure-btn"><img src="//cdn.shopify.com/s/images/badges/shopify-secure-badge-light-shadow.png" alt="Shopify secure badge" /></a>
+        <div class="checkout-button-container">
+          <input type="submit" name="checkout" class="btn" value="Checkout">
+        </div>
+        {% if shop.locale == 'en' %}
+          {% include 'benefit-icons-cart' %}
+        {% endif %}
       </div>
     </div>
+    {% endcomment %}
+    <table class="wrapper cart-table w-full max-w-[1200px] mx-auto table--responsive gap-s5 mt-s10">
+      <thead class="cart__row cart__header-labels text-left border-y-2 border-primary-100">
+        <th colspan="2">Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th class="text-right">Total</th>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
+          {% assign lateship = false %}
+          {% assign km-oos = false %}
+          {% assign km-six-oos = false %}
+          {% assign kc6lBundle = false %}
+          {% assign kc6lBundleKardiaCare = false %}
+          {% assign kc6lBundle6l = false %}
+          {% assign kcCardBundle = false %}
+          {% assign kcCardBundleKardiaCare = false %}
+          {% assign hideQuantity = false %}
+          {% for tag in item.product.tags %}
+            {% if tag == 'lateship' %}
+              {% assign lateship = true %}
+            {% endif %}
+          {% endfor %}
+          {% if item.product.handle == 'kardiamobile-card' %}
+            {% assign kmc_in_cart = true %}
+            {% assign hideQuantity = true %}
+          {% elsif item.product.handle == 'kardiamobile-card-member' %}
+            {% assign hideQuantity = true %}
+          {% elsif item.product.handle == 'kardiamobile' %}
+            {% assign km_in_cart = true %}
+            {% for tag in item.product.tags %}
+              {% if shop.locale == 'en' and tag == 'oos' %}
+                {% assign km-oos = true %}
+              {% endif %}
+            {% endfor%}
+          {% elsif item.product.handle == 'kardiamobile6l' %}
+            {% assign hideQuantity = true %}
+            {% assign km6l_in_cart = true %}
+            {% for tag in item.product.tags %}
+              {% if shop.locale == 'en' and tag == 'oos' %}
+                {% assign km-six-oos = true %}
+              {% endif %}
+            {% endfor%}
+            {% for property in item.properties %}
+              {% if property.first == 'kc_6l_bundle' %}
+                {% assign kc6lBundle6l = true %}
+              {% endif %}
+            {% endfor %}
+          {% elsif item.product.handle contains 'kardiacare' %}
+            {% assign hideQuantity = true %}
+            {% assign kcare_in_cart = true %}
+            {% if item.product.handle == 'kardiacare' or item.product.handle == 'kardiacare-2-year' %}
+              {% assign kcare_in_cart_1_2_year = true %}
+            {% endif %}
+            {% for property in item.properties %}
+              {% if property.first == 'kc_6l_bundle' %}
+                {% assign kc6lBundleKardiaCare = true %}
+              {% endif %}
+            {% if property.first == 'kcard_bundle' %}
+                {% assign kcCardBundleKardiaCare = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% for property in item.properties %}
+            {% if property.first == 'kc_6l_bundle' %}
+              {% assign kc6lBundle = true %}
+            {% endif %}
+          {% if property.first == 'kcard_bundle' %}
+                {% assign kcCardBundle = true %}
+              {% endif %}
+          {% endfor %}
+          <tr class="cart__row table__section" id="{{item.id}}">
+            <td data-label="{{ 'customer.order.product' | t }}" data-layout="mobile-column">
+              {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and item.product.handle != 'kardiamobile6l' and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
+                <a href="{{ kardiaCareUrl }}">
+              {% elsif kc6lBundleKardiaCare == true %}
+                <a href="{{ kardiamobile6lUrl }}">
+              {% elsif kcCardBundleKardiaCare == true %}
+                <a href="{{ kardiamobileCardUrl }}">
+              {% else %}
+                <a href="{{ item.url }}">
+              {% endif %}
+              {% comment %}
+                More image size options at:
+                  - http://docs.shopify.com/themes/filters/product-img-url
+              {% endcomment %}
+              <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+              </a>
+              {% comment %}
+              {% if kc6lBundle == true %}
+                {% if item.product.handle == 'kardiamobile6l' %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove mobile" onclick="kc6lBundleRemove(event)">
+                  <small>Remove</small>
+                </a>
+                {% endif %}
+              {% elsif kcCardBundle == true %}
+                {% if item.product.handle == 'kardiamobile-card' %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove mobile" onclick="kcCardBundleRemove(event)">
+                  <small>Remove</small>
+                </a>
+                {% endif %}
+              {% else %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove mobile">
+                  <small>Remove</small>
+                </a>
+              {% endif %}
+              {% endcomment %}
+            </td>
+            <td>
+              <h4>
+                {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
+                  <a href="{{ kardiaCareUrl }}">
+                    {{ item.product.title }}
+                  </a>
+                {% elsif kc6lBundleKardiaCare == true %}
+                  <a href="{{ kardiamobile6lUrl }}">
+                    {{ item.product.title }}
+                  </a>
+                {% elsif kcCardBundleKardiaCare == true %}
+                  <a href="{{ kardiamobileCardUrl }}">
+                    {{ item.product.title }}
+                  </a>
+                {% else %}
+                  <a href="{{ item.url }}">
+                    {{ item.product.title }}
+                  </a>
+                {% endif %}
+              </h4>
+              {% unless item.variant.title contains 'Default' %}
+                <small class="cart_variant">{{ item.variant.title }}</small>
+              {% endunless %}
+              {% comment %}
+                Add extra copy under product name
+              {% endcomment %}
+              {% if lateship %}
+                <p><small>Please allow 2-3 weeks for delivery.</small></p>
+              {% endif %}
+              {% if km-oos or km-six-oos %}
+                <p style="line-height: 1; margin: 6px 0 0 0;"><small>Please allow 1-2 weeks for your order to arrive.</small></p>
+              {% endif %}
+              {% if settings.cart_vendor_enable %}
+                <p>{{ item.vendor }}</p>
+              {% endif %}
+              {% if item.product.handle contains 'kardiacare-subscription-km' %}
+                <p><small>3-month commitment</small></p>
+              {% endif %}
+              {% comment %}
+              {% if item.product.handle == 'kardiamobile6l' and kc6lEmailPromo == true %}
+                <p><small>Discount applied at checkout</small></p>
+              {% endif %}
+              {% endcomment %}
+              {% comment %}
+                Optional, loop through custom product line items if available
 
-    <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
-    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
+                For more info on line item properties, visit:
+                  - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
+              {% endcomment %}
+              {% assign property_size = item.properties | size %}
+              {% if property_size > 0 %}
+                {% for p in item.properties %}
+                  {% unless p.last == blank or p.first == "subscription_id" or p.first == "shipping_interval_frequency" or p.first == "shipping_interval_unit_type" %}
+
+                    {% if p.first != "omron_added_pop_up" and p.first != "cp_added_pop_up" and p.first != "kc_price_test_699" and p.first != "kc_price_test_499" and p.first != "kc_6l_bundle" and p.first != "kcard_bundle" %}
+                      {{ p.first }}:
+
+                      {% comment %}
+                        Check if there was an uploaded file associated
+                      {% endcomment %}
+                      {% if p.last contains '/uploads/' %}
+                        <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                        {{ p.last }}
+                      {% endif %}
+                      <br>
+                    {% endif %}
+                  {% endunless %}
+                {% endfor %}
+              {% endif %}
+              {% if kc6lBundle == true %}
+                {% if item.product.handle == 'kardiamobile6l' %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" onclick="kc6lBundleRemove(event)">
+                  <small>Remove</small>
+                </a>
+                {% endif %}
+              {% elsif kcCardBundle == true %}
+                {% if item.product.handle == 'kardiamobile-card' %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" onclick="kcCardBundleRemove(event)">
+                  <small>Remove</small>
+                </a>
+                {% endif %}
+              {% else %}
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+                  <small>Remove</small>
+                </a>
+              {% endif %}
+            </td>
+            <td class="price-cell" data-label="{{ 'cart.label.price' | t }}">
+              <span class="h4Price price">
+                {% if item.variant.compare_at_price > item.variant.price %}
+                  <span class="red">
+                    {{ item.price | money }}
+                  </span>
+                  <span class="strikeout">
+                    {{ item.variant.compare_at_price | money }}
+                  </span>
+                {% elsif item.total_discount > 0 %}
+                  <span class="red">
+                  {{ item.price | money }}
+                  </span>
+                  <span class="strikeout">
+                    {{ item.original_price | money }}
+                  </span>
+                {% else %}
+                  {{ item.price | money }}
+                {% endif %}
+              </span>
+            </td>
+            <td data-label="{{ 'cart.label.quantity' | t }}">
+              {% if hideQuantity == true %}
+              {{ item.quantity }}
+              {% else %}
+              <input onchange="quantityChange(event, '{{item.variant_id}}')" class="quantity" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+              {% endif %}
+            </td>
+            <td data-label="{{ 'cart.label.total' | t }}" class="total-cell">
+              <span class="h3">
+                {{ item.line_price | money }}
+              </span>
+              {% if item.total_discount > 0 %}
+                <div class="discount_message">
+                <s>{{ item.original_line_price | money }}</s>
+                ({{ item.message }})
+                </div>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="wrapper grid cart__row max-w-[1200px] mx-auto p-[15px]">
+      {% if shop.domain == 'store.alivecor.com' or shop.domain == 'dev-alivecor-us.myshopify.com' %}
+      <p class="shipping-note">
+        {% if canadaShop %}
+        *If shipping to Canada please allow up to 3 weeks for delivery.<br>
+        {% endif %}
+      </p>
+      {% endif %}
+      <div class="text-right">
+        {% if kcare_in_cart %}
+          {% if km6l_in_cart or km_in_cart %}
+            {% if km_in_cart and kcare_in_cart_1_2_year %}
+              <p class="cart-totals">
+                <span class="mobile-left">Device + Membership Discount</span>
+                <span class="right">$ 29.00</span>
+              </p>
+              <p class="cart-totals">
+                <span class="mobile-left cart__subtotal-title">Subtotal</span>
+                <span class="right cart__subtotal">{{ cart.total_price | minus: 2900 | money }}</span>
+              </p>
+            {% elsif kcare_in_cart_1_2_year %}
+              <p class="cart-totals">
+                <span class="mobile-left">Device + Membership Discount</span>
+                <span class="right">$ 9.00</span>
+              </p>
+              <p class="cart-totals">
+                <span class="mobile-left cart__subtotal-title">Subtotal</span>
+                <span class="right cart__subtotal">{{ cart.total_price | minus: 900 | money }}</span>
+              </p>
+            {% else %}
+              <p class="cart-totals">
+                <span class="mobile-left">Device + Membership Discount</span>
+                <span class="right">$ 10.00</span>
+              </p>
+               <p class="cart-totals">
+                <span class="mobile-left cart__subtotal-title">Subtotal</span>
+                  <span class="right cart__subtotal">{{ cart.total_price | minus: 1000 | money }}</span>
+              </p>
+            {% endif %}
+          {% else %}
+            <p class="cart-totals">
+              <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal</span>
+              <span class="right cart__subtotal">{{ cart.total_price | money }}</span>
+            </p>
+          {% endif %}
+        {% else %}
+          <p class="cart-totals">
+            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal</span>
+            <span class="right cart__subtotal">{{ cart.total_price | money }}</span>
+          </p>
+        {% endif %}
+        {% if shop.locale == 'en' %}
+          <p class="cart-totals">
+            <span class="mobile-left">Taxes</span>
+            <span class="right">Calculated at checkout</span>
+          </p>
+          <p class="cart-totals">
+            <span class="mobile-left">Shipping</span>
+            <span class="right">FREE{% if canadaShop %}*{% endif %}</span>
+          </p>
+          <span class="shipping-desc block">
+          {% if km-oos == false and km-six-oos == false and canadaShop == false %}
+            2-5 business days (USPS First Class)
+          {% endif %}
+          </span>
+        {% else %}
+          <p class="ous-cart-text">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+        {% endif %}
+        <!-- marketizator start -->
+        <input id="mktz_custom" name="attributes[mktz_custom]" type="hidden" value="" />
+        <!-- marketizator end -->
+        <input type="submit" name="update" class="btn btn--underline p-0 update-cart visible" value="Update Cart">
+        <input type="submit" name="checkout" class="btn cartCheckout visible" value="Checkout">
+        <div class="clearfix"></div>
+        <a href="/" class="continue_shopping block">&lt; Continue Shopping</a>
+      </div>
+    </div>
   </form>
-</cart-items>
+  {% if km_in_cart %}
+  <div class="km-accessories wrapper">
+    <div class="one-half medium--one-whole small--one-whole cart-recommended-accessories">
+      {% assign grid_item_width = 'large--one-third medium--one-quarter small--one-half' %}
+      {% include 'recommended-accessories' %}
+    </div>
+  </div>
+  {% endif %}
+{% else %}
+  {% comment %}
+    The cart is empty
+  {% endcomment %}
+  <div class="wrapper">
+    <div class="cart-title empty">
+    <h2>Shopping Cart</h2>
+    </div>
+    <p>Your cart is currently empty</p>
+    <p>
+      <a href="/" class="btn back-to-store">
+        Shop AliveCor now
+      </a>
+    </p>
+  </div>
+{% endif %}
+
+<!-- DataLayer pushes -->
+<script type="text/javascript">
+  var productsArray = [];
+  {% for item in cart.items %}
+    productsArray.push({
+      name: '{{ item.title }}',
+      productId: '{{ item.product_id }}',
+      quantity: '{{ item.quantity }}'
+    });
+  {% endfor %}
+  dataLayer.push({
+    revenue: '{{ cart.total_price| money_without_currency }}',
+    products: productsArray
+  });
+</script>
+
+<!-- Omniconvert Start -->
+<!-- conversions tracking code on cart; more info at https://www.omniconvert.com/help/kba/integrate-with-shopify/ -->
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete' && typeof _mktz.getSeenVariations === 'function') {
+      var variations = _mktz.getSeenVariations();
+      var visitor = _mktz.getVisitor();
+      if (variations && visitor) {
+        var experimentData = {
+          'uid': visitor.uid,
+          'session': visitor.session_id,
+          'last_variation': variations.join('|')
+        };
+        $('#mktz_custom').val(JSON.stringify(experimentData));
+      }
+    }
+  };
+</script>
+<!-- Omniconvert End -->
 
 {% schema %}
 {

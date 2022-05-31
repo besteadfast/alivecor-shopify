@@ -105,6 +105,11 @@
       "type": "kardiacare-membership-module",
       "settings": {
       }
+    },
+    "additional-info-km-card": {
+      "type": "additional-info-km-card",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -112,6 +117,7 @@
     "product-recommendations",
     "content-convenience",
     "content-credible-km",
+    "additional-info-km-card",
     "kardiacare-membership-module"
   ]
 }

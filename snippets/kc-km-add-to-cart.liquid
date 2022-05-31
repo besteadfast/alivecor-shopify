@@ -35,7 +35,7 @@
 {% endstyle %}
 
 <div class="form">
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile')">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical {% if pageName == "product" %}mt-s7{% endif %}" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile')">
       {% capture year_title %}
           1-Year Plan
         {% endcapture %}
@@ -106,11 +106,9 @@
           {% else %}
         {% endcase %}
       <div class="kardiacare-products-bundle">
-				<p class="faux-p product__text subtitle">
-					Take an EKG anytime, anywhere
-				</p>
+        {% if pageName != "home" %}
         <fieldset>
-          <legend class="block faux-p product__text subtitle pt-s7 mb-s6 font-bold">
+          <legend class="faux-p font-bold mb-s4">
             Add a membership plan and save:
           </legend>
           <div class="form-radio">
@@ -183,13 +181,14 @@
             </label>
           </div>
         </fieldset>
+        {% endif %}
       </div>
       <div class="flex-items-bundle">
         <button
           type="submit"
           name="add"
           id="{{product.id}}AddToCart1"
-          class="btn btn--inverse border-2 border-primary-500 mt-s5 addToCart"
+          class="btn btn--inverse border-2 border-primary-500 mt-s6 addToCart"
           {% if sold_out %}
             disabled
           {% endif %}
@@ -207,4 +206,4 @@
       </div>
       <div style="clear: both;"></div>
     </form>
-  </div>
+</div>

@@ -370,7 +370,7 @@
                 <meta itemprop="priceCurrency" content="{{ shop.currency }}">
                 <meta itemprop="price" content="{{ product.price | money_without_currency }}">
                 <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-                {% include 'kc-km-add-to-cart', selectorType: 'radio' %}
+                {% include 'kc-km-add-to-cart', pageName: 'product' %}
             </div>
             <noscript class="product-form__noscript-wrapper-{{ section.id }}">
               <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">

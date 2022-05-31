@@ -893,3 +893,352 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
+
+// KardiaCare recurring
+function addToCartKardiaCareRecurring(event, form) {
+  var event = event || window.event;
+  event.preventDefault();
+  var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareProductAddToCartForm').val();
+  var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
+  var unit = "Months";
+  kardiaCareCartAdd(kardiacare_id, frequency, unit);
+}
+
+function addToCartKardiaCareBundle(event, form) {
+  var event = event || window.event;
+  event.preventDefault();
+  var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareBundleAddToCartForm').val();
+  var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
+  var unit = "Months";
+  var device_id = $('input[name=kardiaCareBundleDevice]:checked', '#kardiaCareBundleAddToCartForm').val();
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: { items: [
+      {
+        'quantity': 1,
+        'id': kardiacare_id,
+        "properties": {
+          "shipping_interval_frequency": frequency,
+          "shipping_interval_unit_type": unit
+        }
+      },
+      {
+        'quantity': 1,
+        'id': device_id,
+        "properties": {
+          "bundle_added": true
+        }
+      }
+    ]},
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+
+function addToCartKardiaCareBundle(event, form) {
+  var event = event || window.event;
+  event.preventDefault();
+  var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareBundleAddToCartForm').val();
+  var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
+  var unit = "Months";
+  var device_id = $('input[name=kardiaCareBundleDevice]:checked', '#kardiaCareBundleAddToCartForm').val();
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: { items: [
+      {
+        'quantity': 1,
+        'id': kardiacare_id,
+        "properties": {
+          "shipping_interval_frequency": frequency,
+          "shipping_interval_unit_type": unit
+        }
+      },
+      {
+        'quantity': 1,
+        'id': device_id,
+        "properties": {
+          "bundle_added": true
+        }
+      }
+    ]},
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+
+function addToCartKardiaCareDeviceBundle(event, form, device) {
+  var event = event || window.event;
+  event.preventDefault();
+  var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareBundleAddToCartForm').val();
+  var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
+  var unit = "Months";
+  if (device === 'kardiamobile') {
+    device_id = "20036084615";
+  } else if (device === 'kardiamobile6l') {
+    device_id = "28007532101697";
+  } else if (device === 'kardiamobile-card') {
+    device_id = "39719661371457";
+  } else if (device === 'kardiamobile-card-member') {
+    device_id = "39724290605121";
+  }
+  
+  var items = [];
+  if (device == 'kardiamobile6l') {
+    items.push({
+      'quantity': 1,
+      'id': device_id,
+      "properties": {
+        "kc_6l_bundle": true
+      }
+    });
+  } else if (device == 'kardiamobile-card') {
+    items.push({
+      'quantity': 1,
+      'id': device_id,
+      "properties": {
+        "kcard_bundle": true
+      }
+    });
+  } else {
+    items.push({
+      'quantity': 1,
+      'id': device_id
+    });
+  }
+//   if (kardiacare_id !== 'no_mem' && device == 'kardiamobile') {
+  if (kardiacare_id != 'no_mem') {
+    console.log(device)
+    items.push({
+      'quantity': 1,
+      'id': kardiacare_id,
+      "properties": {
+        "shipping_interval_frequency": frequency,
+        "shipping_interval_unit_type": unit
+      }
+    })
+  }
+//   if (kardiacare_id !== 'no_mem' && device == 'kardiamobile6l') {
+//     items.push({
+//       'quantity': 1,
+//       'id': kardiacare_id,
+//       "properties": {
+//         "shipping_interval_frequency": frequency,
+//         "shipping_interval_unit_type": unit,
+//         "kc_6l_bundle": true
+//       }
+//     })
+//   }
+//   if (device == 'kardiamobile-card') {
+//     items.push({
+//       'quantity': 1,
+//       'id': kardiacare_id,
+//       "properties": {
+//         "shipping_interval_frequency": frequency,
+//         "shipping_interval_unit_type": unit,
+//         "kcard_bundle": true
+//       }
+//     })
+//   }
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: { items: items },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+
+function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: {
+      'quantity': 1,
+      'id': kardiacare_id,
+      "properties": {
+        "shipping_interval_frequency": frequency,
+        "shipping_interval_unit_type": unit
+      }
+    },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+
+function addToCartKardiaCare6lBundleEmailPromo(event, form) {
+  var event = event || window.event;
+  event.preventDefault();
+  var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareBundleAddToCartForm').val();
+  var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
+  var unit = "Months";
+  var device_id = "28007532101697";
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: { items: [
+      {
+        'quantity': 1,
+        'id': kardiacare_id,
+        "properties": {
+          "shipping_interval_frequency": frequency,
+          "shipping_interval_unit_type": unit,
+          "kc_6l_bundle": true,
+          "email_promo_6l_kc_year": true
+        }
+      },
+      {
+        'quantity': 1,
+        'id': device_id,
+        "properties": {
+          "kc_6l_bundle": true
+        }
+      }
+    ]},
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+function analyzeCart(cartItems) {
+  var updates = {};
+  
+  var hasKmCard = cartItems.some(function(item) {return item.handle === 'kardiamobile-card'; });
+  var hasKmCardCode = cartItems.some(function(item) {return item.handle === 'kardiamobile-card-code'; });
+  var hasKm6l = cartItems.some(function(item) {return item.handle === 'kardiamobile6l'; });
+  var hasKardiaCareMonthly = cartItems.some(function(item) {return item.handle === 'kardiacare-monthly'; });
+  var hasKardiaCareAnnual = cartItems.some(function(item) {return item.handle === 'kardiacare'; });
+  var kmMonthly = cartItems.find(function(item) { return item.handle === 'kardiacare-monthly'; });
+  var kmAnnual = cartItems.find(function(item) { return item.handle === 'kardiacare'; });
+  console.log(hasKardiaCareAnnual)
+
+  if (hasKmCard) {
+    // hide kcAnnual remove
+    $('#' + kmAnnual.id + ' .cart__remove').hide();
+  }
+  if (hasKm6l) {
+    if (hasKardiaCareAnnual && hasKardiaCareMonthly) {
+      if (hasKmCard) {
+        $('#' + kmMonthly.id + ' .cart__remove').hide();
+      } else {
+        $('#' + kmAnnual.id + ' .cart__remove').hide();
+      }
+    } else if (hasKardiaCareAnnual) {
+      $('#' + kmAnnual.id + ' .cart__remove').hide();
+    } else {
+      $('#' + kmMonthly.id + ' .cart__remove').hide();
+    }
+  }
+  if (hasKmCard && !hasKardiaCareAnnual) {
+    var kmCard = cartItems.find(function(item) { return item.handle === 'kardiamobile-card'; });
+    updates[kmCard.variant_id] = 0;
+  }
+  if (hasKm6l && (!hasKardiaCareMonthly && !hasKardiaCareAnnual)) {
+    var km6l = cartItems.find(function(item) { return item.handle === 'kardiamobile6l'; });
+    updates[km6l.variant_id] = 0;
+  }
+  if (Object.keys(updates).length > 0) {
+    $.ajax({
+      type: 'POST',
+      url: '/cart/update.js',
+      data: {
+        updates
+      },
+      dataType: 'json',
+      success: function() {
+        window.location.href = '/cart';
+      }
+    });
+  }
+}
+function kc6lBundleRemove(event) {
+  var cartItems = currentCart.items;
+  event.preventDefault();
+  // remove monthly if annual and monthly in cart
+  // no card and only 1 kc, remove annual
+  var updates = {};
+  var hasKmCard = cartItems.some(function(item) {return item.handle === 'kardiamobile-card'; });
+  var hasKardiaCareMonthly = cartItems.some(function(item) {return item.handle === 'kardiacare-monthly'; });
+  var hasKardiaCareAnnual = cartItems.some(function(item) {return item.handle === 'kardiacare'; });
+  var km6l = cartItems.find(function(item) { return item.handle === 'kardiamobile6l'; });
+  updates[km6l.variant_id] = 0;
+  if (hasKardiaCareAnnual && hasKardiaCareMonthly) {
+      // remove monthly
+      var kcMonthly = cartItems.find(function(item) { return item.handle === 'kardiacare-monthly'; });
+      updates[kcMonthly.variant_id] = 0;
+  } else if (hasKardiaCareAnnual) {
+    if (!hasKmCard) {
+      // remove annual
+      var kcAnnual = cartItems.find(function(item) { return item.handle === 'kardiacare'; });
+      updates[kcAnnual.variant_id] = 0;
+    }
+  } else {
+    // remove monthly
+    var kcMonthly = cartItems.find(function(item) { return item.handle === 'kardiacare-monthly'; });
+    updates[kcMonthly.variant_id] = 0;
+  }
+  $.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates
+    },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+function kcCardBundleRemove(event) {
+  var cartItems = currentCart.items;
+  event.preventDefault();
+  // remove kcard and kc annual if 6l is not in the cart
+  var updates = {};
+  var hasKm6l = cartItems.some(function(item) {return item.handle === 'kardiamobile6l'; });
+  var hasKardiaCareMonthly = cartItems.some(function(item) {return item.handle === 'kardiacare-monthly'; });
+  var kmCard = cartItems.find(function(item) { return item.handle === 'kardiamobile-card'; });
+  updates[kmCard.variant_id] = 0;
+  if ((hasKm6l && hasKardiaCareMonthly) || (!hasKm6l)) {
+    var kcAnnual = cartItems.find(function(item) { return item.handle === 'kardiacare'; });
+    updates[kcAnnual.variant_id] = 0;
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates
+    },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}
+function quantityChange(event, variantId) {
+  event.preventDefault();
+  var newQuantity = event.target.value;
+  var updates = {};
+  updates[variantId] = newQuantity;
+  $.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates
+    },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
+}

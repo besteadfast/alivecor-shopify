@@ -34,6 +34,33 @@
 
     {% render 'meta-tags' %}
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    {% if settings.ajax_cart_method == "drawer" %}
+    {{ 'handlebars.min.js' | asset_url | script_tag }}
+    {% include 'ajax-cart-template' %}
+    {{ 'ajax-cart.js' | asset_url | script_tag }}
+    <script>
+      jQuery(function($) {
+        ajaxCart.init({
+          formSelector: '.AddToCartForm',
+          cartContainer: '#CartContainer',
+          addToCartSelector: '#AddToCart',
+          cartCountSelector: '#CartCount',
+          cartCostSelector: '#CartCost',
+          moneyFormat: {{ shop.money_format | json }}
+        });
+
+      });
+
+      jQuery('body').on('ajaxCart.afterCartLoad', function(evt, cart) {
+        // Bind to 'ajaxCart.afterCartLoad' to run any javascript after the cart has loaded in the DOM
+        timber.RightDrawer.open();
+      });
+    </script>
+    {% endif %}
+
+    {{ 'main.js' | asset_url | script_tag }}
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
@@ -234,6 +261,8 @@
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
+
+    {% include 'discount-code-body' %}
 
     {% comment %}
       {% section 'announcement-bar' %}

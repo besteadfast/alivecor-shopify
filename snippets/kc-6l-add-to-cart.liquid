@@ -97,6 +97,7 @@
         {% else %}
       {% endcase %}
     <div class="kardiacare-products-bundle" >
+      {% if pageName != "home" %}
       <fieldset>
         <legend class="faux-p font-bold mb-s4">
           Choose your membership plan:
@@ -173,6 +174,7 @@
         </div>
         {% endcomment %}
       </fieldset>
+      {% endif %}
     </div>
 
     <div class="flex-items-bundle">

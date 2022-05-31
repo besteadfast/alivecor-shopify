@@ -129,27 +129,56 @@
                 {%- endif -%}
               </h2>
             {%- when 'price' -%}
-              <div class="no-js-hidden mb-0 mt-s4 faux-p" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                {%- render 'price', product: product, use_variant: true, show_badges: true -%}
-              </div>
-              {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-                <div class="product__tax caption rte">
-                  {%- if shop.taxes_included -%}
-                    {{ 'products.product.include_taxes' | t }}
-                  {%- endif -%}
-                  {%- if shop.shipping_policy.body != blank -%}
-                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                  {%- endif -%}
-                </div>
-              {%- endif -%}
-              {%- if product != blank -%}
-                <div {{ block.shopify_attributes }} class="my-0">
-                  {%- form 'product', product -%}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    {{ form | payment_terms }}
-                  {%- endform -%}
-                </div>
-              {%- endif -%}
+            <div class="mt-s5 col-span-2">
+              {% comment %}
+                You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+                if your variants have different prices.
+              {% endcomment %}
+              {% if on_sale and product.handle != 'kardiamobile6l' and product.handle != 'kardiamobile' %}
+                {% if product.price_varies %}
+                  {% assign sale_price = product.price | money %}
+                  {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                {% else %}
+                  <span class="h2Price red">
+                    {% if product.handle != "kardiamobile-card" %}
+                    {{ product.price | money }}
+                    {% else %}
+                    {{ product.price | plus:9900 | money }}
+                    {% endif %}
+                  </span>
+                  <span class="strikeout">
+                    {% if product.handle != "kardiamobile-card" %}
+                    {{ product.compare_at_price | money }}
+                    {% else %}
+                    {{ product.compare_at_price | plus:9900 | money }}
+                    {% endif %}
+                  </span>
+                {% endif %}
+              {% else %}
+                <span class="faux-p-lg">
+                {% if product.price_varies and product.handle != 'kardiacare' %}
+                  {% assign price = product.price | money %}
+                  {{ 'products.general.from_text_html' | t: price: price }}
+                {% elsif product.handle == 'kardiacare' %}
+                  {% if shop.domain == 'store.alivecor.co.uk'%}
+                    {{ product.price | money }} per year
+                  {% elsif request.host == 'shop.kardiamobile.ca' %}
+                    <span id="KardiaCareProductPrice" class="noFloat">$13 Monthly Plan</span>
+                  {% else %}
+                    <span id="KardiaCareProductPrice" class="noFloat">$ 9.99 Monthly Plan</span>
+                  {% endif %}
+                {% elsif product.handle == 'kardiamobile' %}
+                  Starting at $ 78.99
+                {% elsif product.handle == 'kardiamobile6l' %}
+                  Starting at $ 148.99
+                {% elsif product.handle == 'kardiamobile-card' %}
+                  {{ product.price | plus: 9900 | money }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+                </span>
+              {% endif %}
+            </div>
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
                 <label class="form__label" for="Quantity-{{ section.id }}">
@@ -288,47 +317,16 @@
                 </div>
               </noscript>
             {%- when 'buy_buttons' -%}
-              <div {{ block.shopify_attributes }} class="inline-block my-0 py-s5 border-bottom-gray">
                 {%- if product != blank -%}
-                  <product-form class="">
-                    <div class="product-form__error-message-wrapper" role="alert" hidden>
-                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
-                        <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
-                        <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
-                        <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
-                        <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
-                      </svg>
-                      <span class="product-form__error-message"></span>
-                    </div>
-
-                    {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
-                      <div class="product-form__buttons">
-                        <button
-                          type="submit"
-                          name="add"
-                          class="btn btn--inverse border-2 border-primary-500"
-                        {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                        >
-                            <span>
-                              {%- if product.selected_or_first_available_variant.available -%}
-                                {{ 'products.product.add_to_cart' | t }}
-                              {%- else -%}
-                                {{ 'products.product.sold_out' | t }}
-                              {%- endif -%}
-                            </span>
-                            <div class="loading-overlay__spinner hidden">
-                              <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                              </svg>
-                            </div>
-                        </button>
-                        {%- if block.settings.show_dynamic_checkout -%}
-                          {{ form | payment_button }}
-                        {%- endif -%}
-                      </div>
-                    {%- endform -%}
-                  </product-form>
+                  <div class="inline-block my-0 py-s5 border-bottom-gray">
+                    {% if product.handle == 'kardiamobile-card' %}
+                      {% include 'kc-card-add-to-cart', pageName: "product" %}
+                    {% elsif product.handle == 'kardiamobile6l' %}
+                      {% include 'kc-6l-add-to-cart', pageName: "home" %}
+                    {% else %}
+                      {% include 'kc-km-add-to-cart', pageName: "home" %}
+                    {% endif %}
+                  </div>
                 {%- else -%}
                   <div class="product-form">
                     <div class="product-form__buttons form">
@@ -343,7 +341,6 @@
                     </div>
                   </div>
                 {%- endif -%}
-              </div>
             {%- when 'rating' -%}
               {% comment %}
               {%- if product.metafields.reviews.rating.value != blank -%}

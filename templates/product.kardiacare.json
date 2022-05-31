@@ -123,6 +123,11 @@
       "type": "stay-in-the-know",
       "settings": {
       }
+    },
+    "additional-info-kc": {
+      "type": "additional-info-kc",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -131,6 +136,7 @@
     "content-determinations",
     "content-review",
     "content-report",
+    "additional-info-kc",
     "kardiacare-membership-module",
     "product-recommendations",
     "stay-in-the-know"
