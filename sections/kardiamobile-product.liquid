@@ -613,20 +613,8 @@
 <article class="image-split image-split--right borders">
   <div class="image-split__media">
     <picture class="image__wrapper">
-      <source
-        media="(max-width: 639px)"
-        srcset="
-          https://kardia.steadfa.st/assets/images/_620x460_crop_center-center_95_none/hands-phone.png
-        "
-      />
-      <source
-        media="(max-width: 1023px)"
-        srcset="
-          https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
-        "
-      />
       <img
-        src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+        src="{{ "km-feature-image-convenience.png" | asset_url }}"
         alt=""
         class="image-split__image"
       />
@@ -648,23 +636,12 @@
   <div class="image-split__media">
     <picture class="image__wrapper"
       >
-      {% comment %}
-      <source
-        media="(max-width: 639px)"
-        srcset="
-          https://kardia.steadfa.st/assets/images/_620x460_crop_center-center_95_none/hands-phone.png
-        " />
-      <source
-        media="(max-width: 1023px)"
-        srcset="
-          https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
-        " />
-        {% endcomment %}
       <img
-        src="{{ "kardiamobile-feature-image-credible.png" | asset_url }}"
+        src="{{ "km-feature-image-credible.png" | asset_url }}"
         alt=""
         class="image-split__image"
-    /></picture>
+       />
+    </picture>
   </div>
   <div class="image-split__content">
     <div class="image-split__content-int">

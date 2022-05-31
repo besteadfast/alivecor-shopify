@@ -230,7 +230,7 @@
     </div>
 
     <div class="pb-s5">
-        <button type="submit" name="add" id="{{product.id}}" class="btn btn--inverse btn--sm border-2 border-primary-500 mt-s5" {% if sold_out %}disabled{% endif %}>
+        <button type="submit" name="add" id="{{product.id}}" class="btn btn--sm mt-s5" {% if sold_out %}disabled{% endif %}>
           <span id="AddToCartText">
           {% if sold_out %}
           {{ 'products.product.sold_out' | t }}

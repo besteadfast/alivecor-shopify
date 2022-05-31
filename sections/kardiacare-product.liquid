@@ -22,7 +22,7 @@
   }
 
 	.product-hero {
-		background: linear-gradient(130deg, rgba(149,174,218, 0.7) 0%, rgb(149 174 218 / 20%) 20%, rgba(149,174,218,0.0) 50%);
+		background: linear-gradient(130deg, rgba(198, 177, 214, 0.7), rgba(198, 177, 214, 0.2) 20%, rgba(149,174,218,0.0) 50%);
 	}
 
 	.product__media-icon {
@@ -59,6 +59,8 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
   <link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
+
+<div class="theme--kardiacare">
 
 <section class="product-hero section-{{section.id}}-padding">
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} shopify-grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -414,7 +416,7 @@
                     <button
                       type="submit"
                       name="add"
-                      class="btn btn--inverse border-2 border-primary-500"
+                      class="btn"
                     {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                     >
                         <span>
@@ -563,7 +565,7 @@
         </div>
         <div class="global-list__info">
           <h3 class="global-list__heading break-word faux-p-xs font-bold">Cardiologist EKG reviews</h3>
-          <p  class="global-list__text faux-p-xs">Four reviews per year included</p>
+          <p  class="global-list__text faux-p-xs">Four reviews per year</p>
         </div>
       </li>
       <li class="global-list__item">
@@ -673,6 +675,7 @@
 	</div>
 </article>
 
+</div>
 
 {% javascript %}
   class ProductModal extends ModalDialog {

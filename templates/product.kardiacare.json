@@ -97,8 +97,14 @@
       "settings": {
       }
     },
+    "additional-info-kc": {
+      "type": "additional-info-kc",
+      "settings": {
+      }
+    },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
+      "disabled": true,
       "settings": {
       }
     },
@@ -121,11 +127,6 @@
     },
     "stay-in-the-know": {
       "type": "stay-in-the-know",
-      "settings": {
-      }
-    },
-    "additional-info-kc": {
-      "type": "additional-info-kc",
       "settings": {
       }
     }

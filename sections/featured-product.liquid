@@ -318,7 +318,7 @@
               </noscript>
             {%- when 'buy_buttons' -%}
                 {%- if product != blank -%}
-                  <div class="inline-block my-0 py-s5 border-bottom-gray">
+                  <div class="inline-block my-0 py-s5 border-b-2 border-primary-100">
                     {% if product.handle == 'kardiamobile-card' %}
                       {% include 'kc-card-add-to-cart', pageName: "product" %}
                     {% elsif product.handle == 'kardiamobile6l' %}

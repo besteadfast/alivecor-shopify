@@ -264,7 +264,7 @@
         type="submit"
         name="add"
         id="{{product.id}}AddToCart1"
-        class="btn btn--inverse border-2 border-primary-500 mt-s6 zaddToCart{% if location == 'upsell' %} ga-tracker{% endif %}"
+        class="btn addToCart{% if location == 'upsell' %} ga-tracker{% endif %}"
         {% if sold_out %}
           disabled
         {% endif %}

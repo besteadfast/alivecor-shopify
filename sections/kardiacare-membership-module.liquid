@@ -7,9 +7,13 @@
     #app .pushed-half-width{
         width: 50vw;
     }
+    
+	.kardiacare-membership-section {
+	    background: linear-gradient(245deg, rgba(198, 177, 214, 0.7), rgba(198, 177, 214, 0.2) 20%, rgba(149,174,218,0.0) 50%);
+    }
 {%- endstyle -%}
 
-<section class="border-top-gray border-bottom-gray">
+<section class="kardiacare-membership-section border-top-gray border-bottom-gray">
     <div class="page-width flex">
         <div class="w-1/2 flex flex-col justify-center pr-s11 pl-s8 py-s10">
             <div class="border-bottom-gray">
@@ -20,7 +24,7 @@
 									<p class="m-0 px-s4">$99 / year</p>
 									<p class="m-0 px-s4">$9.99 / month</p>
 								</div>
-                <button class="btn btn--inverse border-2 border-primary-500 my-s7">
+                <button class="btn my-s7">
                     Add To Cart
                 </button>
             </div>
@@ -36,6 +40,6 @@
                 </a>
             </div>
         </div>
-        <img src="https://kardia.steadfa.st/assets/kardiacare-angled-with-kmc-and-phone-transparent.png" class="push-right pushed-half-width object-cover object-left">
+        <img src="{{ "kardiacare-featured.png" | asset_url }}" class="push-right pushed-half-width object-contain object-left">
     </div>
 </section>

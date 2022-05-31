@@ -276,7 +276,7 @@
         "16451441903511f686-2": {
           "type": "text",
           "settings": {
-            "text": "Our most advanced single-lead EKG now fits in your wallet.",
+            "text": "Our most advanced single-lead EKG fits in your wallet.",
             "text_style": "subtitle"
           }
         },
@@ -306,7 +306,7 @@
         "0ce12ca9-c12c-4776-a4dc-73a378356ee2": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>Detects six of the most common arrhythmias<\/li>\n<li>Includes KardiaCare heart health membership<\/li>\n<\/ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>Detects six of the most common arrhythmias<\/li>\n<li>Includes annual KardiaCare heart health membership<\/li>\n<\/ul>"
           }
         },
         "16451441903511f686-7": {
@@ -347,6 +347,13 @@
           "settings": {
             "text": "{{ section.settings.product.vendor }}",
             "text_style": "uppercase"
+          }
+        },
+        "cc9e7772-a0cb-4a8f-a266-e3bbfa94d063": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<h2 class=\"faux-h1 faux-h2 text-primary-500 col-span-2\">KardiaMobile® 6L with KardiaCare\n<\/h2>"
           }
         },
         "1645144250219adb72-1": {
@@ -403,10 +410,19 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "20f76807-b174-41aa-83a4-9c569bb944d2": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Text block",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
         "1645144250219adb72-0",
+        "cc9e7772-a0cb-4a8f-a266-e3bbfa94d063",
         "1645144250219adb72-1",
         "1645144250219adb72-2",
         "1645144250219adb72-3",
@@ -415,7 +431,8 @@
         "1645144250219adb72-6",
         "155e03c4-2f1e-4e03-b0ad-12d42a8170ae",
         "a7a20275-e63a-4c8d-bab4-da28210ce231",
-        "1645144250219adb72-7"
+        "1645144250219adb72-7",
+        "20f76807-b174-41aa-83a4-9c569bb944d2"
       ],
       "settings": {
         "product": "kardiamobile6l",
@@ -436,6 +453,13 @@
           "settings": {
             "text": "{{ section.settings.product.vendor }}",
             "text_style": "uppercase"
+          }
+        },
+        "db2da39b-0947-4b7c-a897-59189005a3f6": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<h2 class=\"faux-h1 faux-h2 text-primary-500 col-span-2\">KardiaMobile®<\/h2>"
           }
         },
         "16536006261dd6f93b-1": {
@@ -503,6 +527,7 @@
       },
       "block_order": [
         "16536006261dd6f93b-0",
+        "db2da39b-0947-4b7c-a897-59189005a3f6",
         "16536006261dd6f93b-1",
         "16536006261dd6f93b-2",
         "16536006261dd6f93b-3",
