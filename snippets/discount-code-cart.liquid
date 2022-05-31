@@ -1,0 +1,9 @@
+<script>
+/* If the length of sessionStorage "discount" is NOT 0 then add our sessionStorage value to the end of our Checkout link */
+/* Link: http://stackoverflow.com/a/4704786 */
+var discountCookie = sessionStorage.getItem("discount")
+
+if (discountCookie && discountCookie.length != 0) {
+  document.getElementById('cartform').action = "/cart?discount=" + sessionStorage.getItem("discount");
+};
+</script>

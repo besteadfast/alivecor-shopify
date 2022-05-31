@@ -1,0 +1,16 @@
+{% if shop.locale == 'en' %}
+  {% comment %}
+  <!-- /snippets/bv-ratings-reviews.liquid --> <!-- Bazaarvoice Ratings & Reviews -->
+  {% endcomment %}
+  <div data-bv-show="reviews" data-bv-product-Id="{{product.id}}">
+   {% if product.metafields.bazaarvoice.reviews %} {{ product.metafields.bazaarvoice.reviews }}
+  {% endif %}
+  </div>
+  {% comment %}
+  <!-- End Bazaarvoice Ratings & Reviews -->
+  {% endcomment %}
+{% else %}
+  <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+{% endif %}
+
+
