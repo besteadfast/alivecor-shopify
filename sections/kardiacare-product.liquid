@@ -606,16 +606,15 @@
   </div>
 </article>
 
-<article class="image-split image-split--right borders">
+<article class="image-split image-split--left borders">
   <div class="image-split__media">
-    {% comment %} <picture class="image__wrapper">
-      <img
-        src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
-        alt=""
-        class="image-split__image"
-      />
-    </picture> {% endcomment %}
-		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+    <picture class="image__wrapper">
+			<img
+				src="{{ "kardiacare-feature-image-arrythmias.png" | asset_url }}"
+				alt=""
+				class="image-split__image"
+			/>
+		</picture>
   </div>
 
   <div class="image-split__content">
@@ -630,15 +629,15 @@
   </div>
 </article>
 
-<article class="image-split image-split--left borders">
+<article class="image-split image-split--right borders">
 	<div class="image-split__media">
-		{% comment %} <picture class="image__wrapper">
+		<picture class="image__wrapper">
 			<img
-				src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+				src="{{ "kardiacare-feature-image-ekg-reviews.png" | asset_url }}"
 				alt=""
 				class="image-split__image"
-		/></picture> {% endcomment %}
-		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+			/>
+		</picture>
 	</div>
 	<div class="image-split__content">
 		<div class="image-split__content-int">
@@ -651,16 +650,16 @@
 	</div>
 </article>
 
-<article class="image-split image-split--right borders">
+<article class="image-split image-split--left borders">
 	<div class="image-split__media">
-		{% comment %} <picture class="image__wrapper">
+		<picture class="image__wrapper">
 			<img
-				src="https://kardia.steadfa.st/assets/images/_1180x875_crop_center-center_90_none/hands-phone.png"
+				src="{{ "kardiacare-feature-image-ipad-kardiapro.png" | asset_url }}"
 				alt=""
 				class="image-split__image"
 			/>
-		</picture> {% endcomment %}
-		<div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div>
+		</picture>
+		{% comment %} <div class="w-full h-full bg-primary-50 text-white flex justify-center items-center text-primary-700">Placeholder</div> {% endcomment %}
 	</div>
 
 	<div class="image-split__content">
@@ -670,7 +669,6 @@
 			<p>
 				View all of your heart data in one place. Generate a summary of your EKG, blood pressure, and weight data over a custom date range. Use this report to track your heart health over time, or share it with your doctor at your next appointment.
 			</p>
-			<p class="faux-p-sm font-bold">Your summary report includes an overview of:</p>
 		</div>
 	</div>
 </article>
