@@ -75,6 +75,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h1",
@@ -101,13 +102,18 @@
       "settings": {
       }
     },
+    "additional-info-km-card": {
+      "type": "additional-info-km-card",
+      "settings": {
+      }
+    },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
       "settings": {
       }
     },
-    "additional-info-km-card": {
-      "type": "additional-info-km-card",
+    "stay-in-the-know": {
+      "type": "stay-in-the-know",
       "settings": {
       }
     }
@@ -118,6 +124,7 @@
     "content-convenience",
     "content-credible-km",
     "additional-info-km-card",
-    "kardiacare-membership-module"
+    "kardiacare-membership-module",
+    "stay-in-the-know"
   ]
 }

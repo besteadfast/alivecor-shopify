@@ -19,7 +19,7 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "Includes annual KardiaCare membership",
+            "text": "Includes 1 year KardiaCare membership",
             "text_style": "subtitle"
           }
         },
@@ -50,7 +50,7 @@
         "7d60cf88-be8f-49f4-9e81-9d6dc319adba": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<p>The future of heart health fits in your wallet.<\/p>\n\n<p class=\"faux-p-sm\">Arrhythmias don’t wait for the doctor’s office, so we created a portable, durable personal EKG that goes anywhere you go. KardiaMobile Card is as thin and light as a credit card, fits perfectly in your wallet, and records an accurate, medical-grade EKG in seconds. KardiaMobile Card includes an exclusive annual KardiaCare membership, so you can better manage and understand your heart health on the go.<\/p>"
+            "custom_liquid": "<p>KardiaMobile Card is as thin and light as a credit card, fits perfectly in your wallet, and records an accurate, medical-grade EKG in seconds.<\/p>"
           }
         },
         "f9091bc7-73a1-461b-8031-d2edab22a2c9": {
@@ -99,11 +99,6 @@
       "settings": {
       }
     },
-    "content-credible": {
-      "type": "content-credible",
-      "settings": {
-      }
-    },
     "content-durable": {
       "type": "content-durable",
       "settings": {
@@ -145,7 +140,6 @@
     "main",
     "icon-grid-mobilecard",
     "content-convenient",
-    "content-credible",
     "content-durable",
     "additional-info-km-card",
     "kardiacare-membership-module",

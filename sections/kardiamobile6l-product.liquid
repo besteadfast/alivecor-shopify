@@ -222,10 +222,10 @@
               {{ product.title | escape }}
             </h1>
           {%- when 'text' -%}
-            <p clas="product__text subtitle">Includes KardiaCare membership</p>
+            <p class="product__text !mt-s5 subtitle">Includes KardiaCare membership</p>
 
           {%- when 'price' -%}
-            <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+            <div class="no-js-hidden !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
             </div>
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -238,7 +238,7 @@
                 {%- endif -%}
               </div>
             {%- endif -%}
-            <div {{ block.shopify_attributes }}>
+            <div class="!my-0" {{ block.shopify_attributes }}>
               {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                 {{ form | payment_terms }}
@@ -428,10 +428,10 @@
                 </div>
 
                   {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                  
-                  
+
+
                   {% include 'kc-6l-add-to-cart' %}
-                  
+
                   <input type="hidden" name="id[0]" value="{{ product.selected_or_first_available_variant.id }}" id="deviceId" disabled>
                   <input type="hidden" name="id[1]" value="32194082472001" id="kardiaCareAnnual" disabled>
                   <div class="product-form__buttons">
@@ -505,25 +505,24 @@
             {%- endif -%}
             {% endcomment %}
           {%- endcase -%}
-          
+
         {%- endfor -%}
-        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <div class="!mt-0 pb-s8 mb-s8 border-b-2 border-primary-75" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             <meta itemprop="priceCurrency" content="{{ shop.currency }}">
             <meta itemprop="price" content="{{ product.price | money_without_currency }}">
             <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-            {% include 'kc-6l-add-to-cart', selectorType: 'radio' %}
+						{% include 'kc-6l-add-to-cart', selectorType: 'radio' %}
         </div>
-        <div class="border-primary-800 mt-s8 mb-s6 ">
-            <p>The world’s first and only six-lead personal EKG.</p>
-            <p class="faux-p-sm"> With KardiaMobile 6L, you can record unlimited six-lead EKGs from home. Six leads means six times the data, giving you and your doctor more detailed insight on your heart health from home.</p>
-        </div>
-        <ul class="">
-            <li>Records leads I, II, III, aVL, aVR, aVF</li>
-            <li>More heart data for you and your doctor</li>
-            <li>Detects six of the most common arrhythmias</li>
-            <li>Includes KardiaCare heart health membership</li>
-        </ul>
-        <p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack</p>
+        <div class="border-primary-800 mt-s8">
+					<p>With KardiaMobile 6L, you can record unlimited six-lead EKGs from home. Six leads means six times the data, giving you and your doctor more detailed insight on your heart health from home.</p>
+					<ul class="">
+							<li>Records leads I, II, III, aVL, aVR, aVF</li>
+							<li>More heart data for you and your doctor</li>
+							<li>Detects six of the most common arrhythmias</li>
+							<li>Includes KardiaCare heart health membership</li>
+					</ul>
+					<p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack</p>
+				</div>
       </div>
     </div>
   </div>

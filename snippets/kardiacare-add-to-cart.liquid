@@ -101,15 +101,11 @@
           {% endif %}
 
           {% if selectorType == 'radio' %}
-					<p class="faux-p product__text subtitle">
-						Our one-of-a-kind heart health membership.
-					</p>
-
           <fieldset>
-						<legend class="block faux-p product__text subtitle pt-s7 mb-s6 font-bold">
+						<legend class="block faux-p product__text subtitle pt-s4 mb-s4 font-bold">
             	Pick your plan:
 						</legend>
-            <div class="form-radio">
+            {% comment %} <div class="form-radio">
                 <label for="{{ two_year_id }}" class="faux-p">
                     <input
                     id="{{ two_year_id }}"
@@ -127,6 +123,25 @@
                     />
                     <span>{{ two_year_label }}</span>
                 </label>
+            </div> {% endcomment %}
+						<div class="form-radio">
+              <label for="{{ month_id }}" class="faux-p">
+                <input
+                  id="{{ month_id }}"
+                  name="kardiaCareMembershipLength"
+                  type="radio"
+                  data-frequency="{{ month_frequency }}"
+                  data-price="{{ month_price }}"
+                  class="radio appearance-none"
+                  value="{{ month_id }}"
+                  tabindex="0"
+                  onchange=""
+									checked="checked"
+                  required
+                  autocomplete="off"
+                 />
+                 <span>{{ month_label }}</span>
+              </label>
             </div>
             <div class="form-radio">
               <label for="{{ year_id }}" class="faux-p">
@@ -144,24 +159,6 @@
                   autocomplete="off"
                  />
                  <span>{{ year_label }}</span>
-              </label>
-            </div>
-            <div class="form-radio">
-              <label for="{{ month_id }}" class="faux-p">
-                <input
-                  id="{{ month_id }}"
-                  name="kardiaCareMembershipLength"
-                  type="radio"
-                  data-frequency="{{ month_frequency }}"
-                  data-price="{{ month_price }}"
-                  class="radio appearance-none"
-                  value="{{ month_id }}"
-                  tabindex="0"
-                  onchange=""
-                  required
-                  autocomplete="off"
-                 />
-                 <span>{{ month_label }}</span>
               </label>
             </div>
             {% comment %}
@@ -264,7 +261,7 @@
         type="submit"
         name="add"
         id="{{product.id}}AddToCart1"
-        class="btn addToCart{% if location == 'upsell' %} ga-tracker{% endif %}"
+        class="btn mt-s5 addToCart{% if location == 'upsell' %} ga-tracker{% endif %}"
         {% if sold_out %}
           disabled
         {% endif %}

@@ -86,7 +86,7 @@
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </h3>
   <div class="flex items-center justify-between  mt-s5">
-      <p class="mb-s1">
+      <p class="mb-s1 font-dm">
         {% comment %}
           You can show a leading 'from' or 'up to' by checking 'product.price_varies'
           if your variants have different prices.
@@ -116,7 +116,7 @@
           {% endif %}
         {% endif %}
       </p>
-    
+
       {% if product.handle contains 'kardiacare' %}
         {% comment %}
         <!-- /snippets/bv-inline-ratings.liquid --> <!-- Bazaarvoice Inline Rating -->

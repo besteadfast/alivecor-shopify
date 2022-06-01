@@ -7,36 +7,38 @@
     #app .pushed-half-width{
         width: 50vw;
     }
-    
+
 	.kardiacare-membership-section {
 	    background: linear-gradient(245deg, rgba(198, 177, 214, 0.7), rgba(198, 177, 214, 0.2) 20%, rgba(149,174,218,0.0) 50%);
     }
 {%- endstyle -%}
 
-<section class="kardiacare-membership-section border-top-gray border-bottom-gray">
+<section class="kardiacare-membership-section theme--kardiacare">
     <div class="page-width flex">
         <div class="w-1/2 flex flex-col justify-center pr-s11 pl-s8 py-s10">
-            <div class="border-bottom-gray">
+            <div>
                 <h2 class="text-primary-500">KardiaCare <br />Membership</h2>
-                <h3 class="faux-p product__text subtitle col-span-2 mt-s6">Exclusive features that provide deeper insights about your heart.</h3>
-                <div class="mt-s7 flex items-stretch divide-x-2 divide-black-400 -mx-s4">
-									<p class="m-0 px-s4">$179 / 2 years</p>
-									<p class="m-0 px-s4">$99 / year</p>
-									<p class="m-0 px-s4">$9.99 / month</p>
+                <h3 class="faux-p product__text subtitle col-span-2 mt-s6">Exclusive features that provide deeper insights about your heart</h3>
+
+                <div class="mt-s8 flex items-stretch divide-x-2 divide-black-400 -mx-s4">
+									<p class="m-0 px-s4 font-dm">$9.99/month</p>
+									<p class="m-0 px-s4 font-dm">$99/year</p>
 								</div>
-                <button class="btn my-s7">
-                    Add To Cart
-                </button>
             </div>
-            <div class="border-top-gray">
-                <ul class="mt-s8">
+            <div class="mt-s8 border-t-2 border-primary-75">
+                <ul class="my-s8">
                     <li class="text-[1.125rem] mt-s5">Six arrhythmia detections</li>
                     <li class="text-[1.125rem] mt-s5">EKG reviews by a cardiologist</li>
                     <li class="text-[1.125rem] mt-s5">Summary reports of your heart data</li>
                     <li class="text-[1.125rem] mt-s5">Automatic EKG sharing with family</li>
                 </ul>
-                <a href="/products/kardiacare" class=" btn btn--underline inline-block w-max py-0 mt-s7">
+            </div>
+            <div>
+                {% comment %} <a href="/products/kardiacare" class=" btn btn--underline inline-block w-max py-0 mt-s7">
                     Learn More
+                </a> {% endcomment %}
+								<a href="/products/kardiacare" class="btn">
+									Learn More
                 </a>
             </div>
         </div>

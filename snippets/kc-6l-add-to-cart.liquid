@@ -35,7 +35,7 @@
 {% endstyle %}
 
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l')">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l')">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -62,7 +62,7 @@
           {% endcapture %}
           {% assign month_id = 32991987204199 %}
           {% assign month_frequency = "1" %}
-          
+
           {% capture month_label %}
           Monthly Plan ($9.99/mo)
           {% endcapture %}
@@ -99,7 +99,7 @@
     <div class="kardiacare-products-bundle" >
       {% if pageName != "home" %}
       <fieldset>
-        <legend class="faux-p font-bold mb-s4">
+        <legend class="block faux-p product__text subtitle font-bold mb-s4">
           Choose your membership plan:
         </legend>
         <div class="form-radio">
@@ -190,7 +190,7 @@
         type="submit"
         name="add"
         id="{{product.id}}AddToCart1"
-        class="btn mt-s6 addToCart"
+        class="mt-s5 btn addToCart"
         {% if sold_out %}
           disabled
         {% endif %}

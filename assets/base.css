@@ -2924,3 +2924,18 @@ details-disclosure > details {
   background-color: var(--primary-500);
   color: white;
 }
+
+/* Jake / Steafast edits */
+
+html, body {
+	letter-spacing: 0 !important;
+}
+
+.shopify-section + .shopify-section {
+	border-top: 2px solid var(--primary-75);
+}
+
+.borders {
+	border: none;
+	/* border: 2px solid red; */
+}

@@ -223,13 +223,16 @@
           {%- when '@app' -%}
             {% render block %}
           {%- when 'text' -%}
-            <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
+            <p class="product__text !mt-s5 subtitle" {{ block.shopify_attributes }}>
               {{- block.settings.text -}}
             </p>
           {%- when 'title' -%}
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+						<p class="product__text !mt-s5 subtitle" {{ block.shopify_attributes }}>
+              Our one-of-a-kind heart health membership.
+            </p>
 
         {% comment %}
           {%- when 'price' -%}
@@ -484,16 +487,18 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
-        <div class="border-b-2 border-primary-300 pt-s5 pb-s7">
-            <p>KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health. As a member, you’ll gain access to exclusive features like Advanced Determinations, cardiologist EKG reviews, summary reports, and more.</p>
+        <div class="border-t-2 pt-s8 mt-s8 border-primary-75">
+					<p>KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health. As a member, you’ll gain access to exclusive features like Advanced Determinations, cardiologist EKG reviews, summary reports, and more.</p>
+
+					<ul>
+						<li>Detect six of the most common arrhythmias<sup>*</sup></li>
+						<li>Get your EKG reviewed by a board-certified cardiologist </li>
+						<li>Access our most accurate EKG technology</li>
+						<li>Unlimited cloud storage so you never lose your health data</li>
+					</ul>
+
+					<p class="faux-p-xs">*This feature only available with a Kardia device</p>
         </div>
-        <ul class="pt-s1">
-					<li>Detect six of the most common arrhythmias<sup>*</sup></li>
-					<li>Get your EKG reviewed by a board-certified cardiologist </li>
-					<li>Access our most accurate EKG technology</li>
-					<li>Unlimited cloud storage so you never lose your health data</li>
-        </ul>
-				<p class="faux-p-xs">*This feature only available with a Kardia device</p>
       </div>
     </div>
   </div>
@@ -547,7 +552,7 @@
 	}
 {% endstyle %}
 
-<article class="borders featured-list">
+<article class="border-t-2 border-primary-75 featured-list">
   <div class="featured-list__int">
     <ul class="featured-list__items list-none global-list">
       <li class="global-list__item">
@@ -608,7 +613,7 @@
   </div>
 </article>
 
-<article class="image-split image-split--left borders">
+<article class="image-split image-split--left border-t-2 border-primary-75">
   <div class="image-split__media">
     <picture class="image__wrapper">
 			<img
@@ -622,7 +627,7 @@
   <div class="image-split__content">
     <div class="image-split__content-int">
       <h2>Advanced Determinations</h2>
-      <p class="faux-sh">Detect six of the most common arrhythmias.</p>
+      <p class="faux-sh">Detect six of the most common arrhythmias</p>
       <p>
         Gain access to our advanced algorithm that analyzes your EKG with our most accurate technology. As a member, your Kardia device will be able to detect six of the most common arrhythmias—more than any other personal EKG.
       </p>
@@ -631,7 +636,7 @@
   </div>
 </article>
 
-<article class="image-split image-split--right borders">
+<article class="image-split image-split--right border-t-2 border-primary-75">
 	<div class="image-split__media">
 		<picture class="image__wrapper">
 			<img
@@ -652,7 +657,7 @@
 	</div>
 </article>
 
-<article class="image-split image-split--left borders">
+<article class="image-split image-split--left border-t-2 border-primary-75">
 	<div class="image-split__media">
 		<picture class="image__wrapper">
 			<img
