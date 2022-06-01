@@ -1,0 +1,139 @@
+{% style %}
+    input[type="radio"]{
+        display:inline-grid;
+        place-content:center;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid var(--primary-300);
+        border-radius: 50%;
+        transform: translateY(-2px);
+    }
+
+    input[type="radio"]::before {
+        content: "";
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        background-color: var(--primary-700);
+    }
+
+    input[type="radio"] + label{
+        opacity:.5;
+        transition: 120ms opacity ease-in-out;
+    }
+
+    input[type="radio"]:checked::before {
+        transform: scale(1);
+    }
+
+    input[type="radio"]:checked + label{
+        color: var(--primary-700);
+        opacity:1;
+    }
+{% endstyle %}
+
+<form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="{{ product.id }}AddToCartForm1" class="AddToCartForm form-vertical">
+<!-- Begin ReCharge code -->
+{% if product.available %}{% include 'subscription-product' %}{% endif %}
+<!-- End ReCharge code -->
+  {% if product.variants.size > 1 %}
+  {% comment %}
+    If there are variants, show the user some choices via input controls, else we will hide the inputs
+  {% endcomment %}
+    <div class="variant-title">
+      {%- for option in product.options_with_values -%}
+        <span>{{ option.name | escape }}</span>
+      {%- endfor -%}
+    </div>
+    {% assign has_checked = true %}
+    {% unless product.selected_variant %}
+      {% assign has_checked = false %}
+    {% endunless %}
+    {% for variant in product.variants %}
+      {% if variant.available %}
+        {% assign add_price = variant.price | minus: product.price %}
+        <div class="variant-input-wrapper">
+          <input type="radio"
+             id="{{variant.id}}"
+             name="id" data-productid="{{ product.id }}"
+             data-sku="{{variant.sku}}"
+             value="{{variant.id}}"
+             class="variant-input appearance-none"
+             data-index="{{forloop.index0}}"
+             data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+             data-img-alt="{{variant.featured_image.alt}}"
+             {% if has_checked == false or product.selected_variant.id == variant.id %}
+               checked="true"
+               {% assign has_checked = true %}
+             {% endif %}
+             >
+          <label for="{{variant.id}}" class="form-control faux-p inline-block">
+            {{variant.title}}
+            {% if add_price > 0 %}
+            &nbsp;(add {{add_price | money_with_currency}})
+            {% endif %}
+          </label>
+        </div>
+      {% else %}
+        <div class="variant-input-wrapper">
+        <input type="radio"
+             class="variant-input"
+             disabled>
+        <label class="form-control out-of-stock faux-p">
+          {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+        </label>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+    {% for variant in product.variants %}
+    <input type="hidden"
+           id="{{variant.id}}"
+           name="id" data-productid="{{ product.id }}"
+           data-sku="{{variant.sku}}"
+           value="{{variant.id}}"
+           class="variant-input"
+           data-index="{{forloop.index0}}"
+           {% if forloop.first == true %}
+             checked="true"
+           {% endif %}
+           >
+    {% endfor %}
+  {% endif %}
+
+  {% comment %}
+  <!-- removing quantities for now -->
+  <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+  <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+  {% endcomment %}
+
+  <button type="submit" name="add" id="{{product.id}}AddToCart1" class="btn addToCart" {% if sold_out %}disabled{% endif %}>
+    <span id="AddToCartText">
+    {% if sold_out %}
+    {{ 'products.product.sold_out' | t }}
+    {% elsif preorder %}
+    {{ 'products.product.preorder' | t }}
+    {% else %}
+    {{ 'products.product.add_to_cart' | t }}
+    {% endif %}
+    </span>
+  </button>
+  {% if product.handle == 'kardiamobile' and shop.currency == 'GBP' and sold_out %}
+  <a href="https://www.amazon.co.uk/Kardia-Mobile-AliveCor-Black-0-6oz/dp/B01A4W8AUK/" class="btn amazon-sold-out" target="_blank">
+    Buy From Amazon
+  </a>
+  {% elsif product.handle == 'kardiamobile' and shop.currency == 'EUR' and sold_out %}
+  <a href="https://www.mindtecstore.com/AliveCor-Kardia-Mobile-ECG-Heart-Monitor" class="btn amazon-sold-out" target="_blank">
+    Buy From MindTec
+  </a>
+  {% comment %}
+  {% elsif product.handle == 'kardiamobile6l' and shop.currency == 'USD' and sold_out %}
+    <a href="https://www.amazon.com/AliveCor%C2%AE-KardiaMobile-FDA-Cleared-Wireless-Smartphone/dp/B07RQW6SD5" class="btn amazon-sold-out" target="_blank">
+      Buy From Amazon
+    </a>
+  {% endcomment %}
+  {% endif %}
+</form>
