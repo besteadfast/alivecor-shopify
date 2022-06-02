@@ -51,6 +51,11 @@
 
 <script src="{{ 'product-form-bundle.js' | asset_url }}" defer="defer"></script>
 
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
@@ -225,7 +230,13 @@
             <p class="product__text !mt-s5 subtitle">Includes KardiaCare membership</p>
 
           {%- when 'price' -%}
-            <div class="no-js-hidden !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+            <div class="bundle-price-display ">
+              <span id="ProductPrice" class="h2Price noFloat red">
+                $<span id="kc-6l-price">{{ product.price | minus: 1 | money_without_currency }}</span>
+              </span><span class="line-through totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+            </div>
+            {% comment %}
+            <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
             </div>
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -244,7 +255,6 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
-            {% comment %}
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">

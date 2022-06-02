@@ -34,6 +34,12 @@
     }
 {% endstyle %}
 
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+
 <div class="form">
     <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical {% if pageName == "product" %}mt-s7{% endif %}" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile')">
       {% capture year_title %}

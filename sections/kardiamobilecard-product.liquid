@@ -49,6 +49,11 @@
 	}
 {%- endstyle -%}
 
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
 <script src="{{ 'product-form-card.js' | asset_url }}" defer="defer"></script>
 
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}

@@ -53,6 +53,11 @@
 
 {% assign current_variant = product.selected_or_first_available_variant %}
 
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
@@ -229,8 +234,14 @@
               {{ product.title | escape }}
             </h1>
 
-        {% comment %}
+
           {%- when 'price' -%}
+          <div class="bundle-price-display">
+            <span id="ProductPrice" class="h2Price noFloat red">
+              $<span id="kc-km-price">{{ product.price | minus: 1 | money_without_currency }}</span>
+            </span><span class="line-through totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+          </div>
+          {% comment %}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
             </div>
@@ -612,7 +623,7 @@
   <div class="image-split__media">
     <picture class="image__wrapper">
       <img
-        src="{{ "kardiamobile-user-beach.png" | asset_url }}"
+        src="{{ "km-feature-image-convenience.png" | asset_url }}"
         alt=""
         class="image-split__image"
       />

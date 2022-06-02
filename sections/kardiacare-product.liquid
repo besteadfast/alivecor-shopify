@@ -53,6 +53,11 @@
 
 {% assign current_variant = product.selected_or_first_available_variant %}
 
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
@@ -234,11 +239,11 @@
               Our one-of-a-kind heart health membership.
             </p>
 
-        {% comment %}
           {%- when 'price' -%}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
             </div>
+            {% comment %}
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
               <div class="product__tax caption rte">
                 {%- if shop.taxes_included -%}

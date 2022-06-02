@@ -100,9 +100,7 @@
 
 <script>
     let accordionItems = document.querySelectorAll("button.accordion__trigger");
-    console.log(accordionItems)
     accordionItems.forEach( function (element, id) {
-        console.log(element)
         element.addEventListener("click", function() {
             this.classList.toggle("accordion__trigger_active");
             let content = this.nextElementSibling;
