@@ -401,7 +401,7 @@
         "a7a20275-e63a-4c8d-bab4-da28210ce231": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Records leads I, II, III, aVL, aVR, aVF<\/li>\n<li>More heart data for you and your doctor<\/li>\n<li>Detects six of the most common arrhythmias<\/li>\n<li>Includes KardiaCare heart health membership<\/li>\n<\/ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\t\t\t\t\t\t\t<li>Delivers EKG leads I, II, III, aVL, aVR, and aVF<\/li>\n\t\t\t\t\t\t\t<li>Download and email your EKGs to your doctor<\/li>\n\t\t\t\t\t\t\t<li>FDA-cleared, clinically approved, medical-grade EKG recordings<\/li>\n\t\t\t\t\t\t\t<li>Works with most smartphones and tablets. (Android & iOS)<\/li>\n<\/ul>"
           }
         },
         "1645144250219adb72-7": {

@@ -108,9 +108,9 @@
             {% assign price = product.price | money %}
             {{ 'products.general.from_text_html' | t: price: price }}
           {% elsif product.handle == 'kardiacare' %}
-            $ 99 Annual Plan
+            $99 Annual Plan
           {% elsif product.handle == 'kardiacare-monthly' %}
-            $ 9.99 Monthly Plan
+            $9.99 Monthly Plan
           {% else %}
             {{ product.price | money_without_trailing_zeros }}
           {% endif %}

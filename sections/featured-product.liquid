@@ -169,16 +169,16 @@
                   {% elsif request.host == 'shop.kardiamobile.ca' %}
                     <span id="KardiaCareProductPrice" class="noFloat">$13 Monthly Plan</span>
                   {% else %}
-                    <span id="KardiaCareProductPrice" class="noFloat">$ 9.99 Monthly Plan</span>
+                    <span id="KardiaCareProductPrice" class="noFloat">$9.99 Monthly Plan</span>
                   {% endif %}
                 {% elsif product.handle == 'kardiamobile' %}
-                  Starting at $ 78.99
+                  Starting at $78.99
                 {% elsif product.handle == 'kardiamobile6l' %}
-                  Starting at $ 98.99
+                  Starting at $98.99
                 {% elsif product.handle == 'kardiamobile-card' %}
-                  {{ product.price | plus: 9900 | money }}
+                  ${{ product.price | plus: 9900 | money_without_currency }}
                 {% else %}
-                  {{ product.price | money }}
+                  ${{ product.price | money_without_currency }}
                 {% endif %}
                 </span>
               {% endif %}
