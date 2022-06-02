@@ -22,7 +22,9 @@
 
                 <div class="mt-s8 flex items-stretch divide-x-2 divide-black-400 -mx-s4">
 									<p class="m-0 px-s4 font-dm">$9.99/month</p>
-									<p class="m-0 px-s4 font-dm">$99/year</p>
+									{% if product.handle != "kardiamobile-card" %}
+                                        <p class="m-0 px-s4 font-dm">$99/year</p>
+                                    {% endif %}
 								</div>
             </div>
             <div class="mt-s8 border-t-2 border-primary-75">

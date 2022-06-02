@@ -898,16 +898,15 @@ function addToCartKardiaCareDeviceBundle(event, form, device) {
 //     })
 //   }
 
-console.log(items)
-  // $.ajax({
-  //   type: 'POST',
-  //   url: '/cart/add.js',
-  //   data: { items: items },
-  //   dataType: 'json',
-  //   success: function() {
-  //     window.location.href = '/cart';
-  //   }
-  // });
+  $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: { items: items },
+    dataType: 'json',
+    success: function() {
+      window.location.href = '/cart';
+    }
+  });
 }
 
 function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
