@@ -190,25 +190,30 @@
         {% endif %}
       </div>
       <div class="flex-items-bundle">
-        <button
-          type="submit"
-          name="add"
-          id="{{product.id}}AddToCart1"
-          class="btn mt-s6 addToCart"
-          {% if sold_out %}
-            disabled
-          {% endif %}
-         >
-          <span id="AddToCartText">
-          {% if sold_out %}
-          {{ 'products.product.sold_out' | t }}
-          {% elsif preorder %}
-          {{ 'products.product.preorder' | t }}
-          {% else %}
-          {{ 'products.product.add_to_cart' | t }}
-          {% endif %}
-          </span>
-        </button>
+          <div class="flex justify-between">
+            <button
+            type="submit"
+            name="add"
+            id="{{product.id}}AddToCart1"
+            class="btn mt-s6 addToCart"
+            {% if sold_out %}
+                disabled
+            {% endif %}
+            >
+            <span id="AddToCartText">
+            {% if sold_out %}
+            {{ 'products.product.sold_out' | t }}
+            {% elsif preorder %}
+            {{ 'products.product.preorder' | t }}
+            {% else %}
+            {{ 'products.product.add_to_cart' | t }}
+            {% endif %}
+            </span>
+            </button>
+            {% if page_title != "Personal EKG Devices by AliveCor" %}
+                <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+            {% endif %}
+        </div>
       </div>
       <div style="clear: both;"></div>
     </form>

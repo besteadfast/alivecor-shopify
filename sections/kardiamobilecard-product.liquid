@@ -232,6 +232,11 @@
               {{ product.title | escape }}
             </h1>
           {%- when 'price' -%}
+            <div class="bundle-price-display mb-0">
+              <span id="ProductPrice" class="h2Price noFloat red">
+                $<span id="kc-card-price">{{ product.price | plus: 9000 | money_without_currency }}</span>
+            </div>
+            {% comment %}
             <div class="font-dm !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large', add_price: true, add_price_amount: 9900 -%}
             </div>
@@ -251,6 +256,7 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
+            {% endcomment %}
           {%- when 'description' -%}
             {%- if product.description != blank -%}
               <div class="product__description rte">

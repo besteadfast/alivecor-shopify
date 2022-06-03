@@ -229,8 +229,13 @@
               {{ product.title | escape }}
             </h1>
 
-        {% comment %}
+
           {%- when 'price' -%}
+                      <div class="bundle-price-display mb-0">
+              <span id="ProductPrice" class="h2Price noFloat red">
+                $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+            </div>
+            {% comment %}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
             </div>
@@ -482,17 +487,7 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
-        <div class="mt-s8 mb-s6 pt-s6">
-            <p>The world’s most clinically validated personal EKG.</p>
-            <p class="faux-p-sm">Check in on your heart from home with KardiaMobile, our single-lead personal EKG. KardiaMobile is FDA-cleared and records medical-grade EKGs right on your phone.</p>
-        </div>
-        <ul class="mt-s8">
-          <li>Record a medical-grade EKG from home</li>
-          <li>Download and email your EKGs to your doctor</li>
-          <li>FDA-cleared to detect AFib and more</li>
-          <li>#1 doctor-recommended personal EKG</li>
-        </ul>
-				<p class="faux-p-xs">KardiaMobile is not tested or recommended for use with pacemakers and ICDs. KardiaMobile does not check for heart attack.</p>
+        {{ product.description }} 
       </div>
     </div>
   </div>

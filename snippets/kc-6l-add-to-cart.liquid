@@ -186,25 +186,30 @@
         <span class="strikeout totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
       </div>
       {% endcomment %}
-      <button
-        type="submit"
-        name="add"
-        id="{{product.id}}AddToCart1"
-        class="mt-s5 btn addToCart"
-        {% if sold_out %}
-          disabled
+      <div class="flex justify-between">
+        <button
+          type="submit"
+          name="add"
+          id="{{product.id}}AddToCart1"
+          class="mt-s5 btn addToCart"
+          {% if sold_out %}
+            disabled
+          {% endif %}
+        >
+          <span id="AddToCartText">
+          {% if sold_out %}
+          {{ 'products.product.sold_out' | t }}
+          {% elsif preorder %}
+          {{ 'products.product.preorder' | t }}
+          {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+          </span>
+        </button>
+        {% if page_title != "Personal EKG Devices by AliveCor" %}
+          <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
         {% endif %}
-       >
-        <span id="AddToCartText">
-        {% if sold_out %}
-        {{ 'products.product.sold_out' | t }}
-        {% elsif preorder %}
-        {{ 'products.product.preorder' | t }}
-        {% else %}
-        {{ 'products.product.add_to_cart' | t }}
-        {% endif %}
-        </span>
-      </button>
+      </div>
     </div>
     <div style="clear: both;"></div>
   </form>

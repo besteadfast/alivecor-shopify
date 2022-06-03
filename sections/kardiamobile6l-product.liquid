@@ -227,7 +227,7 @@
               {{ product.title | escape }}
             </h1>
           {%- when 'text' -%}
-            <p class="product__text !mt-s5 subtitle">Includes KardiaCare membership</p>
+            <p class="product__text !mt-s5 subtitle">{{- block.settings.text -}}</p>
 
           {%- when 'price' -%}
             <div class="bundle-price-display ">
@@ -531,7 +531,7 @@
 							<li>FDA-cleared, clinically approved, medical-grade EKG recordings.</li>
 							<li>Works with most smartphones and tablets. (Android & iOS)</li>
 					</ul>
-					<p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack</p>
+					<p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack.</p>
 				</div>
       </div>
     </div>

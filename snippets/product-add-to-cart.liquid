@@ -19,7 +19,7 @@
         background-color: var(--primary-700);
     }
 
-    input[type="radio"] + label{
+    input[type="radio"] + span{
         opacity:.5;
         transition: 120ms opacity ease-in-out;
     }
@@ -28,7 +28,7 @@
         transform: scale(1);
     }
 
-    input[type="radio"]:checked + label{
+    input[type="radio"]:checked + span{
         color: var(--primary-700);
         opacity:1;
     }
@@ -44,7 +44,7 @@
   {% endcomment %}
     <div class="variant-title">
       {%- for option in product.options_with_values -%}
-        <span>{{ option.name | escape }}</span>
+        <span class="block faux-p product__text subtitle font-bold mb-s4">Choose a {{ option.name | escape | downcase }}:</span>
       {%- endfor -%}
     </div>
     {% assign has_checked = true %}
@@ -54,23 +54,23 @@
     {% for variant in product.variants %}
       {% if variant.available %}
         {% assign add_price = variant.price | minus: product.price %}
-        <div class="variant-input-wrapper">
-          <input type="radio"
-             id="{{variant.id}}"
-             name="id" data-productid="{{ product.id }}"
-             data-sku="{{variant.sku}}"
-             value="{{variant.id}}"
-             class="variant-input appearance-none"
-             data-index="{{forloop.index0}}"
-             data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
-             data-img-alt="{{variant.featured_image.alt}}"
-             {% if has_checked == false or product.selected_variant.id == variant.id %}
-               checked="true"
-               {% assign has_checked = true %}
-             {% endif %}
-             >
-          <label for="{{variant.id}}" class="form-control faux-p inline-block">
-            {{variant.title}}
+        <div class="form-radio">
+          <label for="{{variant.id}}" class="faux-p">
+            <input type="radio"
+            id="{{variant.id}}"
+            name="id" data-productid="{{ product.id }}"
+            data-sku="{{variant.sku}}"
+            value="{{variant.id}}"
+            class="variant-input appearance-none"
+            data-index="{{forloop.index0}}"
+            data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+            data-img-alt="{{variant.featured_image.alt}}"
+            {% if has_checked == false or product.selected_variant.id == variant.id %}
+              checked="true"
+              {% assign has_checked = true %}
+            {% endif %}
+            >
+            <span>{{variant.title}}</span>
             {% if add_price > 0 %}
             &nbsp;(add {{add_price | money_with_currency}})
             {% endif %}
@@ -109,8 +109,8 @@
   <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
   {% endcomment %}
-
-  <button type="submit" name="add" id="{{product.id}}AddToCart1" class="btn addToCart" {% if sold_out %}disabled{% endif %}>
+  <div class="flex justify-between pb-s8 mb-s8 border-b-2 border-primary-75">
+  <button type="submit" name="add" id="{{product.id}}AddToCart1" class="btn addToCart mt-s5" {% if sold_out %}disabled{% endif %}>
     <span id="AddToCartText">
     {% if sold_out %}
     {{ 'products.product.sold_out' | t }}
@@ -121,6 +121,9 @@
     {% endif %}
     </span>
   </button>
+  <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+
+  </div>
   {% if product.handle == 'kardiamobile' and shop.currency == 'GBP' and sold_out %}
   <a href="https://www.amazon.co.uk/Kardia-Mobile-AliveCor-Black-0-6oz/dp/B01A4W8AUK/" class="btn amazon-sold-out" target="_blank">
     Buy From Amazon

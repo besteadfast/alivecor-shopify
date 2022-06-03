@@ -101,12 +101,9 @@
           {% endif %}
 
           {% if selectorType == 'radio' %}
-					<p class="faux-p product__text subtitle">
-						Our one-of-a-kind heart health membership.
-					</p>
 
           <fieldset class="plan-selector">
-						<legend class="block faux-p product__text subtitle pt-s7 mb-s6 font-bold">
+						<legend class="block faux-p product__text subtitle mb-s6 font-bold">
             	Pick your plan:
 						</legend>
             {% comment %} <div class="form-radio">
@@ -260,8 +257,8 @@
       <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
       <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
       {% endcomment %}
-
-      <button
+      <div class="flex justify-between">
+        <button
         type="submit"
         name="add"
         id="{{product.id}}AddToCart1"
@@ -275,7 +272,7 @@
           data-label="Cart"
         {% endif %}
        >
-        <span id="AddToCartText">
+       <span id="AddToCartText">
         {% if sold_out %}
         {{ 'products.product.sold_out' | t }}
         {% elsif preorder %}
@@ -285,4 +282,7 @@
         {% endif %}
         </span>
       </button>
+       <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+      </div>
+
     </form>

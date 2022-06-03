@@ -236,7 +236,7 @@
               {{ product.title | escape }}
             </h1>
 						<p class="product__text !mt-s5 subtitle" {{ block.shopify_attributes }}>
-              Our one-of-a-kind heart health membership.
+              Our one-of-a-kind heart health membership
             </p>
 
           {%- when 'price' -%}
@@ -469,6 +469,7 @@
             <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
           {% endcomment %}
           {%- when 'rating' -%}
+          {% comment %}
             {%- if product.metafields.reviews.rating.value != blank -%}
               {% liquid
                assign rating_decimal = 0
@@ -490,6 +491,7 @@
                 <span class="visually-hidden">{{ product.metafields.reviews.rating_count }} {{ "accessibility.total_reviews" | t }}</span>
               </p>
             {%- endif -%}
+            {% endcomment %}
           {%- endcase -%}
         {%- endfor -%}
         <div class="border-t-2 pt-s8 mt-s8 border-primary-75">
