@@ -77,10 +77,15 @@
       "type": "product-recommendations",
       "settings": {
       }
+    },
+    "additional-info":{
+      "type": "additional-info-default"
     }
   },
   "order": [
     "main",
+    "additional-info",
     "product-recommendations"
+
   ]
 }

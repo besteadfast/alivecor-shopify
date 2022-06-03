@@ -80,7 +80,9 @@
             {%- if product.selected_or_first_available_variant.featured_media != null -%}
               {%- assign media = product.selected_or_first_available_variant.featured_media -%}
               <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
-                {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
+                <a href="{{product.url}}">
+                  {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
+                </a>
               </div>
             {%- endif -%}
             {%- liquid
@@ -92,7 +94,10 @@
             {%- for media in product.media -%}
               {%- if media_to_render contains media.id and media.id != product.selected_or_first_available_variant.featured_media.id -%}
                 <div class="product__media-item" data-media-id="{{ section.id }}-{{ media.id }}">
-                  {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
+                  <a href="{{product.url}}">
+                    {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: false, media_width: 0.5 %}
+
+                  </a>
                 </div>
               {%- endif -%}
             {%- endfor -%}
@@ -127,11 +132,13 @@
               </p>
             {%- when 'title' -%}
               <h2 class="faux-{{ block.settings.heading_size }} faux-h2 text-primary-500 col-span-2" {{ block.shopify_attributes }}>
-                {%- if product.title != blank -%}
+                <a href="{{product.url}}">
+                  {%- if product.title != blank -%}
                   {{ product.title | escape }}
-                {%- else -%}
-                  {{ 'onboarding.product_title' | t }}
-                {%- endif -%}
+                  {%- else -%}
+                    {{ 'onboarding.product_title' | t }}
+                  {%- endif -%}
+                </a>
               </h2>
             {%- when 'price' -%}
             <div class="mt-s7 mb-s3 col-span-2">
