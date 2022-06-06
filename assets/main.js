@@ -681,7 +681,7 @@ $(document).ready(function() {
     if (saleAmount) {
       productPriceDisplay.html((totalPrice - saleAmount).toFixed(2));
       if (showSale) {
-        $('.bundle-price-display #ProductPrice').addClass('red');
+        $('.bundle-price-display #ProductPrice').addClass('green');
         if ($('.totalBundlePrice').length === 0) {
           $('<span class="strikeout totalBundlePrice">$' + totalPrice +'</span>').insertAfter('.bundle-price-display #ProductPrice');
         } else {
@@ -689,7 +689,7 @@ $(document).ready(function() {
         }
       }
     } else {
-      $('.bundle-price-display #ProductPrice').removeClass('red');
+      $('.bundle-price-display #ProductPrice').removeClass('green');
       productPriceDisplay.html(totalPrice);
       if ($('.totalBundlePrice').length > 0) {
         $('.totalBundlePrice').remove();

@@ -261,17 +261,17 @@
             <td class="price-cell px-s8 py-s5" data-label="{{ 'cart.label.price' | t }}">
               <span class="h4Price price faux-p font-dm">
                 {% if item.variant.compare_at_price > item.variant.price %}
-                  <span class="red">
+                  <span class="green">
                     ${{ item.price | money_without_currency }}
                   </span>
-                  <span class="line-through">
+                  <span class="line-through old-price">
                     ${{ item.variant.compare_at_price | money_without_currency }}
                   </span>
                 {% elsif item.total_discount > 0 %}
-                  <span class="red">
+                  <span class="green">
                     ${{ item.price | money_without_currency }}
                   </span>
-                  <span class="line-through">
+                  <span class="line-through old-price">
                     ${{ item.original_price | money_without_currency }}
                   </span>
                 {% else %}
@@ -287,12 +287,12 @@
               {% endif %}
             </td>
             <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s5 text-right">
-              <span class="faux-p font-dm  break-inside-avoid">
+              <span class="faux-p font-dm break-inside-avoid">
                 ${{ item.line_price | money_without_currency }}
               </span>
               {% if item.total_discount > 0 %}
                 <div class="discount_message">
-                <s class="line-through">${{ item.original_line_price | money_without_currency }}</s>
+                <s class="line-through old-price">${{ item.original_line_price | money_without_currency }}</s>
                 ({{ item.message }})
                 </div>
               {% endif %}
@@ -315,7 +315,7 @@
             {% if km_in_cart and kcare_in_cart_1_2_year %}
               <p class="cart-totals mt-s5">
                 <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right">$29.00</span>
+                <span class="right font-dm">$29.00</span>
               </p>
               <p class="cart-totals mt-s5">
                 <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
@@ -324,7 +324,7 @@
             {% elsif kcare_in_cart_1_2_year %}
               <p class="cart-totals mt-s5">
                 <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right">$9.00</span>
+                <span class="right font-dm">$9.00</span>
               </p>
               <p class="cart-totals mt-s5">
                 <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
@@ -333,11 +333,11 @@
             {% else %}
               <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right">$10.00</span>
+                <span class="right font-dm">$10.00</span>
               </p>
                <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                  <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
+                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
               </p>
             {% endif %}
           {% else %}
@@ -394,15 +394,22 @@
     The cart is empty
   {% endcomment %}
   <div class="wrapper">
-    <div class="cart-title empty">
-    <h2>Shopping Cart</h2>
+    <div class="cart-header px-s8 bg-primary-75">
+      <div class="wrapper flex items-center justify-between max-w-content mx-auto py-s9">
+        <div class="cart-title">
+          <h2 class="cart faux-h3">Shopping Cart</h2>
+        </div>
+        {% if shop.locale == 'en' %}
+          {% include 'benefit-icons-cart' %}
+        {% endif %}
+      </div>
     </div>
-    <p>Your cart is currently empty</p>
-    <p>
-      <a href="/" class="btn back-to-store">
-        Shop AliveCor now
-      </a>
-    </p>
+    <div class="cart-title empty py-s13 w-max mx-auto text-center">
+    <h2 >Your cart is empty.</h2>
+    <a href="/" class="btn back-to-store mt-s7">
+      Shop Now
+    </a>
+    </div>
   </div>
 {% endif %}
 

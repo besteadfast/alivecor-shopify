@@ -233,8 +233,8 @@
             </h1>
           {%- when 'price' -%}
             <div class="bundle-price-display mb-0">
-              <span id="ProductPrice" class="h2Price noFloat red">
-                $<span id="kc-card-price">{{ product.price | plus: 9000 | money_without_currency }}</span>
+              <span id="ProductPrice" class="h2Price noFloat">
+                $<span id="kc-card-price">{{ product.price | plus: 9900 | money_without_currency }}</span>
             </div>
             {% comment %}
             <div class="font-dm !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

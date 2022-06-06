@@ -231,9 +231,9 @@
 
           {%- when 'price' -%}
             <div class="bundle-price-display ">
-              <span id="ProductPrice" class="h2Price noFloat red">
+              <span id="ProductPrice" class="h2Price noFloat green">
                 $<span id="kc-6l-price">{{ product.price | minus: 1 | money_without_currency }}</span>
-              </span><span class="line-through totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+              </span><span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
             </div>
             {% comment %}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

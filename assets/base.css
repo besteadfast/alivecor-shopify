@@ -2925,3 +2925,17 @@ html, body {
 	border: none;
 	/* border: 2px solid red; */
 }
+
+.green{
+  color: #598C47;
+}
+
+.old-price{
+  opacity: .75;
+  font-size: .8em;
+  margin-left: 6px;
+}
+
+.header-font{
+  font-family: DM Sans, sans-serif;
+}
