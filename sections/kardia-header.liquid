@@ -1,9 +1,25 @@
 {% schema %}
-  {
+
+{
     "name": "Kardia Header",
     "settings": []
-  }
+}
+
 {% endschema %}
+
+{% style %}
+
+.btn span{
+    transition-duration: .5s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.btn:hover span{
+	transform:translateX(-2px)
+}
+
+{% endstyle %}
 
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
@@ -11,14 +27,107 @@
 
 
 <div class="grid grid-main">
-	<header class="main-header"><div class="header__int"><a href="https://kardia.steadfa.st/" aria-label="return home" class="header-logo"><svg role="presentation" viewBox="0 0 198 56"><g fill="none"><path fill="#6386C4" d="M29.764 32.092h6.328s-2.448-6.272-5.86-14.17c-3.411-7.898-5.624-12.776-5.624-12.776-.938-2.323-1.875-3.392-2.812-3.95L19.074 6.54a579.912 579.912 0 0 1 3.893 8.827c3.047 7.085 6.797 16.725 6.797 16.725Z"></path><path fill="#95AEDA" d="M8.671 32.092H2.344s2.447-6.272 5.859-14.17a854.857 854.857 0 0 1 5.624-12.776c.938-2.323 1.875-3.392 2.813-3.95 1.171-.928 3.75-.928 5.156 0 0 0-3.281 7.086-6.328 14.17C12.42 22.453 8.67 32.093 8.67 32.093Z"></path><path fill="#164F8C" d="M2.344 32.092 0 38.132h6.562l2.11-6.04H2.343ZM36.092 32.092l2.343 6.04h-6.562l-2.11-6.04h6.329Z"></path><path fill="#6386C4" d="M71.377 12.698h-5.121l-12.05 13.484V12.698h-4.124v25.38h4.125v-6.435l3.837-4.248L66.55 38.01l.06.067h5.092L60.749 24.4l10.628-11.701ZM90.187 12.698H84.34l-9.579 25.38h4.253l2.16-5.731h12.027l2.123 5.715h4.252l-9.344-25.237-.045-.127ZM91.909 28.6h-9.435l4.767-12.6 4.668 12.6ZM125.162 20.998a8.183 8.183 0 0 0-.627-3.202 8.236 8.236 0 0 0-1.83-2.71 8.33 8.33 0 0 0-2.748-1.793 8.37 8.37 0 0 0-3.233-.595h-11.029v25.38h4.087v-9.072h5.65l5.726 9.071h4.48l-6.043-9.58a7.84 7.84 0 0 0 4.04-2.832 7.731 7.731 0 0 0 1.527-4.667Zm-3.981-.113c0 2.645-1.949 4.495-4.744 4.495h-6.655v-8.99h6.942a4.302 4.302 0 0 1 3.233 1.268c.419.424.745.93.956 1.486.211.555.302 1.149.268 1.741ZM140.625 12.66h-8.868v25.47h8.868a13.27 13.27 0 0 0 5.104-.931c1.623-.643 3.1-1.6 4.346-2.815a12.456 12.456 0 0 0 2.733-4.13c.624-1.544.93-3.196.901-4.859 0-1.693-.34-3.369-1.001-4.93a12.726 12.726 0 0 0-2.846-4.16 12.85 12.85 0 0 0-4.248-2.745 12.937 12.937 0 0 0-4.989-.9Zm0 21.612h-4.744V16.503h4.744c2.376 0 4.655.936 6.335 2.602a8.847 8.847 0 0 1 2.624 6.282 8.847 8.847 0 0 1-2.624 6.283 8.997 8.997 0 0 1-6.335 2.602ZM163.808 12.698h-3.981v25.38h3.981v-25.38ZM185.33 12.825l-.046-.127h-5.846l-9.579 25.38h4.253l2.161-5.716h12.026l2.122 5.715h4.261l-9.352-25.252Zm1.677 15.806h-9.435l4.766-12.6 4.669 12.6ZM192.166 12.982h-.801v-.284h1.957v.284h-.808v2.338h-.348v-2.338ZM195.837 14.166c0-.367-.037-.802-.037-1.131-.091.307-.204.636-.333.996l-.468 1.274h-.257l-.43-1.252a10.633 10.633 0 0 1-.303-1.018c0 .33 0 .749-.053 1.16l-.075 1.124h-.325l.189-2.621h.446l.453 1.266c.105.289.193.584.264.884.068-.263.159-.555.28-.884l.468-1.266h.438l.159 2.621h-.332l-.084-1.153Z"></path><path fill="#195C5D" d="M110.647 53.655v-5.681h.838v2.018c.177-.224.408-.406.673-.528.265-.122.556-.182.85-.175.613.01 1.198.25 1.627.67.43.419.671.983.671 1.57a2.157 2.157 0 0 1-.636 1.553 2.347 2.347 0 0 1-1.59.68 2.016 2.016 0 0 1-.887-.176 1.927 1.927 0 0 1-.708-.542v.611h-.838Zm3.837-2.126a1.4 1.4 0 0 0-.082-.587 1.439 1.439 0 0 0-.32-.507 1.517 1.517 0 0 0-.504-.343 1.574 1.574 0 0 0-1.211 0 1.52 1.52 0 0 0-.505.343 1.45 1.45 0 0 0-.319.507 1.4 1.4 0 0 0-.082.587c-.015.2.013.4.082.588.069.188.178.361.319.507.142.146.314.263.505.343a1.572 1.572 0 0 0 1.211 0c.191-.08.362-.197.504-.343.142-.146.251-.319.32-.507a1.4 1.4 0 0 0 .082-.588ZM116.837 55.5l.677-1.931-1.625-4.101h.874l1.163 3.137 1.165-3.14h.872l-2.328 6.035h-.798ZM134.034 51.901c-.244-.593-.519-1.213-.805-1.899-.285-.686-.584-1.339-.872-1.974-.288-.636-.602-1.322-.898-1.96a1.558 1.558 0 0 0-.519-.673 1.29 1.29 0 0 0-1.35 0 1.572 1.572 0 0 0-.519.673 201.772 201.772 0 0 0-1.771 3.934c-.301.693-.558 1.306-.804 1.9a73.566 73.566 0 0 0-.694 1.724l-.015.042h1.557v-.025a58.739 58.739 0 0 1 .745-1.902l.016-.042c.164-.406.859-2.082.994-2.395.135-.313.278-.643.421-.959.143-.315.275-.613.407-.895.133-.283.231-.501.33-.696.101.208.21.44.33.696.119.255.259.582.407.895.148.313.283.639.421.959.137.32.831 2.002.994 2.395l.018.042c.156.383.286.703.395.981.143.366.26.673.35.921v.025h1.558l-.016-.042a39.19 39.19 0 0 0-.68-1.725ZM138.247 45.2h-1.401v8.468h5.693v-1.271h-4.292V45.2ZM146.009 45.2h-1.365v8.468h1.365V45.2ZM152.221 52.404 149.6 45.24l-.016-.04h-1.475l3.103 8.468h2.006l3.095-8.386.031-.082h-1.449l-2.674 7.204ZM158.444 53.668h6.238v-1.271h-4.834v-2.342h4.341V48.81h-4.341v-2.343h4.834V45.2h-6.238v8.468ZM171.193 46.383h.021a2.962 2.962 0 0 1 1.595.46c.473.3.844.729 1.065 1.232l.024.048 1.35-.368-.032-.065a4.248 4.248 0 0 0-1.735-1.979 4.492 4.492 0 0 0-2.61-.621 4.542 4.542 0 0 0-2.714 1.172 4.25 4.25 0 0 0-1.195 4.399 4.35 4.35 0 0 0 .926 1.618c.416.455.927.82 1.501 1.069.573.249 1.195.377 1.825.375a4.412 4.412 0 0 0 2.407-.704 4.18 4.18 0 0 0 1.585-1.883l.029-.065-1.363-.356-.021.048a2.73 2.73 0 0 1-1.055 1.219 2.878 2.878 0 0 1-1.582.437c-1.732 0-3.038-1.296-3.038-3.003a2.982 2.982 0 0 1 .228-1.192c.157-.38.391-.724.689-1.015a2.96 2.96 0 0 1 .964-.615c.36-.142.746-.213 1.136-.21ZM181.79 45.115a4.605 4.605 0 0 0-2.504.71 4.37 4.37 0 0 0-1.671 1.932c-.345.79-.44 1.66-.271 2.502a4.27 4.27 0 0 0 1.218 2.224 4.54 4.54 0 0 0 2.297 1.194c.871.17 1.776.087 2.598-.24a4.451 4.451 0 0 0 2.019-1.593 4.214 4.214 0 0 0-.538-5.453 4.557 4.557 0 0 0-3.148-1.276Zm3.026 4.322c0 1.704-1.329 3.038-3.026 3.038a3.043 3.043 0 0 1-1.224-.245 2.953 2.953 0 0 1-1.009-.711 3.129 3.129 0 0 1-.663-1.153 3.056 3.056 0 0 1-.116-1.312 2.968 2.968 0 0 1 .989-1.884 3.176 3.176 0 0 1 2.03-.792h.047c1.667.033 2.972 1.377 2.972 3.059ZM194.992 47.967a2.651 2.651 0 0 0-.216-1.066 2.756 2.756 0 0 0-.628-.903 2.875 2.875 0 0 0-.942-.598 2.95 2.95 0 0 0-1.108-.2h-3.788v8.468h1.415V50.64h1.939l1.966 3.028h1.536l-2.076-3.198a2.69 2.69 0 0 0 1.382-.947c.343-.45.526-.996.52-1.556Zm-1.373-.032c0 .883-.67 1.501-1.627 1.501h-2.267v-3.003h2.383c.204-.005.407.03.596.105.189.074.359.186.501.327.142.14.253.309.324.493.071.184.102.38.09.577ZM197.07 47.053c.518 0 .929-.406.929-.889v-.005c0-.482-.406-.883-.929-.883-.517 0-.928.406-.928.888v.006c0 .482.405.883.928.883Zm0-.097c-.469 0-.822-.355-.822-.786v-.006c0-.43.358-.791.822-.791.47 0 .822.355.822.786v.005a.805.805 0 0 1-.822.792Zm-.347-.365h.15v-.325h.224l.235.325h.186l-.261-.345c.128-.036.229-.122.229-.27 0-.177-.154-.273-.346-.273h-.417v.888Zm.15-.442v-.32h.251c.128 0 .208.051.208.158 0 .096-.075.162-.208.162h-.251Z"></path></g></svg></a> <div class="h-full"><nav class="header__nav-container"><div body-scroll-lock-ignore="" class="header__nav-container-int"><ul class="nav-primary list-none"><li class="menu__item level--1 has-dropdown"><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--1 is-active">Products</a><div class="submenu-items-wrapper"><div class="submenu-items-wrapper-int"><ul class="submenu-items level--1 list-none"><li class="menu__item level--2  "><a href="/products/kardiamobile-card" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 ">KardiaMobile Card</a></li><li class="menu__item level--2  "><a href="/products/kardiamobile6l" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 ">KardiaMobile 6L</a></li><li class="menu__item level--2  "><a href="/products/kardiamobile" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 ">KardiaMobile</a></li><li class="menu__item level--2 last-item "><a href="/products/kardiacare" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 ">KardiaCare</a></li></ul></div></div><button aria-label="toggle submenu" aria-controls="collapse2" class="submenu-btn to-lg:hidden"><svg class="share__icon w-icon-24 h-icon-24" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="currentColor" id="icon-definition"><path d="M16 10l-4 4-4-4" stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" stroke-miterlimit="10"/></svg></button></li><li class="menu__item level--1  "><a href="https://kardia.steadfa.st/articles" rel="noopener" target="" class="menu__link flex items-center relative link-level--1 ">Articles</a></li><li class="menu__item level--1 has-dropdown"><a rel="noopener" target="" class="menu__link flex items-center relative link-level--1 ">Professionals</a><div class="submenu-items-wrapper"><div class="submenu-items-wrapper-int"><ul class="submenu-items level--1 list-none"><li class="menu__item level--2  "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">For Healthcare Professionals</a></li><li class="menu__item level--2  "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">For Health Systems</a></li><li class="menu__item level--2  "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">For BioPharma</a></li><li class="menu__item level--2  "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">For Payers &amp; Employers</a></li><li class="menu__item level--2  "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">Data Integration Options</a></li><li class="menu__item level--2 last-item "><a href="/" rel="noopener" target="" class="menu__link flex items-center relative link-level--2 is-active">For OEMs</a></li></ul></div></div><button aria-label="toggle submenu" aria-controls="collapse4" class="submenu-btn to-lg:hidden"><svg class="share__icon w-icon-24 h-icon-24" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="currentColor" id="icon-definition"><path d="M16 10l-4 4-4-4" stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" stroke-miterlimit="10"/></svg></button></li><li class="menu__item level--1  "><a href="https://alivecor.zendesk.com/hc/en-us" rel="noopener" target="_blank" class="menu__link flex items-center relative link-level--1 ">Support</a></li>
+    <header class="main-header">
+        <div class="header__int">
+            <a aria-label="return home" class="header-logo" href="https://kardia.steadfa.st/">
+                <svg role="presentation" viewbox="0 0 198 56">
+                    <g fill="none">
+                        <path d="M29.764 32.092h6.328s-2.448-6.272-5.86-14.17c-3.411-7.898-5.624-12.776-5.624-12.776-.938-2.323-1.875-3.392-2.812-3.95L19.074 6.54a579.912 579.912 0 0 1 3.893 8.827c3.047 7.085 6.797 16.725 6.797 16.725Z" fill="#6386C4"></path>
+                        <path d="M8.671 32.092H2.344s2.447-6.272 5.859-14.17a854.857 854.857 0 0 1 5.624-12.776c.938-2.323 1.875-3.392 2.813-3.95 1.171-.928 3.75-.928 5.156 0 0 0-3.281 7.086-6.328 14.17C12.42 22.453 8.67 32.093 8.67 32.093Z" fill="#95AEDA"></path>
+                        <path d="M2.344 32.092 0 38.132h6.562l2.11-6.04H2.343ZM36.092 32.092l2.343 6.04h-6.562l-2.11-6.04h6.329Z" fill="#164F8C"></path>
+                        <path d="M71.377 12.698h-5.121l-12.05 13.484V12.698h-4.124v25.38h4.125v-6.435l3.837-4.248L66.55 38.01l.06.067h5.092L60.749 24.4l10.628-11.701ZM90.187 12.698H84.34l-9.579 25.38h4.253l2.16-5.731h12.027l2.123 5.715h4.252l-9.344-25.237-.045-.127ZM91.909 28.6h-9.435l4.767-12.6 4.668 12.6ZM125.162 20.998a8.183 8.183 0 0 0-.627-3.202 8.236 8.236 0 0 0-1.83-2.71 8.33 8.33 0 0 0-2.748-1.793 8.37 8.37 0 0 0-3.233-.595h-11.029v25.38h4.087v-9.072h5.65l5.726 9.071h4.48l-6.043-9.58a7.84 7.84 0 0 0 4.04-2.832 7.731 7.731 0 0 0 1.527-4.667Zm-3.981-.113c0 2.645-1.949 4.495-4.744 4.495h-6.655v-8.99h6.942a4.302 4.302 0 0 1 3.233 1.268c.419.424.745.93.956 1.486.211.555.302 1.149.268 1.741ZM140.625 12.66h-8.868v25.47h8.868a13.27 13.27 0 0 0 5.104-.931c1.623-.643 3.1-1.6 4.346-2.815a12.456 12.456 0 0 0 2.733-4.13c.624-1.544.93-3.196.901-4.859 0-1.693-.34-3.369-1.001-4.93a12.726 12.726 0 0 0-2.846-4.16 12.85 12.85 0 0 0-4.248-2.745 12.937 12.937 0 0 0-4.989-.9Zm0 21.612h-4.744V16.503h4.744c2.376 0 4.655.936 6.335 2.602a8.847 8.847 0 0 1 2.624 6.282 8.847 8.847 0 0 1-2.624 6.283 8.997 8.997 0 0 1-6.335 2.602ZM163.808 12.698h-3.981v25.38h3.981v-25.38ZM185.33 12.825l-.046-.127h-5.846l-9.579 25.38h4.253l2.161-5.716h12.026l2.122 5.715h4.261l-9.352-25.252Zm1.677 15.806h-9.435l4.766-12.6 4.669 12.6ZM192.166 12.982h-.801v-.284h1.957v.284h-.808v2.338h-.348v-2.338ZM195.837 14.166c0-.367-.037-.802-.037-1.131-.091.307-.204.636-.333.996l-.468 1.274h-.257l-.43-1.252a10.633 10.633 0 0 1-.303-1.018c0 .33 0 .749-.053 1.16l-.075 1.124h-.325l.189-2.621h.446l.453 1.266c.105.289.193.584.264.884.068-.263.159-.555.28-.884l.468-1.266h.438l.159 2.621h-.332l-.084-1.153Z" fill="#6386C4"></path>
+                        <path d="M110.647 53.655v-5.681h.838v2.018c.177-.224.408-.406.673-.528.265-.122.556-.182.85-.175.613.01 1.198.25 1.627.67.43.419.671.983.671 1.57a2.157 2.157 0 0 1-.636 1.553 2.347 2.347 0 0 1-1.59.68 2.016 2.016 0 0 1-.887-.176 1.927 1.927 0 0 1-.708-.542v.611h-.838Zm3.837-2.126a1.4 1.4 0 0 0-.082-.587 1.439 1.439 0 0 0-.32-.507 1.517 1.517 0 0 0-.504-.343 1.574 1.574 0 0 0-1.211 0 1.52 1.52 0 0 0-.505.343 1.45 1.45 0 0 0-.319.507 1.4 1.4 0 0 0-.082.587c-.015.2.013.4.082.588.069.188.178.361.319.507.142.146.314.263.505.343a1.572 1.572 0 0 0 1.211 0c.191-.08.362-.197.504-.343.142-.146.251-.319.32-.507a1.4 1.4 0 0 0 .082-.588ZM116.837 55.5l.677-1.931-1.625-4.101h.874l1.163 3.137 1.165-3.14h.872l-2.328 6.035h-.798ZM134.034 51.901c-.244-.593-.519-1.213-.805-1.899-.285-.686-.584-1.339-.872-1.974-.288-.636-.602-1.322-.898-1.96a1.558 1.558 0 0 0-.519-.673 1.29 1.29 0 0 0-1.35 0 1.572 1.572 0 0 0-.519.673 201.772 201.772 0 0 0-1.771 3.934c-.301.693-.558 1.306-.804 1.9a73.566 73.566 0 0 0-.694 1.724l-.015.042h1.557v-.025a58.739 58.739 0 0 1 .745-1.902l.016-.042c.164-.406.859-2.082.994-2.395.135-.313.278-.643.421-.959.143-.315.275-.613.407-.895.133-.283.231-.501.33-.696.101.208.21.44.33.696.119.255.259.582.407.895.148.313.283.639.421.959.137.32.831 2.002.994 2.395l.018.042c.156.383.286.703.395.981.143.366.26.673.35.921v.025h1.558l-.016-.042a39.19 39.19 0 0 0-.68-1.725ZM138.247 45.2h-1.401v8.468h5.693v-1.271h-4.292V45.2ZM146.009 45.2h-1.365v8.468h1.365V45.2ZM152.221 52.404 149.6 45.24l-.016-.04h-1.475l3.103 8.468h2.006l3.095-8.386.031-.082h-1.449l-2.674 7.204ZM158.444 53.668h6.238v-1.271h-4.834v-2.342h4.341V48.81h-4.341v-2.343h4.834V45.2h-6.238v8.468ZM171.193 46.383h.021a2.962 2.962 0 0 1 1.595.46c.473.3.844.729 1.065 1.232l.024.048 1.35-.368-.032-.065a4.248 4.248 0 0 0-1.735-1.979 4.492 4.492 0 0 0-2.61-.621 4.542 4.542 0 0 0-2.714 1.172 4.25 4.25 0 0 0-1.195 4.399 4.35 4.35 0 0 0 .926 1.618c.416.455.927.82 1.501 1.069.573.249 1.195.377 1.825.375a4.412 4.412 0 0 0 2.407-.704 4.18 4.18 0 0 0 1.585-1.883l.029-.065-1.363-.356-.021.048a2.73 2.73 0 0 1-1.055 1.219 2.878 2.878 0 0 1-1.582.437c-1.732 0-3.038-1.296-3.038-3.003a2.982 2.982 0 0 1 .228-1.192c.157-.38.391-.724.689-1.015a2.96 2.96 0 0 1 .964-.615c.36-.142.746-.213 1.136-.21ZM181.79 45.115a4.605 4.605 0 0 0-2.504.71 4.37 4.37 0 0 0-1.671 1.932c-.345.79-.44 1.66-.271 2.502a4.27 4.27 0 0 0 1.218 2.224 4.54 4.54 0 0 0 2.297 1.194c.871.17 1.776.087 2.598-.24a4.451 4.451 0 0 0 2.019-1.593 4.214 4.214 0 0 0-.538-5.453 4.557 4.557 0 0 0-3.148-1.276Zm3.026 4.322c0 1.704-1.329 3.038-3.026 3.038a3.043 3.043 0 0 1-1.224-.245 2.953 2.953 0 0 1-1.009-.711 3.129 3.129 0 0 1-.663-1.153 3.056 3.056 0 0 1-.116-1.312 2.968 2.968 0 0 1 .989-1.884 3.176 3.176 0 0 1 2.03-.792h.047c1.667.033 2.972 1.377 2.972 3.059ZM194.992 47.967a2.651 2.651 0 0 0-.216-1.066 2.756 2.756 0 0 0-.628-.903 2.875 2.875 0 0 0-.942-.598 2.95 2.95 0 0 0-1.108-.2h-3.788v8.468h1.415V50.64h1.939l1.966 3.028h1.536l-2.076-3.198a2.69 2.69 0 0 0 1.382-.947c.343-.45.526-.996.52-1.556Zm-1.373-.032c0 .883-.67 1.501-1.627 1.501h-2.267v-3.003h2.383c.204-.005.407.03.596.105.189.074.359.186.501.327.142.14.253.309.324.493.071.184.102.38.09.577ZM197.07 47.053c.518 0 .929-.406.929-.889v-.005c0-.482-.406-.883-.929-.883-.517 0-.928.406-.928.888v.006c0 .482.405.883.928.883Zm0-.097c-.469 0-.822-.355-.822-.786v-.006c0-.43.358-.791.822-.791.47 0 .822.355.822.786v.005a.805.805 0 0 1-.822.792Zm-.347-.365h.15v-.325h.224l.235.325h.186l-.261-.345c.128-.036.229-.122.229-.27 0-.177-.154-.273-.346-.273h-.417v.888Zm.15-.442v-.32h.251c.128 0 .208.051.208.158 0 .096-.075.162-.208.162h-.251Z" fill="#195C5D"></path>
+                    </g>
+                </svg>
+            </a>
+            <div class="h-full">
+                <nav class="header__nav-container">
+                    <div body-scroll-lock-ignore="" class="header__nav-container-int">
+                        <ul class="nav-primary list-none">
+                            <li class="menu__item level--1 has-dropdown">
+                                <a class="menu__link flex items-center relative link-level--1 is-active" href="/" rel="noopener" target="">Products</a>
+                                <div class="submenu-items-wrapper">
+                                    <div class="submenu-items-wrapper-int">
+                                        <ul class="submenu-items level--1 list-none">
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile-card" rel="noopener" target="">KardiaMobile Card</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile6l" rel="noopener" target="">KardiaMobile 6L</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile" rel="noopener" target="">KardiaMobile</a>
+                                            </li>
+                                            <li class="menu__item level--2 last-item ">
+                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiacare" rel="noopener" target="">KardiaCare</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button aria-controls="collapse2" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
+                            </li>
+                            <li class="menu__item level--1  ">
+                                <a class="menu__link flex items-center relative link-level--1 " href="https://kardia.steadfa.st/articles" rel="noopener" target="">Articles</a>
+                            </li>
+                            <li class="menu__item level--1 has-dropdown">
+                                <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Professionals</a>
+                                <div class="submenu-items-wrapper">
+                                    <div class="submenu-items-wrapper-int">
+                                        <ul class="submenu-items level--1 list-none">
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Healthcare Professionals</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Health Systems</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For BioPharma</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Payers &amp; Employers</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">Data Integration Options</a>
+                                            </li>
+                                            <li class="menu__item level--2 last-item ">
+                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For OEMs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button aria-controls="collapse4" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
+                            </li>
+                            <li class="menu__item level--1  ">
+                                <a class="menu__link flex items-center relative link-level--1 " href="https://alivecor.zendesk.com/hc/en-us" rel="noopener" target="_blank">Support</a>
+                            </li>
 
-	<li class="menu__item text-center">
-		<a href="/cart" rel="" target="" class="btn">
-			<svg class="w-icon-20 h-icon-20 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="currentColor" id="icon-definition"><g stroke-linecap="square" stroke-width="2" fill="none" stroke="currentColor" class="nc-icon-wrapper" stroke-miterlimit="10"><path d="M4 4h18l-3 10H4"/><circle cx="4" cy="22" r="2" stroke="none" fill="currentColor"/><circle cx="20" cy="22" r="2" stroke="none" fill="currentColor"/><path data-cap="butt" stroke-linecap="butt" d="M1 1l3 3v10l-2 4h21"/></g></svg>
-		</a>
-	</li>
+                            <li class="menu__item text-center">
+                                <a class="btn" href="/cart" rel="" target="">
+                                    <svg class="w-icon-20 h-icon-20 text-white" color="currentColor" id="icon-definition" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="nc-icon-wrapper" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"><path d="M4 4h18l-3 10H4"/><circle cx="4" cy="22" fill="currentColor" r="2" stroke="none"/><circle cx="20" cy="22" fill="currentColor" r="2" stroke="none"/><path d="M1 1l3 3v10l-2 4h21" data-cap="butt" stroke-linecap="butt"/></g>
+                                    </svg>
+									{% if cart.item_count > 0 %}
+										<span class="inline-block faux-p-xs font-bold mt-[2px] pl-s2">{{ cart.item_count }}</span>
+									{% endif %}
+                                </a>
+                            </li>
 
-	</ul></div></nav> <div class="h-full flex items-center lg:hidden"><button aria-label="toggle main navigation" aria-controls="collapse8" class="menu-btn lg:hidden"><span class="menu__bar menu__bar--1"></span> <span class="menu__bar menu__bar--2"></span> <span class="menu__bar menu__bar--3"></span></button></div></div></div></header>
-	{%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
+                        </ul>
+                    </div>
+                </nav>
+                <div class="h-full flex items-center lg:hidden">
+                    <button aria-controls="collapse8" aria-label="toggle main navigation" class="menu-btn lg:hidden on">
+                        <span class="menu__bar menu__bar--1"></span>
+                        <span class="menu__bar menu__bar--2"></span>
+                        <span class="menu__bar menu__bar--3"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    {%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}
 </div>

@@ -49,29 +49,25 @@
 
     <!-- DISCOUNT CODE script for checkout ================================================== -->
     {% include 'discount-code-cart' %}
-    {% comment %}
-  <div class="cart-header">
-      <div class="wrapper">
+    <div class="cart-header px-s8 bg-primary-75">
+      <div class="wrapper flex items-center justify-between max-w-content mx-auto py-s9">
         <div class="cart-title">
-          <h2 class="cart">Shopping Cart</h2>
-          <span><a href="/">&lt; Continue Shopping</a></span>
-        </div>
-        <a href="//www.shopify.com/pci-compliant?utm_source=secure&amp;utm_medium=shop" title="This online store is secured by Shopify" target="_blank" class="secure-btn"><img src="//cdn.shopify.com/s/images/badges/shopify-secure-badge-light-shadow.png" alt="Shopify secure badge" /></a>
-        <div class="checkout-button-container">
-          <input type="submit" name="checkout" class="btn" value="Checkout">
+          <h2 class="cart faux-h3">Shopping Cart</h2>
         </div>
         {% if shop.locale == 'en' %}
           {% include 'benefit-icons-cart' %}
         {% endif %}
+        <div class="checkout-button-container">
+          <input type="submit" name="checkout" class="btn hover:cursor-pointer" value="Checkout">
+        </div>
       </div>
     </div>
-    {% endcomment %}
-    <table class="wrapper cart-table w-full max-w-[1200px] mx-auto table--responsive gap-s5 mt-s10">
-      <thead class="cart__row cart__header-labels text-left border-y-2 border-primary-100">
-        <th colspan="2">Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th class="text-right">Total</th>
+    <table class="wrapper cart-table w-full max-w-content mx-auto table--responsive gap-s5 mt-s10">
+      <thead class="cart__header-labels text-left border-y-2 border-primary-75">
+        <th colspan="2" class="faux-p-sm px-s8 py-s5">Product</th>
+        <th class="faux-p-sm px-s8 py-s5">Price</th>
+        <th class="faux-p-sm px-s8 py-s5">Quantity</th>
+        <th class="text-right faux-p-sm px-s8 py-s5">Total</th>
       </thead>
       <tbody>
         {% for item in cart.items %}
@@ -137,8 +133,8 @@
                 {% assign kcCardBundle = true %}
               {% endif %}
           {% endfor %}
-          <tr class="cart__row table__section" id="{{item.id}}">
-            <td data-label="{{ 'customer.order.product' | t }}" data-layout="mobile-column">
+          <tr class="border-b-2 border-primary-75 table__section" id="{{item.id}}">
+            <td data-label="{{ 'customer.order.product' | t }}" data-layout="mobile-column" class="px-s8 py-s5">
               {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and item.product.handle != 'kardiamobile6l' and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
                 <a href="{{ kardiaCareUrl }}">
               {% elsif kc6lBundleKardiaCare == true %}
@@ -152,7 +148,7 @@
                 More image size options at:
                   - http://docs.shopify.com/themes/filters/product-img-url
               {% endcomment %}
-              <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+              <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="w-s13">
               </a>
               {% comment %}
               {% if kc6lBundle == true %}
@@ -174,8 +170,8 @@
               {% endif %}
               {% endcomment %}
             </td>
-            <td>
-              <h4>
+            <td class="px-s8 py-s5">
+              <h4 class="faux-h5">
                 {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
                   <a href="{{ kardiaCareUrl }}">
                     {{ item.product.title }}
@@ -195,7 +191,7 @@
                 {% endif %}
               </h4>
               {% unless item.variant.title contains 'Default' %}
-                <small class="cart_variant">{{ item.variant.title }}</small>
+                <small class="cart_variant faux-p-sm my-0">{{ item.variant.title }}</small>
               {% endunless %}
               {% comment %}
                 Add extra copy under product name
@@ -246,57 +242,57 @@
               {% endif %}
               {% if kc6lBundle == true %}
                 {% if item.product.handle == 'kardiamobile6l' %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" onclick="kc6lBundleRemove(event)">
-                  <small>Remove</small>
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="kc6lBundleRemove(event)">
+                  Remove
                 </a>
                 {% endif %}
               {% elsif kcCardBundle == true %}
                 {% if item.product.handle == 'kardiamobile-card' %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove" onclick="kcCardBundleRemove(event)">
-                  <small>Remove</small>
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="kcCardBundleRemove(event)">
+                  Remove
                 </a>
                 {% endif %}
               {% else %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                  <small>Remove</small>
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500">
+                  Remove
                 </a>
               {% endif %}
             </td>
-            <td class="price-cell" data-label="{{ 'cart.label.price' | t }}">
-              <span class="h4Price price">
+            <td class="price-cell px-s8 py-s5" data-label="{{ 'cart.label.price' | t }}">
+              <span class="h4Price price faux-p">
                 {% if item.variant.compare_at_price > item.variant.price %}
                   <span class="red">
-                    {{ item.price | money }}
+                    ${{ item.price | money_without_currency }}
                   </span>
-                  <span class="strikeout">
-                    {{ item.variant.compare_at_price | money }}
+                  <span class="line-through">
+                    ${{ item.variant.compare_at_price | money_without_currency }}
                   </span>
                 {% elsif item.total_discount > 0 %}
                   <span class="red">
-                  {{ item.price | money }}
+                    ${{ item.price | money_without_currency }}
                   </span>
-                  <span class="strikeout">
-                    {{ item.original_price | money }}
+                  <span class="line-through">
+                    ${{ item.original_price | money_without_currency }}
                   </span>
                 {% else %}
-                  {{ item.price | money }}
+                  ${{ item.price | money_without_currency }}
                 {% endif %}
               </span>
             </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
+            <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s5 faux-p">
               {% if hideQuantity == true %}
               {{ item.quantity }}
               {% else %}
               <input onchange="quantityChange(event, '{{item.variant_id}}')" class="quantity" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
               {% endif %}
             </td>
-            <td data-label="{{ 'cart.label.total' | t }}" class="total-cell">
-              <span class="h3">
-                {{ item.line_price | money }}
+            <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s5 text-right">
+              <span class="faux-p  break-inside-avoid">
+                ${{ item.line_price | money_without_currency }}
               </span>
               {% if item.total_discount > 0 %}
                 <div class="discount_message">
-                <s>{{ item.original_line_price | money }}</s>
+                <s class="line-through">${{ item.original_line_price | money_without_currency }}</s>
                 ({{ item.message }})
                 </div>
               {% endif %}
@@ -305,7 +301,7 @@
         {% endfor %}
       </tbody>
     </table>
-    <div class="wrapper grid cart__row max-w-[1200px] mx-auto p-[15px]">
+    <div class="wrapper grid cart__row max-w-content mx-auto px-s8 py-s10">
       {% if shop.domain == 'store.alivecor.com' or shop.domain == 'dev-alivecor-us.myshopify.com' %}
       <p class="shipping-note">
         {% if canadaShop %}
@@ -317,55 +313,55 @@
         {% if kcare_in_cart %}
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}
-              <p class="cart-totals">
-                <span class="mobile-left">Device + Membership Discount</span>
+              <p class="cart-totals mt-s5">
+                <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right">$29.00</span>
               </p>
-              <p class="cart-totals">
-                <span class="mobile-left cart__subtotal-title">Subtotal</span>
-                <span class="right cart__subtotal">{{ cart.total_price | minus: 2900 | money }}</span>
+              <p class="cart-totals mt-s5">
+                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
+                <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
               </p>
             {% elsif kcare_in_cart_1_2_year %}
-              <p class="cart-totals">
-                <span class="mobile-left">Device + Membership Discount</span>
+              <p class="cart-totals mt-s5">
+                <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right">$9.00</span>
               </p>
-              <p class="cart-totals">
-                <span class="mobile-left cart__subtotal-title">Subtotal</span>
-                <span class="right cart__subtotal">{{ cart.total_price | minus: 900 | money }}</span>
+              <p class="cart-totals mt-s5">
+                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
+                <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
               </p>
             {% else %}
-              <p class="cart-totals">
-                <span class="mobile-left">Device + Membership Discount</span>
+              <p class="cart-totals mt-s5">
+                <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right">$10.00</span>
               </p>
-               <p class="cart-totals">
-                <span class="mobile-left cart__subtotal-title">Subtotal</span>
-                  <span class="right cart__subtotal">{{ cart.total_price | minus: 1000 | money }}</span>
+               <p class="cart-totals mt-s5">
+                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
+                  <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
               </p>
             {% endif %}
           {% else %}
             <p class="cart-totals">
-              <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal</span>
-              <span class="right cart__subtotal">{{ cart.total_price | money }}</span>
+              <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
+              <span class="right cart__subtotal font-bold">${{ cart.total_price | money_without_currency }}</span>
             </p>
           {% endif %}
         {% else %}
           <p class="cart-totals">
-            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal</span>
-            <span class="right cart__subtotal">{{ cart.total_price | money }}</span>
+            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
+            <span class="right cart__subtotal font-bold">${{ cart.total_price | money_without_currency }}</span>
           </p>
         {% endif %}
         {% if shop.locale == 'en' %}
-          <p class="cart-totals">
-            <span class="mobile-left">Taxes</span>
+          <p class="cart-totals mt-s5">
+            <span class="mobile-left">Taxes:</span>
             <span class="right">Calculated at checkout</span>
           </p>
-          <p class="cart-totals">
-            <span class="mobile-left">Shipping</span>
+          <p class="cart-totals mt-s5">
+            <span class="mobile-left">Shipping:</span>
             <span class="right">FREE{% if canadaShop %}*{% endif %}</span>
           </p>
-          <span class="shipping-desc block">
+          <span class="shipping-desc block faux-p-xs mt-s5">
           {% if km-oos == false and km-six-oos == false and canadaShop == false %}
             2-5 business days (USPS First Class)
           {% endif %}
@@ -376,10 +372,12 @@
         <!-- marketizator start -->
         <input id="mktz_custom" name="attributes[mktz_custom]" type="hidden" value="" />
         <!-- marketizator end -->
+        {% comment %}
         <input type="submit" name="update" class="btn btn--underline p-0 update-cart visible" value="Update Cart">
-        <input type="submit" name="checkout" class="btn cartCheckout visible" value="Checkout">
+        {% endcomment %}
+        <input type="submit" name="checkout" class="btn cartCheckout visible mt-s8 hover:cursor-pointer" value="Checkout">
         <div class="clearfix"></div>
-        <a href="/" class="continue_shopping block">&lt; Continue Shopping</a>
+        <a href="/" class="btn btn--underline block w-max ml-auto mt-s5 continue_shopping">&lt; Continue Shopping</a>
       </div>
     </div>
   </form>
