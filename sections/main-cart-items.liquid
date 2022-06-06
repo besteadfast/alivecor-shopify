@@ -171,7 +171,7 @@
               {% endcomment %}
             </td>
             <td class="px-s8 py-s5">
-              <h4 class="faux-h5">
+              <h4 class="faux-h5 font-dm">
                 {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
                   <a href="{{ kardiaCareUrl }}">
                     {{ item.product.title }}
@@ -191,7 +191,7 @@
                 {% endif %}
               </h4>
               {% unless item.variant.title contains 'Default' %}
-                <small class="cart_variant faux-p-sm my-0">{{ item.variant.title }}</small>
+                <small class="cart_variant faux-p-sm font-dm my-0">{{ item.variant.title }}</small>
               {% endunless %}
               {% comment %}
                 Add extra copy under product name
@@ -259,7 +259,7 @@
               {% endif %}
             </td>
             <td class="price-cell px-s8 py-s5" data-label="{{ 'cart.label.price' | t }}">
-              <span class="h4Price price faux-p">
+              <span class="h4Price price faux-p font-dm">
                 {% if item.variant.compare_at_price > item.variant.price %}
                   <span class="red">
                     ${{ item.price | money_without_currency }}
@@ -279,7 +279,7 @@
                 {% endif %}
               </span>
             </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s5 faux-p">
+            <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s5 faux-p font-dm">
               {% if hideQuantity == true %}
               {{ item.quantity }}
               {% else %}
@@ -287,7 +287,7 @@
               {% endif %}
             </td>
             <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s5 text-right">
-              <span class="faux-p  break-inside-avoid">
+              <span class="faux-p font-dm  break-inside-avoid">
                 ${{ item.line_price | money_without_currency }}
               </span>
               {% if item.total_discount > 0 %}
@@ -318,8 +318,8 @@
                 <span class="right">$29.00</span>
               </p>
               <p class="cart-totals mt-s5">
-                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
+                <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
+                <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
               </p>
             {% elsif kcare_in_cart_1_2_year %}
               <p class="cart-totals mt-s5">
@@ -327,15 +327,15 @@
                 <span class="right">$9.00</span>
               </p>
               <p class="cart-totals mt-s5">
-                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
+                <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
+                <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
               </p>
             {% else %}
-              <p class="cart-totals mt-s5">
+              <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right">$10.00</span>
               </p>
-               <p class="cart-totals mt-s5">
+               <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left cart__subtotal-title">Subtotal:</span>
                   <span class="right cart__subtotal font-bold">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
               </p>
@@ -343,13 +343,13 @@
           {% else %}
             <p class="cart-totals">
               <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
-              <span class="right cart__subtotal font-bold">${{ cart.total_price | money_without_currency }}</span>
+              <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
             </p>
           {% endif %}
         {% else %}
           <p class="cart-totals">
             <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
-            <span class="right cart__subtotal font-bold">${{ cart.total_price | money_without_currency }}</span>
+            <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
           </p>
         {% endif %}
         {% if shop.locale == 'en' %}
@@ -377,7 +377,7 @@
         {% endcomment %}
         <input type="submit" name="checkout" class="btn cartCheckout visible mt-s8 hover:cursor-pointer" value="Checkout">
         <div class="clearfix"></div>
-        <a href="/" class="btn btn--underline block w-max ml-auto mt-s5 continue_shopping">&lt; Continue Shopping</a>
+        <a href="/" class="btn btn--underline py-s1 block w-max ml-auto mt-s5 continue_shopping">&lt; Continue Shopping</a>
       </div>
     </div>
   </form>
