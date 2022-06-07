@@ -2939,3 +2939,73 @@ html, body {
 .header-font{
   font-family: DM Sans, sans-serif;
 }
+
+
+/*==========================================================
+    MENU BTN
+==========================================================*/
+
+  /* menu active frames */
+  @keyframes move-top-active {
+    0% {
+        transform: translateY(0px) rotate(0);
+    }
+    50% {
+        transform: translateY(12px) rotate(0);
+    }
+    100% {
+        transform: translateY(12px) rotate(45deg);
+    }
+}
+@keyframes move-bottom-active {
+    0% {
+        transform: translateY(0px) rotate(0);
+    }
+    50% {
+        transform: translateY(-12px) rotate(0);
+    }
+    100% {
+        transform: translateY(-12px) rotate(-45deg);
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* menu close frames */
+@keyframes move-top-close {
+    0% {
+        transform: translateY(12px) rotate(45deg);
+    }
+    50% {
+        transform: translateY(12px) rotate(0);
+    }
+    100% {
+        transform: translateY(0px) rotate(0);
+    }
+}
+@keyframes move-bottom-close {
+    0% {
+        transform: translateY(-12px) rotate(-45deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0);
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

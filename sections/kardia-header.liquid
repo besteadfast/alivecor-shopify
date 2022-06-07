@@ -9,14 +9,14 @@
 
 {% style %}
 
-.btn span{
-    transition-duration: .5s;
+.btn span {
+    transition-duration: 0.5s;
     transition-property: all;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-timing-function: cubic-bezier(0.4,0,0.2,1);
 }
 
-.btn:hover span{
-	transform:translateX(-2px)
+.btn:hover span {
+    transform: translateX(-2px)
 }
 
 {% endstyle %}
@@ -29,15 +29,13 @@
 <div class="grid grid-main">
     <header class="main-header">
         <div class="header__int">
-            <a aria-label="return home" class="header-logo" href="https://kardia.steadfa.st/">
-                <svg role="presentation" viewbox="0 0 198 56">
-                    <g fill="none">
-                        <path d="M29.764 32.092h6.328s-2.448-6.272-5.86-14.17c-3.411-7.898-5.624-12.776-5.624-12.776-.938-2.323-1.875-3.392-2.812-3.95L19.074 6.54a579.912 579.912 0 0 1 3.893 8.827c3.047 7.085 6.797 16.725 6.797 16.725Z" fill="#6386C4"></path>
-                        <path d="M8.671 32.092H2.344s2.447-6.272 5.859-14.17a854.857 854.857 0 0 1 5.624-12.776c.938-2.323 1.875-3.392 2.813-3.95 1.171-.928 3.75-.928 5.156 0 0 0-3.281 7.086-6.328 14.17C12.42 22.453 8.67 32.093 8.67 32.093Z" fill="#95AEDA"></path>
-                        <path d="M2.344 32.092 0 38.132h6.562l2.11-6.04H2.343ZM36.092 32.092l2.343 6.04h-6.562l-2.11-6.04h6.329Z" fill="#164F8C"></path>
-                        <path d="M71.377 12.698h-5.121l-12.05 13.484V12.698h-4.124v25.38h4.125v-6.435l3.837-4.248L66.55 38.01l.06.067h5.092L60.749 24.4l10.628-11.701ZM90.187 12.698H84.34l-9.579 25.38h4.253l2.16-5.731h12.027l2.123 5.715h4.252l-9.344-25.237-.045-.127ZM91.909 28.6h-9.435l4.767-12.6 4.668 12.6ZM125.162 20.998a8.183 8.183 0 0 0-.627-3.202 8.236 8.236 0 0 0-1.83-2.71 8.33 8.33 0 0 0-2.748-1.793 8.37 8.37 0 0 0-3.233-.595h-11.029v25.38h4.087v-9.072h5.65l5.726 9.071h4.48l-6.043-9.58a7.84 7.84 0 0 0 4.04-2.832 7.731 7.731 0 0 0 1.527-4.667Zm-3.981-.113c0 2.645-1.949 4.495-4.744 4.495h-6.655v-8.99h6.942a4.302 4.302 0 0 1 3.233 1.268c.419.424.745.93.956 1.486.211.555.302 1.149.268 1.741ZM140.625 12.66h-8.868v25.47h8.868a13.27 13.27 0 0 0 5.104-.931c1.623-.643 3.1-1.6 4.346-2.815a12.456 12.456 0 0 0 2.733-4.13c.624-1.544.93-3.196.901-4.859 0-1.693-.34-3.369-1.001-4.93a12.726 12.726 0 0 0-2.846-4.16 12.85 12.85 0 0 0-4.248-2.745 12.937 12.937 0 0 0-4.989-.9Zm0 21.612h-4.744V16.503h4.744c2.376 0 4.655.936 6.335 2.602a8.847 8.847 0 0 1 2.624 6.282 8.847 8.847 0 0 1-2.624 6.283 8.997 8.997 0 0 1-6.335 2.602ZM163.808 12.698h-3.981v25.38h3.981v-25.38ZM185.33 12.825l-.046-.127h-5.846l-9.579 25.38h4.253l2.161-5.716h12.026l2.122 5.715h4.261l-9.352-25.252Zm1.677 15.806h-9.435l4.766-12.6 4.669 12.6ZM192.166 12.982h-.801v-.284h1.957v.284h-.808v2.338h-.348v-2.338ZM195.837 14.166c0-.367-.037-.802-.037-1.131-.091.307-.204.636-.333.996l-.468 1.274h-.257l-.43-1.252a10.633 10.633 0 0 1-.303-1.018c0 .33 0 .749-.053 1.16l-.075 1.124h-.325l.189-2.621h.446l.453 1.266c.105.289.193.584.264.884.068-.263.159-.555.28-.884l.468-1.266h.438l.159 2.621h-.332l-.084-1.153Z" fill="#6386C4"></path>
-                        <path d="M110.647 53.655v-5.681h.838v2.018c.177-.224.408-.406.673-.528.265-.122.556-.182.85-.175.613.01 1.198.25 1.627.67.43.419.671.983.671 1.57a2.157 2.157 0 0 1-.636 1.553 2.347 2.347 0 0 1-1.59.68 2.016 2.016 0 0 1-.887-.176 1.927 1.927 0 0 1-.708-.542v.611h-.838Zm3.837-2.126a1.4 1.4 0 0 0-.082-.587 1.439 1.439 0 0 0-.32-.507 1.517 1.517 0 0 0-.504-.343 1.574 1.574 0 0 0-1.211 0 1.52 1.52 0 0 0-.505.343 1.45 1.45 0 0 0-.319.507 1.4 1.4 0 0 0-.082.587c-.015.2.013.4.082.588.069.188.178.361.319.507.142.146.314.263.505.343a1.572 1.572 0 0 0 1.211 0c.191-.08.362-.197.504-.343.142-.146.251-.319.32-.507a1.4 1.4 0 0 0 .082-.588ZM116.837 55.5l.677-1.931-1.625-4.101h.874l1.163 3.137 1.165-3.14h.872l-2.328 6.035h-.798ZM134.034 51.901c-.244-.593-.519-1.213-.805-1.899-.285-.686-.584-1.339-.872-1.974-.288-.636-.602-1.322-.898-1.96a1.558 1.558 0 0 0-.519-.673 1.29 1.29 0 0 0-1.35 0 1.572 1.572 0 0 0-.519.673 201.772 201.772 0 0 0-1.771 3.934c-.301.693-.558 1.306-.804 1.9a73.566 73.566 0 0 0-.694 1.724l-.015.042h1.557v-.025a58.739 58.739 0 0 1 .745-1.902l.016-.042c.164-.406.859-2.082.994-2.395.135-.313.278-.643.421-.959.143-.315.275-.613.407-.895.133-.283.231-.501.33-.696.101.208.21.44.33.696.119.255.259.582.407.895.148.313.283.639.421.959.137.32.831 2.002.994 2.395l.018.042c.156.383.286.703.395.981.143.366.26.673.35.921v.025h1.558l-.016-.042a39.19 39.19 0 0 0-.68-1.725ZM138.247 45.2h-1.401v8.468h5.693v-1.271h-4.292V45.2ZM146.009 45.2h-1.365v8.468h1.365V45.2ZM152.221 52.404 149.6 45.24l-.016-.04h-1.475l3.103 8.468h2.006l3.095-8.386.031-.082h-1.449l-2.674 7.204ZM158.444 53.668h6.238v-1.271h-4.834v-2.342h4.341V48.81h-4.341v-2.343h4.834V45.2h-6.238v8.468ZM171.193 46.383h.021a2.962 2.962 0 0 1 1.595.46c.473.3.844.729 1.065 1.232l.024.048 1.35-.368-.032-.065a4.248 4.248 0 0 0-1.735-1.979 4.492 4.492 0 0 0-2.61-.621 4.542 4.542 0 0 0-2.714 1.172 4.25 4.25 0 0 0-1.195 4.399 4.35 4.35 0 0 0 .926 1.618c.416.455.927.82 1.501 1.069.573.249 1.195.377 1.825.375a4.412 4.412 0 0 0 2.407-.704 4.18 4.18 0 0 0 1.585-1.883l.029-.065-1.363-.356-.021.048a2.73 2.73 0 0 1-1.055 1.219 2.878 2.878 0 0 1-1.582.437c-1.732 0-3.038-1.296-3.038-3.003a2.982 2.982 0 0 1 .228-1.192c.157-.38.391-.724.689-1.015a2.96 2.96 0 0 1 .964-.615c.36-.142.746-.213 1.136-.21ZM181.79 45.115a4.605 4.605 0 0 0-2.504.71 4.37 4.37 0 0 0-1.671 1.932c-.345.79-.44 1.66-.271 2.502a4.27 4.27 0 0 0 1.218 2.224 4.54 4.54 0 0 0 2.297 1.194c.871.17 1.776.087 2.598-.24a4.451 4.451 0 0 0 2.019-1.593 4.214 4.214 0 0 0-.538-5.453 4.557 4.557 0 0 0-3.148-1.276Zm3.026 4.322c0 1.704-1.329 3.038-3.026 3.038a3.043 3.043 0 0 1-1.224-.245 2.953 2.953 0 0 1-1.009-.711 3.129 3.129 0 0 1-.663-1.153 3.056 3.056 0 0 1-.116-1.312 2.968 2.968 0 0 1 .989-1.884 3.176 3.176 0 0 1 2.03-.792h.047c1.667.033 2.972 1.377 2.972 3.059ZM194.992 47.967a2.651 2.651 0 0 0-.216-1.066 2.756 2.756 0 0 0-.628-.903 2.875 2.875 0 0 0-.942-.598 2.95 2.95 0 0 0-1.108-.2h-3.788v8.468h1.415V50.64h1.939l1.966 3.028h1.536l-2.076-3.198a2.69 2.69 0 0 0 1.382-.947c.343-.45.526-.996.52-1.556Zm-1.373-.032c0 .883-.67 1.501-1.627 1.501h-2.267v-3.003h2.383c.204-.005.407.03.596.105.189.074.359.186.501.327.142.14.253.309.324.493.071.184.102.38.09.577ZM197.07 47.053c.518 0 .929-.406.929-.889v-.005c0-.482-.406-.883-.929-.883-.517 0-.928.406-.928.888v.006c0 .482.405.883.928.883Zm0-.097c-.469 0-.822-.355-.822-.786v-.006c0-.43.358-.791.822-.791.47 0 .822.355.822.786v.005a.805.805 0 0 1-.822.792Zm-.347-.365h.15v-.325h.224l.235.325h.186l-.261-.345c.128-.036.229-.122.229-.27 0-.177-.154-.273-.346-.273h-.417v.888Zm.15-.442v-.32h.251c.128 0 .208.051.208.158 0 .096-.075.162-.208.162h-.251Z" fill="#195C5D"></path>
-                    </g>
+            <a aria-label="return home" class="header-logo" href="https://kardia.steadfa.st">
+                <svg fill="none" preserveaspectratio="xMinYMid" role="presentation" viewbox="0 0 340 95" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M51.11 54.568h10.866s-4.203-10.834-10.061-24.475C46.056 16.45 42.256 8.024 42.256 8.024c-1.61-4.013-3.22-5.858-4.83-6.821l-4.673 9.228a997.846 997.846 0 0 1 6.686 15.247c5.232 12.238 11.67 28.889 11.67 28.889Z" fill="#6386C4"></path>
+                    <path d="M14.89 54.568H4.024s4.203-10.833 10.061-24.475c5.859-13.642 9.659-22.068 9.659-22.068 1.61-4.013 3.22-5.858 4.83-6.821 2.011-1.605 6.438-1.605 8.853 0 0 0-5.634 12.237-10.866 24.475-5.232 12.238-11.67 28.889-11.67 28.889Z" fill="#95AEDA"></path>
+                    <path d="M4.024 54.568 0 65h11.268l3.622-10.432H4.024Zm57.952 0L66 65H54.732L51.11 54.568h10.866Z" fill="#164F8C"></path>
+                    <path d="M122.567 21.069h-8.795l-20.69 23.29V21.07H86v43.837h7.082V53.792l6.59-7.337 14.606 18.335.104.116h8.743L104.316 41.28l18.251-20.21Zm32.299 0h-10.04l-16.448 43.837h7.303l3.71-9.898h20.651l3.645 9.872h7.303l-16.046-43.59-.078-.22Zm2.958 27.47h-16.202l8.185-21.764 8.017 21.763Zm57.1-13.134a14.178 14.178 0 0 0-1.076-5.53 14.233 14.233 0 0 0-3.143-4.68 14.278 14.278 0 0 0-10.27-4.126h-18.938v43.837h7.017V49.237h9.703l9.833 15.67h7.692l-10.378-16.55a13.462 13.462 0 0 0 6.939-4.89 13.404 13.404 0 0 0 2.621-8.062Zm-6.836-.194c0 4.568-3.346 7.764-8.146 7.764h-11.428V27.448h11.921a7.385 7.385 0 0 1 5.551 2.19 7.343 7.343 0 0 1 2.102 5.573Zm33.389-14.207h-15.228v43.993h15.228a22.64 22.64 0 0 0 16.228-6.47A21.511 21.511 0 0 0 263.944 43a21.94 21.94 0 0 0-1.717-8.514 21.993 21.993 0 0 0-4.888-7.188 22.062 22.062 0 0 0-7.295-4.74 22.106 22.106 0 0 0-8.567-1.554Zm0 37.33h-8.146V27.641h8.146c4.08 0 7.994 1.617 10.879 4.494a15.327 15.327 0 0 1 4.506 10.851c0 4.07-1.621 7.974-4.506 10.852a15.406 15.406 0 0 1-10.879 4.494Zm39.81-37.265h-6.836v43.837h6.836V21.07Zm36.956.22-.078-.22h-10.04l-16.448 43.837h7.303l3.71-9.872h20.651l3.645 9.872h7.316L318.243 21.29Zm2.88 27.301h-16.202l8.185-21.764 8.017 21.764Zm8.859-27.03h-1.375v-.491h3.36v.491h-1.388v4.037h-.597V21.56Zm6.305 2.045c0-.634-.065-1.385-.065-1.954-.156.53-.351 1.1-.571 1.72l-.804 2.2h-.441l-.74-2.16a18.557 18.557 0 0 1-.519-1.76c0 .57 0 1.294-.09 2.005l-.13 1.941h-.558l.324-4.528h.766l.778 2.186c.181.5.332 1.01.454 1.527.117-.453.272-.957.48-1.527l.804-2.186h.753l.272 4.528h-.571l-.142-1.992Z" fill="#6386C4"></path>
+                    <path d="M190 91.814V82h1.438v3.487a3.162 3.162 0 0 1 1.156-.913 3.28 3.28 0 0 1 1.461-.302 4.086 4.086 0 0 1 2.793 1.156A3.8 3.8 0 0 1 198 88.142a3.735 3.735 0 0 1-1.093 2.682A4.013 4.013 0 0 1 194.178 92a3.447 3.447 0 0 1-1.524-.305 3.324 3.324 0 0 1-1.216-.937v1.057H190Zm6.589-3.672a2.42 2.42 0 0 0-.141-1.015 2.507 2.507 0 0 0-.549-.876 2.61 2.61 0 0 0-.867-.592 2.683 2.683 0 0 0-2.078 0 2.61 2.61 0 0 0-.867.592c-.243.252-.43.55-.549.876a2.42 2.42 0 0 0-.141 1.015c-.026.344.022.69.141 1.014.119.326.306.624.549.877.244.252.539.454.867.591a2.68 2.68 0 0 0 2.945-.591c.243-.253.43-.551.549-.877a2.42 2.42 0 0 0 .141-1.014Zm4.04 6.858 1.162-3.335-2.79-7.084h1.5L202.499 90l2-5.423h1.499L201.999 95h-1.37Zm29.531-6.216c-.419-1.024-.892-2.096-1.382-3.28-.491-1.185-1.003-2.313-1.498-3.411a458.92 458.92 0 0 0-1.542-3.385 2.69 2.69 0 0 0-.892-1.162 2.201 2.201 0 0 0-1.159-.329c-.411 0-.813.114-1.159.329-.4.302-.709.704-.891 1.162a304.237 304.237 0 0 0-1.538 3.385 215.158 215.158 0 0 0-2.884 6.691 127.412 127.412 0 0 0-1.191 2.978l-.026.074h2.674v-.043c.152-.433.357-.96.602-1.59.187-.48.406-1.034.678-1.695l.026-.074c.281-.7 1.476-3.596 1.708-4.136.231-.54.477-1.111.722-1.656.245-.545.472-1.059.7-1.547.227-.489.396-.865.566-1.202.174.359.361.76.566 1.201.205.441.446 1.008.7 1.548.254.54.486 1.102.722 1.656.236.553 1.426 3.457 1.707 4.136l.031.074c.268.661.491 1.214.678 1.694.245.631.446 1.163.602 1.59v.044h2.674l-.026-.073a71.45 71.45 0 0 0-1.168-2.979Zm7.234-11.575h-2.407v14.627h9.776V89.64h-7.369V77.21Zm13.329 0h-2.345v14.627h2.345V77.209Zm10.667 12.444-4.502-12.375-.027-.07h-2.532l5.327 14.628h3.446l5.314-14.485.053-.142h-2.487l-4.592 12.444Zm10.685 2.183h10.712V89.64h-8.3v-4.046h7.453v-2.148h-7.453V79.4h8.3v-2.192h-10.712v14.628Zm21.892-12.583h.036a5.06 5.06 0 0 1 2.739.793 4.837 4.837 0 0 1 1.83 2.13l.04.081 2.318-.635-.053-.112a7.326 7.326 0 0 0-2.981-3.418 7.672 7.672 0 0 0-4.481-1.074 7.775 7.775 0 0 0-4.66 2.026 7.349 7.349 0 0 0-2.312 4.415 7.344 7.344 0 0 0 .26 3.182 7.507 7.507 0 0 0 1.59 2.796 7.562 7.562 0 0 0 2.577 1.846c.984.43 2.053.651 3.133.648a7.545 7.545 0 0 0 4.134-1.217 7.21 7.21 0 0 0 2.722-3.252l.049-.113-2.34-.614-.036.082a4.708 4.708 0 0 1-1.811 2.106 4.928 4.928 0 0 1-2.718.756c-2.973 0-5.216-2.239-5.216-5.187a5.17 5.17 0 0 1 .391-2.06 5.3 5.3 0 0 1 1.183-1.752 5.075 5.075 0 0 1 1.656-1.063 5.204 5.204 0 0 1 1.95-.364Zm18.197-2.191a7.877 7.877 0 0 0-4.299 1.225 7.526 7.526 0 0 0-2.869 3.338 7.262 7.262 0 0 0-.467 4.322 7.402 7.402 0 0 0 2.093 3.842 7.78 7.78 0 0 0 3.944 2.063 7.93 7.93 0 0 0 4.461-.415 7.66 7.66 0 0 0 3.467-2.752 7.308 7.308 0 0 0 1.301-4.158 7.33 7.33 0 0 0-2.226-5.261 7.8 7.8 0 0 0-5.405-2.204Zm5.197 7.465c0 2.943-2.282 5.247-5.197 5.247a5.207 5.207 0 0 1-2.102-.423 5.07 5.07 0 0 1-1.732-1.228 5.418 5.418 0 0 1-1.138-1.99 5.293 5.293 0 0 1-.199-2.268 5.135 5.135 0 0 1 1.697-3.254 5.443 5.443 0 0 1 3.487-1.367h.08c2.862.057 5.104 2.378 5.104 5.283Zm17.475-2.537a4.64 4.64 0 0 0-.372-1.843 4.747 4.747 0 0 0-1.079-1.56 4.906 4.906 0 0 0-1.617-1.033 5.036 5.036 0 0 0-1.903-.346h-6.504v14.628h2.43v-5.23h3.33l3.374 5.23h2.639l-3.566-5.524a4.615 4.615 0 0 0 2.374-1.635 4.393 4.393 0 0 0 .894-2.688Zm-2.359-.057c0 1.526-1.15 2.593-2.795 2.593h-3.891V79.34h4.092c.35-.01.698.052 1.023.18.324.129.617.32.861.564.244.244.433.534.555.852.122.319.175.658.155.997Zm5.926-1.523c.889 0 1.595-.702 1.595-1.535v-.009c0-.833-.697-1.525-1.595-1.525-.888 0-1.594.701-1.594 1.534v.009c0 .833.696 1.525 1.594 1.525Zm0-.167c-.806 0-1.411-.614-1.411-1.36v-.008c0-.745.614-1.368 1.411-1.368.807 0 1.411.614 1.411 1.36v.008c0 .745-.614 1.368-1.411 1.368Zm-.595-.632h.256v-.56h.385l.403.56h.321l-.449-.596c.22-.061.394-.21.394-.464 0-.307-.266-.474-.596-.474h-.714v1.534Zm.256-.762v-.553h.431c.22 0 .357.088.357.272 0 .167-.128.28-.357.28h-.431Z" fill="#195C5D"></path>
                 </svg>
             </a>
             <div class="h-full">
@@ -50,16 +48,16 @@
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile-card" rel="noopener" target="">KardiaMobile Card</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile-card" rel="noopener" target="">KardiaMobile Card</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile6l" rel="noopener" target="">KardiaMobile 6L</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile6l" rel="noopener" target="">KardiaMobile 6L</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiamobile" rel="noopener" target="">KardiaMobile</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile" rel="noopener" target="">KardiaMobile</a>
                                             </li>
                                             <li class="menu__item level--2 last-item ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="/products/kardiacare" rel="noopener" target="">KardiaCare</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiacare" rel="noopener" target="">KardiaCare</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -69,7 +67,7 @@
                                 </button>
                             </li>
                             <li class="menu__item level--1  ">
-                                <a class="menu__link flex items-center relative link-level--1 " href="https://kardia.steadfa.st/articles" rel="noopener" target="">Articles</a>
+                                <a class="menu__link flex items-center relative link-level--1 " href="https://kardia.steadfa.st/blog" rel="noopener" target="">Blog</a>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
                                 <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Professionals</a>
@@ -77,22 +75,22 @@
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Healthcare Professionals</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/hcp" rel="noopener" target="">For Healthcare Professionals</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Health Systems</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/health-systems" rel="noopener" target="">For Health Systems</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For BioPharma</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/biopharma" rel="noopener" target="">For BioPharma</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For Payers &amp; Employers</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/payers-employers" rel="noopener" target="">For Payers &amp; Employers</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">Data Integration Options</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/data-integration" rel="noopener" target="">Data Integration Solutions</a>
                                             </li>
                                             <li class="menu__item level--2 last-item ">
-                                                <a class="menu__link flex items-center relative link-level--2 is-active" href="/" rel="noopener" target="">For OEMs</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.steadfa.st/professional/oems" rel="noopener" target="">For OEMs</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -101,26 +99,17 @@
                                     <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
                                 </button>
                             </li>
-                            <li class="menu__item level--1  ">
+                            <li class="menu__item level--1 last-item ">
                                 <a class="menu__link flex items-center relative link-level--1 " href="https://alivecor.zendesk.com/hc/en-us" rel="noopener" target="_blank">Support</a>
                             </li>
-
                             <li class="menu__item text-center">
-                                <a class="btn" href="/cart" rel="" target="">
-                                    <svg class="w-icon-20 h-icon-20 text-white" color="currentColor" id="icon-definition" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <g class="nc-icon-wrapper" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"><path d="M4 4h18l-3 10H4"/><circle cx="4" cy="22" fill="currentColor" r="2" stroke="none"/><circle cx="20" cy="22" fill="currentColor" r="2" stroke="none"/><path d="M1 1l3 3v10l-2 4h21" data-cap="butt" stroke-linecap="butt"/></g>
-                                    </svg>
-									{% if cart.item_count > 0 %}
-										<span class="inline-block faux-p-xs font-bold mt-[2px] pl-s2">{{ cart.item_count }}</span>
-									{% endif %}
-                                </a>
+                                <a class="btn" href="https://store.kardia.com/" rel="" target="">Buy Now</a>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
                 <div class="h-full flex items-center lg:hidden">
-                    <button aria-controls="collapse8" aria-label="toggle main navigation" class="menu-btn lg:hidden on">
+                    <button aria-controls="collapse6" aria-label="toggle main navigation" class="menu-btn lg:hidden" onclick="toggleHeader(event)">
                         <span class="menu__bar menu__bar--1"></span>
                         <span class="menu__bar menu__bar--2"></span>
                         <span class="menu__bar menu__bar--3"></span>

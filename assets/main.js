@@ -1092,3 +1092,11 @@ function quantityChange(event, variantId) {
     }
   });
 }
+
+function toggleHeader(event) {
+  let htmlClasses = document.querySelector('html').classList;
+  htmlClasses.toggle('menu-active')
+  htmlClasses.add('menu-already-activated')
+
+  document.querySelector('body').classList.toggle('overflow-hidden')
+}

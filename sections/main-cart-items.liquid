@@ -381,14 +381,6 @@
       </div>
     </div>
   </form>
-  {% if km_in_cart %}
-  <div class="km-accessories wrapper">
-    <div class="one-half medium--one-whole small--one-whole cart-recommended-accessories">
-      {% assign grid_item_width = 'large--one-third medium--one-quarter small--one-half' %}
-      {% include 'recommended-accessories' %}
-    </div>
-  </div>
-  {% endif %}
 {% else %}
   {% comment %}
     The cart is empty
