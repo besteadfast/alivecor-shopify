@@ -280,11 +280,7 @@
               </span>
             </td>
             <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s5 faux-p font-dm">
-              {% if hideQuantity == true %}
               {{ item.quantity }}
-              {% else %}
-              <input onchange="quantityChange(event, '{{item.variant_id}}')" class="quantity" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
-              {% endif %}
             </td>
             <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s5 text-right">
               <span class="faux-p font-dm break-inside-avoid">
