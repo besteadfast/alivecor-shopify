@@ -1,23 +1,23 @@
 <style type="text/css">
   .template-404 .title + * {
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
 
   @media screen and (min-width: 750px) {
     .template-404 .title + * {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
   }
 </style>
 
 <div class="template-404 page-width page-margin center">
-  <p>
+  <p class="faux-p-lg">
     {{ 'templates.404.subtext' | t }}
   </p>
-  <h1 class="title">
+  <h1 class="mt-s7 ">
     {{ 'templates.404.title' | t }}
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
+  <a href="{{ routes.all_products_collection_url }}" class="btn mt-s8">
     {{ 'general.continue_shopping' | t }}
   </a>
 </div>

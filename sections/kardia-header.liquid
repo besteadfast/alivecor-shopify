@@ -103,7 +103,14 @@
                                 <a class="menu__link flex items-center relative link-level--1 " href="https://alivecor.zendesk.com/hc/en-us" rel="noopener" target="_blank">Support</a>
                             </li>
                             <li class="menu__item text-center">
-                                <a class="btn" href="https://store.kardia.com/" rel="" target="">Buy Now</a>
+								<a class="btn" href="/cart" rel="" target="">
+                                    <svg class="w-icon-20 h-icon-20 text-white" color="currentColor" id="icon-definition" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="nc-icon-wrapper" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"><path d="M4 4h18l-3 10H4"/><circle cx="4" cy="22" fill="currentColor" r="2" stroke="none"/><circle cx="20" cy="22" fill="currentColor" r="2" stroke="none"/><path d="M1 1l3 3v10l-2 4h21" data-cap="butt" stroke-linecap="butt"/></g>
+                                    </svg>
+									{% if cart.item_count > 0 %}
+										<span class="inline-block faux-p-xs font-bold mt-[2px] pl-s2">{{ cart.item_count }}</span>
+									{% endif %}
+                                </a>
                             </li>
                         </ul>
                     </div>
