@@ -1,25 +1,65 @@
-<article class="newsletter">
-  <div class="newsletter__int is-visible">
-    <div class="newsletter__info">
-      <h2 class="text-primary-500">Stay in-the-know</h2>
-      <p>
-        Sign up for Kardia news, updates and other exclusive content straight to
-        your inbox.
-      </p>
+{% style %}
 
-      <form class="flex flex-col lg:flex-row mt-s6 gap-s4">
-        <input class="flex-grow border-b-2 border-tertiary-100 text-16" type="email" placeholder="Please enter your email"/>
-        <button class="btn btn--inverse border-2 border-primary-500">Subscribe</button>
-      </form>
+    #app .newsletter-form *:focus + label,
+    #app .newsletter-form *:not(:placeholder-shown) + label {
+      font-size:13px;
+      margin-top: -24px;
+    }
+
+    .newsletter-form input[type='text'],
+    .newsletter-form input[type='password'],
+    .newsletter-form input[type='email'],
+    .newsletter-form input[type='number'],
+    .newsletter-form input[type='url'],
+    .newsletter-form input[type='date'],
+    .newsletter-form input[type='datetime-local'],
+    .newsletter-form input[type='month'],
+    .newsletter-form input[type='week'],
+    .newsletter-form input[type='time'],
+    .newsletter-form input[type='search'],
+    .newsletter-form input[type='tel'],
+    .newsletter-form input[type='checkbox'],
+    .newsletter-form input[type='radio'],
+    .newsletter-form select,
+    .newsletter-form select[multiple],
+    .newsletter-form textarea {
+      padding-top: 0.75rem;
+      padding-right: 0;
+      padding-bottom: 0.75rem;
+      padding-left: 0;
+    }
+
+    .newsletter{
+      --tw-border-opacity: 1;
+      border-bottom-width: 3px;
+      border-color: rgb(230 230 230/var(--tw-border-opacity));
+      border-top-width: 3px;
+    }
+{% endstyle %}
+
+
+<article class="newsletter is-visible" data-is-visible="false">
+    <div class="newsletter__int">
+        <div class="newsletter__info">
+            <h2 class="text-primary-500 loadui-slide-up delay--1">
+                Stay in-the-know</h2>
+            <p class="loadui-fade-in delay--2">
+                Sign up for Kardia news, updates, and other exclusive content—straight to your inbox.</p>
+            <div class="newsletter-form">
+                <form action="https://cl.s12.exct.net/DEManager.aspx" class="relative flex flex-wrap w-full gap-x-s8 gap-y-s4 mt-s8 md:mt-s9" method="post" name="subscribeForm">
+                  <input name="_clientID" type="hidden" value="526001161"><input name="_deExternalKey" type="hidden" value="8AA51E40-D344-46E6-BE9B-D1DEC58AE2BE">
+                  <input name="_action" type="hidden" value="add">
+                  <input name="_returnXML" type="hidden" value="0">
+                  <input name="_successURL" type="hidden" value="https://kardia.steadfa.st/subscribe-success">
+                  <input name="_errorURL" type="hidden" value="https://cloud.kardia.alivecor.com/signup-error">
+                  <input name="Email" placeholder=" " required="required" type="email" class="text-16 md:text-20 block flex-grow bg-transparent border-0 border-b-2 border-black-100 focus:border-primary-500 focus:ring-0">
+                  <label for="Email" class="absolute left-0 top-0 pointer-events-none transition-all duration-500 ease-in-out font-atkinson text-15 md:text-18 text-black-400 pt-s3">Please enter your email</label>
+                  <button type="submit" value="Submit" class="btn self-end flex-shrink-0">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="newsletter__image-container loadui-fade-in">
+            <picture class="image__wrapper  "><img alt="" class="newsletter__image lazy-img lazyloaded" data-src="https://kardia.steadfa.st/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" height="640" src="https://kardia.steadfa.st/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" width="480"></picture>
+        </div>
     </div>
-    <div class="newsletter__image-container">
-      <picture class="image__wrapper">
-        <img
-          src="https://kardia.steadfa.st/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png"
-          alt=""
-          class="newsletter__image"
-        />
-      </picture>
-    </div>
-  </div>
 </article>

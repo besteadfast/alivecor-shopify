@@ -1,5 +1,5 @@
 {% style %}
-    input[type="radio"]{
+    #app input[type="radio"]{
         display:inline-grid;
         place-content:center;
         width: 1rem;
@@ -7,6 +7,11 @@
         border: 2px solid var(--primary-300);
         border-radius: 50%;
         transform: translateY(-2px);
+        color:white;
+    }
+
+    #app input[type="radio"]:focus{
+      box-shadow:none;
     }
 
     input[type="radio"]::before {
@@ -18,6 +23,7 @@
         transition: 120ms transform ease-in-out;
         box-shadow: inset 1em 1em var(--primary-700);
     }
+
 
     input[type="radio"] + span{
         opacity:.5;
