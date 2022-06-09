@@ -3394,6 +3394,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 640px) {
+  #app .sm\:hidden {
+    display: none;
+  }
+
   #app .sm\:px-s9 {
     padding-left: 48px;
     padding-right: 48px;
@@ -3416,10 +3420,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   #app .md\:px-s10 {
     padding-left: 64px;
     padding-right: 64px;
-  }
-
-  #app .md\:text-left {
-    text-align: left;
   }
 
   #app .md\:text-20 {
