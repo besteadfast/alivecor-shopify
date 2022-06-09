@@ -19,7 +19,7 @@
         "subtitle": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text": "Take an EKG anytime, anywhere",
             "text_style": "subtitle"
           }
         },

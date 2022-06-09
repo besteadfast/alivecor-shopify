@@ -14,8 +14,8 @@
 {%- endstyle -%}
 
 <section class="kardiacare-membership-section theme--kardiacare">
-    <div class="page-width flex">
-        <div class="w-1/2 flex flex-col justify-center pr-s11 pl-s8 py-s10">
+    <div class="page-width lg:flex">
+        <div class="lg:w-1/2 flex flex-col justify-center px-s4 lg:pr-s11 lg:pl-s8 py-s9 lg:py-s10">
             <div>
                 <h2 class="text-primary-500">KardiaCare <br />Membership</h2>
                 <h3 class="faux-p product__text subtitle col-span-2 mt-s6">Exclusive features that provide deeper insights about your heart</h3>
@@ -36,14 +36,11 @@
                 </ul>
             </div>
             <div>
-                {% comment %} <a href="/products/kardiacare" class=" btn btn--underline inline-block w-max py-0 mt-s7">
-                    Learn More
-                </a> {% endcomment %}
 								<a href="/products/kardiacare" class="btn">
 									Learn More
                 </a>
             </div>
         </div>
-        <img src="{{ "kardiacare-featured.png" | asset_url }}" class="push-right pushed-half-width object-contain object-left">
+        <img src="{{ "kardiacare-featured.png" | asset_url }}" class="w-full lg:w-[50vw] object-contain object-left">
     </div>
 </section>

@@ -101,7 +101,7 @@
         --color-base-accent-1: {{ settings.colors_accent_1.red }}, {{ settings.colors_accent_1.green }}, {{ settings.colors_accent_1.blue }};
         --color-base-accent-2: {{ settings.colors_accent_2.red }}, {{ settings.colors_accent_2.green }}, {{ settings.colors_accent_2.blue }};
         --payment-terms-background-color: {{ settings.colors_background_1 }};
-        
+
         --primary-50: #e1e6ef;
         --primary-75: #CFD7E6;
         --primary-100: #b2c2df;
@@ -113,7 +113,7 @@
         --primary-700: #0e335a;
         --primary-800: #0a2440;
         --primary-900: #061627;
-        
+
 
         --gradient-base-background-1: {% if settings.gradient_background_1 != blank %}{{ settings.gradient_background_1 }}{% else %}{{ settings.colors_background_1 }}{% endif %};
         --gradient-base-background-2: {% if settings.gradient_background_2 != blank %}{{ settings.gradient_background_2 }}{% else %}{{ settings.colors_background_2 }}{% endif %};
@@ -262,11 +262,15 @@
 
     {% include 'discount-code-body' %}
 
-    {% comment %}
-      {% section 'announcement-bar' %}
-      {% section 'header' %}
-    {% endcomment %}
+		<div role="banner" class="banner w-full flex justify-between items-center px-s7 sm:px-s9 md:px-s10 lg:px-s11 py-s5 bg-primary-900 text-white space-x-s5">
+			<a href="https://store.kardia.com/products/kardiamobile-card" rel="noopener noreferrer" target="_blank" class="w-full max-w-text hover/focus:text-primary-50 transition-colors duration-500 text-center md:text-left">
+				<p>Get KardiaMobile Card, our thinnest, lightest, wallet-sized personal EKG.</p>
+			</a>
+			<p class="hidden md:!block faux-h6 font-bold flex-shrink-0">Free Shipping in the US</p>
+		</div>
+
     {% section 'kardia-header' %}
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>

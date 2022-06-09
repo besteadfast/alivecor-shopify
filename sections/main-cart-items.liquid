@@ -191,7 +191,7 @@
                 {% endif %}
               </h4>
               {% unless item.variant.title contains 'Default' %}
-                <small class="cart_variant faux-p-sm font-dm my-0">{{ item.variant.title }}</small>
+                <small class="cart_variant block mt-s4 faux-p-sm font-dm my-0">{{ item.variant.title }}</small>
               {% endunless %}
               {% comment %}
                 Add extra copy under product name
@@ -261,14 +261,14 @@
             <td class="price-cell px-s8 py-s5" data-label="{{ 'cart.label.price' | t }}">
               <span class="h4Price price faux-p font-dm">
                 {% if item.variant.compare_at_price > item.variant.price %}
-                  <span class="green">
+                  <span class="text-primary-500">
                     ${{ item.price | money_without_currency }}
                   </span>
                   <span class="line-through old-price">
                     ${{ item.variant.compare_at_price | money_without_currency }}
                   </span>
                 {% elsif item.total_discount > 0 %}
-                  <span class="green">
+                  <span class="text-primary-500">
                     ${{ item.price | money_without_currency }}
                   </span>
                   <span class="line-through old-price">
