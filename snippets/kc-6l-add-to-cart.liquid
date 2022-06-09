@@ -192,7 +192,7 @@
         <span class="strikeout totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
       </div>
       {% endcomment %}
-      <div class="flex justify-between">
+      <div class="lg:flex justify-between">
         <button
           type="submit"
           name="add"
@@ -213,7 +213,7 @@
           </span>
         </button>
         {% if page_title != "Personal EKG Devices by AliveCor" %}
-          <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+          <div class="inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
         {% endif %}
       </div>
     </div>
