@@ -88,4 +88,14 @@
 
         });
     });
+
+    let content = document.querySelector('.content-dependant');
+    window.addEventListener('resize', function() {
+        if(content.style.maxHeight === content.scrollHeight + "px" || content.style.maxHeight === 0){
+            return
+        }
+        else{
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }, {passive: true})
 </script>

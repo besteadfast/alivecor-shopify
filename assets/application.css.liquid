@@ -2362,6 +2362,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0px !important;
 }
 
+#app .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #app .mt-s6 {
   margin-top: 24px;
 }
@@ -2488,6 +2493,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .\!mb-0 {
   margin-bottom: 0px !important;
+}
+
+#app .mb-s8 {
+  margin-bottom: 40px;
+}
+
+#app .mt-s1 {
+  margin-top: 4px;
+}
+
+#app .mt-s7 {
+  margin-top: 32px;
+}
+
+#app .mt-s5 {
+  margin-top: 20px;
 }
 
 #app .block {
@@ -2620,6 +2641,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100% !important;
 }
 
+#app .w-s13 {
+  width: 120px;
+}
+
 #app .max-w-content {
   max-width: 1152px;
 }
@@ -2630,6 +2655,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .max-w-\[1400px\] {
   max-width: 1400px;
+}
+
+#app .max-w-content {
+  max-width: 1152px;
 }
 
 #app .flex-shrink-0 {
@@ -2668,6 +2697,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   list-style-type: disc;
 }
 
+#app .list-none {
+  list-style-type: none;
+}
+
 #app .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -2686,6 +2719,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#app .grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 #app .flex-col {
@@ -2770,6 +2807,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 #app .gap-y-s4 {
   row-gap: 16px;
+}
+
+#app .gap-y-s7 {
+  row-gap: 32px;
 }
 
 #app .space-x-s5 > :not([hidden]) ~ :not([hidden]) {
@@ -3082,6 +3123,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 2px;
 }
 
+#app .px-s8 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#app .py-s13 {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+#app .py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 #app .pl-s12 {
   padding-left: 96px;
 }
@@ -3230,6 +3286,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 500;
 }
 
+#app .font-bold {
+  font-weight: 700;
+}
+
 #app .uppercase {
   text-transform: uppercase;
 }
@@ -3275,6 +3335,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 #app .text-black-400 {
   --tw-text-opacity: 1;
   color: rgb(153 153 153 / var(--tw-text-opacity));
+}
+
+#app .text-primary-800 {
+  color: var(--primary-800);
+}
+
+#app .text-primary-300 {
+  color: var(--primary-300);
 }
 
 #app .underline {
@@ -3333,6 +3401,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+#app .transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -3456,6 +3532,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 593px;
   }
 
+  #app .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   #app .lg\:justify-end {
     justify-content: flex-end;
   }
@@ -3482,6 +3562,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   #app .lg\:py-s10 {
     padding-top: 64px;
     padding-bottom: 64px;
+  }
+
+  #app .lg\:px-s11 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  #app .lg\:py-s14 {
+    padding-top: 160px;
+    padding-bottom: 160px;
   }
 
   #app .lg\:pt-s5 {

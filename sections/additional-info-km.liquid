@@ -46,32 +46,36 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" color="currentColor" id="icon-definition"><path data-cap="butt" d="m1 8 11 8 11-8" stroke-width="2" fill="none" stroke="currentColor" stroke-miterlimit="10"/></svg>
                         </span>
                     </button> 
-                    <div id="accordionContent2" aria-labelledby="accordionBtn2" class="accordion__content-wrapper" >
-                        <div class="accordion__content columns-2 gap-x-s10 gap-y-s8">
-                            <div class="accordion__content--flex-item break-inside-avoid">
-                                <p class="font-bold">Dimensions</p>
-                                <p class="mt-s1">8.2 cm x 3.2 cm x 0.35 cm </br>Two 3 cm x 3 cm stainless steel electrodes</p>
-                            </div>
-                            <div class="accordion__content--flex-item break-inside-avoid mt-s7">
-                                <p class="font-bold">Weight</p>
-                                <p class="mt-s1">18 grams</p>
-                            </div>
-                            <div class="accordion__content--flex-item break-inside-avoid mt-s7">
-                                <p class="font-bold">Power</p>
-                                <p class="mt-s1">3V CR2016 coin cell battery (included) <br/>200 hours operational time <br/>12 months typical use</p>
-                            </div>
-                            <div class="accordion__content--flex-item break-inside-avoid mt-s7">
-                                <p class="font-bold">EKG characteristics</p>
-                                <p class="mt-s1">Single Lead ECG </br>10 mV peak-to-peak input dynamic range </br>30 second to 5 minute recording duration </br>300 samples per second sampling rate </br>16 bit resolution</p>
-                            </div>
-                            <div class="accordion__content--flex-item break-inside-avoid mt-s5">
-                                <p class="font-bold">Requirements</p>
-                                <p class="mt-s1">Compatible Apple or Android device </br>Kardia App</p>
-                                <div class="store-links">
-                                    <a class="itunes-badge" target="_blank" href="https://itunes.apple.com/app/aliveecg/id579769143"><img src="{{ 'apple-icon.png' | asset_url }}" alt="link to AppStore" class="w-s13 inline-block"></a>
-                                    <a class="android-badge" target="_blank" href="https://play.google.com/store/apps/details?id=com.alivecor.aliveecg"><img src="{{ 'google-icon.png' | asset_url }}" alt="Android app on Google Play" class="w-s13 inline-block"></a>
+                    <div id="accordionContent2" aria-labelledby="accordionBtn2" class="accordion__content-wrapper content-dependant" >
+                        <div class="accordion__content grid grid-cols-1 lg:grid-cols-2 gap-y-s7">
+                            <div class="grid-col flex flex-col items-center">
+                                <div class="accordion__content--flex-item break-inside-avoid">
+                                    <p class="font-bold">Dimensions</p>
+                                    <p class="mt-s1">8.2 cm x 3.2 cm x 0.35 cm </br>Two 3 cm x 3 cm stainless steel electrodes</p>
                                 </div>
-                                <a href="https://www.alivecor.com/quickstart" class="btn btn--underline py-0">User Manuals</a>
+                                <div class="accordion__content--flex-item break-inside-avoid mt-s7">
+                                    <p class="font-bold">Weight</p>
+                                    <p class="mt-s1">18 grams</p>
+                                </div>
+                                <div class="accordion__content--flex-item break-inside-avoid mt-s7">
+                                    <p class="font-bold">Power</p>
+                                    <p class="mt-s1">3V CR2016 coin cell battery (included) <br/>200 hours operational time <br/>12 months typical use</p>
+                                </div>
+                            </div>
+                            <div class="grid-col flex flex-col items-center">
+                                <div class="accordion__content--flex-item break-inside-avoid">
+                                    <p class="font-bold">EKG characteristics</p>
+                                    <p class="mt-s1">Single Lead ECG </br>10 mV peak-to-peak input dynamic range </br>30 second to 5 minute recording duration </br>300 samples per second sampling rate </br>16 bit resolution</p>
+                                </div>
+                                <div class="accordion__content--flex-item break-inside-avoid mt-s5">
+                                    <p class="font-bold">Requirements</p>
+                                    <p class="mt-s1">Compatible Apple or Android device </br>Kardia App</p>
+                                    <div class="store-links">
+                                        <a class="itunes-badge" target="_blank" href="https://itunes.apple.com/app/aliveecg/id579769143"><img src="{{ 'apple-icon.png' | asset_url }}" alt="link to AppStore" class="w-s13 inline-block"></a>
+                                        <a class="android-badge" target="_blank" href="https://play.google.com/store/apps/details?id=com.alivecor.aliveecg"><img src="{{ 'google-icon.png' | asset_url }}" alt="Android app on Google Play" class="w-s13 inline-block"></a>
+                                    </div>
+                                    <a href="https://www.alivecor.com/quickstart" class="btn btn--underline py-0">User Manuals</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,4 +142,14 @@
 
         });
     });
+
+    let content = document.querySelector('.content-dependant');
+    window.addEventListener('resize', function() {
+        if(content.style.maxHeight === content.scrollHeight + "px" || content.style.maxHeight === 0){
+            return
+        }
+        else{
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }, {passive: true})
 </script>
