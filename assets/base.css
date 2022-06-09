@@ -3009,3 +3009,27 @@ html, body {
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 1023px){
+  .header__nav-container{
+    padding-top:153px;
+  }
+}
+
+@media screen and (max-width: 954px){
+  .header__nav-container{
+    padding-top:181px;
+  }
+}
+
+@media screen and (max-width: 757px){
+  .header__nav-container{
+    padding-top:150px;
+  }
+}
+
+@media screen and (max-width: 524px){
+  .header__nav-container{
+    padding-top:173px;
+  }
+}
