@@ -69,7 +69,7 @@
 
 <section class="product-hero section-{{section.id}}-padding">
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.gallery_layout }} shopify-grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="hidden md:!block grid__item product__media-wrapper">
+    <div class="relative hidden md:!block grid__item product__media-wrapper">
       <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
         <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
         <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
@@ -218,6 +218,14 @@
           </slider-component>
         {%- endif -%}
       </media-gallery>
+
+			<a href="/products/kardiamobile-card">
+				<img
+					src="{{ "km-card-banner.png" | asset_url }} "
+					alt=""
+					class="absolute bottom-0 right-[10%] min-w-[66%] w-[350px]"
+				/>
+			</a>
     </div>
     <div class="product__info-wrapper grid__item {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
@@ -539,6 +547,15 @@
                 <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
                 {% include 'kc-km-add-to-cart', pageName: 'product' %}
             </div>
+
+						<a class="md:hidden" href="/products/kardiamobile-card">
+							<img
+								src="{{ "km-card-banner.png" | asset_url }} "
+								alt=""
+								class="w-full max-w-[500px] mx-auto"
+							/>
+						</a>
+
             <noscript class="product-form__noscript-wrapper-{{ section.id }}">
               <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
                 <label class="form__label" for="Variants-{{ section.id }}">{{ 'products.product.product_variants' | t }}</label>
