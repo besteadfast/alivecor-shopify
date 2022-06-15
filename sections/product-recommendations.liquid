@@ -56,6 +56,9 @@ screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top:
       role="list"
     >
       {% for recommendation in recommendations.products %}
+      {%- comment %}<locksmith:dd84>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: recommendation, subject_parent: recommendations, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:dd84>{% endcomment -%}
       <li class="grid__item">
         {% render 'card-product', card_product: recommendation,
         media_aspect_ratio: section.settings.image_ratio, show_secondary_image:

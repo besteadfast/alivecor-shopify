@@ -9,6 +9,9 @@
         {%- assign products = section.settings.product_list -%}
 
         {% for product in products %}
+            {%- comment %}<locksmith:d275>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:d275>{% endcomment -%}
             {% if products.length <= 2 %}
             {% assign grid_item_width = 'large--one-half medium--one-half' %}
             {% else %}
