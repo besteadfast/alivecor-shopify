@@ -15,8 +15,12 @@
     transition-timing-function: cubic-bezier(0.4,0,0.2,1);
 }
 
-.btn:hover span {
+.btn:hover:not(:disabled) span {
     transform: translateX(-2px)
+}
+
+.btn:disabled{
+    background-color: var(--primary-700)
 }
 
 {% endstyle %}
