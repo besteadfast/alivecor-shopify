@@ -1,0 +1,65 @@
+<div class="pop-up km-carrypod" id="km-carrypod-upsell-popup">
+  <div class="screen">
+  <div class="content">
+    <a class="pop-up-close ga-tracker"
+      id="km-carrypod-close"
+      data-category="KM CarryPod Upsell"
+      data-action="Clicked Close"
+      data-label="Cart"></a>
+    <div class="text">
+    <div class="h3">Add a KardiaMobile Carry Pod to your purchase to protect your device on-the-go.</div>
+      {{ 'carrypod-open.jpg' | asset_url | img_tag }}
+      <p class="h4Price price">
+        $ 29.00
+      </p>
+      <a class="btn ga-tracker"
+        id="km-carrypod-add"
+        data-category="KM CarryPod Upsell"
+        data-action="Clicked Add to cart"
+        data-label="Cart">
+        Add to cart
+      </a>
+      <a id="km-carrypod-no"
+        class="upsell-no ga-tracker" 
+        data-category="KM CarryPod Upsell"
+        data-action="Clicked No thanks"
+        data-label="Cart">
+        No thanks
+      </a>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="pop-up km6l-carrypod" id="km6l-carrypod-upsell-popup">
+  <div class="screen">
+  <div class="content">
+    <a class="pop-up-close ga-tracker"
+      id="km6l-carrypod-close"
+      data-category="KM6L CarryPod Upsell"
+      data-action="Clicked Close"
+      data-label="Cart"></a>
+    <div class="text">
+    <div class="faux-p px-s5">Add a KardiaMobile 6L Carry Pod to your purchase to protect your device on-the-go.</div>
+      {{ all_products.kardiamobile6l-carrypod.featured_media | img_url: '300x300' | img_tag: 'KardiaMobile 6L Carry Pod', 'w-[300px] h-[300px]' }}
+      {{ '6l-carrypod-open.jpg' | asset_url | img_tag }}
+      <p class="">
+        <span class="">$29.00</span>
+      </p>
+      <a class="btn ga-tracker mt-s7 cursor-pointer"
+        id="km6l-carrypod-add"
+        data-category="KM6L CarryPod Upsell"
+        data-action="Clicked Add to cart"
+        data-label="Cart">
+        Add to cart
+      </a>
+      <a id="km6l-carrypod-no"
+        class="upsell-no ga-tracker mt-s3" 
+        data-category="KM6L CarryPod Upsell"
+        data-action="Clicked No thanks"
+        data-label="Cart">
+        No thanks
+      </a>
+    </div>
+  </div>
+  </div>
+</div>

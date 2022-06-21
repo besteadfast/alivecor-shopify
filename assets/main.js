@@ -181,9 +181,11 @@ $(document).ready(function() {
         if (window.location.hostname === 'shop.de.alivecor.com') {
           searchCartCarryPod(cart);
         } else {
-          searchCartKardiaCare(cart);
+          const kardiaUpsellOpen = searchCartKardiaCare(cart);
           // adding for carry pod pop up in cart
-          searchCartCarryPod(cart);
+          if (!kardiaUpsellOpen){
+            searchCartCarryPod(cart);
+          }
         }
       }
     });
@@ -208,6 +210,8 @@ $(document).ready(function() {
         kardiacare_in_cart = true;
       }
     }
+
+    console.log(km6l_in_cart)
     // check for IE
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf('MSIE '); // <=ie10
@@ -221,6 +225,7 @@ $(document).ready(function() {
         setTimeout(function() {
           showKardiaCareOffer();
         }, 1500);
+        return true;
       }
       if (kardiacare_in_cart && !km_in_cart && !km6l_in_cart && !kmc_in_cart) {
 //        setTimeout(function() {
@@ -258,6 +263,11 @@ $(document).ready(function() {
   function showKardiaCareOffer() {
     var kardiacare_id, kardiacare_1month_id, kardiacare_1year_id, kardiacare_2year_id, currentShop;
     switch(window.location.hostname) {
+      case '127.0.0.1':
+        kardiacare_1month_id = 32283254751297;
+        kardiacare_1year_id = 32194082472001;
+        kardiacare_2year_id = 32283255341121;
+        break;
       case 'store.kardia.com':
         kardiacare_1month_id = 32283254751297;
         kardiacare_1year_id = 32194082472001;
@@ -454,6 +464,9 @@ $(document).ready(function() {
   }
   function showCarryPod6lOffer() {
     switch(window.location.hostname) {
+      case '127.0.0.1':
+        var cp6l_id = 29243799208001;
+        break;
       case 'store.kardia.com':
         var cp6l_id = 29243799208001;
         break;
@@ -683,7 +696,7 @@ $(document).ready(function() {
       if (showSale) {
         $('.bundle-price-display #ProductPrice').addClass('green');
         if ($('.totalBundlePrice').length === 0) {
-          $('<span class="strikeout totalBundlePrice">$' + totalPrice +'</span>').insertAfter('.bundle-price-display #ProductPrice');
+          $('<span class="line-through old-price totalBundlePrice">$' + totalPrice +'</span>').insertAfter('.bundle-price-display #ProductPrice');
         } else {
           $('.totalBundlePrice').html('$' + totalPrice);
         }
@@ -985,7 +998,7 @@ function analyzeCart(cartItems) {
       }
     } else if (hasKardiaCareAnnual) {
       $('#' + kmAnnual.id + ' .cart__remove').hide();
-    } else {
+    } else if (hasKardiaCareMonthly) {
       $('#' + kmMonthly.id + ' .cart__remove').hide();
     }
   }
@@ -993,10 +1006,10 @@ function analyzeCart(cartItems) {
     var kmCard = cartItems.find(function(item) { return item.handle === 'kardiamobile-card'; });
     updates[kmCard.variant_id] = 0;
   }
-  if (hasKm6l && (!hasKardiaCareMonthly && !hasKardiaCareAnnual)) {
-    var km6l = cartItems.find(function(item) { return item.handle === 'kardiamobile6l'; });
-    updates[km6l.variant_id] = 0;
-  }
+  // if (hasKm6l && (!hasKardiaCareMonthly && !hasKardiaCareAnnual)) {
+  //   var km6l = cartItems.find(function(item) { return item.handle === 'kardiamobile6l'; });
+  //   updates[km6l.variant_id] = 0;
+  // }
   if (Object.keys(updates).length > 0) {
     $.ajax({
       type: 'POST',
@@ -1032,11 +1045,12 @@ function kc6lBundleRemove(event) {
       var kcAnnual = cartItems.find(function(item) { return item.handle === 'kardiacare'; });
       updates[kcAnnual.variant_id] = 0;
     }
-  } else {
+  } else if (hasKardiaCareMonthly){
     // remove monthly
     var kcMonthly = cartItems.find(function(item) { return item.handle === 'kardiacare-monthly'; });
     updates[kcMonthly.variant_id] = 0;
   }
+
   $.ajax({
     type: 'POST',
     url: '/cart/update.js',

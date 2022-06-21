@@ -158,9 +158,8 @@
              <span>{{ year_label }}</span>
           </label>
         </div>
-        {% comment %}
         <div class="form-radio">
-          <label for="non_mem">
+          <label for="non_mem" class="faux-p">
             <input
               id="non_mem"
               name="kardiaCareMembershipLength"
@@ -169,17 +168,16 @@
               data-price-number="0"
               data-device-price="{{ kardiamobile6l_price }}"
               data-price-display-id="kc-6l-price"
-              class="field radio"
+              class="radio appearance-none"
               value="no_mem"
               tabindex="3"
               onchange=""
               required
               autocomplete="off"
              />
-             No membership
+             <span>No membership</span>
           </label>
         </div>
-        {% endcomment %}
       </fieldset>
       {% endif %}
     </div>

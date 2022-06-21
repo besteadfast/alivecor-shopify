@@ -575,7 +575,6 @@ table:not([class]) th {
   opacity: 0.7;
 }
 
-a:empty,
 ul:empty,
 dl:empty,
 div:empty,
@@ -3033,3 +3032,603 @@ html, body {
     padding-top:173px;
   }
 }
+
+.pop-up .screen {
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(83, 96, 98, 0.3);
+  opacity: 0;
+  padding-top: 0.6em;
+  text-align: left;
+  visibility: hidden;
+  z-index: 99999999999;
+  height: 100%; }
+.pop-up.open .screen {
+  opacity: 1;
+  visibility: visible; }
+.pop-up .content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 40px;
+  box-shadow: 0px 0px 15px #142a39;
+  border-radius: 10px;
+  overflow: hidden; }
+  .pop-up .content h5, .pop-up .content .h5 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px; }
+  .pop-up .content .close {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer; }
+.pop-up.promo .content {
+  padding: 40px 0 0 40px;
+  width: 500px; }
+  @media (max-width: 560px) {
+    .pop-up.promo .content {
+      background-image: url(//cdn.shopify.com/s/files/1/0368/7037/t/44/assets/carryPodHand.jpg?v=8424902950476819031643658532);
+      background-size: 61%;
+      background-position: 112% 100%;
+      background-repeat: no-repeat; } }
+  @media (min-width: 520px) and (max-width: 560px) {
+    .pop-up.promo .content {
+      background-size: 53%; } }
+  @media (max-width: 400px) {
+    .pop-up.promo .content {
+      background-position: 127% 100%; } }
+  .pop-up.promo .content .text {
+    width: 60%;
+    float: left;
+    text-align: center; }
+    @media (min-width: 400px) {
+      .pop-up.promo .content .text {
+        width: 50%; } }
+  .pop-up.promo .content img {
+    width: 50%;
+    float: left; }
+    @media (max-width: 560px) {
+      .pop-up.promo .content img {
+        display: none; } }
+.pop-up.omron .content, .pop-up.km-carrypod .content, .pop-up.km6l-carrypod .content, .pop-up.kardiacare-upsell .content, .pop-up.kardiamobile-upsell .content {
+  padding: 40px 20px;
+  width: 540px;
+  text-align: center; }
+  @media (min-width: 400px) {
+    .pop-up.omron .content, .pop-up.km-carrypod .content, .pop-up.km6l-carrypod .content, .pop-up.kardiacare-upsell .content, .pop-up.kardiamobile-upsell .content {
+      padding: 40px; } }
+  .pop-up.omron .content .h3, .pop-up.km-carrypod .content .h3, .pop-up.km6l-carrypod .content .h3, .pop-up.kardiacare-upsell .content .h3, .pop-up.kardiamobile-upsell .content .h3 {
+    line-height: 1.3;
+    font-weight: normal; }
+  .pop-up.omron .content img, .pop-up.km-carrypod .content img, .pop-up.km6l-carrypod .content img, .pop-up.kardiacare-upsell .content img, .pop-up.kardiamobile-upsell .content img {
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    margin: 20px auto; }
+  .pop-up.omron .content a.upsell-no, .pop-up.km-carrypod .content a.upsell-no, .pop-up.km6l-carrypod .content a.upsell-no, .pop-up.kardiacare-upsell .content a.upsell-no, .pop-up.kardiamobile-upsell .content a.upsell-no {
+    display: block;
+    text-decoration: underline;
+    font-size: 16px;
+    margin-top: 20px; }
+    .pop-up.omron .content a.upsell-no:hover, .pop-up.km-carrypod .content a.upsell-no:hover, .pop-up.km6l-carrypod .content a.upsell-no:hover, .pop-up.kardiacare-upsell .content a.upsell-no:hover, .pop-up.kardiamobile-upsell .content a.upsell-no:hover {
+      cursor: pointer; }
+  .pop-up.omron .content .pop-up-close, .pop-up.km-carrypod .content .pop-up-close, .pop-up.km6l-carrypod .content .pop-up-close, .pop-up.kardiacare-upsell .content .pop-up-close, .pop-up.kardiamobile-upsell .content .pop-up-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    height: 1.5em;
+    width: 1.5em;
+    cursor: pointer; }
+    @media (min-width: 768px) {
+      .pop-up.omron .content .pop-up-close, .pop-up.km-carrypod .content .pop-up-close, .pop-up.km6l-carrypod .content .pop-up-close, .pop-up.kardiacare-upsell .content .pop-up-close, .pop-up.kardiamobile-upsell .content .pop-up-close {
+        position: absolute;
+        top: 20px;
+        right: 20px; } }
+    .pop-up.omron .content .pop-up-close:after, .pop-up.omron .content .pop-up-close:before, .pop-up.km-carrypod .content .pop-up-close:after, .pop-up.km-carrypod .content .pop-up-close:before, .pop-up.km6l-carrypod .content .pop-up-close:after, .pop-up.km6l-carrypod .content .pop-up-close:before, .pop-up.kardiacare-upsell .content .pop-up-close:after, .pop-up.kardiacare-upsell .content .pop-up-close:before, .pop-up.kardiamobile-upsell .content .pop-up-close:after, .pop-up.kardiamobile-upsell .content .pop-up-close:before {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      bottom: 0;
+      left: 50%;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      height: 20px;
+      width: 2px;
+      background: var(--primary-500);
+      content: '';
+      display: block;
+      margin: -3px 0 0 -1px; }
+      @media (min-width: 768px) {
+        .pop-up.omron .content .pop-up-close:after, .pop-up.omron .content .pop-up-close:before, .pop-up.km-carrypod .content .pop-up-close:after, .pop-up.km-carrypod .content .pop-up-close:before, .pop-up.km6l-carrypod .content .pop-up-close:after, .pop-up.km6l-carrypod .content .pop-up-close:before, .pop-up.kardiacare-upsell .content .pop-up-close:after, .pop-up.kardiacare-upsell .content .pop-up-close:before, .pop-up.kardiamobile-upsell .content .pop-up-close:after, .pop-up.kardiamobile-upsell .content .pop-up-close:before {
+          height: 25px; } }
+    .pop-up.omron .content .pop-up-close:before, .pop-up.km-carrypod .content .pop-up-close:before, .pop-up.km6l-carrypod .content .pop-up-close:before, .pop-up.kardiacare-upsell .content .pop-up-close:before, .pop-up.kardiamobile-upsell .content .pop-up-close:before {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+.pop-up.km6l-carrypod .content img {
+  max-width: 450px;
+  margin: 0 auto; }
+.pop-up.kardiacare-upsell .content {
+  padding: 30px 20px 24px;
+  /*@media(max-height: 718px) {
+    top: 0;
+    transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    height: 100%;
+    overflow-y: scroll;
+  }*/ }
+  @media (min-width: 400px) {
+    .pop-up.kardiacare-upsell .content {
+      padding: 30px 40px 24px; } }
+  @media (min-width: 768px) {
+    .pop-up.kardiacare-upsell .content {
+      width: 600px; } }
+.pop-up.size-chart .content {
+  width: 70%; }
+  .pop-up.size-chart .content table {
+    font-size: 16px; }
+    .pop-up.size-chart .content table thead {
+      font-weight: bold; }
+    .pop-up.size-chart .content table td {
+      padding: 10px; }
+.pop-up #carry-pod-no {
+  cursor: pointer;
+  border-bottom: 1px solid #2d9f86;
+  font-size: 16px;
+  display: block;
+  display: table;
+  margin: 40px auto 20px; }
+
+  /* Premium Table */
+#premium .accordion-inner, .kardiacare-table .accordion-inner {
+  padding: 8px 0 62px; }
+  @media (min-width: 1200px) {
+    #premium .accordion-inner, .kardiacare-table .accordion-inner {
+      padding: 8px 0 62px; } }
+  #premium .accordion-inner > p, .kardiacare-table .accordion-inner > p {
+    font-size: 16px;
+    color: #536062;
+    margin: 0 auto 32px;
+    padding: 0 20px;
+    text-align: center;
+    max-width: 600px; }
+#premium table, .kardiacare-table table {
+  margin: 0 auto 8px;
+  width: calc(100% - 30px);
+  color: #142a39;
+  max-width: 723px; }
+  @media (min-width: 1200px) {
+    #premium table, .kardiacare-table table {
+      width: 80%;
+      margin: 0 auto 8px; } }
+  #premium table thead, .kardiacare-table table thead {
+    border-bottom: 2px solid #536062; }
+  #premium table tr, .kardiacare-table table tr {
+    border-bottom: 1px solid var(--primary-75); }
+    #premium table tr:last-of-type, .kardiacare-table table tr:last-of-type {
+      border-bottom: none; }
+  #premium table td, .kardiacare-table table td {
+    border: none;
+    padding: 18px 0;
+    font-weight: 300;
+    font-size: 14px; }
+    @media (min-width: 1200px) {
+      #premium table td, .kardiacare-table table td {
+        font-size: 16px; } }
+    #premium table td.head, .kardiacare-table table td.head {
+      width: 60px;
+      padding: 0 0 8px;
+      text-align: center;
+      font-size: 14px;
+      vertical-align: bottom;
+      line-height: 16px; }
+      @media (min-width: 768px) {
+        #premium table td.head, .kardiacare-table table td.head {
+          width: 100px; } }
+      @media (min-width: 1200px) {
+        #premium table td.head, .kardiacare-table table td.head {
+          font-size: 16px;
+          width: 133px;
+          padding: 0 0 15px; } }
+      #premium table td.head.bold, .kardiacare-table table td.head.bold {
+        font-weight: bold;
+        color: #885fa5; }
+      #premium table td.head.wide, .kardiacare-table table td.head.wide {
+        font-weight: bold;
+        width: 76px; }
+        @media (min-width: 768px) {
+          #premium table td.head.wide, .kardiacare-table table td.head.wide {
+            width: 100px; } }
+        @media (min-width: 1200px) {
+          #premium table td.head.wide, .kardiacare-table table td.head.wide {
+            width: 133px; } }
+        #premium table td.head.wide span, .kardiacare-table table td.head.wide span {
+          font-size: 13px;
+          font-weight: normal;
+          display: block;
+          line-height: 16px; }
+          @media (min-width: 1200px) {
+            #premium table td.head.wide span, .kardiacare-table table td.head.wide span {
+              font-size: 14px; } }
+    #premium table td.basic, .kardiacare-table table td.basic {
+      width: 60px;
+      text-align: center; }
+      @media (min-width: 1200px) {
+        #premium table td.basic, .kardiacare-table table td.basic {
+          width: 147px; } }
+      #premium table td.basic svg path.check-1, .kardiacare-table table td.basic svg path.check-1 {
+        stroke: #babfbd;
+        stroke-width: 2px; }
+    #premium table td.premium, .kardiacare-table table td.premium {
+      text-align: center;
+      width: 60px; }
+      @media (min-width: 1200px) {
+        #premium table td.premium, .kardiacare-table table td.premium {
+          width: 147px; } }
+      #premium table td.premium svg path.check-1, .kardiacare-table table td.premium svg path.check-1 {
+        stroke: #885fa5; }
+    #premium table td.feature span, .kardiacare-table table td.feature span {
+      font-weight: bold;
+      display: block;
+      color: #536062; }
+      #premium table td.feature span a, .kardiacare-table table td.feature span a {
+        color: #fff;
+        text-decoration: none; }
+      #premium table td.feature span sup, .kardiacare-table table td.feature span sup {
+        font-weight: normal;
+        font-size: 60%;
+        top: -.7em; }
+    #premium table td svg, .kardiacare-table table td svg {
+      width: 20px;
+      height: 16px; }
+    #premium table td a.scroll-link, .kardiacare-table table td a.scroll-link {
+      color: #142a39;
+      border-bottom: 1px solid rgba(136, 95, 165, 0.3);
+      display: inline; }
+  #premium table .mobile-table, .kardiacare-table table .mobile-table {
+    display: none; }
+#premium .footnote-table, .kardiacare-table .footnote-table {
+  margin: 24px auto 0;
+  width: calc(100% - 30px);
+  max-width: 723px;
+  font-size: 14px; }
+  @media (min-width: 1200px) {
+    #premium .footnote-table, .kardiacare-table .footnote-table {
+      width: 80%; } }
+  #premium .footnote-table p, .kardiacare-table .footnote-table p {
+    margin-bottom: 8px; }
+  #premium .footnote-table a, .kardiacare-table .footnote-table a {
+    text-decoration: underline; }
+
+@media (min-width: 768px) {
+  .kardiacare-plan {
+    padding: 0 60px; } }
+@media (min-width: 1200px) {
+  .kardiacare-plan {
+    padding: 0 100px; } }
+.kardiacare-plan .main-plan .basic p {
+  font-size: 16px;
+  margin: 0 20px 80px;
+  text-align: center; }
+  @media (min-width: 768px) {
+    .kardiacare-plan .main-plan .basic p {
+      margin: 0 auto 80px;
+      width: 620px; } }
+.kardiacare-plan .main-plan .premium {
+  color: #536062;
+  padding: 60px 20px 0;
+  position: relative;
+  border-top: 2px solid #e2e7e3; }
+  @media (min-width: 768px) {
+    .kardiacare-plan .main-plan .premium {
+      padding: 60px 30px 0; } }
+  @media (min-width: 1200px) {
+    .kardiacare-plan .main-plan .premium {
+      padding: 60px 0 0; } }
+  .kardiacare-plan .main-plan .premium .h1 {
+    color: #142a39;
+    text-align: center;
+    margin: 0 auto 60px;
+    font-size: 24px;
+    line-height: 30px;
+    max-width: 420px; }
+    @media (min-width: 768px) {
+      .kardiacare-plan .main-plan .premium .h1 {
+        max-width: 520px;
+        width: 520px;
+        margin: 0 auto 50px;
+        font-size: 30px;
+        line-height: 36px; } }
+    @media (min-width: 1200px) {
+      .kardiacare-plan .main-plan .premium .h1 {
+        margin: 0 auto 80px; } }
+  .kardiacare-plan .main-plan .premium .ribbon {
+    width: 180px;
+    position: absolute;
+    top: -21px;
+    background-color: #885fa5;
+    text-align: center;
+    height: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 40px; }
+  .kardiacare-plan .main-plan .premium .ribbon:before, .kardiacare-plan .main-plan .premium .ribbon:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    border: 20px solid #885fa5; }
+  .kardiacare-plan .main-plan .premium .ribbon:before {
+    left: -15px;
+    border-left-width: 10px;
+    border-left-color: transparent; }
+  .kardiacare-plan .main-plan .premium .ribbon:after {
+    right: -15px;
+    border-right-width: 10px;
+    border-right-color: transparent; }
+  .kardiacare-plan .main-plan .premium .bullets {
+    margin: 0;
+    padding-bottom: 0; }
+    @media (min-width: 768px) {
+      .kardiacare-plan .main-plan .premium .bullets {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }
+    .kardiacare-plan .main-plan .premium .bullets .h3 {
+      line-height: 24px;
+      font-size: 15px;
+      color: #142a39;
+      max-width: 250px;
+      margin: 0 auto 10px; }
+      @media (min-width: 1100px) {
+        .kardiacare-plan .main-plan .premium .bullets .h3 {
+          margin: 0 0 10px 0;
+          max-width: 210px; } }
+    .kardiacare-plan .main-plan .premium .bullets > li {
+      list-style-type: none;
+      margin-bottom: 40px;
+      text-align: center;
+      font-size: 15px; }
+      @media (min-width: 768px) {
+        .kardiacare-plan .main-plan .premium .bullets > li {
+          margin-bottom: 50px;
+          -webkit-box-flex: 1;
+          -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+          width: 50%; } }
+      @media (min-width: 1100px) {
+        .kardiacare-plan .main-plan .premium .bullets > li {
+          text-align: left;
+          width: 25%; } }
+      .kardiacare-plan .main-plan .premium .bullets > li .icon {
+        margin-bottom: 24px;
+        height: 46px; }
+        @media (min-width: 768px) {
+          .kardiacare-plan .main-plan .premium .bullets > li .icon {
+            margin: 0 0 24px -14px; } }
+        .kardiacare-plan .main-plan .premium .bullets > li .icon svg {
+          width: 60px;
+          height: 60px; }
+      .kardiacare-plan .main-plan .premium .bullets > li:nth-of-type(4) .icon {
+        margin-left: -9px; }
+      .kardiacare-plan .main-plan .premium .bullets > li p {
+        color: #536062;
+        margin: 0 auto;
+        max-width: 290px; }
+        @media (min-width: 768px) {
+          .kardiacare-plan .main-plan .premium .bullets > li p {
+            max-width: 230px; } }
+        @media (min-width: 1100px) {
+          .kardiacare-plan .main-plan .premium .bullets > li p {
+            margin: 0;
+            max-width: 200px; } }
+    .kardiacare-plan .main-plan .premium .bullets li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .kardiacare-plan .main-plan .premium .bullets li:nth-child(3) {
+        margin-bottom: 0; } }
+
+.kardiacare-table .h2Title {
+  line-height: 1; }
+.kardiacare-table .h3.subtitle {
+  font-weight: normal;
+  margin-bottom: 24px; }
+  .kardiacare-table .h3.subtitle .italic {
+    font-style: italic;
+    font-size: 16px; }
+.kardiacare-table .kardiamobile-header, .kardiacare-table .kardiamobile6l-header {
+  display: none; }
+.kardiacare-table .upsell-table-cont {
+  background-color: var(--primary-50);
+  margin: 20px 0;
+  position: relative;
+  padding: 0 0 1px; }
+  @media (min-width: 768px) {
+    .kardiacare-table .upsell-table-cont {
+      margin: 30px; } }
+.kardiacare-table table {
+  width: 100%; }
+  @media (min-width: 768px) {
+    .kardiacare-table table.product {
+      margin: 0 20px;
+      width: calc(100% - 20px); } }
+  .kardiacare-table table.product .premium svg {
+    height: 40px;
+    width: 40px; }
+  .kardiacare-table table.product thead {
+    background-color: var(--primary-500);
+    border: none; }
+    .kardiacare-table table.product thead td.head {
+      font-weight: bold;
+      color: #fff;
+      padding: 14px 0; }
+  .kardiacare-table table.product tbody {
+    background-color: rgba(243, 239, 246, 0.7); }
+    .kardiacare-table table.product tbody tr {
+      border-bottom-color: rgba(186, 191, 189, 0.4); }
+      .kardiacare-table table.product tbody tr td:first-of-type {
+        padding-left: 24px; }
+  .kardiacare-table table.product td {
+    padding: 4px 0; }
+    @media (min-width: 768px) {
+      .kardiacare-table table.product td.head, .kardiacare-table table.product td.basic, .kardiacare-table table.product td.premium {
+        width: 115px; } }
+    @media (min-width: 375px) {
+      .kardiacare-table table.product td.premium {
+        width: 95px; } }
+    @media (min-width: 768px) {
+      .kardiacare-table table.product td.premium {
+        width: 115px; } }
+  .kardiacare-table table.product tr.coming-soon td {
+    color: #6d7779; }
+  .kardiacare-table table.product tr.coming-soon .premium {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .kardiacare-table table.product tr.coming-soon .premium svg path {
+      fill: #6d7779; }
+    .kardiacare-table table.product tr.coming-soon .premium span {
+      font-size: 12px;
+      margin: -8px 0 6px;
+      color: #6d7779; }
+  .kardiacare-table table.upsell, .kardiacare-table table.home {
+    background-color: var(--primary-50);
+    padding-bottom: 20px; }
+    .kardiacare-table table.upsell .premium svg, .kardiacare-table table.home .premium svg {
+      height: 40px;
+      width: 40px; }
+    .kardiacare-table table.upsell thead, .kardiacare-table table.home thead {
+      background-color: var(--primary-800);
+      border: none; }
+      .kardiacare-table table.upsell thead td.head, .kardiacare-table table.home thead td.head {
+        font-weight: bold;
+        color: #fff;
+        padding: 30px 0 14px;
+        width: 40px;
+        font-size: 14px; }
+        @media (min-width: 768px) {
+          .kardiacare-table table.upsell thead td.head, .kardiacare-table table.home thead td.head {
+            width: 60px;
+            font-size: 15px; } }
+    .kardiacare-table table.upsell td, .kardiacare-table table.home td {
+      padding: 0; }
+      .kardiacare-table table.upsell td.feature, .kardiacare-table table.home td.feature {
+        padding-left: 10px;
+        text-align:left;
+        line-height: 16px; }
+        @media (min-width: 768px) {
+          .kardiacare-table table.upsell td.feature, .kardiacare-table table.home td.feature {
+            padding: 12px 0 12px 30px;
+            line-height: 18px; } }
+      .kardiacare-table table.upsell td.basic, .kardiacare-table table.home td.basic {
+        width: 40px;
+      }
+        @media (min-width: 768px) {
+          .kardiacare-table table.upsell td.basic, .kardiacare-table table.home td.basic {
+            width: 60px; } }
+      .kardiacare-table table.upsell td.premium, .kardiacare-table table.home td.premium {
+        width: 90px; }
+        @media (min-width: 768px) {
+          .kardiacare-table table.upsell td.premium, .kardiacare-table table.home td.premium {
+            width: 130px; } }
+  .kardiacare-table table.upsell .basic svg {
+    height: 12px;
+    margin: 0 auto;
+  }
+    @media (min-width: 768px) {
+      .kardiacare-table table.upsell .basic svg {
+        height: 16px; } }
+  .kardiacare-table table.upsell .premium svg {
+    height: 30px;
+    width: 30px; 
+    margin: 0 auto;
+  }
+    @media (min-width: 768px) {
+      .kardiacare-table table.upsell .premium svg {
+        height: 34px;
+        width: 34px; } }
+  .kardiacare-table table.rhythm {
+    margin-bottom: 0; }
+    .kardiacare-table table.rhythm thead td.head {
+      padding: 10px 0; }
+.kardiacare-table .table-ribbon {
+  width: 220px;
+  position: absolute;
+  top: -20px;
+  background-color: #885fa5;
+  text-align: center;
+  height: 36px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 36px; }
+.kardiacare-table .table-ribbon:before, .kardiacare-table .table-ribbon:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  border: 18px solid #885fa5; }
+.kardiacare-table .table-ribbon:before {
+  left: -15px;
+  border-left-width: 10px;
+  border-left-color: transparent; }
+.kardiacare-table .table-ribbon:after {
+  right: -15px;
+  border-right-width: 10px;
+  border-right-color: transparent; }
+.kardiacare-table .disclaimer {
+  font-size: 12px;
+  text-align: center;
+  margin: 0px 0px 20px; }
+  @media (min-width: 1200px) {
+    .kardiacare-table .disclaimer {
+      font-size: 14px; } }
