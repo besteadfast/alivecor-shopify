@@ -211,6 +211,9 @@
 									{% endif %}
 									</span>
 								{% endif %}
+                {% if product.handle == "kardiamobile-card" %}
+                  <p class="faux-p-xs" style="color:rgba(var(--color-foreground),.7); margin: 1.4rem 0 -.6rem 0;">FREE month of KardiaCare included in box.</p>
+                {% endif %}
 							</div>
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
