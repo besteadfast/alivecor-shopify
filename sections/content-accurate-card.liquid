@@ -1,0 +1,34 @@
+<article class="image-split image-split--right borders">
+    <div class="image-split__media">
+      <picture class="image__wrapper"
+        >
+        {% comment %}
+        <source
+          media="(max-width: 639px)"
+          srcset="
+            https://kardia.steadfa.st/assets/images/_620x460_crop_center-center_95_none/hands-phone.png
+          " />
+        <source
+          media="(max-width: 1023px)"
+          srcset="
+            https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
+          " />
+          {% endcomment %}
+        <img
+          src="{{ "km6l-feature-image-accurate.jpeg" | asset_url }}"
+          alt=""
+          class="image-split__image"
+      /></picture>
+    </div>
+  
+    <div class="image-split__content">
+      <div class="image-split__content-int">
+        <h2>Accurate EKG results in seconds</h2>
+        {% comment %} <p class="faux-sh">FDA-cleared personal EKG</p> {% endcomment %}
+        <p>
+            KardiaMobile Card is an FDA-cleared personal EKG that can detect up to six of the most common arrhythmias. Using clinically validated EKG technology and our advanced algorithm, you’ll get an accurate analysis of your heart rhythm with every recording in just 30 seconds.
+        </p>
+      </div>
+    </div>
+  </article>
+  

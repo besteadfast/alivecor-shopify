@@ -1,0 +1,34 @@
+<article class="image-split image-split--right borders">
+    <div class="image-split__media">
+      <picture class="image__wrapper"
+        >
+        {% comment %}
+        <source
+          media="(max-width: 639px)"
+          srcset="
+            https://kardia.steadfa.st/assets/images/_620x460_crop_center-center_95_none/hands-phone.png
+          " />
+        <source
+          media="(max-width: 1023px)"
+          srcset="
+            https://kardia.steadfa.st/assets/images/_1024x550_crop_center-center_95_none/hands-phone.png
+          " />
+          {% endcomment %}
+        <img
+          src="{{ "km6l-feature-image-accurate.jpeg" | asset_url }}"
+          alt=""
+          class="image-split__image"
+      /></picture>
+    </div>
+  
+    <div class="image-split__content">
+      <div class="image-split__content-int">
+        <h2>Bluetooth enabled, no WiFi required</h2>
+        {% comment %} <p class="faux-sh">FDA-cleared personal EKG</p> {% endcomment %}
+        <p>
+            KardiaMobile Card uses Bluetooth technology to connect to your phone and record medical-grade EKGs. That means there’s no WiFi required, so you can record your EKG anywhere.
+        </p>
+      </div>
+    </div>
+  </article>
+  

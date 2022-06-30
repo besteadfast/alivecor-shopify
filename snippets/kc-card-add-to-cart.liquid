@@ -1,5 +1,47 @@
+{% style %}
+    #app input[type="radio"]{
+        display:inline-grid;
+        place-content:center;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid var(--primary-300);
+        border-radius: 50%;
+        transform: translateY(-2px);
+        color:white;
+    }
+
+    #app input[type="radio"]:focus{
+      box-shadow:none;
+    }
+
+    input[type="radio"]::before {
+        content: "";
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--primary-700);
+    }
+
+
+    input[type="radio"] + span{
+        opacity:.5;
+        transition: 120ms opacity ease-in-out;
+    }
+
+    input[type="radio"]:checked::before {
+        transform: scale(1);
+    }
+
+    input[type="radio"]:checked + span{
+        color: var(--primary-700);
+        opacity:1;
+    }
+{% endstyle %}
+
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, '{{product.handle}}')">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, '{{product.handle}}', '{{pageName}}')">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -33,10 +75,10 @@
         {% assign bundle_sale_amount = "30" %}
         {% else %}
       {% endcase %}
-    <div class="visually-hidden">
+    <div class="form visually-hidden">
       <fieldset>
         <div class="form-radio">
-          <label for="{{ year_id }}">
+          <label for="{{ year_id }}" class="faux-p">
             <input
               id="{{ year_id }}"
               name="kardiaCareMembershipLength"
@@ -49,17 +91,36 @@
               data-show-sale="true"
               data-device-price="0"
               data-price-display-id="kc-card-price"
-              class="field radio"
+              class="radio appearance-none"
               value="{{ year_id }}"
               tabindex="1"
+              onchange=""
+              required
+              autocomplete="off"
+             />
+             <span>{{ year_label }}</span>
+          </label>
+        </div>
+        <div class="form-radio">
+          <label for="non_mem" class="faux-p">
+            <input
+              id="non_mem"
+              name="kardiaCareMembershipLength"
+              type="radio"
+              data-frequency="none"
+              data-price-number="0"
+              data-device-price="{{ kardiacard_price }}"
+              data-price-display-id="kc-card-price"
+              class="radio appearance-none"
+              value="no_mem"
+              tabindex="2"
               onchange=""
               required
               checked="checked"
               autocomplete="off"
              />
-             {{ year_label }}
-          </label>
-        </div>
+            <span>No membership</span>
+        </label>
       </fieldset>
     </div>
     <div class="flex-items-bundle">
@@ -68,7 +129,7 @@
           type="submit"
           name="add"
           id="{{product.id}}AddToCart1"
-          class="btn mt-s5 addToCart"
+          class="btn addToCart"
           {% if sold_out %}
             disabled
           {% endif %}

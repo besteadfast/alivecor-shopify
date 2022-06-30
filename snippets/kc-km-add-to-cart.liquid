@@ -47,7 +47,7 @@
 
 
 <div class="form">
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical {% if pageName == "product" %}mt-s7{% endif %}" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile')">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical {% if pageName == "product" %}mt-s7{% endif %}" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile', '{{pageName}}')">
       {% capture year_title %}
           1-Year Plan
         {% endcapture %}

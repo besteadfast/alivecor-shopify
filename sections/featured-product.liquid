@@ -181,18 +181,10 @@
 										{{ 'products.product.on_sale_from_html' | t: price: sale_price }}
 									{% else %}
 										<span class="h2Price red">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.price | money }}
-											{% else %}
-												{{ product.price | plus:9900 | money }}
-											{% endif %}
 										</span>
 										<span class="strikeout">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.compare_at_price | money }}
-											{% else %}
-												{{ product.compare_at_price | plus:9900 | money }}
-											{% endif %}
 										</span>
 									{% endif %}
 								{% else %}
@@ -361,7 +353,7 @@
                 {%- if product != blank -%}
                   <div class="inline-block col-span-2 lg:col-span-1 lg:w-auto my-0 lg:pb-s8 lg:border-b-2 border-primary-75">
                     {% if product.handle == 'kardiamobile-card' %}
-                      {% include 'kc-card-add-to-cart', pageName: "product" %}
+                      {% include 'kc-card-add-to-cart', pageName: "home" %}
                     {% elsif product.handle == 'kardiamobile6l' %}
                       {% include 'kc-6l-add-to-cart', pageName: "home" %}
                     {% else %}
