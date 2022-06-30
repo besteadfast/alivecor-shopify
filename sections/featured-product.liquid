@@ -205,7 +205,7 @@
 									{% elsif product.handle == 'kardiamobile6l' %}
 										Starting at $98.99
 									{% elsif product.handle == 'kardiamobile-card' %}
-										${{ product.price | plus: 9900 | money_without_currency }}
+										${{ product.price | money_without_currency }}
 									{% else %}
 										${{ product.price | money_without_currency }}
 									{% endif %}
