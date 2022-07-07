@@ -181,18 +181,10 @@
 										{{ 'products.product.on_sale_from_html' | t: price: sale_price }}
 									{% else %}
 										<span class="h2Price red">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.price | money }}
-											{% else %}
-												{{ product.price | plus:9900 | money }}
-											{% endif %}
 										</span>
 										<span class="strikeout">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.compare_at_price | money }}
-											{% else %}
-												{{ product.compare_at_price | plus:9900 | money }}
-											{% endif %}
 										</span>
 									{% endif %}
 								{% else %}
@@ -213,12 +205,15 @@
 									{% elsif product.handle == 'kardiamobile6l' %}
 										Starting at $98.99
 									{% elsif product.handle == 'kardiamobile-card' %}
-										${{ product.price | plus: 9900 | money_without_currency }}
+										${{ product.price | money_without_currency }}
 									{% else %}
 										${{ product.price | money_without_currency }}
 									{% endif %}
 									</span>
 								{% endif %}
+                {% if product.handle == "kardiamobile-card" %}
+                  <p class="faux-p-xs" style="color:rgba(var(--color-foreground),.7); margin: 1.4rem 0 -.6rem 0;">FREE month of KardiaCare included in box.</p>
+                {% endif %}
 							</div>
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
@@ -361,7 +356,7 @@
                 {%- if product != blank -%}
                   <div class="inline-block col-span-2 lg:col-span-1 lg:w-auto my-0 lg:pb-s8 lg:border-b-2 border-primary-75">
                     {% if product.handle == 'kardiamobile-card' %}
-                      {% include 'kc-card-add-to-cart', pageName: "product" %}
+                      {% include 'kc-card-add-to-cart', pageName: "home" %}
                     {% elsif product.handle == 'kardiamobile6l' %}
                       {% include 'kc-6l-add-to-cart', pageName: "home" %}
                     {% else %}

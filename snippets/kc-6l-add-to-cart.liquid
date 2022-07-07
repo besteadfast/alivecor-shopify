@@ -42,7 +42,7 @@
 
 
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l')">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l', '{{pageName}}')">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -104,7 +104,7 @@
         {% else %}
       {% endcase %}
     <div class="kardiacare-products-bundle" >
-      {% if pageName != "home" %}
+      {% if pageName != 'home' %}
       <fieldset>
         <legend class="block faux-p product__text subtitle font-bold mb-s4">
           Choose your membership plan:

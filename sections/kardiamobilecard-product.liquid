@@ -228,7 +228,7 @@
             {% render block %}
           {%- when 'text' -%}
             <p class="product__text !mt-s5 {% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}" {{ block.shopify_attributes }}>
-              {{- block.settings.text -}}
+              Our most advanced single-lead personal EKG 
             </p>
           {%- when 'title' -%}
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
@@ -392,8 +392,10 @@
 						</div>
 
             <div class="bundle-price-display mb-0">
-              <span id="ProductPrice" class="h2Price noFloat">
-                $<span id="kc-card-price">{{ product.price | plus: 9900 | money_without_currency }}</span>
+              <span id="ProductPrice" class="h2Price noFloat text-primary-500">
+                $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+              </span><span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>
+              <p class="faux-p-xs mt-s3" style="color:rgba(var(--color-foreground),.7);">FREE month of KardiaCare included in box.</p>
             </div>
             {% comment %}
             <div class="font-dm !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -424,8 +426,10 @@
             {%- endif -%}
           {%- when 'info' -%}
             <div>{{block.settings.info_richtext}}</div>
+          {% comment %}
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
+          {% endcomment %}
           {%- when 'collapsible_tab' -%}
             <div class="product__accordion accordion" {{ block.shopify_attributes }}>
               <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -601,6 +605,15 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
+        <p>Arrhythmias don’t wait for the doctor’s office, so we created a portable, durable personal EKG that goes anywhere you go. KardiaMobile Card is as thin and light as a credit card, fits perfectly in your wallet, and records an accurate, medical-grade EKG in seconds.</p>
+        <ul>
+          <li>Thin and light as a credit card</li>
+          <li>Bluetooth enabled, no WiFi required</li>
+          <li>FDA-Cleared to detect AFib</li>
+          <li>Detect up to six of the most common arrhythmias*</li>
+        </ul>
+        <p class="faux-p-xs">KardiaMobile Card is not tested or recommended for use with pacemakers and ICDs. KardiaMobile Card does not check for heart attack.</p>
+        <p class="faux-p-xs">*All six detections available with a KardiaCare membership</p>
       </div>
     </div>
   </div>
