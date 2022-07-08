@@ -874,9 +874,9 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
     items.push({
       'quantity': 1,
       'id': device_id,
-      "properties": {
-        "kcard_bundle": true
-      }
+      // "properties": {
+      //   "kcard_bundle": true
+      // }
     });
   } else {
     items.push({
