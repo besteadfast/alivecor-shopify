@@ -150,7 +150,9 @@
       <div class="product__info-wrapper grid__item flex items-center flex-grow p-s8 xl:pl-s12 xl:pr-s13 lg:px-s9 lg:pt-s5" style="width: unset; max-width:unset;">
         <div id="ProductInfo-{{ section.id }}" class="product__info-container w-full grid grid-cols-2">
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+          {% if product.handle == "kardiamobile-card" %}
+            <div class="px-s6 py-s3 mb-s6 w-max bg-primary-500 text-white" style="border-radius:10px; letter-spacing:.1em; "><p class="faux-p-xs" style="margin-right:-.1em;">SALE</p></div>        
+          {% endif %}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
             {%- when '@app' -%}
@@ -160,7 +162,7 @@
                 {{- block.settings.text -}}
               </p>
             {%- when 'title' -%}
-              <h2 class="faux-{{ block.settings.heading_size }} faux-h2 text-primary-500 col-span-2" {{ block.shopify_attributes }}>
+              <h2 class="faux-{{ block.settings.heading_size }} faux-h2 text-primary-500 col-span-2 m-0" {{ block.shopify_attributes }}>
                 <a href="{{product.url}}">
                   {%- if product.title != blank -%}
                   {{ product.title | escape }}
