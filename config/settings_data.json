@@ -10,6 +10,7 @@
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
     "page_width": 1400,
+    "favicon": "shopify:\/\/shop_images\/favicon-32x32.png",
     "checkout_logo_image": "shopify:\/\/shop_images\/Kardia_Logo_Alternate_2_Horizontal.png",
     "sections": {
       "announcement-bar": {

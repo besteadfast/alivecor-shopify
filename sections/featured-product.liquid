@@ -203,9 +203,21 @@
 									{% elsif product.handle == 'kardiamobile' %}
 										Starting at $78.99
 									{% elsif product.handle == 'kardiamobile6l' %}
-										Starting at $98.99
+                    {% if product.compare_at_price %}
+                    <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
+                      Starting at $<span id="kc-card-price">98.99</span>
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    {% else %}
+                      Starting at $98.99
+                    {% endif %}
 									{% elsif product.handle == 'kardiamobile-card' %}
+                    {% if product.compare_at_price %}
+                    <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
+                      $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    {% else %}
 										${{ product.price | money_without_currency }}
+                    {% endif %}
 									{% else %}
 										${{ product.price | money_without_currency }}
 									{% endif %}

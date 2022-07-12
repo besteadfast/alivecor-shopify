@@ -396,7 +396,12 @@
             <div class="bundle-price-display ">
               <span id="ProductPrice" class="h2Price noFloat text-primary-500">
                 $<span id="kc-6l-price">{{ product.price | minus: 1 | money_without_currency }}</span>
-              </span><span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+              </span>
+              {% if product.compare_at_price %}
+                <span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | plus: 999 | money_without_currency }}</span>
+              {% else %}
+              <span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+              {% endif %}
             </div>
             {% comment %}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

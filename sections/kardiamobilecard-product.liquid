@@ -221,7 +221,7 @@
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %} py-20">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+        <div class="px-s6 py-s3 w-max bg-primary-500 text-white" style="border-radius:10px; letter-spacing:.1em; "><p class="faux-p-xs" style="margin-right:-.1em;">SALE</p></div>        
         {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when '@app' -%}
