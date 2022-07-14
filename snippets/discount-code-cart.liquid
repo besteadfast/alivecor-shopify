@@ -1,9 +1,39 @@
 <script>
+
 /* If the length of sessionStorage "discount" is NOT 0 then add our sessionStorage value to the end of our Checkout link */
 /* Link: http://stackoverflow.com/a/4704786 */
 var discountCookie = sessionStorage.getItem("discount")
 
-if (discountCookie && discountCookie.length != 0) {
+if (discountCookie && discountCookie.length != 0 && !discountType) {
   document.getElementById('cartform').action = "/cart?discount=" + sessionStorage.getItem("discount");
 };
+
+const discountType = new URL(window.location.href).searchParams.get("promo")
+if (discountType === "save25test"){
+  const discountType = new URL(window.location.href).searchParams.get("promo")
+  var kcInCart;
+  jQuery.getJSON('/cart.js', function(cart) {
+      // now have access to Shopify cart object
+      for (item of cart.items){
+        if( item.handle == "kardiacare"){
+          kcInCart = true;
+        }
+      }
+      const discount = document.querySelector("#discount")
+      if(kcInCart){
+        document.getElementById('cartform').action = "/cart?discount=" + discountType;
+      }else{
+
+      }
+    } );
+
+}
+if (discountType === "3free"){
+  
+}
+
+</script>
+
+<script type="text/javascript">
+
 </script>

@@ -314,7 +314,7 @@
         {% if kcare_in_cart %}
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5">
+              <p class="cart-totals mt-s5" id="discount">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$29.00</span>
               </p>
@@ -323,7 +323,7 @@
                 <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
               </p>
             {% elsif kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5">
+              <p class="cart-totals mt-s5" id="discount">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$9.00</span>
               </p>
@@ -332,7 +332,7 @@
                 <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
               </p>
             {% else %}
-              <p class="cart-totals mt-s5 font-dm">
+              <p class="cart-totals mt-s5 font-dm" id="discount">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$10.00</span>
               </p>
@@ -441,6 +441,8 @@
   };
 </script>
 <!-- Omniconvert End -->
+
+
 
 {% schema %}
 {

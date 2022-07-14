@@ -635,11 +635,17 @@ $(document).ready(function() {
   });
   // kardiacare selector
   $('.plan-selector label').on('click', function() {
-    console.log('hello')
     var selectedPlan = $(this).parent().index();
     $('.plan-selector').attr('data-selected', selectedPlan);
     var price = $(this).children('.radio').data().price;
-    $('#KardiaCareProductPrice').html(price);
+    if(kardiaCareSaleOverride){
+      console.log($(this).find('.radio').data().frequency)
+      if($(this).find('.radio').data().frequency === 12){
+        $('#KardiaCareProductPrice').html("$74.00/year")
+      }
+    }else{
+      $('#KardiaCareProductPrice').html(price);
+    }
   });
 
   $('.kardiacare-products .form-radio label').on('click', function() {
@@ -664,7 +670,11 @@ $(document).ready(function() {
       var planName = $(this)[0].innerText;
       $('#bundle-selected-plan').html(planName);
     } else {
-      $('#KardiaCareProductPrice').html(price);
+      if(kardiaCareSaleOverride && $(this).find('.radio').data().frequency === 12){
+        $('#KardiaCareProductPrice').html("$74.00/year");
+      }else{
+        $('#KardiaCareProductPrice').html(price);
+      }
     }
   });
 
@@ -956,7 +966,12 @@ function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
     },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      const promo = new URL(window.location.href).searchParams.get("promo")
+      if(promo){
+        window.location.href = `/cart?promo=${promo}`
+      }else{
+        window.location.href = '/cart';
+      }
     }
   });
 }

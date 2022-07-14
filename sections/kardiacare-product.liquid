@@ -965,11 +965,34 @@
   }
 </script>
 
+
+
 <!-- DataLayer pushes -->
 <script type="text/javascript">
   dataLayer.push({
     productId: '{{ product.id }}'
   });
+</script>
+
+<script>
+  let kardiaCareSaleOverride;
+  window.onload = function() {
+    if (document.readyState == "complete") {
+      const discountType = new URL(window.location.href).searchParams.get("promo")
+      if (discountType === "save25test"){
+        kardiaCareSaleOverride = true;
+        const priceLabel = document.querySelector(".form-radio label[for|='32194082472001'] span")
+        priceLabel.innerHTML = "1-Year Plan <span class='line-through'>($99/year)</span> ($74/year) with code SAVE25";
+        document.querySelector("button[name|='add']").dataset.promoOverride
+
+      }
+      if (discountType === "3free"){
+        
+      }
+
+      document.querySelector(".form-radio label[for|='32194082472001'] input").click();
+    }
+  }
 </script>
 
 {% schema %}
