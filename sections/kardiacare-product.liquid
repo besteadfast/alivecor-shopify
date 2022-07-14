@@ -238,6 +238,14 @@
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+            <div class="banner-container">
+              <div id="promoBanner">
+                <p class="faux-p-xs banner-preheader">FREE</p>
+                <p class="banner-header">KardiaMobile Card</p>
+                <p class="banner-body">with 1-Year plan purchase</p>
+                <img src="{{ "KMC-holding-card-up-female-1.png" | asset_url }}" class="banner-img" />
+              </div>
+            </div>
 						<p class="product__text !mt-s5 subtitle" {{ block.shopify_attributes }}>
               Our one-of-a-kind heart health membership
             </p>
@@ -983,11 +991,12 @@
         kardiaCareSaleOverride = true;
         const priceLabel = document.querySelector(".form-radio label[for|='32194082472001'] span")
         priceLabel.innerHTML = "1-Year Plan <span class='line-through'>($99/year)</span> ($74/year) with code SAVE25";
-        document.querySelector("button[name|='add']").dataset.promoOverride
+        document.querySelector("button[name|='add']").dataset.promoOverride = "SAVE25"
 
       }
       if (discountType === "3free"){
-        
+        document.querySelector("#promoBanner").classList.remove("hidden")
+        document.querySelector("button[name|='add']").dataset.promoOverride = "FREECARD"
       }
 
       document.querySelector(".form-radio label[for|='32194082472001'] input").click();
