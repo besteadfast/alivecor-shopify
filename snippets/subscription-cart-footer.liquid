@@ -145,7 +145,6 @@
 				.concat(get_cart_token())
 				.concat(get_ga_linker())
         .concat(get_discount_code(JSON.parse(cart_data.cart)));
-			alert(checkout_url + url_params.join('&'))
 			return checkout_url + url_params.join('&');
 		}
 		function filterVisible(elems) {

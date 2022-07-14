@@ -3644,7 +3644,6 @@ html, body {
   background: linear-gradient(180deg, rgba(87, 61, 106, 0.75) 0%, #6B4F89 100%), #6B4F89;
   border-radius:10px;
   padding: 1.5rem 2.25rem;
-  margin-top:2rem;
 }
 
 .banner-container{
@@ -3673,10 +3672,10 @@ html, body {
 }
 
 #promoBanner .banner-img{
-  width:280px;
+  width:230px;
   position:absolute;
   right: 0rem;
-  bottom:0rem;
+  bottom:-1.8rem;
 }
 
 @media (min-width:768px) and (max-width:1200px){
@@ -3685,8 +3684,16 @@ html, body {
   }
 }
 
+@media (min-width:466px) and (max-width:767px){
+  #promoBanner .banner-img{
+    bottom:-2rem;
+    width:220px;
+  }
+}
+
 @media (max-width: 465px){
   #promoBanner .banner-img{
     display:none;
+
   }
 }

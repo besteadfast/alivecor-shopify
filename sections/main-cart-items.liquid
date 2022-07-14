@@ -253,7 +253,7 @@
                 </a>
                 {% endif %}
               {% else %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="remove(event, '{{ item.product.handle }}')">
                   Remove
                 </a>
               {% endif %}
@@ -312,18 +312,26 @@
       {% endif %}
       <div class="text-right">
         {% if kcare_in_cart %}
+          <p class="cart-totals mt-s5 font-dm hidden" id="aDiscount">
+            <span class="mobile-left">3 months free with code SAVE25</span>
+            <span class="right font-dm">$25.00</span>
+          </p>
+          <p class="cart-totals mt-s5 font-dm hidden" id="bDiscount">
+            <span class="mobile-left">FREE KardiaMobile Card:</span>
+            <span class="right font-dm">$99.00</span>
+          </p>
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5" id="discount">
+              <p class="cart-totals mt-s5" id="discount" data-amount="29">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$29.00</span>
               </p>
               <p class="cart-totals mt-s5">
                 <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
-                <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
+                <span class="right cart__subtotal font-bold font-dm" id="subtotal">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
               </p>
             {% elsif kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5" id="discount">
+              <p class="cart-totals mt-s5" id="discount" data-amount="9">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$9.00</span>
               </p>
@@ -332,7 +340,7 @@
                 <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
               </p>
             {% else %}
-              <p class="cart-totals mt-s5 font-dm" id="discount">
+              <p class="cart-totals mt-s5 font-dm" id="discount" data-amount="10">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$10.00</span>
               </p>

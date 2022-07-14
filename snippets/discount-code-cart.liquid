@@ -9,19 +9,50 @@ if (discountCookie && discountCookie.length != 0 && !discountType) {
 };
 
 const discountType = new URL(window.location.href).searchParams.get("promo")
-if (discountType === "save25test"){
-  const discountType = new URL(window.location.href).searchParams.get("promo")
+if (discountType){
   var kcInCart;
+  var cardInCart;
   jQuery.getJSON('/cart.js', function(cart) {
-      // now have access to Shopify cart object
       for (item of cart.items){
-        if( item.handle == "kardiacare"){
+        if(item.handle == "kardiacare"){
           kcInCart = true;
         }
+        if( item.handle === "kardiamobile-card"){
+          cardInCart = true;
+        }
       }
-      const discount = document.querySelector("#discount")
-      if(kcInCart){
+      if(kcInCart && (discountType === "save25test" || discountType === "freecardtest")){
         document.getElementById('cartform').action = "/cart?discount=" + discountType;
+        const oldDiscount = document.querySelector("#discount")
+        const subtotal = document.querySelector(".cart__subtotal");
+        const oldPrice = subtotal.innerHTML.slice(1,subtotal.innerHTML.length)
+
+        let fullPriceSubtotal;
+
+        if(oldDiscount){
+          oldDiscount.classList.add("hidden");
+
+          if(discountType == "save25test"){
+            fullPriceSubtotal = parseFloat(oldPrice) + parseFloat(oldDiscount.dataset.amount);
+            console.log(fullPriceSubtotal)
+          }
+        }else{
+          fullPriceSubtotal = oldPrice;
+        }
+
+        if(discountType == "save25test"){
+          document.querySelector("#aDiscount").classList.remove('hidden')
+          subtotal.parentElement.classList.add("mt-s5")
+          subtotal.innerHTML = `$${(fullPriceSubtotal - 25).toFixed(2)}`
+        } else if (discountType == "freecardtest" && cardInCart) {
+          document.querySelector("#bDiscount").classList.remove('hidden')
+          subtotal.parentElement.classList.add("mt-s5")
+          subtotal.innerHTML = `$${(fullPriceSubtotal - 99).toFixed(2)}`
+
+        }
+
+
+
       }else{
 
       }
