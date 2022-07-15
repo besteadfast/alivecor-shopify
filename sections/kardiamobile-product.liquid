@@ -406,7 +406,7 @@
           </style>
           <div class="bundle-price-display">
             <span id="ProductPrice" class="h2Price noFloat text-primary-500">
-              $<span id="kc-km-price">{{ product.price | minus: 1 | money_without_currency }}</span>
+              $<span id="kc-km-price">{{ product.price | money_without_currency }}</span>
             </span>
             <span class="line-through totalBundlePrice old-price">${{ product.price | plus: 999 | money_without_currency }}</span>
           </div>

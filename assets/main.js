@@ -888,8 +888,9 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
       'id': device_id
     });
   }
+
 //   if (kardiacare_id !== 'no_mem' && device == 'kardiamobile') {
-  if (kardiacare_id != 'no_mem' && page != 'home') {
+  if (kardiacare_id != 'no_mem' /*& page != 'home'*/) {
     items.push({
       'quantity': 1,
       'id': kardiacare_id,
@@ -900,16 +901,16 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
     })
   }
 
-  if (page == 'home' && (device == 'kardiamobile6l' || device == 'kardiamobile')){
-    items.push({
-      'quantity': 1,
-      'id': '32194082472001',
-      "properties": {
-        "shipping_interval_frequency": frequency,
-        "shipping_interval_unit_type": unit
-      }
-    })
-  }
+  // if (page == 'home' && (device == 'kardiamobile6l' || device == 'kardiamobile')){
+  //   items.push({
+  //     'quantity': 1,
+  //     'id': '32194082472001',
+  //     "properties": {
+  //       "shipping_interval_frequency": frequency,
+  //       "shipping_interval_unit_type": unit
+  //     }
+  //   })
+  // }
 
   console.log(items)
 //   if (kardiacare_id !== 'no_mem' && device == 'kardiamobile6l') {

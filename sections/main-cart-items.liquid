@@ -334,11 +334,11 @@
             {% else %}
               <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right font-dm">$10.00</span>
+                <span class="right font-dm">$9.99</span>
               </p>
                <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
+                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 999 | money_without_currency }}</span>
               </p>
             {% endif %}
           {% else %}

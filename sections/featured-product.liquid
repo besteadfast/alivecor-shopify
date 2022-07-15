@@ -201,14 +201,14 @@
 											<span id="KardiaCareProductPrice" class="noFloat">$9.99 Monthly Plan</span>
 										{% endif %}
 									{% elsif product.handle == 'kardiamobile' %}
-										Starting at $78.99
+										Starting at ${{product.price | money_without_currency}}
 									{% elsif product.handle == 'kardiamobile6l' %}
                     {% if product.compare_at_price %}
                     <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
-                      Starting at $<span id="kc-card-price">129.00</span>
+                      Starting at $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
                     </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
                     {% else %}
-                      Starting at $128.99
+                      Starting at ${{product.price | money_without_currency}}
                     {% endif %}
 									{% elsif product.handle == 'kardiamobile-card' %}
                     {% if product.compare_at_price %}
