@@ -1009,23 +1009,23 @@ function analyzeCart(cartItems) {
   var hasKardiaCareAnnual = cartItems.some(function(item) {return item.handle === 'kardiacare'; });
   var kmMonthly = cartItems.find(function(item) { return item.handle === 'kardiacare-monthly'; });
   var kmAnnual = cartItems.find(function(item) { return item.handle === 'kardiacare'; });
-  if (hasKmCard && hasKardiaCareAnnual) {
-    // hide kcAnnual remove
-    $('#' + kmAnnual.id + ' .cart__remove').hide();
-  }
-  if (hasKm6l) {
-    if (hasKardiaCareAnnual && hasKardiaCareMonthly) {
-      if (hasKmCard) {
-        $('#' + kmMonthly.id + ' .cart__remove').hide();
-      } else {
-        $('#' + kmAnnual.id + ' .cart__remove').hide();
-      }
-    } else if (hasKardiaCareAnnual) {
-      $('#' + kmAnnual.id + ' .cart__remove').hide();
-    } else if (hasKardiaCareMonthly) {
-      $('#' + kmMonthly.id + ' .cart__remove').hide();
-    }
-  }
+  // if (hasKmCard && hasKardiaCareAnnual) {
+  //     hide kcAnnual remove
+  //   $('#' + kmAnnual.id + ' .cart__remove').hide();
+  // }
+  // if (hasKm6l) {
+  //   if (hasKardiaCareAnnual && hasKardiaCareMonthly) {
+  //     if (hasKmCard) {
+  //       $('#' + kmMonthly.id + ' .cart__remove').hide();
+  //     } else {
+  //       $('#' + kmAnnual.id + ' .cart__remove').hide();
+  //     }
+  //   } else if (hasKardiaCareAnnual) {
+  //     $('#' + kmAnnual.id + ' .cart__remove').hide();
+  //   } else if (hasKardiaCareMonthly) {
+  //     $('#' + kmMonthly.id + ' .cart__remove').hide();
+  //   }
+  // }
   // if (hasKmCard && !hasKardiaCareAnnual) {
   //   var kmCard = cartItems.find(function(item) { return item.handle === 'kardiamobile-card'; });
   //   updates[kmCard.variant_id] = 0;
