@@ -183,9 +183,9 @@ $(document).ready(function() {
         } else {
           const kardiaUpsellOpen = searchCartKardiaCare(cart);
           // adding for carry pod pop up in cart
-          if (!kardiaUpsellOpen){
-            searchCartCarryPod(cart);
-          }
+          // if (!kardiaUpsellOpen){
+          //   searchCartCarryPod(cart);
+          // }
         }
       }
     });
