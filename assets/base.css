@@ -3646,14 +3646,15 @@ html, body {
   padding: 1.5rem 2.25rem;
 }
 
-.banner-container{
-  overflow:hidden;
+.product__info-container .banner-container{
   max-width:500px;
   border-radius:10px;
   margin-bottom:.75rem;
-  margin-top:2rem;
+  margin-top:-1rem;
   padding-top:1rem;
+  overflow:hidden;
 }
+
 
 #promoBanner .banner-preheader{
   color:#b595c5;
@@ -3672,10 +3673,10 @@ html, body {
 }
 
 #promoBanner .banner-img{
-  width:230px;
+  width:255px;
   position:absolute;
-  right: 0rem;
-  bottom:-1.8rem;
+  right: -1.6rem;
+  bottom:-1.2rem;
 }
 
 @media (min-width:768px) and (max-width:1200px){
@@ -3686,8 +3687,9 @@ html, body {
 
 @media (min-width:466px) and (max-width:767px){
   #promoBanner .banner-img{
-    bottom:-2rem;
-    width:220px;
+    bottom:-1.5rem;
+    width:255px;
+    right:-1.8rem;
   }
 }
 

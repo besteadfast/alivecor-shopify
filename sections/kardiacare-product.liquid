@@ -238,14 +238,6 @@
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
-            <div class="banner-container hidden">
-              <div id="promoBanner">
-                <p class="faux-p-xs banner-preheader">FREE</p>
-                <p class="banner-header">KardiaMobile Card</p>
-                <p class="banner-body">with 1-Year plan purchase</p>
-                <img src="{{ "kardiamobile-card-holding-card-up-female@4x.png" | asset_url }}" class="banner-img" />
-              </div>
-            </div>
 						<p class="product__text !mt-s5 subtitle" {{ block.shopify_attributes }}>
               Our one-of-a-kind heart health membership
             </p>
@@ -409,6 +401,15 @@
         
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$9.99/month</span>
+            </div>
+            <div class="banner-container hidden">
+              <div id="promoBanner">
+                <p class="faux-p-xs banner-preheader">FREE</p>
+                <p class="banner-header">KardiaMobile Card</p>
+                <p class="banner-body">with 1-Year plan purchase</p>
+                <p class="faux-p-xs banner-body">with code <b>FREEGIFT</b></p>
+                <img src="{{ "kardiamobile-card-holding-card-up-female@4x.png" | asset_url }}" class="banner-img" />
+              </div>
             </div>
             {% comment %}
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -990,7 +991,7 @@
       if (discountType === "save25test"){
         kardiaCareSaleOverride = true;
         const priceLabel = document.querySelector(".form-radio label[for|='32194082472001'] span")
-        priceLabel.innerHTML = "1-Year Plan <span class='line-through'>($99/year)</span> ($74/year) with code SAVE25";
+        priceLabel.innerHTML = "1-Year Plan <span class='line-through'>($99/year)</span> ($74/year) <b>with code SAVE25</b>";
         document.querySelector("button[name|='add']").dataset.promoOverride = "save25"
         document.querySelector(".form-radio label[for|='32194082472001'] input").click();
       }
