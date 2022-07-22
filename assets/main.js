@@ -638,7 +638,7 @@ $(document).ready(function() {
     var selectedPlan = $(this).parent().index();
     $('.plan-selector').attr('data-selected', selectedPlan);
     var price = $(this).children('.radio').data().price;
-    if(kardiaCareSaleOverride == "save25"){
+    if(kardiaCareSaleOverride == "3free"){
       if($(this).find('.radio').data().frequency === 12){
         $('#KardiaCareProductPrice').html("$8.25/month")
       }
@@ -669,7 +669,7 @@ $(document).ready(function() {
       var planName = $(this)[0].innerText;
       $('#bundle-selected-plan').html(planName);
     } else {
-      if(new URL(window.location.href).searchParams.get("promo") == "save25test" && $(this).find('.radio').data().frequency === 12){
+      if(new URL(window.location.href).searchParams.get("promo") == "3free" && $(this).find('.radio').data().frequency === 12){
         $('#KardiaCareProductPrice').html("$8.25/month");
       }else{
         $('#KardiaCareProductPrice').html(price);
@@ -812,7 +812,7 @@ function addToCartKardiaCareRecurring(event, form) {
   var unit = "Months";
 
   const kardiaCareSaleOverride = document.querySelector("form button[type|='submit']").dataset.promoOverride;
-  if(kardiaCareSaleOverride == "freecardtest"){
+  if(kardiaCareSaleOverride == "freegift"){
     addToCartKardiaCareDeviceBundle(event, form, "kardiamobile-card", "product")
   }else{
     kardiaCareCartAdd(kardiacare_id, frequency, unit);
@@ -861,7 +861,7 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
   var unit = "Months";
 
   
-  if(new URL(window.location.href).searchParams.get("promo") == 'freecardtest'){
+  if(new URL(window.location.href).searchParams.get("promo") == 'freegift'){
     kardiacare_id = "32194082472001";
   }
 
@@ -957,8 +957,8 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
     data: { items: items },
     dataType: 'json',
     success: function() {
-      if(new URL(window.location.href).searchParams.get("promo") === 'freecardtest'){
-        window.location.href = '/cart?promo=freecardtest'
+      if(new URL(window.location.href).searchParams.get("promo") === 'freegift'){
+        window.location.href = '/cart?promo=freegift'
       }else{
         window.location.href = '/cart';
       }
@@ -982,7 +982,7 @@ function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
     success: function() {
       const promo = new URL(window.location.href).searchParams.get("promo")
       if(promo){
-        if(promo == "freecardtest"){
+        if(promo == "freegift"){
           return
         }else{
           window.location.href = `/cart?promo=${promo}`

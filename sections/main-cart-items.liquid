@@ -312,13 +312,13 @@
       {% endif %}
       <div class="text-right">
         {% if kcare_in_cart %}
-          <p class="cart-totals mt-s5 font-dm hidden" id="aDiscount">
-            <span class="mobile-left">3 months free with code SAVE25</span>
-            <span class="right font-dm">$25.00</span>
+          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="aDiscount">
+            <span class="mobile-left">3 months free with code 3FREE:</span>
+            <span class="right font-dm">(-$25.00)</span>
           </p>
-          <p class="cart-totals mt-s5 font-dm hidden" id="bDiscount">
+          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="bDiscount">
             <span class="mobile-left">FREE KardiaMobile Card:</span>
-            <span class="right font-dm">$99.00</span>
+            <span class="right font-dm">(-$99.00)</span>
           </p>
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}

@@ -21,7 +21,7 @@ if (discountType){
           cardInCart = true;
         }
       }
-      if(kcInCart && (discountType === "save25test" || discountType === "freecardtest")){
+      if(kcInCart && (discountType === "3free" || discountType === "freegift")){
         document.getElementById('cartform').action = "/cart?discount=" + discountType;
         const oldDiscount = document.querySelector("#discount")
         const subtotal = document.querySelector(".cart__subtotal");
@@ -32,7 +32,7 @@ if (discountType){
         if(oldDiscount){
           oldDiscount.classList.add("hidden");
 
-          if(discountType == "save25test"){
+          if(discountType == "3free"){
             fullPriceSubtotal = parseFloat(oldPrice) + parseFloat(oldDiscount.dataset.amount);
             console.log(fullPriceSubtotal)
           }
@@ -40,14 +40,16 @@ if (discountType){
           fullPriceSubtotal = oldPrice;
         }
 
-        if(discountType == "save25test"){
+        if(discountType == "3free"){
           document.querySelector("#aDiscount").classList.remove('hidden')
           subtotal.parentElement.classList.add("mt-s5")
           subtotal.innerHTML = `$${(fullPriceSubtotal - 25).toFixed(2)}`
-        } else if (discountType == "freecardtest" && cardInCart) {
+        } else if (discountType == "freegift" && cardInCart) {
           document.querySelector("#bDiscount").classList.remove('hidden')
           subtotal.parentElement.classList.add("mt-s5")
           subtotal.innerHTML = `$${(fullPriceSubtotal - 99).toFixed(2)}`
+          document.querySelector("tr.table__section .price").lastChild.nodeValue = "FREE"
+          document.querySelector("tr.table__section .total-cell span").lastChild.nodeValue = "$0.00"
 
         }
 
