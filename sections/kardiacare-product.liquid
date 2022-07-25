@@ -654,16 +654,17 @@
           {%- endcase -%}
         {%- endfor -%}
         <div class="border-t-2 pt-s8 mt-s8 border-primary-75">
-					<p>KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health. As a member, you’ll gain access to exclusive features like Advanced Determinations, cardiologist EKG reviews, summary reports, and more.</p>
+          <div class="border-2 border-primary-500 faux-h2 px-s5 py-s4 text-primary-700 w-max" style="font-size: 1rem;border-radius:5px;">NEW: Now available with Apple Watch® EKGs</div>
+					<p>KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health.</p>
 
 					<ul>
-						<li>Detect six of the most common arrhythmias<sup>*</sup></li>
-						<li>Get your EKG reviewed by a board-certified cardiologist </li>
-						<li>Access our most accurate EKG technology</li>
-						<li>Unlimited cloud storage so you never lose your health data</li>
+						<li>Detect six of the most common arrhythmias*</li>
+						<li>Access our most accurate EKG technology*</li>
+            <li>Get your Kardia or Apple Watch<sup>®</sup> EKG reviewed remotely by a board-certified cardiologist licensed in your state**</li>
 					</ul>
 
 					<p class="faux-p-xs">*This feature only available with a Kardia device</p>
+          <p class="faux-p-xs">**Apple Watch Series 4 or higher. Apple Watch not included in purchase. Apple Watch is a trademark of Apple Inc., registered in the U.S. and other countries and regions. Four reviews annually are included with your membership. All cardiologists work for an independent, physician-owned medical group. AliveCor and Kardia do not provide medical services.</p>
         </div>
       </div>
     </div>
@@ -772,7 +773,7 @@
         </div>
         <div class="global-list__info">
           <h3 class="global-list__heading break-word faux-p-xs font-bold">Discount device replacement</h3>
-          <p class="global-list__text faux-p-xs">Replace a lost/stolen device for only $19.99</p>
+          <p class="global-list__text faux-p-xs">Replace a lost/stolen device for as low as $19.99</p>
         </div>
       </li>
     </ul>
@@ -780,6 +781,30 @@
 </article>
 
 <article class="image-split image-split--left border-t-2 border-primary-75">
+	<div class="image-split__media" style = "display:flex; background-color:white;">
+		<picture class="image__wrapper" style = "display:flex; align-items:center; height:auto;">
+			<img
+				src="{{ "KCare_Store_Thumbnail_1080x1080_V2.jpg" | asset_url }}"
+				alt=""
+				class="image-split__image h-[571]"
+        style="position:static; height:auto;"
+			/>
+		</picture>
+	</div>
+  <div class="image-split__content">
+		<div class="image-split__content-int">
+      <div class="faux-h2 bg-primary-500 w-max px-s2 py-s2" style="border-radius:5px; color:white; font-size:.875rem; letter-spacing:.1em; ">NEW</div>
+			<h2 class="mt-s5">KardiaCare now works with Apple Watch<sup>®</sup> EKGs</h2>
+			{% comment %} <p class="faux-sh">Get your complimentary EKG reviews right in the Karida app.</p> {% endcomment %}
+			<p>
+        Apple Watch users can now enjoy KardiaCare benefits. Sync your Apple Health data with Kardia and get access to select features, including cardiologist EKG reviews, summary reports, and automatic EKG sharing.* Know more about your Apple Watch EKGs with KardiaCare. 
+      </p>
+      <p class="faux-p-xs">*All cardiologists work for an independent, physician-owned medical group. AliveCor and Kardia do not provide medical services.</p>
+		</div>
+	</div>
+</article>
+
+<article class="image-split image-split--right border-t-2 border-primary-75">
   <div class="image-split__media">
     <picture class="image__wrapper">
 			<img
@@ -802,28 +827,29 @@
   </div>
 </article>
 
-<article class="image-split image-split--right border-t-2 border-primary-75">
+<article class="image-split image-split--left border-t-2 border-primary-75">
 	<div class="image-split__media">
 		<picture class="image__wrapper">
 			<img
-				src="{{ "kardiacare-clinician-review.jpg" | asset_url }}"
+				src="{{ "AliveCor-B2B-Color-Select-V1-9.jpg" | asset_url }}"
 				alt=""
 				class="image-split__image"
 			/>
 		</picture>
 	</div>
-	<div class="image-split__content">
+  <div class="image-split__content">
 		<div class="image-split__content-int">
-			<h2>Board-Certified Cardiologist Review</h2>
+			<h2>Cardiologist EKG Review</h2>
 			{% comment %} <p class="faux-sh">Get your complimentary EKG reviews right in the Karida app.</p> {% endcomment %}
 			<p>
-				Select one of your EKGs to be reviewed by a board-certified cardiologist without leaving your home. Four reviews annually are included with your membership.
-			</p>
+        Get your Kardia or Apple Watch<sup>®</sup> EKGs reviewed by a board-certified cardiologist licensed in your state. No appointment is required and you’ll receive a report in 24 hours or less, right in the Kardia app. Four reviews annually are included with your membership.*			
+      </p>
+      <p class="faux-p-xs">*All cardiologists work for an independent, physician-owned medical group. AliveCor and Kardia do not provide medical services.</p>
 		</div>
 	</div>
 </article>
 
-<article class="image-split image-split--left border-t-2 border-primary-75">
+<article class="image-split image-split--right border-t-2 border-primary-75">
 	<div class="image-split__media">
 		<picture class="image__wrapper">
 			<img
