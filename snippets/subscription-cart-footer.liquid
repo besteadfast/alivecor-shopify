@@ -74,7 +74,10 @@
           }
         }
       }
-      if (has_kardiamobile_device && has_kardiacare_1_2_yr) {
+	  const promo = new URL(window.location.href).searchParams.get("promo")
+	  if (has_kardiacare_1_2_yr && promo){
+        return [`discount=${promo.toUpperCase()}`];
+	  }else if (has_kardiamobile_device && has_kardiacare_1_2_yr) {
         return ['discount=KARDIAMOBILE_KARDIACARE_ANNUAL'];
       } else if (has_km6l_device && has_kardiacare_1_2_yr) {
         return ['discount=KARDIACARE_ANNUAL'];

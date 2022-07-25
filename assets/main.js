@@ -635,11 +635,16 @@ $(document).ready(function() {
   });
   // kardiacare selector
   $('.plan-selector label').on('click', function() {
-    console.log('hello')
     var selectedPlan = $(this).parent().index();
     $('.plan-selector').attr('data-selected', selectedPlan);
     var price = $(this).children('.radio').data().price;
-    $('#KardiaCareProductPrice').html(price);
+    if(kardiaCareSaleOverride == "3free"){
+      if($(this).find('.radio').data().frequency === 12){
+        $('#KardiaCareProductPrice').html("$8.25/month")
+      }
+    }else{
+      $('#KardiaCareProductPrice').html(price);
+    }
   });
 
   $('.kardiacare-products .form-radio label').on('click', function() {
@@ -664,7 +669,11 @@ $(document).ready(function() {
       var planName = $(this)[0].innerText;
       $('#bundle-selected-plan').html(planName);
     } else {
-      $('#KardiaCareProductPrice').html(price);
+      if(new URL(window.location.href).searchParams.get("promo") == "3free" && $(this).find('.radio').data().frequency === 12){
+        $('#KardiaCareProductPrice').html("$8.25/month");
+      }else{
+        $('#KardiaCareProductPrice').html(price);
+      }
     }
   });
 
@@ -805,7 +814,13 @@ function addToCartKardiaCareRecurring(event, form) {
   var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareProductAddToCartForm').val();
   var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
   var unit = "Months";
-  kardiaCareCartAdd(kardiacare_id, frequency, unit);
+
+  const kardiaCareSaleOverride = document.querySelector("form button[type|='submit']").dataset.promoOverride;
+  if(kardiaCareSaleOverride == "freegift"){
+    addToCartKardiaCareDeviceBundle(event, form, "kardiamobile-card", "product")
+  }else{
+    kardiaCareCartAdd(kardiacare_id, frequency, unit);
+  }
 }
 
 function addToCartKardiaCareBundle(event, form) {
@@ -848,6 +863,11 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
   var kardiacare_id = $('input[name=kardiaCareMembershipLength]:checked', '#kardiaCareBundleAddToCartForm').val();
   var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
   var unit = "Months";
+
+  
+  if(new URL(window.location.href).searchParams.get("promo") == 'freegift'){
+    kardiacare_id = "32194082472001";
+  }
 
   switch(device){
     case "kardiamobile":
@@ -942,7 +962,11 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
     data: { items: items },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      if(new URL(window.location.href).searchParams.get("promo") === 'freegift'){
+        window.location.href = '/cart?promo=freegift'
+      }else{
+        window.location.href = '/cart';
+      }
     }
   });
 }
@@ -961,7 +985,16 @@ function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
     },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      const promo = new URL(window.location.href).searchParams.get("promo")
+      if(promo){
+        if(promo == "freegift"){
+          return
+        }else{
+          window.location.href = `/cart?promo=${promo}`
+        }
+      }else{
+        window.location.href = '/cart';
+      }
     }
   });
 }
@@ -1044,7 +1077,8 @@ function analyzeCart(cartItems) {
       },
       dataType: 'json',
       success: function() {
-        window.location.href = '/cart';
+        const queryString = new URL(window.location.href).search;
+        window.location.href = '/cart' + queryString;
       }
     });
   }
@@ -1084,7 +1118,8 @@ function kc6lBundleRemove(event) {
     },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      const queryString = new URL(window.location.href).search;
+      window.location.href = '/cart' + queryString;
     }
   });
 }
@@ -1111,10 +1146,35 @@ function kcCardBundleRemove(event) {
     },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      const queryString = new URL(window.location.href).search;
+      window.location.href = '/cart' + queryString;
     }
   });
 }
+
+function remove(event, handle){
+  var cartItems = currentCart.items;
+  event.preventDefault()
+
+  var updates = {}
+  var itemToRemove = cartItems.filter(function(item) {return item.handle === handle; });
+  updates[itemToRemove[0].variant_id] = 0;
+  console.log(updates)
+
+  $.ajax({
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates
+    },
+    dataType: 'json',
+    success: function() {
+      const queryString = new URL(window.location.href).search;
+      window.location.href = '/cart' + queryString;
+    }
+  });
+}
+
 function quantityChange(event, variantId) {
   event.preventDefault();
   var newQuantity = event.target.value;
@@ -1128,7 +1188,8 @@ function quantityChange(event, variantId) {
     },
     dataType: 'json',
     success: function() {
-      window.location.href = '/cart';
+      const queryString = new URL(window.location.href).search;
+      window.location.href = '/cart' + queryString;
     }
   });
 }
