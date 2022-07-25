@@ -181,18 +181,10 @@
 										{{ 'products.product.on_sale_from_html' | t: price: sale_price }}
 									{% else %}
 										<span class="h2Price red">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.price | money }}
-											{% else %}
-												{{ product.price | plus:9900 | money }}
-											{% endif %}
 										</span>
 										<span class="strikeout">
-											{% if product.handle != "kardiamobile-card" %}
 												{{ product.compare_at_price | money }}
-											{% else %}
-												{{ product.compare_at_price | plus:9900 | money }}
-											{% endif %}
 										</span>
 									{% endif %}
 								{% else %}
@@ -209,16 +201,31 @@
 											<span id="KardiaCareProductPrice" class="noFloat">$9.99 Monthly Plan</span>
 										{% endif %}
 									{% elsif product.handle == 'kardiamobile' %}
-										Starting at $78.99
+										Starting at ${{product.price | money_without_currency}}
 									{% elsif product.handle == 'kardiamobile6l' %}
-										Starting at $98.99
+                    {% if product.compare_at_price %}
+                    <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
+                      Starting at $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    {% else %}
+                      Starting at ${{product.price | money_without_currency}}
+                    {% endif %}
 									{% elsif product.handle == 'kardiamobile-card' %}
-										${{ product.price | plus: 9900 | money_without_currency }}
+                    {% if product.compare_at_price %}
+                    <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
+                      $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    {% else %}
+										${{ product.price | money_without_currency }}
+                    {% endif %}
 									{% else %}
 										${{ product.price | money_without_currency }}
 									{% endif %}
 									</span>
 								{% endif %}
+                {% if product.handle == "kardiamobile-card" %}
+                  <p class="faux-p-xs" style="color:rgba(var(--color-foreground),.7); margin: 1.4rem 0 -.6rem 0;">FREE month of KardiaCare included in box.</p>
+                {% endif %}
 							</div>
             {%- when 'quantity_selector' -%}
               <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
@@ -361,7 +368,7 @@
                 {%- if product != blank -%}
                   <div class="inline-block col-span-2 lg:col-span-1 lg:w-auto my-0 lg:pb-s8 lg:border-b-2 border-primary-75">
                     {% if product.handle == 'kardiamobile-card' %}
-                      {% include 'kc-card-add-to-cart', pageName: "product" %}
+                      {% include 'kc-card-add-to-cart', pageName: "home" %}
                     {% elsif product.handle == 'kardiamobile6l' %}
                       {% include 'kc-6l-add-to-cart', pageName: "home" %}
                     {% else %}

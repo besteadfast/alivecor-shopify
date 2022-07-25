@@ -42,6 +42,14 @@
 
     {% render 'meta-tags' %}
 
+    <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5QSJ3W');</script>
+    <!-- End Google Tag Manager -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     {% if settings.ajax_cart_method == "drawer" %}
@@ -71,6 +79,16 @@
     {{ 'main.js' | asset_url | script_tag }}
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
+
+    <!-- start Omniconvert.com code -->
+      <link rel="dns-prefetch" href="//app.omniconvert.com"/>
+      <script type="text/javascript">window._mktz=window._mktz||[];</script>
+      <script type="text/javascript" src="//cdn.omniconvert.com/js/k192b35.js"></script>
+    <!-- end Omniconvert.com code -->
+
+    <!-- Start of Littledata - Fix Google Analytics Script -->
+      {% include 'LittledataLayer' %}
+    <!-- End of Littledata - Fix Google Analytics Script -->
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -264,6 +282,10 @@
   </head>
 
   <body class="gradient" id="app">
+    <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QSJ3W"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>

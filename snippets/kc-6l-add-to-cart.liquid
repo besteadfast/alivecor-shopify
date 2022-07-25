@@ -42,7 +42,7 @@
 
 
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l')">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l', '{{pageName}}')">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -99,12 +99,13 @@
           {% assign kardiamobile6l_id = "28007532101697" %}
           {% assign kardiamobile_price = "89" %}
           {% assign kardiamobile6l_price = product.price | money_without_currency %}
+          {% assign kardiamobile6l_compare_at_price = product.compare_at_price | money_without_currency %}
           {% assign bundle_sale_amount_annual = "9" %}
           {% assign bundle_sale_amount_monthly = "10" %}
         {% else %}
       {% endcase %}
     <div class="kardiacare-products-bundle" >
-      {% if pageName != "home" %}
+      {% if pageName != 'home' %}
       <fieldset>
         <legend class="block faux-p product__text subtitle font-bold mb-s4">
           Choose your membership plan:
@@ -120,6 +121,7 @@
               data-price-number="{{ month_price_number }}"
               data-price-disclaimer="{{ month_price_disclaimer }}"
               data-device-price="{{ kardiamobile6l_price }}"
+              data-device-compare-at-price="{{ kardiamobile6l_compare_at_price }}"
               data-sale-amount="{{ bundle_sale_amount_monthly }}"
               data-show-sale="true"
               data-price-display-id="kc-6l-price"
@@ -145,6 +147,7 @@
               data-price-number="{{ year_price_number }}"
               data-price-disclaimer="{{ year_price_disclaimer }}"
               data-device-price="{{ kardiamobile6l_price }}"
+              data-device-compare-at-price="{{ kardiamobile6l_compare_at_price }}"
               data-sale-amount="{{ bundle_sale_amount_annual }}"
               data-show-sale="true"
               data-price-display-id="kc-6l-price"
@@ -167,6 +170,8 @@
               data-frequency="none"
               data-price-number="0"
               data-device-price="{{ kardiamobile6l_price }}"
+              data-device-compare-at-price="{{ kardiamobile6l_compare_at_price }}"
+              data-show-sale="true"
               data-price-display-id="kc-6l-price"
               class="radio appearance-none"
               value="no_mem"

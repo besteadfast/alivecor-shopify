@@ -228,9 +228,10 @@
             <h1 class="faux-h1 faux-h2 text-primary-500" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+          {% comment %}
           {%- when 'text' -%}
             <p class="product__text !mt-s5 subtitle">{{- block.settings.text -}}</p>
-
+          {% endcomment %}
           {%- when 'price' -%}
 						<div class="mobile-product-images md:hidden -mx-s8 !my-0 !mt-s2">
 							<style>
@@ -387,11 +388,20 @@
 								{%- endif -%}
 							</media-gallery>
 						</div>
-
+            <style>
+              #ProductPrice:last-child{
+                color:rgb(18,18,18);
+              }
+            </style>
             <div class="bundle-price-display ">
               <span id="ProductPrice" class="h2Price noFloat text-primary-500">
-                $<span id="kc-6l-price">{{ product.price | minus: 1 | money_without_currency }}</span>
-              </span><span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+                $<span id="kc-6l-price">{{ product.price | money_without_currency }}</span>
+              </span>
+              {% if product.compare_at_price %}
+                <span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | plus: 999 | money_without_currency }}</span>
+              {% else %}
+              <span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+              {% endif %}
             </div>
             {% comment %}
             <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -685,12 +695,13 @@
 					<p>With KardiaMobile 6L, you can record unlimited six-lead EKGs, giving you and your doctor more detailed insight on your heart from home.</p>
 					<ul class="">
 							<li>Records EKG leads I, II, III, aVL, aVR, and aVF</li>
-							<li>Download and email your EKGs to your doctor.</li>
-							<li>FDA-cleared, clinically approved, medical-grade EKG recordings.</li>
-							<li>Works with most smartphones and tablets. (Android & iOS)</li>
+							<li>More data and deeper insights on your heart rhythm</li>
+							<li>FDA-cleared, clinically approved, medical-grade EKG recordings</li>
+							<li>Detects up to six of the most common arrhythmias*</li>
 					</ul>
 					<p class="faux-p-xs">KardiaMobile 6L is not tested or recommended for use with pacemakers and ICDs. KardiaMobile 6L does not check for heart attack.</p>
-				</div>
+          <p class="faux-p-xs">*All six detections available with a KardiaCare membership</p>
+        </div>
       </div>
     </div>
   </div>
