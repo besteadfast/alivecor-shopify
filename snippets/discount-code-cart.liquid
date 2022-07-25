@@ -48,8 +48,12 @@ if (discountType){
           document.querySelector("#bDiscount").classList.remove('hidden')
           subtotal.parentElement.classList.add("mt-s5")
           subtotal.innerHTML = `$${(fullPriceSubtotal - 99).toFixed(2)}`
-          document.querySelector("tr.table__section .price").lastChild.nodeValue = "FREE"
-          document.querySelector("tr.table__section .total-cell span").lastChild.nodeValue = "$0.00"
+          const cardRow = document.getElementById("39719661371457")
+          const quantity = cardRow.children[3].firstElementChild.lastElementChild.value;
+          if(quantity == 1){
+            cardRow.children[2].firstElementChild.innerHTML = "FREE";
+            cardRow.children[4].firstElementChild.innerHtml = "$0.00";
+          }
 
         }
 
