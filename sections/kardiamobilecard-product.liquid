@@ -723,6 +723,10 @@
       hiddenInput.value = event.currentTarget.value;
     });
   });
+
+  if(new URL(window.location.href).searchParams.get('discount') == 'saveoncard'){
+    sessionStorage.setItem('discount', 'SAVEONCARD')
+  }
 </script>
 
 {%- if first_3d_model -%}
