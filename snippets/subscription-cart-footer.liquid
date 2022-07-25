@@ -80,7 +80,9 @@
         return ['discount=KARDIACARE_ANNUAL'];
       } else if ((has_km6l_device || has_kardiamobile_device) && has_kardiacare) {
         return ['discount=KARDIACARE_MONTHLY'];
-      } else {
+      } else if(has_kmcard_device && sessionStorage.getItem('discount') == 'SAVEONCARD') {
+		return ['discount=SAVEONCARD']
+	  } else {
         return [];
       }
     }
