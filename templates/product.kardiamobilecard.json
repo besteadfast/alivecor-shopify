@@ -99,8 +99,18 @@
       "settings": {
       }
     },
+    "content-accurate-card": {
+      "type": "content-accurate-card",
+      "settings": {
+      }
+    },
     "content-durable": {
       "type": "content-durable",
+      "settings": {
+      }
+    },
+    "how-to-video-section": {
+      "type": "how-to-video-section",
       "settings": {
       }
     },
@@ -111,6 +121,11 @@
     },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
+      "settings": {
+      }
+    },
+    "devices-three-column": {
+      "type": "devices-three-column",
       "settings": {
       }
     },
@@ -140,7 +155,10 @@
     "main",
     "icon-grid-mobilecard",
     "content-convenient",
+    "content-accurate-card",
     "content-durable",
+    "how-to-video-section",
+    "devices-three-column",
     "additional-info-km-card",
     "kardiacare-membership-module",
     "product-recommendations",

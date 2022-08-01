@@ -151,7 +151,7 @@
               </label>
             </div>
             <div class="form-radio">
-              <label for="{{ year_id }}" class="faux-p">
+              <label for="{{ year_id }}" style="display:inline-flex; font-size:1rem;">
                 <input
                   id="{{ year_id }}"
                   name="kardiaCareMembershipLength"
@@ -159,13 +159,14 @@
                   data-frequency="{{ year_frequency }}"
                   data-price="{{ year_price }}"
                   class="radio appearance-none"
+                  style="display:inline-grid !important;"
                   value="{{ year_id }}"
                   tabindex="1"
                   onchange=""
                   required
                   autocomplete="off"
                  />
-                 <span>{{ year_label }}</span>
+                 <span class="faux-p" style="padding-left:7px;">{{ year_label }}</span>
               </label>
             </div>
             {% comment %}

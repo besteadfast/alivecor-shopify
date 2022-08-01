@@ -402,6 +402,15 @@
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$9.99/month</span>
             </div>
+            <div class="banner-container hidden">
+              <div id="promoBanner">
+                <p class="faux-p-xs banner-preheader">FREE</p>
+                <p class="banner-header">KardiaMobile Card</p>
+                <p class="banner-body">with 1-Year Plan purchase</p>
+                <p class="faux-p-xs banner-body">with code <b>FREEGIFT</b></p>
+                <img src="{{ "kardiamobile-card-holding-card-up-female@4x.png" | asset_url }}" class="banner-img" />
+              </div>
+            </div>
             {% comment %}
             {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
               <div class="product__tax caption rte">
@@ -994,11 +1003,36 @@
   }
 </script>
 
+
+
 <!-- DataLayer pushes -->
 <script type="text/javascript">
   dataLayer.push({
     productId: '{{ product.id }}'
   });
+</script>
+
+<script>
+  let kardiaCareSaleOverride;
+  window.onload = function() {
+    if (document.readyState == "complete") {
+      const discountType = new URL(window.location.href).searchParams.get("promo")
+      if (discountType === "3free"){
+        kardiaCareSaleOverride = true;
+        const priceLabel = document.querySelector(".form-radio label[for|='32194082472001'] span")
+        priceLabel.innerHTML = "1-Year Plan <span class='line-through'>($99/year)</span> ($74/year) <b>with code 3FREE</b>";
+        document.querySelector("button[name|='add']").dataset.promoOverride = "3free"
+        document.querySelector(".form-radio label[for|='32194082472001'] input").click();
+      }
+      if (discountType === "freegift"){
+        document.querySelector(".banner-container").classList.remove("hidden")
+        document.querySelector("button[name|='add']").dataset.promoOverride = "freegift"
+        document.querySelector(".form-radio label[for|='32194082472001'] input").click();
+
+      }
+
+    }
+  }
 </script>
 
 {% schema %}

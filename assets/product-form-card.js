@@ -32,9 +32,9 @@ if (!customElements.get('product-form')) {
         'items': [{
           'quantity': 1,
           'id': device_id,
-          "properties": {
-            "kcard_bundle": true
-          }
+          //"properties": {
+          //  "kcard_bundle": true
+          //}
         },
         {
           'quantity': 1,

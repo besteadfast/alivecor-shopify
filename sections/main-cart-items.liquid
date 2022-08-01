@@ -87,7 +87,7 @@
           {% endfor %}
           {% if item.product.handle == 'kardiamobile-card' %}
             {% assign kmc_in_cart = true %}
-            {% assign hideQuantity = true %}
+            {% assign hideQuantity = false %}
           {% elsif item.product.handle == 'kardiamobile-card-member' %}
             {% assign hideQuantity = true %}
           {% elsif item.product.handle == 'kardiamobile' %}
@@ -253,7 +253,7 @@
                 </a>
                 {% endif %}
               {% else %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="remove(event, '{{ item.product.handle }}')">
                   Remove
                 </a>
               {% endif %}
@@ -283,9 +283,10 @@
             <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s2 lg:py-s5">
 							<span class="faux-p font-dm">
 								<span class="lg:hidden">Qty: </span>
-								{{ item.quantity }}
+                                <input type="number" name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-icon-64 inline-block" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
 							</span>
             </td>
+  
             <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s2 lg:py-s5 lg:text-right">
               <span class="faux-p font-dm break-inside-avoid">
 								<span class="lg:hidden">Total: </span>
@@ -312,18 +313,26 @@
       {% endif %}
       <div class="text-right">
         {% if kcare_in_cart %}
+          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="aDiscount">
+            <span class="mobile-left">3 months free with code 3FREE:</span>
+            <span class="right font-dm">(-$25.00)</span>
+          </p>
+          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="bDiscount">
+            <span class="mobile-left">FREE KardiaMobile Card:</span>
+            <span class="right font-dm">(-$99.00)</span>
+          </p>
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5">
+              <p class="cart-totals mt-s5" id="discount" data-amount="29">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$29.00</span>
               </p>
               <p class="cart-totals mt-s5">
                 <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
-                <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
+                <span class="right cart__subtotal font-bold font-dm" id="subtotal">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
               </p>
             {% elsif kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5">
+              <p class="cart-totals mt-s5" id="discount" data-amount="9">
                 <span class="mobile-left">Device + Membership Discount:</span>
                 <span class="right font-dm">$9.00</span>
               </p>
@@ -332,13 +341,13 @@
                 <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
               </p>
             {% else %}
-              <p class="cart-totals mt-s5 font-dm">
+              <p class="cart-totals mt-s5 font-dm" id="discount" data-amount="10">
                 <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right font-dm">$10.00</span>
+                <span class="right font-dm">$9.99</span>
               </p>
                <p class="cart-totals mt-s5 font-dm">
                 <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 1000 | money_without_currency }}</span>
+                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 999 | money_without_currency }}</span>
               </p>
             {% endif %}
           {% else %}
@@ -374,7 +383,7 @@
         <input id="mktz_custom" name="attributes[mktz_custom]" type="hidden" value="" />
         <!-- marketizator end -->
         {% comment %}
-        <input type="submit" name="update" class="btn btn--underline p-0 update-cart visible" value="Update Cart">
+          <input type="submit" name="update" class="btn btn--underline p-0 update-cart visible" value="Update Cart">
         {% endcomment %}
         <input type="submit" name="checkout" class="btn cartCheckout visible mt-s8 hover:cursor-pointer" value="Checkout">
         <div class="clearfix"></div>
@@ -441,6 +450,12 @@
   };
 </script>
 <!-- Omniconvert End -->
+
+<script>
+  $('.qty-updater').blur(function() {
+    this.form.submit()
+  })
+</script>
 
 {% schema %}
 {
