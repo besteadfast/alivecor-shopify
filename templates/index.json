@@ -306,7 +306,7 @@
         "0ce12ca9-c12c-4776-a4dc-73a378356ee2": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>Detects six of the most common arrhythmias<\/li>\n<\/ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card</li>\n<li>Bluetooth enabled, no WiFi required</li>\n<li>FDA-cleared, clinically approved, medical-grade EKG recordings</li>\n</ul>"
           }
         },
         "16451441903511f686-7": {
