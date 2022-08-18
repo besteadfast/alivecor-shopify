@@ -1,7 +1,7 @@
 .PHONY: start login serve pull push
 
 start:
-	@docker run -dt -p 9292:9292 -p 3456:3456 -p 80:80 --name shopify-dev zingstudios/shopify-cli:latest $(filter-out $@,$(MAKECMDGOALS))
+	@docker run -dt -p 9292:9292 -p 3456:3456 -p 80:80 -v "$PWD":/home/zing/shopify-dev --name shopify-dev zingstudios/shopify-cli:latest $(filter-out $@,$(MAKECMDGOALS))
 login:
 	@docker exec -it shopify-dev /bin/zsh -c "shopify login --store alivecor.myshopify.com" $(filter-out $@,$(MAKECMDGOALS))
 serve:
