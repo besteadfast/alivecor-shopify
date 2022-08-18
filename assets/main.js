@@ -211,7 +211,6 @@ $(document).ready(function() {
       }
     }
 
-    console.log(km6l_in_cart)
     // check for IE
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf('MSIE '); // <=ie10
@@ -221,7 +220,7 @@ $(document).ready(function() {
     // kardiacare in cart and using ie
       $('.cart-header').after("<div class=\"unsupported-browser\">IMPORTANT: The browser you are currently using may not be supported. We recommend you use Chrome, Firefox, Safari, Opera or Edge to continue your transaction.</div>");
     } else {
-      if ((km6l_in_cart || km_in_cart) && !kardiacare_in_cart && !isIE) {
+      if ((km6l_in_cart || kmc_in_cart || km_in_cart) && !kardiacare_in_cart && !isIE) {
         setTimeout(function() {
           showKardiaCareOffer();
         }, 1500);
