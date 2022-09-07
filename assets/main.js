@@ -190,7 +190,7 @@ $(document).ready(function() {
       }
     });
   }
-  
+
   function searchCartKardiaCare(cart) {
     var km_in_cart = false,
         km6l_in_cart = false,
@@ -222,7 +222,8 @@ $(document).ready(function() {
     } else {
       if ((km6l_in_cart || kmc_in_cart || km_in_cart) && !kardiacare_in_cart && !isIE) {
         setTimeout(function() {
-          showKardiaCareOffer();
+            //Temporarily disable kardiacare upsell popup
+            //showKardiaCareOffer();
         }, 1500);
         return true;
       }
@@ -680,7 +681,7 @@ $(document).ready(function() {
     var deviceData = $(this).find('.radio').data();
     var imgUrl = deviceData.imgUrl;
     $('#selected-device-img').attr('src', imgUrl);
-    
+
     // update bundle price on change
     var planPrice = $('input[name=kardiaCareMembershipLength]:checked').data().priceNumber;
     var devicePrice = deviceData.price;
@@ -720,7 +721,7 @@ $(document).ready(function() {
         $('.totalBundlePrice').remove();
       }
     }
-    
+
     var planName = $(this)[0].innerText;
     $('#bundle-selected-plan').html(planName);
 
@@ -750,7 +751,7 @@ function vimeoPlayer(id) {
     player.loadVideo(id).then(function() {
       playVideo();
       player.setColor('#2D9F86');
-    });    
+    });
   } else {
     // first time playing a video
     var iframe = document.querySelector('#video-player iframe');
@@ -761,7 +762,7 @@ function vimeoPlayer(id) {
       playVideo();
       player.setColor('#2D9F86');
     });
-    
+
   }
   player.on('ended', function() {
     // close player when video ends
@@ -863,7 +864,7 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
   var frequency = $('input[name=kardiaCareMembershipLength]:checked').data().frequency.toString();
   var unit = "Months";
 
-  
+
   if(new URL(window.location.href).searchParams.get("promo") == 'freegift'){
     kardiacare_id = "32194082472001";
   }
