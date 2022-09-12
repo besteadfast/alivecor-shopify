@@ -47,7 +47,7 @@
 
 
 <div class="form">
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical {% if pageName == "product" %}mt-s7{% endif %}" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile', '{{pageName}}')">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile', '{{pageName}}')">
       {% capture year_title %}
           1-Year Plan
         {% endcapture %}
@@ -117,6 +117,7 @@
             {% assign bundle_sale_amount_monthly = "10" %}
           {% else %}
         {% endcase %}
+    {% unless sold_out %}
       <div class="kardiacare-products-bundle">
         {% if pageName != "home" %}
         <fieldset>
@@ -195,13 +196,14 @@
         </fieldset>
         {% endif %}
       </div>
+      {% endunless %}
       <div class="flex-items-bundle">
           <div class="lg:flex justify-between">
             <button
 							type="submit"
 							name="add"
 							id="{{ product.id }}AddToCart1"
-							class="btn mt-s6 addToCart"
+							class="btn {% unless sold_out %}mt-s6{% endunless %} addToCart"
 							{% if sold_out %}
 									disabled
 							{% endif %}
