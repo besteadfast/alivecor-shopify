@@ -206,7 +206,7 @@
                     {% if product.compare_at_price %}
                     <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
                       Starting at $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
-                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}
                     {% else %}
                       Starting at ${{product.price | money_without_currency}}
                     {% endif %}
@@ -214,7 +214,7 @@
                     {% if product.compare_at_price %}
                     <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
                       $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
-                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}      
+                    </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}
                     {% else %}
 										${{ product.price | money_without_currency }}
                     {% endif %}

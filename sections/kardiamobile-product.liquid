@@ -218,14 +218,6 @@
           </slider-component>
         {%- endif -%}
       </media-gallery>
-
-			<a href="/products/kardiamobile-card">
-				<img
-					src="{{ "km-card-banner.png" | asset_url }} "
-					alt=""
-					class="absolute bottom-0 right-[10%] min-w-[66%] w-[350px]"
-				/>
-			</a>
     </div>
     <div class="product__info-wrapper grid__item {% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
@@ -404,12 +396,14 @@
               color:rgb(18,18,18);
             }
           </style>
+          {% comment %}
           <div class="bundle-price-display">
             <span id="ProductPrice" class="h2Price noFloat text-primary-500">
               $<span id="kc-km-price">{{ product.price | money_without_currency }}</span>
             </span>
             <span class="line-through totalBundlePrice old-price">${{ product.price | plus: 999 | money_without_currency }}</span>
           </div>
+          {% endcomment %}
           {% comment %}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
@@ -552,15 +546,13 @@
                 <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
                 {% include 'kc-km-add-to-cart', pageName: 'product' %}
             </div>
-
-						<a class="md:hidden" href="/products/kardiamobile-card">
-							<img
-								src="{{ "km-card-banner.png" | asset_url }} "
-								alt=""
-								class="w-full max-w-[500px] mx-auto"
-							/>
-						</a>
-
+            <a class="" href="/products/kardiamobile-card">
+                <img
+                    src="{{ "km-card-banner.png" | asset_url }} "
+                    alt=""
+                    class="w-full to-md:max-w-[500px] mx-auto !mt-s7"
+                />
+            </a>
             <noscript class="product-form__noscript-wrapper-{{ section.id }}">
               <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
                 <label class="form__label" for="Variants-{{ section.id }}">{{ 'products.product.product_variants' | t }}</label>
@@ -672,14 +664,21 @@
           {%- endcase -%}
         {%- endfor -%}
         <div class="border-t-2 border-primary-75 pt-s8 mt-s8">
-					<p>Check in on your heart from home with KardiaMobile, our single-lead personal EKG. KardiaMobile is FDA-cleared and records medical-grade EKGs right on your phone.</p>
-					<ul>
-						<li>Record a medical-grade EKG from home</li>
-						<li>Download and email your EKGs to your doctor</li>
-						<li>FDA-cleared to detect AFib and more</li>
-						<li>#1 doctor-recommended personal EKG</li>
+            		<p>We recommend:</p>
+                    <ul class="mt-s7" >
+						<li><a href="https://store.kardia.com/products/kardiamobile-card">KardiaMobile Card:</a> Our newest single-lead personal EKG in a sleek new form factor.</li>
+						<li><a href="https://store.kardia.com/products/kardiamobile6l">KardiaMobile 6L:</a> Everything KardiaMobile has to offer with an additional lead providing you with more data. Take a single or six-lead EKG with KardiaMobile 6L. </li>
 					</ul>
-					<p class="faux-p-xs">KardiaMobile is not tested or recommended for use with pacemakers and ICDs. KardiaMobile does not check for heart attack.</p>
+					{% comment %}
+                    <p>Check in on your heart from home with KardiaMobile, our single-lead personal EKG. KardiaMobile is FDA-cleared and records medical-grade EKGs right on your phone.</p>
+					<ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <p class="faux-p-xs">KardiaMobile is not tested or recommended for use with pacemakers and ICDs. KardiaMobile does not check for heart attack.</p>
+                    {% endcomment %}
 				</div>
       </div>
     </div>
