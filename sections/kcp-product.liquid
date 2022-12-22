@@ -1,0 +1,706 @@
+<script src="//unpkg.com/alpinejs" defer></script>
+<script>
+
+    let kcFrequency = 12
+    let kcVariantId = 32194082472001
+
+    let tableData = {
+        sections: [
+            {
+                title: 'Devices',
+                rows: [
+                    { title: 'Blood Pressure Cuff', details: `Track your blood pressure from the with the Kardia app to manage your recordings and share them with your doctor.<br><br>*The Blood Pressure cuff is a one-time gift with purchase for new subscribers only. `, basic: false, kc: false, kcPlus: 'Included* ($89 Value)' },
+                    { title: 'KardiaMobile 6L', details: `Get more data and deeper insights with our most advanced personal EKG. Records EKG leads I, II, III, aVL, aVR, and aVF.<br><br>*KardiaMobile 6L is a one-time gift with purchase for new subscribers only. `, basic: false, kc: false, kcPlus: 'Included* ($149 Value)' },
+                ]
+            },
+            {
+                title: 'Care Team',
+                rows: [
+                    { title: 'Automatic EKG Sharing', details: `Set up automatic sharing of your EKGs with family or caregivers using Inner Circle.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Cardiologist EKG Reviews', details: `Get your EKGs reviewed by a board-certified cardiologist.`, basic: false, kc: '4 Reviews Annually ($100 Value)', kcPlus: '12 Reviews Annually ($300 Value)' },
+                ]
+            },
+            {
+                title: 'Advanced Features',
+                rows: [
+                    { title: 'Arrhythmia Determinations', details: `Detect more arrhythmias than any other personal EKG. Get 3 more detections: Sinus Rhythm with Premature Ventricular Contractions (PVCs), Sinus Rhythm with Supraventricular Ectopy (SVE), and Sinus Rhythm with Wide QRS.`, basic: '3 Detections', kc: '6 Detections', kcPlus: '6 Detections' },
+                    { title: 'Heart Health Summary Report', details: `Track your heart health over time. Generate a summary of your EKG, blood pressure, and weight data.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Medication Tracking', details: `Set reminders to take specific medication at your doctor’s recommendation and track your medication history.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Cloud Storage and Security', details: `Enjoy secure access to all of your EKG recordings on any device with unlimited cloud storage.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Device Replacement', details: `Receive discounted device replacement on KardiaMobile 6L if lost or stolen for just $19.99. - US only, replacement eligible one time annually. Does not apply to Omron blood pressure cuff.`, basic: false, kc: true, kcPlus: true },
+                ]
+            },
+            {
+                title: 'Standard Access',
+                rows: [
+                    { title: 'Unlimited EKGs', details: `Take unlimited EKGs. Detect AFib, Bradycardia, Tachycardia or Normal Heart Rhythm in just 30 seconds.`, basic: true, kc: true, kcPlus: true },
+                    { title: 'EKG storage on your phone', details: `Store your EKGs on your phone or email them to your doctor.`, basic: true, kc: true, kcPlus: true },
+                    { title: 'Weight and blood pressure monitoring', details: `Enter your weight and blood pressure so you can track it over time.`, basic: true, kc: true, kcPlus: true },
+                ]
+            },
+        ]
+    }
+
+    let tableHTML = `
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <div class="!block"></div>
+            <h6 class="text-kc-500 p-s3">Save 17% Annually</h6>
+                <h6 class="bg-kc-800 text-white p-s3">Just Launched</h6>
+
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <div class="p-s6">Basic</div>
+            <div class="p-s4 text-kc-300">KardiaCare</div>
+                <div class="p-s4 text-kc-600">KardiaCare Plus</div>
+
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <div class="p-s6 text-kc-800 faux-h1">–</div>
+            <div class="p-s6 text-kc-800 faux-h1 font-semibold"><sup class="text-[40px] hidden lg:!block">$</sup><span class="lg:hidden">$</span><span class="flex" id="kcPrice">99</span></div>
+                <div class="p-s6 text-kc-800 faux-h1 font-[1100]"><sup class="text-[40px] hidden lg:!block">$</sup><span class="lg:hidden">$</span>299</div>
+
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <h6 class="text-kc-500 font-bold">Included In App</h6>
+            <div class="">
+                <div class="flex flex-col xl:flex-row justify-center rounded-[5px] text-center xl:rounded-[8px] border border-kc-500 text-[1rem] overflow-hidden text-kc-500">
+                    <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kcPrice').innerHTML='99'">
+                        <input type="radio" name="kc-interval" value="year" class="mr-s1 hidden peer" checked />
+                        <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
+                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
+                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
+                        <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
+                    </label>
+                    <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kcPrice').innerHTML='9<span class=\\\'faux-p mt-s4\\\'>.99</span>'">
+                        <input type="radio" name="kc-interval" value="month" class="mr-s1 hidden peer" />
+                        <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
+                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
+                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
+                        <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
+                    </label>
+                </div>
+            </div>
+                <h6 class="text-kc-800"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent font-bold">Yearly</span></h6>
+
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <p class="p-s4 faux-p-sm text-kc-800">Detect and monitor basic arrhythmias using the included features in the Kardia App.</p>
+            <p class="p-s4 faux-p-sm text-kc-800">Self-monitor and manage heart health with exclusive  tools and advanced arryhthmia detection.</p>
+                <p class="p-s4 faux-p-sm text-kc-800">Our all-inclusive option. Everything KardiaCare has to offer plus more support from medical professionals. Includes a KardiaMobile 6L and an Omron Evolv blood pressure cuff.</p>
+
+    <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
+        <div class="!block"></div>
+            <div onclick="kardiaCareCartAdd(kcVariantId, kcFrequency, 'Months')" class="p-s4 text-kc-800 faux-h6"><button class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
+                <div class="p-s4 text-kc-800 faux-h6"><button onclick="kcpAddToCart()" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
+    `
+
+    tableHTML += tableData.sections.map((section, index) => `
+
+        ${index ? `
+            <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block p-s4"></div>
+            <div class="!block p-s4"></div>
+            <div class="!block p-s4"></div>
+            <div class="!block p-s4"></div>` : ''
+        }
+
+        <div class="lg:col-span-2 shadow-table-left lg:shadow-none faux-h6 text-black-400 py-s4">${section.title}</div>
+        <div class="!block"></div>
+        <div class="!block"></div>
+        <div class="!block"></div>
+
+        ${section.rows.map((row, index) => `
+            <div class="lg:col-span-2 shadow-table-left lg:shadow-none text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4"><details><summary class="faux-p-sm text-left flex"><img src="{{ 'table-down.svg' | asset_url }}" class="mr-s6 open:hidden hidden lg:!block"><span>${row.title}</span></summary><div class="details my-s4 opacity-60">${row.details}</div></details></div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${typeof(row.basic) == 'boolean' ? `<img src="${row.basic ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.basic.split('(')[0].trim()}</div>${row.basic.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.basic.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${typeof(row.kc) == 'boolean' ? `<img src="${row.kc ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.kc.split('(')[0].trim()}</div>${row.kc.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kc.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-kc-75 text-kc-800 py-s4 flex flex-col">${typeof(row.kcPlus) == 'boolean' ? `<img src="${row.kcPlus ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.kcPlus.split('(')[0].trim()}</div>${row.kcPlus.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kcPlus.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+        `).join('')}
+
+    `).join('')
+</script>
+
+
+<section class="w-full flex flex-col items-center">
+    <div class="w-full bg-gradient-to-b from-kc-50 flex justify-center px-s8">
+        <div class="w-full max-w-[1400px] flex flex-col md:flex-row py-s10 md:py-s14 items-center space-y-s8 md:space-y-0 md:space-x-s10">
+            <div class="w-full md:w-1/2">
+                <img src="{{ 'kcplus-bundle.png' | asset_url }}" class="w-full" />
+            </div>
+            <div class="w-full md:w-1/2 flex justify-end flex-col space-y-s8">
+                <h4 class="text-kc-500">Kardiacare™</h4>
+                <h2 class="text-kc-800">Our one-of-a-kind heart health membership</h2>
+                <p class="text-kc-800">KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health.</p>
+                <div class="flex">
+                    <button class="bg-kc-500 text-white rounded btn" onclick="document.getElementById('plans').scrollIntoView({behavior: 'smooth'});">Shop Plans Below</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full max-w-content flex pb-s10 md:pb-s14 items-center md:space-x-s10 px-s8">
+        <div class="flex flex-col space-y-s8 md:max-w-[75%] w-full">
+            <h4 class="text-kc-500">Compare KardiaCare Plans</h4>
+            <h2 class="">Get the most out of your Kardia device with deeper insights into your heart health.</h2>
+            <p class="">We provide 3 unique service options allowing you to choose the features and benefits that best fit your specific needs and health goals.</p>
+        </div>
+        <div class="h-[2px] bg-black-100 flex-grow !block"></div>
+    </div>
+    <div class="w-full xl:flex justify-center overflow-x-scroll lg:px-s8" id="plans">
+        <div class="max-w-content min-w-[700px]">
+            <div x-data="{tableData, tableHTML}" x-html="tableHTML" class="grid grid-cols-4 lg:grid-cols-5 !gap-0 pb-s14 items-start text-center"></div>
+        </div>
+    </div>
+    {% include 'additional-info-kcp' %}
+    <div class="w-full flex justify-center">
+        <div class="w-full flex flex-col lg:flex-row text-white">
+            <div class="w-full lg:w-1/2 px-s8 bg-primary-500 items-center flex justify-center lg:justify-end lg:py-s8 xl:py-0">
+                <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
+                    <img src="{{ 'km-6l.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2" />
+                    <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
+                        <h3 class="text-white whitespace-nowrap">KardiaMobile® 6L</h3>
+                        <p class="text-primary-100">The world's only six-lead personal EKG</p>
+                        <div class="pt-s6">
+                            <a href="/products/kardiamobile6l" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-s8 bg-primary-600 items-center flex justify-center lg:justify-start lg:py-s8 xl:py-0">
+                <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
+                    <img src="{{ 'km-card.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2" />
+                    <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
+                        <h3 class="text-white whitespace-nowrap">KardiaMobile® Card</h3>
+                        <p class="text-primary-100">A personal EKG that fits perfectly in your wallet</p>
+                        <div class="pt-s6">
+                            <a href="/products/kardiamobile-card" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter borders is-visible w-full" data-is-visible="false">
+        <div class="newsletter__int">
+            <div class="newsletter__info">
+                <h2 class="text-primary-400 loadui-slide-up delay--1">    Stay in-the-know</h2>
+                <p class="loadui-fade-in delay--2">    Sign up for Kardia news, updates, and other exclusive content—straight to your inbox.</p>
+                <div class="newsletter-form">
+                    <form action="https://cl.s12.exct.net/DEManager.aspx" name="subscribeForm" method="post"><input type="hidden" name="_clientID" value="526001161"><input type="hidden" name="_deExternalKey" value="8AA51E40-D344-46E6-BE9B-D1DEC58AE2BE"><input type="hidden" name="_action" value="add"><input type="hidden" name="_returnXML" value="0"><input type="hidden" name="_successURL" value="https://kardia.com/subscribe-success"><input type="hidden" name="_errorURL" value="https://cloud.kardia.alivecor.com/signup-error"><input type="email" name="Email" placeholder=" " required=""><label for="Email">Please enter your email</label><button type="submit" value="Submit">Subscribe</button></form>
+                </div>
+            </div>
+            <div class="newsletter__image-container loadui-fade-in">
+                <picture class="image__wrapper  ">
+                    <img data-src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" width="480" height="640" src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" alt="" class="newsletter__image lazy-img lazyloaded">
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .grid > * {
+        margin: 0px!important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: white;
+        padding: 0px 10px;
+    }
+    .grid > *:nth-child(4n-3) {
+        text-align: left;
+        justify-content: start;
+        position: sticky;
+        z-index: 100;
+        left: 0;
+        padding: 24px 0px;
+    }
+    @media (max-width: 1023px) {
+        .grid > *:nth-child(4n-3) {
+            padding: 24px;
+        }
+    }
+    .grid > *:nth-child(4n) {
+        background-color: #EBE6EF;
+    }
+    template {
+        display: none!important;
+    }
+    details > div.details,
+    details > div.details > ul > li,
+    details > div.details > ul > ul > li {
+        font-size: 0.8rem!important;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "t:sections.main-product.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text block",
+          "label": "t:sections.main-product.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "t:sections.main-product.blocks.description.name",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-product.blocks.share.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-product.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.share.settings.title_info.content"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.main-product.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
+          "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
+        }
+      ]
+    },
+    {
+      "type": "collapsible_tab",
+      "name": "t:sections.main-product.blocks.collapsible_tab.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Collapsible row",
+          "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+            },
+            {
+              "value": "apple",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+            },
+            {
+              "value": "banana",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+            },
+            {
+              "value": "bottle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+            },
+            {
+              "value": "box",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+            },
+            {
+              "value": "carrot",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+            },
+            {
+              "value": "check_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+            },
+            {
+              "value": "clipboard",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+            },
+            {
+              "value": "dairy",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+            },
+            {
+              "value": "dairy_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+            },
+            {
+              "value": "dryer",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+            },
+            {
+              "value": "eye",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+            },
+            {
+              "value": "fire",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+            },
+            {
+              "value": "gluten_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+            },
+            {
+              "value": "heart",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+            },
+            {
+              "value": "iron",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+            },
+            {
+              "value": "leaf",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+            },
+            {
+              "value": "leather",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+            },
+            {
+              "value": "lipstick",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+            },
+            {
+              "value": "lock",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+            },
+            {
+              "value": "map_pin",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+            },
+            {
+              "value": "nut_free",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+              "value": "pants",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+            },
+            {
+              "value": "paw_print",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+            },
+            {
+              "value": "pepper",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+            },
+            {
+              "value": "perfume",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+            },
+            {
+              "value": "plane",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+            },
+            {
+              "value": "plant",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+            },
+            {
+              "value": "price_tag",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+            },
+            {
+              "value": "question_mark",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+            },
+            {
+              "value": "recycle",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+            },
+            {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+            },
+            {
+              "value": "serving_dish",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+            },
+            {
+              "value": "snowflake",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+            },
+            {
+              "value": "stopwatch",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+            }
+          ],
+          "default": "check_mark",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "popup",
+      "name": "t:sections.main-product.blocks.popup.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Pop-up link text",
+          "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
+        },
+        {
+          "id": "page",
+          "type": "page",
+          "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "t:sections.main-product.blocks.rating.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_info",
+      "default": true,
+      "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-product.settings.header.content",
+      "info": "t:sections.main-product.settings.header.info"
+    },
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "t:sections.main-product.settings.gallery_layout.options__1.label"
+        },
+        {
+          "value": "thumbnail",
+          "label": "t:sections.main-product.settings.gallery_layout.options__2.label"
+        },
+        {
+          "value": "thumbnail_slider",
+          "label": "t:sections.main-product.settings.gallery_layout.options__3.label"
+        }
+      ],
+      "default": "stacked",
+      "label": "t:sections.main-product.settings.gallery_layout.label"
+    },
+    {
+      "type": "select",
+      "id": "media_size",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:sections.main-product.settings.media_size.options__1.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-product.settings.media_size.options__2.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-product.settings.media_size.options__3.label"
+        }
+      ],
+      "default": "large",
+      "label": "t:sections.main-product.settings.media_size.label",
+      "info": "t:sections.main-product.settings.media_size.info"
+    },
+    {
+      "type": "select",
+      "id": "mobile_thumbnails",
+      "options": [
+        {
+          "value": "show",
+          "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
+        },
+        {
+          "value": "hide",
+          "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
+        }
+      ],
+      "default": "hide",
+      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants",
+      "default": false,
+      "label": "t:sections.main-product.settings.hide_variants.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "default": false,
+      "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

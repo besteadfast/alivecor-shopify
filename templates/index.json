@@ -306,7 +306,7 @@
         "0ce12ca9-c12c-4776-a4dc-73a378356ee2": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card</li>\n<li>Bluetooth enabled, no WiFi required</li>\n<li>FDA-cleared, clinically approved, medical-grade EKG recordings</li>\n</ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>FDA-cleared, clinically approved, medical-grade EKG recordings<\/li>\n<\/ul>"
           }
         },
         "16451441903511f686-7": {
@@ -335,7 +335,8 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "new-badge": true
       }
     },
     "16451442507aa8905f": {
@@ -441,7 +442,8 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "new-badge": false
       }
     },
     "16536006262e46746f": {
@@ -507,7 +509,7 @@
         "fb8b0488-8463-4530-9f0d-2eeae810f568": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<p class=\"mb-0\">We recommend:</p><ul class=\"featured-product-list !mt-s7\">\n<li><a href='https://store.kardia.com/products/kardiamobile-card'>KardiaMobile Card:</a> Our newest single-lead personal EKG in a sleek new form factor.</li>\n<li><a href='https://store.kardia.com/products/kardiamobile-card'>KardiaMobile 6L:</a> Everything KardiaMobile has to offer with an additional lead providing you with more data. Take a single or six-lead EKG with KardiaMobile 6L.</li>\n</ul>"
+            "custom_liquid": "<ul class=\"col-span-2\">\n                        <li>Record a medical-grade EKG from home<\/li>\n                        <li>Download and email your EKGs to your doctor<\/li>\n                        <li>FDA-cleared to detect AFib and more<\/li>\n                        <li>#1 doctor-recommended personal EKG<\/li>\n                    <\/ul>"
           }
         },
         "16536006261dd6f93b-7": {
@@ -546,7 +548,8 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "new-badge": false
       }
     },
     "membership-section": {
@@ -560,7 +563,7 @@
         "product_list": [
           "kardiamobile-carrypod",
           "kardiamobile6l-carrypod",
-          "kardiamobile-phoneclip"
+          "steth-io-spot-device"
         ]
       }
     }

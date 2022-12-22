@@ -116,13 +116,43 @@
       "type": "stay-in-the-know",
       "settings": {
       }
+    },
+    "content-kardiamobile": {
+      "type": "content-kardiamobile",
+      "settings": {
+      }
+    },
+    "what-is-section": {
+      "type": "what-is-section",
+      "settings": {
+        "image_url": "kardiamobile-hand-holding-device.png",
+        "title": "What is KardiaMobile?",
+        "content": "KardiaMobile is a smart device that can record a medical-grade electrocardiogram (EKG) right on your smartphone. EKGs measure the electrical activity of your heart and are used in hospitals to detect irregularities with your heart rate or rhythm, which may be indicators of a heart condition such as atrial fibrillation (AFib). KardiaMobile records a single-lead EKG, which provides you and your doctor with reliable information on your heart health. KardiaMobile can detect AFib, Bradycardia, and Tachycardia, with more determinations available with a KardiaCare membership."
+      }
+    },
+    "how-to-video-section": {
+      "type": "how-to-video-section",
+      "settings": {
+        "video_id": 250668145,
+        "title": "How to record an EKG with KardiaMobile",
+        "subtitle": "Taking an EKG is easy with KardiaMobile from AliveCor."
+      }
+    },
+    "devices-three-column": {
+      "type": "devices-three-column",
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
+    "what-is-section",
+    "content-kardiamobile",
     "product-recommendations",
     "content-convenience",
     "content-credible-km",
+    "devices-three-column",
+    "how-to-video-section",
     "additional-info-km",
     "kardiacare-membership-module",
     "stay-in-the-know"

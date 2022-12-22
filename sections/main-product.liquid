@@ -10,8 +10,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -34,14 +34,16 @@
 		border: none;
 	}
 
-	.product__media-wrapper {
-		width: 50% !important;
-		max-width: 50% !important;
-	}
+	@media screen and (min-width: 767px) {
+		.product__media-wrapper {
+			width: 50% !important;
+			max-width: 50% !important;
+		}
 
-	.product__info-wrapper {
-		padding: 2rem 4rem !important;
-		max-width: 50% !important;
+		.product__info-wrapper {
+			max-width: 50% !important;
+			padding: 2rem 4rem !important;
+		}
 	}
 
 	.product--thumbnail_slider {
@@ -487,7 +489,7 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
-        {{ product.description }} 
+        {{ product.description }}
       </div>
     </div>
   </div>
@@ -595,6 +597,49 @@
 {% if product.media.size > 0 %}
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
+
+<script>
+console.log('hey there')
+
+// function initKCPBundle(event) {
+//     var event = event || window.event;
+//     event.preventDefault();
+//     console.log('adding bundle')
+//     $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: { items: [
+//         {
+//             'quantity': 1,
+//             'id': 40235297996865, // KCP
+//             {% comment %} "properties": {
+                "shipping_interval_frequency": 12,
+                "shipping_interval_unit_type": "Months"
+            } {% endcomment %}
+//         },
+//         {
+//             'quantity': 1,
+//             'id': 31667890454593, // Omron Evolv Cuff
+//         },
+//         {
+//             'quantity': 1,
+//             'id': 28007532101697, // KardiaMobile 6L
+//         }
+//         ]},
+//         dataType: 'json',
+//         success: function() {
+//         window.location.href = '/cart?promo=kcomron6l';
+//         }
+//     });
+// }
+
+// console.log('title', `{{product.title}}`)
+
+// if (`{{product.title}}`.toLowerCase().includes('plus')) {
+//     document.getElementsByClassName('AddToCartForm')[0].addEventListener('submit', initKCPBundle)
+// }
+
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

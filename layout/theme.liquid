@@ -279,9 +279,11 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-  </head>
+    <script src="https://www.dwin1.com/19038.js" type="text/javascript" defer="defer"></script>
+    {% if template == 'cart' %}{% include "revy-bundle-script" %}{% endif %}
 
-  <body class="gradient" id="app">
+  </head>
+<body class="gradient" id="app">
     <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QSJ3W"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -292,11 +294,52 @@
 
     {% include 'discount-code-body' %}
 
-    <a role="banner" href="https://store.kardia.com/products/kardiamobile-card" class="banner w-full flex justify-between items-center px-s7 sm:px-s9 md:px-s10 lg:px-s11 py-s5 bg-primary-900 text-white space-x-s5">
-        <div class="w-full hover/focus:text-primary-50 transition-colors duration-500 text-center">
-            <p class="font-dm"><strong>SALE:</strong> Save $10 on KardiaMoble Card this World Heart Day <small>(US Only)</small></p>
-        </div>
-    </a>
+     <div id="banner" style="width: 100%;"></div>
+
+     {% comment %} So we get all the TWCSS classes {% endcomment %}
+     <!--<div class="banner w-full px-s7 sm:px-s9 md:px-s10 lg:px-s11 py-s8" style="background-color: #e3502f;" role="banner" data-header-banner>
+        <a class="w-full max-w-text mx-auto text-white hover/focus:opacity-80 transition-opacity duration-500">
+            <p class="text-center font-dm faux-h3"></p>
+        </a>
+    </div>-->
+
+    <style>
+        .black-friday,
+        .cyber-monday,
+        .holiday-sale {
+            display: none;
+        }
+    </style>
+
+      <script>
+        function fetchContentFromUrl(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, false);
+            xhr.send();
+            return xhr.responseText;
+        }
+
+        let bannerHTML = fetchContentFromUrl(`https://kardia.com/banner`);
+        document.getElementById('banner').innerHTML = bannerHTML
+
+        let blackFriday = Array.from(document.querySelectorAll('.black-friday'));
+        let cyberMonday = Array.from(document.querySelectorAll('.cyber-monday'));
+        let holidaySale = Array.from(document.querySelectorAll('.holiday-sale'));
+
+        if (new Date() < new Date('11/26/2022')) {
+            blackFriday.forEach((el) => {
+                el.style.display = 'block';
+            });
+        } if (new Date() < new Date('12/1/2022')) {
+            cyberMonday.forEach((el) => {
+                el.style.display = 'block';
+            });
+        } else {
+            holidaySale.forEach((el) => {
+                el.style.display = 'block';
+            });
+        }
+      </script>
 
     {% section 'kardia-header' %}
 
@@ -348,5 +391,9 @@
     {%- endif %}
     {% include 'kardiacare-cart-upsell' %}
     {% include 'carrypod-cart-upsell' %}
-  </body>
+  <!-- CRITEO START -->
+{% render 'criteo-tracking' %}
+<!-- CRITEO END -->
+  {% include 'revy-bundle-script' %}
+</body>
 </html>

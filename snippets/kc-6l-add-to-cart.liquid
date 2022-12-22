@@ -42,7 +42,8 @@
 
 
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l', '{{pageName}}')">
+  {% comment %} <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile6l', '{{pageName}}')"> {% endcomment %}
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaMobile6LAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -104,7 +105,7 @@
           {% assign bundle_sale_amount_monthly = "10" %}
         {% else %}
       {% endcase %}
-    <div class="kardiacare-products-bundle" >
+    {% comment %} <div class="kardiacare-products-bundle" >
       {% if pageName != 'home' %}
       <fieldset>
         <legend class="block faux-p product__text subtitle font-bold mb-s4">
@@ -185,7 +186,7 @@
         </div>
       </fieldset>
       {% endif %}
-    </div>
+    </div> {% endcomment %}
 
     <div class="flex-items-bundle">
       {% comment %}
@@ -201,7 +202,7 @@
           type="submit"
           name="add"
           id="{{product.id}}AddToCart1"
-          class="mt-s5 btn addToCart"
+          class="btn addToCart mt-s5"
           {% if sold_out %}
             disabled
           {% endif %}
@@ -217,10 +218,31 @@
           </span>
         </button>
         {% if page_title != "Personal EKG Devices by AliveCor" %}
-          <div class="inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+            <button onclick="scrollToReviews()" class="reviews inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}"></button>
         {% endif %}
       </div>
     </div>
     <div style="clear: both;"></div>
   </form>
 </div>
+
+
+<script>
+    function scrollToReviews() {
+        let accordionItem = document.querySelector('.reviews-button');
+        if (accordionItem) {
+            accordionItem.click();
+            accordionItem.scrollIntoView();
+        }
+    }
+
+    function initKcUpsell(event) {
+        var event = event || window.event;
+        event.preventDefault();
+        if (event.submitter.classList.contains('reviews')) return
+        window.modalProduct = 28007532101697;
+        kcOpen()
+    }
+
+    document.getElementById('kardiaMobile6LAddToCartForm').addEventListener('submit', initKcUpsell)
+</script>

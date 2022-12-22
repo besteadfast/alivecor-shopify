@@ -41,7 +41,8 @@
 {% endstyle %}
 
 <div class="form">
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, '{{product.handle}}', '{{pageName}}')">
+  {% comment %} <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}"> {% endcomment %}
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaMobileCardAddToCartForm" class="AddToCartForm form-vertical" data-productid="{{product.id}}">
     {% capture year_title %}
         1-Year Plan
       {% endcapture %}
@@ -71,7 +72,7 @@
           {% endcapture %}
           {% assign kardiamobile_id = "20036084615" %}
           {% assign kardiamobile6l_id = "28007532101697" %}
-          {% assign kardiamobilecard_id = "" %}          
+          {% assign kardiamobilecard_id = "" %}
         {% assign bundle_sale_amount = "30" %}
         {% else %}
       {% endcase %}
@@ -145,10 +146,30 @@
           </span>
         </button>
         {% if page_title != "Personal EKG Devices by AliveCor" %}
-          <div class="inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+          <button onclick="scrollToReviews()" class="reviews inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}"></button>
         {% endif %}
       </div>
     </div>
     <div style="clear: both;"></div>
   </form>
 </div>
+
+<script>
+    function scrollToReviews() {
+        let accordionItem = document.querySelector('.reviews-button');
+        if (accordionItem) {
+            accordionItem.click();
+            accordionItem.scrollIntoView();
+        }
+    }
+
+    function initKcUpsell(event) {
+        var event = event || window.event;
+        event.preventDefault();
+        if (event.submitter.classList.contains('reviews')) return
+        window.modalProduct = 39719661371457;
+        kcOpen()
+    }
+
+    document.getElementById('kardiaMobileCardAddToCartForm').addEventListener('submit', initKcUpsell)
+</script>

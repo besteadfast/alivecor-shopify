@@ -1,0 +1,38 @@
+<article class="">
+    <div class="mx-auto text-center flex flex-col-reverse lg:flex-row" style="">
+        <div class="w-full lg:w-1/2 bg-white flex justify-end lg:py-s14 p-s8 py-s10 sm:px-s11 sm:py-s13 lg:px-s12">
+            <div class="lg:max-w-[586px] text-left">
+                <h2 class="">{{ section.settings.title }}</h2>
+                <p class="mt-s6 sm:mt-s10">{{ section.settings.content }}</p>
+            </div>
+        </div>
+        <div class="w-full lg:w-1/2 bg-gradient-to-b from-[#EFF2F7] to-[#F8FAFC] flex justify-end items-center p-s4 pr-0">
+            <img src="{{ section.settings.image_url | asset_url }}" alt="{{ product.title }}" class="w-full max-w-[586px]" />
+        </div>
+    </div>
+</article>
+
+{% schema %}
+{
+  "name": "t:sections.what-is-section.name",
+  "tag": "section",
+  "class": "section what-is-section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "image_url",
+        "label": "Image URL"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "content",
+        "label": "content"
+    }
+  ]
+}
+{% endschema %}

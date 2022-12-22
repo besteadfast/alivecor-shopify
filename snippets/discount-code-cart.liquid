@@ -1,76 +1,126 @@
 <script>
 
-/* If the length of sessionStorage "discount" is NOT 0 then add our sessionStorage value to the end of our Checkout link */
-/* Link: http://stackoverflow.com/a/4704786 */
-var discountCookie = sessionStorage.getItem("discount")
+    /* If the length of sessionStorage "discount" is NOT 0 then add our sessionStorage value to the end of our Checkout link */
+    /* Link: http://stackoverflow.com/a/4704786 */
+    var discountCookie = sessionStorage.getItem("discount")
 
-if (discountCookie && discountCookie.length != 0 && !discountType) {
-  document.getElementById('cartform').action = "/cart?discount=" + sessionStorage.getItem("discount");
-};
+    if (discountCookie && discountCookie.length != 0 && !discountType) {
+      document.getElementById('cartform').action = "/cart?discount=" + sessionStorage.getItem("discount");
+    };
 
-const discountType = new URL(window.location.href).searchParams.get("promo")
-if (discountType){
-  var kcInCart;
-  var cardInCart;
-  jQuery.getJSON('/cart.js', function(cart) {
-      for (item of cart.items){
-        if(item.handle == "kardiacare"){
-          kcInCart = true;
-        }
-        if( item.handle === "kardiamobile-card"){
-          cardInCart = true;
-        }
-      }
-      if(kcInCart && (discountType === "3free" || discountType === "freegift")){
-        document.getElementById('cartform').action = "/cart?discount=" + discountType;
-        const oldDiscount = document.querySelector("#discount")
-        const subtotal = document.querySelector(".cart__subtotal");
-        const oldPrice = subtotal.innerHTML.slice(1,subtotal.innerHTML.length)
+    const discountType = new URL(window.location.href).searchParams.get("promo")
 
-        let fullPriceSubtotal;
+    if (discountType) {
 
-        if(oldDiscount){
-          oldDiscount.classList.add("hidden");
+        var kcInCart;
+        var kcPlusInCart;
+        var cardInCart;
 
-          if(discountType == "3free"){
-            fullPriceSubtotal = parseFloat(oldPrice) + parseFloat(oldDiscount.dataset.amount);
-            console.log(fullPriceSubtotal)
-          }
-        }else{
-          fullPriceSubtotal = oldPrice;
-        }
+        jQuery.getJSON('/cart.js', function(cart) {
 
-        if(discountType == "3free"){
-          document.querySelector("#aDiscount").classList.remove('hidden')
-          subtotal.parentElement.classList.add("mt-s5")
-          subtotal.innerHTML = `$${(fullPriceSubtotal - 25).toFixed(2)}`
-        } else if (discountType == "freegift" && cardInCart) {
-          document.querySelector("#bDiscount").classList.remove('hidden')
-          subtotal.parentElement.classList.add("mt-s5")
-          subtotal.innerHTML = `$${(fullPriceSubtotal - 99).toFixed(2)}`
-          const cardRow = document.getElementById("39719661371457")
-          const quantity = cardRow.children[3].firstElementChild.lastElementChild.value;
-          if(quantity == 1){
-            cardRow.children[2].firstElementChild.innerHTML = "FREE";
-            cardRow.children[4].firstElementChild.innerHTML = "$0.00";
-          }
+            for (item of cart.items) {
+                if (item.handle == "kardiacare") kcInCart = true
+                if (item.handle.includes("plus")) kcPlusInCart = true
+                if (item.handle === "kardiamobile-card") cardInCart = true
+            }
 
-        }
+            if (kcInCart && (discountType === "3free" || discountType === "freegift")) {
 
+                // Add the coupon to the cart action
+                document.getElementById('cartform').action = "/cart?discount=" + discountType;
 
+                const oldDiscount = document.querySelector("#discount")
+                const subtotal = document.querySelector(".cart__subtotal");
+                const oldPrice = subtotal.innerHTML.slice(1,subtotal.innerHTML.length)
 
-      }else{
+                let fullPriceSubtotal;
 
-      }
-    } );
+                if (oldDiscount) {
+                    oldDiscount.classList.add("hidden");
+                    if (discountType == "3free") fullPriceSubtotal = parseFloat(oldPrice) + parseFloat(oldDiscount.dataset.amount);
+                } else {
+                    fullPriceSubtotal = oldPrice;
+                }
 
-}
-if (discountType === "3free"){
-  
-}
+                if (discountType == "3free") {
+                    document.querySelector("#aDiscount").classList.remove('hidden')
+                    subtotal.parentElement.classList.add("mt-s5")
+                    subtotal.innerHTML = `$${(fullPriceSubtotal - 25).toFixed(2)}`
 
-</script>
+                } else if (discountType == "freegift" && cardInCart) {
+                    document.querySelector("#bDiscount").classList.remove('hidden')
+                    subtotal.parentElement.classList.add("mt-s5")
+                    subtotal.innerHTML = `$${(fullPriceSubtotal - 99).toFixed(2)}`
+                    const cardRow = document.getElementById("39719661371457")
+                    const quantity = cardRow.children[3].firstElementChild.lastElementChild.value;
+                    if(quantity == 1){
+                        cardRow.children[2].firstElementChild.innerHTML = "FREE";
+                        cardRow.children[4].firstElementChild.innerHTML = "$0.00";
+                    }
+                }
+            }
 
-<script type="text/javascript">
+            if (kcPlusInCart && discountType === "kcomron6l") {
 
-</script>
+                let freeProductVariantIds = ['28007532101697', '31667890454593'] // 6L and Omron
+
+                let onlyOneOfEach = freeProductVariantIds.every(p => {
+                    const productRow = document.getElementById(p)
+                    const quantity = productRow.children[3].firstElementChild.lastElementChild.value;
+                    return quantity == 1
+                })
+
+                if (!onlyOneOfEach) return
+
+                // Add the coupon to the cart action
+                document.getElementById('cartform').action = "/cart?discount=" + discountType;
+
+                const oldDiscount = document.querySelector("#discount")
+                const subtotal = document.querySelector(".cart__subtotal");
+                const oldPrice = subtotal.innerHTML.slice(1,subtotal.innerHTML.length)
+
+                console.log('got it')
+
+                let fullPriceSubtotal;
+
+                if (oldDiscount) {
+                    oldDiscount.classList.add("hidden");
+                } else {
+                    fullPriceSubtotal = oldPrice;
+                }
+
+                let newSubtotal = fullPriceSubtotal
+
+                for (let product of freeProductVariantIds) {
+                    const productRow = document.getElementById(product)
+                    const oldProductPrice = productRow.children[2].textContent.split('$')[1].split('\n')[0]
+                    newSubtotal = newSubtotal - oldProductPrice
+
+                    let strikenPrice = `
+                    <span class="h4Price price faux-p font-dm">
+                        <span class="lg:hidden">Price: </span>
+                        <span class="text-primary-500">
+                            FREE
+                        </span>
+                        <span class="line-through old-price">
+                            $${oldProductPrice}
+                        </span>
+                    </span>
+                `
+                    productRow.children[2].firstElementChild.innerHTML = strikenPrice;
+                    productRow.children[4].firstElementChild.innerHTML = "$0.00";
+                }
+
+                subtotal.parentElement.classList.add("mt-s5")
+                subtotal.innerHTML = `$${(newSubtotal).toFixed(2)}`
+            }
+
+            // Add the coupon to the cart action
+            document.getElementById('cartform').action = "/cart?discount=" + discountType;
+        });
+    }
+    </script>
+
+    <script type="text/javascript">
+
+    </script>

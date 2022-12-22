@@ -83,12 +83,12 @@
           </label>
         </div>
       {% else %}
-        <div class="variant-input-wrapper">
-        <input type="radio"
-             class="variant-input"
-             disabled>
-        <label class="form-control out-of-stock faux-p">
-          {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+        <div class="form-radio">
+            <label class="form-control out-of-stock faux-p opacity-50 select-none">
+                <input type="radio"
+                     class="variant-input"
+                     disabled>
+            {{ variant.title }} ({{ 'products.product.sold_out' | t }})
         </label>
       </div>
       {% endif %}
@@ -115,20 +115,31 @@
   <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
   {% endcomment %}
-  <div class="flex justify-between pb-s8 mb-s8 border-b-2 border-primary-75">
-  <button type="submit" name="add" id="{{product.id}}AddToCart1" class="btn addToCart mt-s5" {% if sold_out %}disabled{% endif %}>
-    <span id="AddToCartText">
-    {% if sold_out %}
-    {{ 'products.product.sold_out' | t }}
-    {% elsif preorder %}
-    {{ 'products.product.preorder' | t }}
-    {% else %}
-    {{ 'products.product.add_to_cart' | t }}
-    {% endif %}
-    </span>
-  </button>
-  <div class="inline-block text-right mt-s5 mb-0 flex items-center justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
 
+  </div>
+        <div class="lg:flex justify-between">
+        <button
+          type="submit"
+          name="add"
+          id="{{product.id}}AddToCart1"
+          class="mt-s5 btn addToCart"
+          {% if sold_out %}
+            disabled
+          {% endif %}
+        >
+          <span id="AddToCartText">
+          {% if sold_out %}
+          {{ 'products.product.sold_out' | t }}
+          {% elsif preorder %}
+          {{ 'products.product.preorder' | t }}
+          {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+          </span>
+        </button>
+        {% if page_title != "Personal EKG Devices by AliveCor" %}
+          <div class="inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+        {% endif %}
   </div>
   {% if product.handle == 'kardiamobile' and shop.currency == 'GBP' and sold_out %}
   <a href="https://www.amazon.co.uk/Kardia-Mobile-AliveCor-Black-0-6oz/dp/B01A4W8AUK/" class="btn amazon-sold-out" target="_blank">

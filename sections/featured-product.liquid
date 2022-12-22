@@ -99,7 +99,59 @@
 <section class="featured-product-section color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %} lg:max-h-[700px]">
   <div class="page-width p-0 {% if section.settings.secondary_background %} isolate{% endif %}">
     <div class="featured-product product lg:flex justify-center gradient color-{{ section.settings.color_scheme }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper lg:max-w-[593px] !w-full">
+      <div class="grid__item product__media-wrapper lg:max-w-[593px] !w-full relative">
+
+        {%- if product.price < product.compare_at_price -%}
+            <div class="absolute top-s8 left-0 text-white z-10 pr-s12 overflow-hidden">
+                <div class="relative p-s4" style="background-color: #e3502f;">
+                    <div class="!block w-s8 h-s8 rotate-45 absolute -top-s5 -right-s5" style="background-color: #e3502f;"></div>
+                    <p class="font-dm z-10 uppercase faux-p-sm">Sale</p>
+                    {% comment %} <p class="font-dm z-10 uppercase faux-p-sm pr-s12">Save {{ product.compare_at_price | minus: product.price | money }}</p> {% endcomment %}
+                    <div class="!block w-s8 h-s8 rotate-45 absolute -bottom-s5 -right-s5" style="background-color: #e3502f;"></div>
+                </div>
+            </div>
+        {%- endif -%}
+
+        {%- if section.settings.new-badge -%}
+        <div class="new-badge"></div>
+
+        <style>
+        .new-badge {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            width: 132px;
+            height: 132px;
+            display: block!important;
+            background: url(https://www.kardia.com/assets/images/Badge.svg) no-repeat center center;
+            background-size: cover;
+            padding-bottom: 30px;
+            bottom: -30px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            top: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .new-badge {
+                transform: translateX(0%);
+                width: 150px;
+                height: 150px;
+                right: -38px;
+                top: 10px;
+                left: auto;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .new-badge {
+                right: -60px;
+            }
+        }
+        </style>
+        {%- endif -%}
+
         <media-gallery id="MediaGallery-{{ section.id }}" role="region" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="stacked">
           <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
             {{ "accessibility.skip_to_product_info" | t }}
@@ -201,14 +253,14 @@
 											<span id="KardiaCareProductPrice" class="noFloat">$9.99 Monthly Plan</span>
 										{% endif %}
 									{% elsif product.handle == 'kardiamobile' %}
-										Starting at ${{product.price | money_without_currency}}
+										${{product.price | money_without_currency}}
 									{% elsif product.handle == 'kardiamobile6l' %}
                     {% if product.compare_at_price %}
                     <span id="ProductPrice" class=" noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
-                      Starting at $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
+                      $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
                     </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}
                     {% else %}
-                      Starting at ${{product.price | money_without_currency}}
+                      ${{product.price | money_without_currency}}
                     {% endif %}
 									{% elsif product.handle == 'kardiamobile-card' %}
                     {% if product.compare_at_price %}
@@ -832,6 +884,16 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "New Badge"
+    },
+    {
+        "type": "checkbox",
+        "id": "new-badge",
+        "default": false,
+        "label": "New Badge Enabled"
     }
   ],
   "presets": [

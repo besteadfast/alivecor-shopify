@@ -34,38 +34,140 @@
 </div>
 {% endif %}
 {% if shop.domain == 'store.kardia.com' %}
-<!-- US -->
-<div class="pop-up kardiacare-upsell monthly" id="kardiacare-upsell-popup-monthly">
-  <div class="screen">
-  <div class="content">
-    <a class="pop-up-close ga-tracker"
-      id="kardiacare-upsell-close"
-      data-category="KardiaCare Cart Pop Up Upsell"
-      data-action="Clicked Close"
-      data-label="Cart"></a>
-    <div class="text kardiacare-table">
-      <div class="faux-p-lg px-s5">Detect twice as many arrhythmias when you join KardiaCare</div>
+<div class="w-full h-screen fixed inset-0 bg-black/70 justify-center items-center p-s4" onclick="this.style.display = 'none';" id="kc-modal-overlay" style="display: none; z-index: 99999;">
+    <div onclick="event.stopPropagation()" class="kc-upsell w-full bg-white max-w-content p-s8 md:py-s12 max-h-full overflow-scroll">
 
-      <div class="upsell-table-cont">
-        {% include 'rhythm-table' %}
-      </div>
-      <div class="faux-p mt-s7">{% if shop.domain == 'store.alivecor.co.uk'%}Only £9.99/month.{% elsif request.host == 'shop.kardiamobile.ca' %}Only $13/month.{% else %}Only $9.99/month.{% endif %}</div>
-      <a class="btn ga-tracker mt-s7 cursor-pointer"
-        id="kardiacare-upsell-add-monthly"
-        data-category="KardiaCare Cart Pop Up Upsell"
-        data-action="Clicked Add to cart"
-        data-label="Cart">
-        Add KardiaCare Membership
-      </a>
-      <a id="kardiacare-upsell-no-monthly"
-        class="upsell-no ga-tracker mt-s3"
-        data-category="KardiaCare Cart Pop Up Upsell"
-        data-action="Clicked No thanks"
-        data-label="Cart">
-        No thanks
-      </a>
+        <h4 class="faux-sh w-full text-center text-kc-500 pb-s8">Choose Your Plan</h4>
+
+        <div class="hidden sm:!grid kcp-options w-full grid-cols-2 md:grid-cols-3 !gap-0 items-start text-center">
+
+            <div class="hidden md:!block p-s2">Basic</div>
+                <div class="p-s2 text-kc-300">KardiaCare</div>
+                    <div class="p-s2 text-kc-600 whitespace-nowrap">KardiaCare Plus</div>
+
+            <div class="hidden md:!flex justify-center p-s2 text-kc-800 faux-h2"><div class="!block w-s8 h-[2px] bg-kc-800"></div></div>
+                <div class="p-s2 text-kc-800 faux-h2 font-semibold flex whitespace-nowrap"><span class="">$</span><span class="flex" id="kcPrice">99</span></div>
+                    <div class="p-s2 text-kc-800 faux-h2 font-[1100] flex whitespace-nowrap"><span class="">$</span>299</div>
+
+            <h6 class="hidden md:!block text-kc-500 faux-h6">Included In App</h6>
+                <h6 class="text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+                    <h6 class="text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+
+            <div class="hidden md:!block"></div>
+                <h6 class="text-kc-500 text-[.75rem]">Save 17% Annually</h6>
+                    <div class="!block"></div>
+
+            <p class="hidden md:!block p-s4 faux-p-sm text-kc-800 !items-start">Detect and monitor basic arrhythmias using the included features in the Kardia<sup>™</sup> App.</p>
+                <p class="p-s4 faux-p-sm text-kc-800 !items-start">Self-monitor and manage heart health with exclusive  tools and advanced arryhthmia detection.</p>
+                    <p class="p-s4 faux-p-sm text-kc-800 !items-start"><span>Everything KardiaCare has to offer plus more support from medical professionals. Includes a KardiaMobile<sup>®</sup> 6L and an Omron Evolv blood pressure cuff as a one-time gift.</span></p>
+
+            <div class="hidden md:!flex justify-center !items-start"><button onclick="kcModalContinue()" class="faux-h6 border-b-2 border-kc-800 pb-s2">Continue</button></div>
+                <div class="flex flex-col !justify-start">
+                    <button onclick="addKcToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button>
+                    <a href="/products/kardiacare" class="faux-h6 border-b-2 border-primary-500 pb-s2 text-primary-500 !mt-s8">Compare Plans</a>
+                </div>
+                    <div class="text-kc-800 faux-h6 !items-start"><button onclick="addKcpToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button></div>
+        </div>
+
+        <div class="sm:hidden flex flex-col space-y-s6 kc-upsell">
+
+            {% comment %} <div class="flex flex-col grid kcp-options grid-cols-1 shadow-nav p-s6">
+                <div class="p-s2">Basic</div>
+                <div class="p-s2 text-kc-800 faux-h2"></div>
+                <h6 class="text-kc-500 faux-h6">Included In App</h6>
+                <p class="p-s4 faux-p-sm text-kc-800 !items-start">Detect and monitor basic arrhythmias using the included features in the Kardia<sup>™</sup> App.</p>
+                <div class="flex justify-center !items-start"><button onclick="kcModalContinue()" class="faux-h6 border-b-2 border-kc-800 pb-s2 !mt-s6">Continue</button></div>
+            </div> {% endcomment %}
+
+            <div class="kcp-options shadow-nav p-s6">
+                <h6 class="text-kc-500 p-s3">Save 17% Annually</h6>
+                <div class="p-s2 text-kc-300">KardiaCare</div>
+                <div class="p-s2 text-kc-800 faux-h2 font-semibold flex whitespace-nowrap"><span class="">$</span><span class="flex" id="kcPrice">99</span></div>
+                <h6 class="text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+                <p class="p-s4 faux-p-sm text-kc-800 !items-start">Self-monitor and manage heart health with exclusive  tools and advanced arryhthmia detection.</p>
+                <div class="text-kc-800 faux-h6 !items-start"><button onclick="addKcToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button></div>
+            </div>
+
+            <div class="kcp-options shadow-nav p-s6">
+                <div class="p-s2 text-kc-600 whitespace-nowrap">KardiaCare Plus</div>
+                <div class="p-s2 text-kc-800 faux-h2 font-[1100] flex whitespace-nowrap"><span class="">$</span>299</div>
+                <h6 class="text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+                <p class="p-s4 faux-p-sm text-kc-800 !items-start"><span>Everything KardiaCare has to offer plus more support from medical professionals. Includes a KardiaMobile<sup>®</sup> 6L and an Omron Evolv blood pressure cuff as a one-time gift.</span></p>
+                <div class="text-kc-800 faux-h6 !items-start"><button onclick="addKcpToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button></div>
+            </div>
+
+            <div class="flex justify-center">
+                <a href="/products/kardiacare" class="faux-h6 border-b-2 border-primary-500 pb-s2 text-primary-500 !mt-s6">Compare Plans</a>
+            </div>
+
+        </div>
+
     </div>
-  </div>
-  </div>
 </div>
+
+<script>
+
+    function kcOpen() {
+        document.getElementById('kc-modal-overlay').style.display = 'flex';
+    }
+
+    /*
+    The modalProduct is defined in the "add-to-cart" liquid file for each product
+    */
+
+    function addProductsToCart(products) {
+        $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: { items: products},
+            dataType: 'json',
+            success: function () {
+                const promo = new URL(window.location.href).searchParams.get("promo")
+                if (promo) {
+                    if (promo == "freegift") {
+                        return
+                    } else {
+                        window.location.href = `/cart?promo=${promo}`
+                    }
+                } else {
+                    window.location.href = '/cart';
+                }
+            }
+        });
+    }
+
+    function kcModalContinue() {
+        let products = [{ quantity: 1, id: window.modalProduct }]
+        addProductsToCart(products)
+    }
+    function addKcToCart() {
+        let products = [
+            { quantity: 1, id: window.modalProduct },
+            { quantity: 1, id: 32194082472001, properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }}
+        ]
+        addProductsToCart(products)
+    }
+    function addKcpToCart() {
+        let km6l = 28007532101697
+        let modalProduct = { quantity: 1, id: window.modalProduct }
+        let kcp = { quantity: 1, id: 40291632349249, properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }}
+        if (window.modalProduct == km6l) addProductsToCart([kcp])
+        else addProductsToCart([modalProduct, kcp])
+    }
+</script>
+
+<style>
+    .kc-upsell > .kcp-options > * {
+        margin: 0px!important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: white;
+    }
+    .bg-black\/70 {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+</style>
 {% endif %}

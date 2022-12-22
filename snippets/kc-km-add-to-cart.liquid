@@ -47,7 +47,8 @@
 
 
 <div class="form">
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}" onsubmit="addToCartKardiaCareDeviceBundle(event, this, 'kardiamobile', '{{pageName}}')">
+    {% comment %} <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}"> {% endcomment %}
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaMobileAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}">
       {% capture year_title %}
           1-Year Plan
         {% endcapture %}
@@ -117,7 +118,7 @@
             {% assign bundle_sale_amount_monthly = "10" %}
           {% else %}
         {% endcase %}
-    {% unless sold_out %}
+    {% comment %} {% unless sold_out %}
       <div class="kardiacare-products-bundle">
         {% if pageName != "home" %}
         <fieldset>
@@ -196,14 +197,14 @@
         </fieldset>
         {% endif %}
       </div>
-      {% endunless %}
+      {% endunless %} {% endcomment %}
       <div class="flex-items-bundle">
           <div class="lg:flex justify-between">
             <button
 							type="submit"
 							name="add"
 							id="{{ product.id }}AddToCart1"
-							class="btn {% unless sold_out %}mt-s6{% endunless %} addToCart"
+							class="btn addToCart"
 							{% if sold_out %}
 									disabled
 							{% endif %}
@@ -220,10 +221,31 @@
             </button>
 
             {% if page_title != "Personal EKG Devices by AliveCor" %}
-                <div class="text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+                <button onclick="scrollToReviews()" class="reviews inline-block text-right mt-s5 mb-0 flex items-center lg:justify-end" data-bv-show="inline_rating" data-bv-seo="false" data-bv-product-Id="{{product.id}}"></button>
             {% endif %}
         </div>
       </div>
       <div style="clear: both;"></div>
     </form>
 </div>
+
+
+<script>
+    function scrollToReviews() {
+        let accordionItem = document.querySelector('.reviews-button');
+        if (accordionItem) {
+            accordionItem.click();
+            accordionItem.scrollIntoView();
+        }
+    }
+
+    function initKcUpsell(event) {
+        var event = event || window.event;
+        event.preventDefault();
+        if (event.submitter.classList.contains('reviews')) return
+        window.modalProduct = 20036084615;
+        kcOpen()
+    }
+
+    document.getElementById('kardiaMobileAddToCartForm').addEventListener('submit', initKcUpsell)
+</script>

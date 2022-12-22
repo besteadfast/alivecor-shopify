@@ -109,9 +109,20 @@
       "settings": {
       }
     },
+    "what-is-section": {
+      "type": "what-is-section",
+      "settings": {
+        "image_url": "kardiamobile-hand-holding-card.png",
+        "title": "What is KardiaMobile Card?",
+        "content": "KardiaMobile Card is the first and only credit-card-sized personal EKG to be cleared by the FDA. It’s thin and light enough to fit perfectly in your wallet, so you can take it with you anywhere. KardiaMobile Card uses Bluetooth to connect to your phone and record a medical-grade, single-lead EKG in seconds, no WiFi required. KardiaMobile Card can detect AFib, Bradycardia, and Tachycardia, with more determinations available with a KardiaCare membership (such as Sinus Rhythm with PVCs, Sinus Rhythm with Wide QRS, and Sinus Rhythm with SVE)."
+      }
+    },
     "how-to-video-section": {
       "type": "how-to-video-section",
       "settings": {
+        "video_id": 682936734,
+        "title": "How to record an EKG with KardiaMobile Card",
+        "subtitle": "No wires, patches, or gels required."
       }
     },
     "additional-info-km-card": {
@@ -154,11 +165,12 @@
   "order": [
     "main",
     "icon-grid-mobilecard",
+    "what-is-section",
     "content-convenient",
     "content-accurate-card",
     "content-durable",
-    "how-to-video-section",
     "devices-three-column",
+    "how-to-video-section",
     "additional-info-km-card",
     "kardiacare-membership-module",
     "product-recommendations",

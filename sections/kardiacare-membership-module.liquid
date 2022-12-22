@@ -13,34 +13,68 @@
     }
 {%- endstyle -%}
 
-<section class="kardiacare-membership-section theme--kardiacare">
-    <div class="page-width lg:flex">
-        <div class="lg:w-1/2 flex flex-col justify-center px-s4 lg:pr-s11 lg:pl-s8 py-s9 lg:py-s10 min-w-[360px]">
-            <div>
-                <h2 class="text-primary-500">KardiaCare <br />Membership</h2>
-                <h3 class="faux-p product__text subtitle col-span-2 mt-s6">Exclusive features that provide deeper insights about your heart</h3>
+<section class="kardiacare-membership-section theme--kardiacare bg-gradient-to-b from-kc-50">
 
-                <div class="mt-s8 flex items-stretch divide-x-2 divide-black-400 -mx-s4">
-									<p class="m-0 px-s4 font-dm">$9.99/month</p>
-									{% if product.handle != "kardiamobile-card" %}
-                                        <p class="m-0 px-s4 font-dm">$99/year</p>
-                                    {% endif %}
-								</div>
-            </div>
-            <div class="mt-s8 border-t-2 border-primary-75">
-                <ul class="my-s8">
-                    <li class="text-[1.125rem] mt-s5">Six arrhythmia detections</li>
-                    <li class="text-[1.125rem] mt-s5">EKG reviews by a cardiologist</li>
-                    <li class="text-[1.125rem] mt-s5">Summary reports of your heart data</li>
-                    <li class="text-[1.125rem] mt-s5">Automatic EKG sharing with family</li>
-                </ul>
-            </div>
-            <div>
-								<a href="/products/kardiacare" class="btn">
-									Learn More
-                </a>
-            </div>
+    <div class="page-width p-s8 md:p-s10 md:py-s12">
+        <div class="md:max-w-[66%]">
+            <h2 class="text-kc-500">KardiaCare Membership</h2>
+            <p>Get the most our of your Kardia devices, and deeper, more personalized insights about your heart health. Choose from three unique service options.</p>
         </div>
-        <img src="{{ "kardiacare-featured.png" | asset_url }}" class="w-full lg:w-[50vw] object-contain object-left">
     </div>
+
+    <div class="page-width flex flex-col items-center lg:items-stretch lg:flex-row pt-s8 px-s8 md:px-s10 md:pt-s12 space-y-s13 lg:space-y-0 lg:space-x-s6 theme--kardiacare">
+
+        <div class="kcp-options w-full xs:max-w-[66%] lg:w-1/3 flex flex-col p-s6 bg-white items-center relative pt-s13">
+            <img src="{{ 'basic-phone.png' | asset_url }}" class="w-s14 -translate-y-1/2 absolute top-0 ">
+            <div class="p-s2">Basic</div>
+            <div class="p-s2 text-kc-800 faux-h2">–</div>
+            <h6 class="text-kc-500 text-[0.65rem]">Included In App</h6>
+            <p class="p-s4 faux-p-xs text-kc-800 !items-start">Detect and monitor basic arrhythmias using the included features in the Kardia App.</p>
+        </div>
+
+        <div class="kcp-options w-full xs:max-w-[66%] lg:w-1/3 flex flex-col p-s6 bg-white items-center relative pt-s13">
+            <img src="{{ 'kc-phone.png' | asset_url }}" class="w-s14 -translate-y-1/2 absolute top-0 ">
+            <div class="p-s2 text-kc-300 pb-s4">KardiaCare</div>
+            <div class="flex space-x-s2 px-s4 items-stretch">
+                <div class="flex flex-col items-center flex-grow justify-between">
+                    <div class="!mt-0 p-s2 text-kc-800 faux-h2 font-semibold flex whitespace-nowrap !font-dm"><span class="faux-p-sm font-bold !font-dm mt-s2">$</span><span class="flex" id="kcPrice">99</span></div>
+                    <h6 class="text-kc-800 !mt-0 text-[0.65rem]"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="flex flex-grow w-[1px] bg-black-400 h-full"></div>
+                    <div class="faux-p-xs py-s2 text-black-400 text-[0.65rem]">OR</div>
+                    <div class="flex flex-grow w-[1px] bg-black-400 h-full"></div>
+                </div>
+                <div class="flex flex-col items-center flex-grow justify-between">
+                    <div class="!mt-0 p-s2 text-kc-800 faux-h2 font-semibold flex whitespace-nowrap !font-dm"><span class="faux-p-sm font-bold !font-dm mt-s2">$</span><span class="flex" id="kcPrice">9<span class="faux-p-sm mt-s2">.99</span></span></div>
+                    <h6 class="text-kc-800 !mt-0 text-[0.65rem]"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Monthly</span></h6>
+                </div>
+            </div>
+            <p class="p-s4 faux-p-xs text-kc-800 !items-start">Self-monitor and manage heart health with exclusive  tools and advanced arryhthmia detection.</p>
+        </div>
+
+        <div class="kcp-options w-full xs:max-w-[66%] lg:w-1/3 flex flex-col p-s6 bg-white items-center relative pt-s13">
+            <img src="{{ 'kcp-phone.png' | asset_url }}" class="w-[310px] -translate-y-1/2 absolute top-0 ">
+            <div class="p-s2 text-kc-600 whitespace-nowrap">KardiaCare Plus</div>
+            <div class="p-s2 text-kc-800 faux-h2 font-[1100] flex items-start whitespace-nowrap !font-dm"><span class="faux-p-sm font-bold !font-dm mt-s2">$</span>299</div>
+            <h6 class="text-kc-800 text-[0.65rem]"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
+            <p class="p-s4 faux-p-xs text-kc-800 !items-start">Our all-inclusive option. Everything KardiaCare has to offer plus more support from medical professionals. Includes a KardiaMobile 6L and an Omron Evolv blood pressure cuff.</p>
+        </div>
+
+
+    </div>
+
+    <div class="w-full flex justify-center pb-s8 md:pb-s12 mt-s8 md:mt-s10"><a class="btn bg-kc-500" href="/products/kardiacare">Learn More</a></div>
+
 </section>
+
+<style>
+    .theme--kardiacare > .kcp-options > * {
+        margin: 0px!important;
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+</style>

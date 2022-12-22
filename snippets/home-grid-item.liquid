@@ -47,7 +47,7 @@
     {% endif %}
   {% endfor%}
 
-<div class="home-grid-item w-full {{ product_name }} {{ product_collection }}">
+<div class="home-grid-item w-full flex flex-col justify-between {{ product_name }} {{ product_collection }}">
   {% comment %}
     Link to your product with the 'within: collection' filter for the link to be aware of the collection.
     This allows you to create collection-based navigation on the product page.
@@ -82,6 +82,7 @@
     <div class="img-caption"></div>
   </a>
 
+  <div>
   <h3 class="faux-h3 text-primary-500 mt-s9">
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </h3>
@@ -125,7 +126,9 @@
         {% comment %}
         <!-- End Bazaarvoice Inline Rating -->
         {% endcomment %}
-      {% else %}
+      {% elsif product.handle contains 'steth' %}
+        {% comment %} No raiting for stethio {% endcomment %}
+      {% else  %}
         {% comment %}
         <!-- /snippets/bv-inline-ratings.liquid --> <!-- Bazaarvoice Inline Rating -->
         {% endcomment %}
@@ -154,10 +157,21 @@
     <a href="/products/kardiacare" class="view-details">
       View Details
     </a>
+  {% elsif product.handle contains 'steth' %}
+  <a class="btn mt-s8" style="float:left;" href="https://store.kardia.com/products/steth-io-spot-device">
+    <span id="AddToCartText">
+    Learn More
+    </span>
+  </a>
   {% else %}
   <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="{{product.id}}AddToCartForm" class="AddToCartForm form-vertical">
     {% if product.variants.size > 1 %}
-        <div class="flex items-center">
+        {% comment %}
+        Hiding this because nobody actually wants a variant selector on this
+        component _BUT_ apparently there's some logic in here that selects the
+        variant that's not out of stock?
+        {% endcomment %}
+        <div class="flex items-center hidden">
           <div class="variant-title">
             {%- for option in product.options_with_values -%}
               <span class="text-[1rem]">{{ option.name | escape }}:</span>
@@ -254,5 +268,6 @@
     {% endcomment %}
   </form>
   {% endif %}
+    </div>
 
 </div>

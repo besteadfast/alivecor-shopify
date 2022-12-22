@@ -396,14 +396,12 @@
               color:rgb(18,18,18);
             }
           </style>
-          {% comment %}
           <div class="bundle-price-display">
             <span id="ProductPrice" class="h2Price noFloat text-primary-500">
               $<span id="kc-km-price">{{ product.price | money_without_currency }}</span>
             </span>
             <span class="line-through totalBundlePrice old-price">${{ product.price | plus: 999 | money_without_currency }}</span>
           </div>
-          {% endcomment %}
           {% comment %}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
@@ -664,21 +662,22 @@
           {%- endcase -%}
         {%- endfor -%}
         <div class="border-t-2 border-primary-75 pt-s8 mt-s8">
-            		<p>We recommend:</p>
+
+                    <!--
+                    <p>We recommend:</p>
                     <ul class="mt-s7" >
 						<li><a href="https://store.kardia.com/products/kardiamobile-card">KardiaMobile Card:</a> Our newest single-lead personal EKG in a sleek new form factor.</li>
 						<li><a href="https://store.kardia.com/products/kardiamobile6l">KardiaMobile 6L:</a> Everything KardiaMobile has to offer with an additional lead providing you with more data. Take a single or six-lead EKG with KardiaMobile 6L. </li>
 					</ul>
-					{% comment %}
+                    -->
                     <p>Check in on your heart from home with KardiaMobile, our single-lead personal EKG. KardiaMobile is FDA-cleared and records medical-grade EKGs right on your phone.</p>
 					<ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>Record a medical-grade EKG from home</li>
+                        <li>Download and email your EKGs to your doctor</li>
+                        <li>FDA-cleared to detect AFib and more</li>
+                        <li>#1 doctor-recommended personal EKG</li>
                     </ul>
                     <p class="faux-p-xs">KardiaMobile is not tested or recommended for use with pacemakers and ICDs. KardiaMobile does not check for heart attack.</p>
-                    {% endcomment %}
 				</div>
       </div>
     </div>
@@ -795,51 +794,6 @@
     </ul>
   </div>
 </article>
-
-<article class="border-t-2 border-primary-75 image-split image-split--right">
-  <div class="image-split__media">
-    <picture class="image__wrapper">
-      <img
-        src="{{ "km-feature-image-convenience.png" | asset_url }}"
-        alt=""
-        class="image-split__image"
-      />
-    </picture>
-  </div>
-
-  <div class="image-split__content">
-    <div class="image-split__content-int">
-      <h2>Convenient and reliable</h2>
-      <p class="faux-sh">Take your EKG from home</p>
-      <p>
-        Record a medical-grade EKG in 30 seconds and get an instant analysis right on your  phone.
-      </p>
-    </div>
-  </div>
-</article>
-
-<article class="border-t-2 border-primary-75 image-split image-split--left">
-  <div class="image-split__media">
-    <picture class="image__wrapper"
-      >
-      <img
-        src="{{ "km-feature-image-credible.png" | asset_url }}"
-        alt=""
-        class="image-split__image"
-       />
-    </picture>
-  </div>
-  <div class="image-split__content">
-    <div class="image-split__content-int">
-      <h2>Heart data you can trust</h2>
-      <p class="faux-sh">Created by cardiologists</p>
-      <p>
-        KardiaMobile is clinically validated, CE marked, and FDA-cleared, making it one of the most reliable ways to check in on your heart from home.
-      </p>
-    </div>
-  </div>
-</article>
-
 
 {% javascript %}
   class ProductModal extends ModalDialog {

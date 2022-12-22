@@ -111,19 +111,21 @@
               {% endif %}
             {% endfor %}
           {% elsif item.product.handle contains 'kardiacare' %}
-            {% assign hideQuantity = true %}
-            {% assign kcare_in_cart = true %}
-            {% if item.product.handle == 'kardiacare' or item.product.handle == 'kardiacare-2-year' %}
-              {% assign kcare_in_cart_1_2_year = true %}
-            {% endif %}
-            {% for property in item.properties %}
-              {% if property.first == 'kc_6l_bundle' %}
-                {% assign kc6lBundleKardiaCare = true %}
-              {% endif %}
-            {% if property.first == 'kcard_bundle' %}
-                {% assign kcCardBundleKardiaCare = true %}
-              {% endif %}
-            {% endfor %}
+            {% unless item.product.handle contains 'plus' %}
+                {% assign hideQuantity = true %}
+                {% assign kcare_in_cart = true %}
+                {% if item.product.handle == 'kardiacare' or item.product.handle == 'kardiacare-2-year' %}
+                    {% assign kcare_in_cart_1_2_year = true %}
+                {% endif %}
+                {% for property in item.properties %}
+                    {% if property.first == 'kc_6l_bundle' %}
+                        {% assign kc6lBundleKardiaCare = true %}
+                    {% endif %}
+                    {% if property.first == 'kcard_bundle' %}
+                        {% assign kcCardBundleKardiaCare = true %}
+                    {% endif %}
+                {% endfor %}
+            {% endunless %}
           {% endif %}
           {% for property in item.properties %}
             {% if property.first == 'kc_6l_bundle' %}
@@ -283,10 +285,19 @@
             <td data-label="{{ 'cart.label.quantity' | t }}" class="px-s8 py-s2 lg:py-s5">
 							<span class="faux-p font-dm">
 								<span class="lg:hidden">Qty: </span>
-                                <input type="number" name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-icon-64 inline-block" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}">
+                                {% comment %} <input type="number" name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-icon-64 inline-block" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}"> {% endcomment %}
+                                <select name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-[75px] inline-block" data-id="{{ item.key }}">
+                                    {% for i in (1..5) %}
+                                        {% if i == item.quantity %}
+                                            <option value="{{ i }}" selected>{{ i }}</option>
+                                        {% else %}
+                                            <option value="{{ i }}">{{ i }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
 							</span>
             </td>
-  
+
             <td data-label="{{ 'cart.label.total' | t }}" class="total-cell px-s8 py-s2 lg:py-s5 lg:text-right">
               <span class="faux-p font-dm break-inside-avoid">
 								<span class="lg:hidden">Total: </span>

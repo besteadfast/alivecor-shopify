@@ -78,6 +78,27 @@
       "settings": {
       }
     },
+    "what-is-section": {
+      "type": "what-is-section",
+      "settings": {
+        "image_url": "kardiamobile-6l-hand-holding-device.png",
+        "title": "What is KardiaMobile6L?",
+        "content": "KardiaMobile 6L is the world’s only FDA-cleared, 6-lead personal EKG. Six leads means 6 times the heart data, giving you and your doctor the most detailed view of your heart you can get outside of a hospital. KardiaMobile 6L can detect AFib, Bradycardia, and Tachycardia, with more determinations available with a KardiaCare membership (such as Sinus Rhythm with PVCs, Sinus Rhythm with Wide QRS, and Sinus Rhythm with SVE)."
+      }
+    },
+    "how-to-video-section": {
+      "type": "how-to-video-section",
+      "settings": {
+        "video_id": 335613884,
+        "title": "How to record an EKG with KardiaMobile 6L",
+        "subtitle": "Taking an EKG is easy with KardiaMobile 6L from AliveCor."
+      }
+    },
+    "devices-three-column": {
+      "type": "devices-three-column",
+      "settings": {
+      }
+    },
     "content-accurate": {
       "type": "content-accurate",
       "settings": {
@@ -89,7 +110,9 @@
       }
     },
     "content-trust": {
-      "type": "content-trust"
+      "type": "content-trust",
+      "settings": {
+      }
     },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
@@ -126,9 +149,12 @@
   "order": [
     "main",
     "icon-grid-6l",
+    "what-is-section",
     "content-six-lead",
     "content-trust",
     "content-accurate",
+    "devices-three-column",
+    "how-to-video-section",
     "additional-info-6l",
     "kardiacare-membership-module",
     "product-recommendations",
