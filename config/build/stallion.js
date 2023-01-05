@@ -1,57 +1,70 @@
 exports.colors = {
-	white: '#ffffff',
-	black: '#000000',
-	primary: {
-		50: 'var(--primary-50)',
-		75: 'var(--primary-75)',
-		100: 'var(--primary-100)',
-		200: 'var(--primary-200)',
-		300: 'var(--primary-300)',
-		400: 'var(--primary-400)',
-		500: 'var(--primary-500)', //*
-		600: 'var(--primary-600)',
-		700: 'var(--primary-700)',
-		800: 'var(--primary-800)',
-		900: 'var(--primary-900)',
-	},
-	//gray/black
-	black: {
-        900: "#1a1a1a",
-		800: "#333333", //*
-		700: "#4d4d4d",
-		600: "#666666",
-		500: "#808080",
-		400: "#999999",
-		300: "#b3b3b3",
-		200: "#cccccc",
-		100: "#e6e6e6",
-		50: "#f2f2f2"
-    },
-	secondary: {
-		"900": "#a5762b",
-		"800": "#b4802a",
-		"700": "#c38c29",
-		"600": "#d29a27",
-		"500": "#e5a824", //*
-		"400": "#e9b446",
-		"300": "#ecc169",
-		"200": "#efce87",
-		"100": "#f3dba6",
-		"50": "#f6e9c7"
-	},
-	tertiary: {
-		"900": "#0f2644",
-		"800": "#183661",
-		"700": "#2d456a",
-		"600": "#415472",
-		"500": "#506178", //*
-		"400": "#5f7187",
-		"300": "#8791a0",
-		"200": "#aeb4be",
-		"100": "#c5ccd4",
-		"50": "#ffffff"
-	}
-}
+  white: "#ffffff",
+  black: "#000000",
+  primary: {
+    50: "var(--primary-50)",
+    75: "var(--primary-75)",
+    100: "var(--primary-100)",
+    200: "var(--primary-200)",
+    300: "var(--primary-300)",
+    400: "var(--primary-400)",
+    500: "var(--primary-500)", //*
+    600: "var(--primary-600)",
+    700: "var(--primary-700)",
+    800: "var(--primary-800)",
+    900: "var(--primary-900)",
+  },
+  //gray/black
+  black: {
+    900: "#1a1a1a",
+    800: "#333333", //*
+    700: "#4d4d4d",
+    600: "#666666",
+    500: "#808080",
+    400: "#999999",
+    300: "#b3b3b3",
+    200: "#cccccc",
+    100: "#e6e6e6",
+    50: "#f2f2f2",
+  },
+  kc: {
+    50: "#EBE6EF",
+    75: "#DCD3E3",
+    100: "#C6B1D6",
+    200: "#B595C5",
+    300: "#A47CB6",
+    400: "#966DAE",
+    500: "#8860A6",
+    600: "#7B5797",
+    700: "#6B4F89",
+    800: "#573D6A",
+    900: "#3F2C4C",
+  },
+  secondary: {
+    900: "#a5762b",
+    800: "#b4802a",
+    700: "#c38c29",
+    600: "#d29a27",
+    500: "#e5a824", //*
+    400: "#e9b446",
+    300: "#ecc169",
+    200: "#efce87",
+    100: "#f3dba6",
+    50: "#f6e9c7",
+  },
+  tertiary: {
+    900: "#0f2644",
+    800: "#183661",
+    700: "#2d456a",
+    600: "#415472",
+    500: "#506178", //*
+    400: "#5f7187",
+    300: "#8791a0",
+    200: "#aeb4be",
+    100: "#c5ccd4",
+    50: "#ffffff",
+  },
+};
 
 exports.icons = {
 	12: { abbr: '12', size: '12px', folder: '12' },
@@ -69,10 +82,10 @@ exports.shadows = {
 
 exports.typography = {
 	fonts: {
-		atkinson: {
-			family: [ 'Atkinson Hyperlegible', 'sans-serif'],
-			offset: { cap: 0.16, midCap: 0.19, baseline: 0.17 }
-		},
+		// atkinson: {
+		// 	family: [ 'Atkinson Hyperlegible', 'sans-serif'],
+		// 	offset: { cap: 0.16, midCap: 0.19, baseline: 0.17 }
+		// },
 		dm: {
 			family: [ 'DM Sans', 'sans-serif'],
 			offset: { cap: 0.14, midCap: 0.17, baseline: 0.16 }
@@ -106,7 +119,7 @@ exports.typography = {
 		'h1': {
 			fontFamily: 'dm',
 			fontWeight: 'bold',
-			fontSize: { base: '44', md: '72' },
+			fontSize: { base: '44', md: '48' },
 			lineHeight: { base: '120' },
 			uppercase: false,
 			spacing: {
@@ -236,7 +249,7 @@ exports.typography = {
 			}
 		},
 		'p-lg': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '18', md: '28' },
 			lineHeight: { base: '140' },
@@ -257,7 +270,7 @@ exports.typography = {
 			}
 		},
 		'p': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '16', md: '20' },
 			lineHeight: { base: '140' },
@@ -278,7 +291,7 @@ exports.typography = {
 			}
 		},
 		'p-sm': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '15', md: '18' },
 			lineHeight: { base: '140' },
@@ -299,7 +312,7 @@ exports.typography = {
 			}
 		},
 		'p-xs': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '14', md: '16' },
 			lineHeight: { base: '120', md: '140' },
@@ -337,19 +350,19 @@ exports.typography = {
 			}
 		},
 		'list-1': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '17', md: '20' },
 			lineHeight: { base: '140' },
 		},
 		'list-2': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '17', md: '20' },
 			lineHeight: { base: '140' },
 		},
 		'blockquote': {
-			fontFamily: 'atkinson',
+			fontFamily: 'dm',
 			fontWeight: 'normal',
 			fontSize: { base: '17', md: '20' },
 			lineHeight: { base: '140' },
