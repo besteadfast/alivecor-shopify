@@ -125,24 +125,30 @@
             //if other acc is open, close it
             if(currOpenId && currOpenId !== this.id){
                 let open = document.querySelector("#" + currOpenId)
-                open.classList.toggle("accordion__trigger_active");
                 let content = open.nextElementSibling;
+                open.classList.toggle("accordion__trigger_active");
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
+                    setTimeout(()=> {content.classList.toggle("accordion__content_open")}, 200)
                 } else {
+                    content.classList.toggle("accordion__content_open")
                     content.style.maxHeight = content.scrollHeight + "px";
                 }
             }
             //toggle open state of clicked acc
-            this.classList.toggle("accordion__trigger_active");
             let content = this.nextElementSibling;
+            this.classList.toggle("accordion__trigger_active");
             if (content.style.maxHeight) {
-                content.style.maxHeight = null;
+                content.style.maxHeight = null
+                setTimeout(() => {content.classList.toggle("accordion__content_open")}, 200)
                 currOpenId = null
+
             } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.toggle("accordion__content_open")
+                content.style.maxHeight = content.scrollHeight + "px"
                 currOpenId = this.id;
             }
+
         });
     });
 

@@ -51,6 +51,14 @@
   padding: 0 0.6rem;
 }
 
+.accordion__content-wrapper {
+    display: none;
+}
+
+.accordion__content-wrapper.accordion__content_open {
+    display: block;
+}
+
 .accordion__content img {
   max-width: 100%;
 }
