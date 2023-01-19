@@ -332,6 +332,7 @@
             <span class="mobile-left">FREE KardiaMobile Card:</span>
             <span class="right font-dm">(-$99.00)</span>
           </p>
+          {% comment %}
           {% if km6l_in_cart or km_in_cart %}
             {% if km_in_cart and kcare_in_cart_1_2_year %}
               <p class="cart-totals mt-s5" id="discount" data-amount="29">
@@ -367,6 +368,11 @@
               <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
             </p>
           {% endif %}
+          {% endcomment %}
+          <p class="cart-totals">
+            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
+            <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
+          </p>
         {% else %}
           <p class="cart-totals">
             <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
