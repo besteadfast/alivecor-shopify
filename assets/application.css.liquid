@@ -2501,6 +2501,11 @@ video {
   margin-right: 0px;
 }
 
+#app .mx-s6 {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
 #app .mt-s6 {
   margin-top: 24px;
 }
@@ -2667,6 +2672,10 @@ video {
 
 #app .mt-\[2px\] {
   margin-top: 2px;
+}
+
+#app .\!mt-s3 {
+  margin-top: 12px !important;
 }
 
 #app .block {
@@ -2896,10 +2905,6 @@ video {
 
 #app .max-w-\[586px\] {
   max-width: 586px;
-}
-
-#app .max-w-\[1000px\] {
-  max-width: 1000px;
 }
 
 #app .flex-shrink {
@@ -3222,6 +3227,12 @@ video {
   margin-bottom: calc(20px * var(--tw-space-y-reverse));
 }
 
+#app .space-y-s12 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(96px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(96px * var(--tw-space-y-reverse));
+}
+
 #app .divide-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(2px * var(--tw-divide-x-reverse));
@@ -3403,6 +3414,11 @@ video {
   border-color: rgb(123 87 151 / var(--tw-border-opacity));
 }
 
+#app .border-black-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(128 128 128 / var(--tw-border-opacity));
+}
+
 #app .bg-primary-500 {
   background-color: var(--primary-500);
 }
@@ -3483,6 +3499,14 @@ video {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
+#app .bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+#app .bg-gradient-to-tr {
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+}
+
 #app .from-kc-50 {
   --tw-gradient-from: #EBE6EF;
   --tw-gradient-to: rgb(235 230 239 / 0);
@@ -3495,8 +3519,47 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+#app .from-kc-300 {
+  --tw-gradient-from: #A47CB6;
+  --tw-gradient-to: rgb(164 124 182 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+#app .from-kc-200 {
+  --tw-gradient-from: #B595C5;
+  --tw-gradient-to: rgb(181 149 197 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+#app .from-kc-100 {
+  --tw-gradient-from: #C6B1D6;
+  --tw-gradient-to: rgb(198 177 214 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+#app .from-kc-75 {
+  --tw-gradient-from: #DCD3E3;
+  --tw-gradient-to: rgb(220 211 227 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+#app .from-white {
+  --tw-gradient-from: #ffffff;
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+#app .via-white {
+  --tw-gradient-to: rgb(255 255 255 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #ffffff, var(--tw-gradient-to);
+}
+
 #app .to-\[\#F8FAFC\] {
   --tw-gradient-to: #F8FAFC;
+}
+
+#app .to-white {
+  --tw-gradient-to: #ffffff;
 }
 
 #app .object-contain {
@@ -3856,6 +3919,14 @@ video {
   padding-bottom: 48px;
 }
 
+#app .\!pt-s3 {
+  padding-top: 12px !important;
+}
+
+#app .\!pt-s2 {
+  padding-top: 8px !important;
+}
+
 #app .text-left {
   text-align: left;
 }
@@ -3948,12 +4019,12 @@ video {
   font-weight: 600;
 }
 
-#app .font-\[1100\] {
-  font-weight: 1100;
-}
-
 #app .\!font-semibold {
   font-weight: 600 !important;
+}
+
+#app .font-\[1100\] {
+  font-weight: 1100;
 }
 
 #app .uppercase {
@@ -4064,6 +4135,11 @@ video {
 #app .text-kc-200 {
   --tw-text-opacity: 1;
   color: rgb(181 149 197 / var(--tw-text-opacity));
+}
+
+#app .text-black-500 {
+  --tw-text-opacity: 1;
+  color: rgb(128 128 128 / var(--tw-text-opacity));
 }
 
 #app .underline {
@@ -4274,14 +4350,6 @@ video {
     margin-top: 64px;
   }
 
-  #app .sm\:mt-s4 {
-    margin-top: 16px;
-  }
-
-  #app .sm\:mt-s8 {
-    margin-top: 40px;
-  }
-
   #app .sm\:mb-0 {
     margin-bottom: 0px;
   }
@@ -4296,6 +4364,132 @@ video {
 
   #app .sm\:hidden {
     display: none;
+  }
+
+  :is(.sm\:faux-sh) {
+    font-family: DM Sans, sans-serif;
+    font-weight: 500;
+    letter-spacing: .20em;
+    text-transform: uppercase;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 1.1250000000rem;
+    line-height: 1.2;
+  }
+
+  :is(.sm\:faux-sh)::before {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    margin-top: calc(-0.24em - 1px);
+  }
+
+  :is(.sm\:faux-sh)::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    margin-bottom: calc(-0.26em - 1px);
+  }
+
+  :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+    margin-top: 20px;
+  }
+
+  :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+    margin-top: 48px;
+  }
+
+  :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+    margin-top: 32px;
+  }
+
+  :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+    margin-top: 64px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+    margin-top: 32px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+    margin-top: 32px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+    margin-top: 32px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+    margin-top: 40px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+    margin-top: 40px;
+  }
+
+  :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+    margin-top: 40px;
+  }
+
+  :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+    margin-top: 24px;
+  }
+
+  #app .sm\:border-0 {
+    border-width: 0px;
+  }
+
+  #app .sm\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  #app .sm\:from-white {
+    --tw-gradient-from: #ffffff;
+    --tw-gradient-to: rgb(255 255 255 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+    margin-top: 24px;
   }
 
   #app .sm\:px-s9 {
@@ -4313,9 +4507,9 @@ video {
     padding-bottom: 120px;
   }
 
-  #app .sm\:px-s8 {
-    padding-left: 40px;
-    padding-right: 40px;
+  #app .sm\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   #app .sm\:py-s10 {
@@ -4323,26 +4517,4711 @@ video {
     padding-bottom: 64px;
   }
 
-  #app .sm\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
+  #app .sm\:px-s8 {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
-  #app .sm\:py-s6 {
-    padding-top: 24px;
-    padding-bottom: 24px;
+  :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+    margin-top: 24px;
   }
 
   #app .sm\:pb-s10 {
     padding-bottom: 64px;
   }
 
-  #app .sm\:pt-s8 {
-    padding-top: 40px;
-  }
-
   #app .sm\:pt-s6 {
     padding-top: 24px;
+  }
+
+  :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+    margin-top: 24px;
+  }
+
+  #app .sm\:text-kc-500 {
+    --tw-text-opacity: 1;
+    color: rgb(136 96 166 / var(--tw-text-opacity));
+  }
+
+  :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+    margin-top: 16px;
+  }
+
+  :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+    margin-top: 16px;
+  }
+
+  @media (min-width: 768px) {
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) {
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.sm\:faux-sh) {
+      margin-top: 20px;
+    }
+
+    :is(h1:not([class*='faux-']), .faux-h1) + :is(.sm\:faux-sh) {
+      margin-top: 80px;
+    }
+
+    :is(h2:not([class*='faux-']), .faux-h2) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h3:not([class*='faux-']), .faux-h3) + :is(.sm\:faux-sh) {
+      margin-top: 32px;
+    }
+
+    :is(h4:not([class*='faux-']), .faux-h4) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h5:not([class*='faux-']), .faux-h5) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(h6:not([class*='faux-']), .faux-h6) + :is(.sm\:faux-sh) {
+      margin-top: 40px;
+    }
+
+    :is(.faux-p-lg) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(p:not([class*='faux-']), .faux-p) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-sm) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(.faux-p-xs) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(ul:not(.list-none), ol:not(.list-none)) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+    :is(blockquote:not([class*='faux-']), .faux-blockquote) + :is(.sm\:faux-sh) {
+      margin-top: 96px;
+    }
+
+     {
+      font-size: 3.0000000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h1:not([class*='faux-']), .faux-h1) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 2.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h2:not([class*='faux-']), .faux-h2) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h3:not([class*='faux-']), .faux-h3) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h4:not([class*='faux-']), .faux-h4) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.3750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h5:not([class*='faux-']), .faux-h5) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 0.8750000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(h6:not([class*='faux-']), .faux-h6) {
+      margin-top: 40px;
+    }
+
+     {
+      margin-top: 96px;
+      font-size: 1.7500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-lg) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(p:not([class*='faux-']), .faux-p) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.1250000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-sm) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.0000000000rem;
+      line-height: 1.4;
+      margin-top: calc(-0.37em - 1px);
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      margin-bottom: calc(-0.36em - 1px);
+    }
+
+    :is(.sm\:faux-sh) + :is(.faux-p-xs) {
+      margin-top: 32px;
+    }
+
+     {
+      margin-top: 48px;
+    }
+
+    :is(.sm\:faux-sh) + :is(ul:not(.list-none), ol:not(.list-none)) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+      font-size: 1.2500000000rem;
+    }
+
+    :is(.sm\:faux-sh) + :is(blockquote:not([class*='faux-']), .faux-blockquote) {
+      margin-top: 20px;
+    }
+
+     {
+      margin-top: 48px;
+    }
   }
 }
 
@@ -4448,10 +9327,6 @@ video {
 
   #app .md\:pb-s14 {
     padding-bottom: 160px;
-  }
-
-  #app .md\:pb-s10 {
-    padding-bottom: 64px;
   }
 
   #app .md\:text-20 {
