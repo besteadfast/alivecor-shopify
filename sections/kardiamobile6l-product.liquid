@@ -398,9 +398,9 @@
                 $<span id="kc-6l-price">{{ product.price | money_without_currency }}</span>
               </span>
               {% if product.compare_at_price %}
-                <span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | plus: 999 | money_without_currency }}</span>
+                <span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>
               {% else %}
-              <span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span>
+              {% comment %} <span class="line-through old-price totalBundlePrice">${{ product.price | plus: 999 | money_without_currency }}</span> {% endcomment %}
               {% endif %}
             </div>
             {% comment %}
@@ -747,6 +747,33 @@
       </div>
     </modal-dialog>
   {%- endfor -%}
+
+  {% comment %} "Sticky" Fixed Add to Cart {% endcomment %}
+  <div style="box-shadow: -1px 1px 10px 0px #0000005e;" id="mobile-add-to-cart" class="hidden sm:hidden px-s4 py-s6 flex justify-between bg-gradient-to-r from-white via-white to-primary-50 fixed bottom-0 left-0 w-full items-center shadow z-50">
+    <div class="font-semibold text-primary-500 faux-p">
+        <div class="">KardiaMobile® 6L</div>
+        <div class="flex items-center">${{ product.price | money_without_currency }}{% if product.compare_at_price %}<span class="ml-s4 text-black-500 faux-p-sm line-through">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}</div>
+    </div>
+    {% comment %} <div class="flex items-center">{% include 'kc-card-add-to-cart', pageName: 'product' %}</div> {% endcomment %}
+    <button
+        onclick="initKcUpsell()"
+        class="btn addToCart"
+        {% if sold_out %}
+                disabled
+        {% endif %}
+    >
+        <span id="AddToCartText">
+            {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+            {% elsif preorder %}
+                {{ 'products.product.preorder' | t }}
+            {% else %}
+                {{ 'products.product.add_to_cart' | t }}
+            {% endif %}
+        </span>
+    </button>
+  </div>
+
 </section>
 
 {% javascript %}
@@ -791,6 +818,15 @@
 {% endif %}
 
 <script>
+    document.addEventListener('scroll', () => {
+        let addToCartButton = document.getElementById('3500363841601AddToCart1')
+        let mobileAddToCart = document.getElementById('mobile-add-to-cart')
+        if (addToCartButton.getBoundingClientRect().top < 0) {
+            mobileAddToCart.classList.remove("hidden");
+        } else {
+            mobileAddToCart.classList.add("hidden");
+        }
+    });
   document.addEventListener('DOMContentLoaded', function() {
     function isIE() {
       const ua = window.navigator.userAgent;
