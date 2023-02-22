@@ -415,5 +415,11 @@
       "copy_code_success": "コードは正常にコピーされました",
       "print_gift_card": "印刷する"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

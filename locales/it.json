@@ -415,5 +415,11 @@
       "copy_code_success": "Codice copiato correttamente",
       "print_gift_card": "Stampa"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

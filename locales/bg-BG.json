@@ -415,5 +415,11 @@
       "print_gift_card": "Печат",
       "subtext": "Вашият ваучер за подарък"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

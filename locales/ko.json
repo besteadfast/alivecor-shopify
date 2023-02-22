@@ -415,5 +415,11 @@
       "copy_code_success": "코드 복사 완료",
       "print_gift_card": "인쇄"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }
