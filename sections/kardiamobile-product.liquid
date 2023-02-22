@@ -400,7 +400,7 @@
             <span id="ProductPrice" class="h2Price noFloat text-primary-500">
               $<span id="kc-km-price">{{ product.price | money_without_currency }}</span>
             </span>
-            {% comment %} <span class="line-through totalBundlePrice old-price">${{ product.price | plus: 999 | money_without_currency }}</span> {% endcomment %}
+            <span class="line-through totalBundlePrice old-price">${{ product.price | plus: 999 | money_without_currency }}</span>
           </div>
           {% comment %}
             <div>
@@ -730,7 +730,7 @@
     <div class="font-semibold text-primary-500 faux-p">
         <div class="">KardiaMobile®</div>
         {% comment %} This "old price" (plus 999) nonsense was NOT Steadfast, just implementing what's already there. {% endcomment %}
-        <div class="flex items-center">${{ product.price | money_without_currency }}</div>
+        <div class="flex items-center">${{ product.price | money_without_currency }}<span class="ml-s4 text-black-500 faux-p-sm line-through">${{ product.price | plus: 999 | money_without_currency }}</span></div>
     </div>
     {% comment %} <div class="flex items-center">{% include 'kc-card-add-to-cart', pageName: 'product' %}</div> {% endcomment %}
     <button

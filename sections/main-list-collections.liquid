@@ -17,9 +17,6 @@
   -%}
   <ul class="collection-list shopify-grid grid--1-col grid--3-col-tablet" role="list">
     {%- for collection in collections -%}
-      {%- comment %}<locksmith:ebb0>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:ebb0>{% endcomment -%}
       <li class="collection-list__item grid__item">
         {% render 'card-collection', card_collection: collection, media_aspect_ratio: section.settings.image_ratio, columns: 3 %}
       </li>
