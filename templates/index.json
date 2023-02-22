@@ -306,7 +306,7 @@
         "0ce12ca9-c12c-4776-a4dc-73a378356ee2": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>FDA-cleared, clinically approved, medical-grade EKG recordings<\/li>\n<\/ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\n<li>Thin and light as a standard credit card<\/li>\n<li>Bluetooth enabled, no WiFi required<\/li>\n<li>FDA-cleared, clinically approved, medical-grade <a class=\"unstyled\" href=\"https:\/\/www.kardia.com\/blog\/what-is-an-ekg\">EKG<\/a> recordings<\/li>\n<\/ul>"
           }
         },
         "16451441903511f686-7": {
@@ -402,7 +402,7 @@
         "a7a20275-e63a-4c8d-bab4-da28210ce231": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<ul class=\"featured-product-list\">\t\t\t\t\t\t\t<li>Delivers <a href=\"https:\/\/www.kardia.com\/blog\/what-is-an-ekg\" class=\"unstyled\">EKG<\/a> leads I, II, III, aVL, aVR, and aVF<\/li>\n\t\t\t\t\t\t\t<li>Download and email your EKGs to your doctor<\/li>\n\t\t\t\t\t\t\t<li>FDA-cleared, clinically approved, medical-grade EKG recordings<\/li>\n\t\t\t\t\t\t\t<li>Works with most smartphones and tablets. (Android & iOS)<\/li>\n<\/ul>"
+            "custom_liquid": "<ul class=\"featured-product-list\">\t\t\t\t\t\t\t<li>Delivers EKG leads I, II, III, aVL, aVR, and aVF<\/li>\n\t\t\t\t\t\t\t<li>Download and email your <a href=\"https:\/\/www.kardia.com\/blog\/what-is-an-ekg\" class=\"unstyled\">EKGs<\/a> to your doctor<\/li>\n\t\t\t\t\t\t\t<li>FDA-cleared, clinically approved, medical-grade <a class=\"unstyled\" href=\"https:\/\/www.kardia.com\/blog\/what-is-an-ekg\">EKG<\/a> recordings<\/li>\n\t\t\t\t\t\t\t<li>Works with most smartphones and tablets. (Android & iOS)</li>\n</ul>"
           }
         },
         "1645144250219adb72-7": {
