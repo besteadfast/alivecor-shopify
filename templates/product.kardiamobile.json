@@ -13,8 +13,7 @@
         },
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "subtitle": {
           "type": "text",
@@ -25,8 +24,7 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -42,8 +40,7 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "share": {
           "type": "share",
@@ -93,34 +90,24 @@
     "content-convenience": {
       "type": "content-convenience",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "content-credible-km": {
       "type": "content-credible-km",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "additional-info-km": {
       "type": "additional-info-km",
-      "settings": {
-      }
+      "settings": {}
     },
     "kardiacare-membership-module": {
       "type": "kardiacare-membership-module",
-      "settings": {
-      }
-    },
-    "stay-in-the-know": {
-      "type": "stay-in-the-know",
-      "settings": {
-      }
+      "settings": {}
     },
     "content-kardiamobile": {
       "type": "content-kardiamobile",
-      "settings": {
-      }
+      "settings": {}
     },
     "what-is-section": {
       "type": "what-is-section",
@@ -138,9 +125,10 @@
         "subtitle": "Taking an EKG is easy with KardiaMobile from AliveCor."
       }
     },
-    "devices-three-column": {
-      "type": "devices-three-column",
+    "device-info-module": {
+      "type": "device-info-module",
       "settings": {
+        "highlighted_device": "km"
       }
     }
   },
@@ -151,10 +139,9 @@
     "product-recommendations",
     "content-convenience",
     "content-credible-km",
-    "devices-three-column",
+    "device-info-module",
     "how-to-video-section",
     "additional-info-km",
-    "kardiacare-membership-module",
-    "stay-in-the-know"
+    "kardiacare-membership-module"
   ]
 }

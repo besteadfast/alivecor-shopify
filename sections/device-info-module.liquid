@@ -1,0 +1,599 @@
+<div class="px-[15px] sm:px-[30px] py-s13">
+    <div class="grid device-info-grid !gap-0 items-start text-center max-w-[768px] lg:max-w-[1160px] mx-auto">
+        {% comment %} Row 1: Images {% endcomment %}
+        <div class="to-lg:!hidden lg:col-span-2 !block"></div>
+        <div>
+            <picture class="image__wrapper  compare__image-wrapper">
+                <a href="/products/kardiamobile"><img width="256" src="{{ 'km-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+            </picture>
+        </div>
+        <div>
+            <picture class="image__wrapper  compare__image-wrapper">
+                <a href="/products/kardiamobile-card"><img width="256" src="{{ 'km-card-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+            </picture>
+        </div>
+        <div>
+            <picture class="image__wrapper  compare__image-wrapper">
+                <a href="/products/kardiamobile6l"><img width="256" src="{{ 'km-6l-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+            </picture>
+        </div>
+        {% comment %} Row 2: Titles {% endcomment %}
+        <div class="to-lg:!hidden lg:col-span-2 !block"></div>
+        <div class="py-s3 px-s2 lg:px-s5">
+            <h5 class="text-primary-300">Kardia<wbr>Mobile®</h5>
+        </div>
+        <div class="py-s3 px-s2 lg:px-s5">
+            <h5 class="text-primary-300">Kardia<wbr>Mobile® Card</h5>
+        </div>
+        <div class="py-s3 px-s2 lg:px-s5">
+            <h5 class="text-primary-300">Kardia<wbr>Mobile® 6L</h5>
+        </div>
+    {% comment %} Row 3: Prices {% endcomment %}
+        <div class="to-lg:!hidden lg:col-span-2 !block"></div>
+        <div class="py-s5 px-s2 lg:px-s5">
+            <h1 class="text-primary-800">$79</h1>
+        </div>
+        <div class="py-s5 px-s2 lg:px-s5">
+            <h1 class="text-primary-800">$89</h1>
+        </div>
+        <div class="py-s5 px-s2 lg:px-s5">
+            <h1 class="text-primary-800">$129</h1>
+        </div>
+        {% comment %} Row 4: Descriptions {% endcomment %}
+        <div class="to-lg:!hidden lg:col-span-2 !block"></div>
+        <div class="px-s2 lg:px-s5">
+            <p class="text-primary-800 faux-p-xs mt-s5">The original KardiaMobile. FDA-cleared, single-lead personal EKG that records medical grade EKGs right on your phone.</p>
+        </div>
+        <div class="px-s2 lg:px-s5">
+            <p class="text-primary-800 faux-p-xs mt-s5">The first personal EKG the size of a standard credit card. FDA-cleared and tested for durability.</p>
+        </div>
+        <div class="px-s2 lg:px-s5">
+            <p class="text-primary-800 faux-p-xs mt-s5">The world’s only 6-lead personal EKG. Clinically validated to give you a more detailed view of your heart.</p>
+        </div>
+        {% comment %} Row 5: Add to cart {% endcomment %}
+        <div class="to-lg:!hidden lg:col-span-2 !block"></div>
+        <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
+        {% for product in collections.all.products %}
+            {% case product.id %}
+                {% when 3791664071 %}
+                    {% assign my_product = product %}
+            {% endcase %}
+        {% endfor %}
+        <form action="/cart/add" data-productid="{{ my_product.id }}" method="post" enctype="multipart/form-data" id="{{my_product.id}}AddToCartForm" class="AddToCartForm form-vertical">
+            {% if my_product.variants.size > 1 %}
+                {% comment %}
+                Hiding this because nobody actually wants a variant selector on this
+                component _BUT_ apparently there's some logic in here that selects the
+                variant that's not out of stock?
+                {% endcomment %}
+                <div class="flex items-center hidden">
+                <div class="variant-title">
+                    {%- for option in my_product.options_with_values -%}
+                    <span class="text-[1rem]">{{ option.name | escape }}:</span>
+                    {%- endfor -%}
+                </div>
+                {% for variant in my_product.variants %}
+                    {% if variant.available %}
+                    {% assign add_price = variant.price | minus: my_product.price %}
+                    <div class="variant-input-wrapper ml-s2">
+                        <input type="radio"
+                        id="{{variant.id}}"
+                        name="id"
+                        data-sku="{{variant.sku}}"
+                        value="{{variant.id}}"
+                        class="variant-input hidden"
+                        data-index="{{forloop.index0}}"
+                        data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+                        data-img-id="{{ home_grid_img_id }}"
+                        data-productid="{{my_product.id}}"
+                        {% if forloop.first == true %}
+                            checked="true"
+                        {% endif %}
+                        >
+                        <label for="{{variant.id}}" class="form-control text-[.825rem] font-bold py-[2px] px-s2 border-2 border-primary-500 uppercase">
+                        {{variant.title}}
+                        {% if add_price > 0 %}
+                        &nbsp;(add {{add_price | money_with_currency}})
+                        {% endif %}
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="variant-input-wrapper">
+                        <input type="radio"
+                            class="variant-input"
+                            disabled>
+                        <label class="form-control out-of-stock">
+                        {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+                        </label>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% else %}
+            {% comment %}
+                for only one variant, need to choose the id to add to cart
+            {% endcomment %}
+            <div class="variant-placeholder {{my_product.handle}}"></div>
+            {% for variant in my_product.variants %}
+                <input type="hidden"
+                id="{{variant.id}}"
+                name="id"
+                data-sku="{{variant.sku}}"
+                value="{{variant.id}}"
+                class="variant-input"
+                data-index="{{forloop.index0}}"
+                data-productid="{{my_product.id}}"
+                {% if forloop.first == true %}
+                    checked="true"
+                {% endif %}
+                >
+            {% endfor %}
+            {% endif %}
+            {% comment %}
+            Note: forcing the quantities to be hidden
+            {% endcomment %}
+            <div class="visually-hidden">
+            <label for="{{my_product.id}}Quantity">Quantity</label>
+            <input type="number" id="{{my_product.id}}Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            </div>
+
+            <div>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Add To Cart
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-xs:hidden md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy Now
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn xs:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy
+                {% endif %}
+                </span>
+                </button>
+            </div>
+        </form>
+        </div>
+        <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
+        {% for product in collections.all.products %}
+            {% case product.id %}
+                {% when 6736353263681 %}
+                    {% assign my_product = product %}
+            {% endcase %}
+        {% endfor %}
+        <form action="/cart/add" data-productid="{{ my_product.id }}" method="post" enctype="multipart/form-data" id="{{my_product.id}}AddToCartForm" class="AddToCartForm form-vertical">
+            {% if my_product.variants.size > 1 %}
+                {% comment %}
+                Hiding this because nobody actually wants a variant selector on this
+                component _BUT_ apparently there's some logic in here that selects the
+                variant that's not out of stock?
+                {% endcomment %}
+                <div class="flex items-center hidden">
+                <div class="variant-title">
+                    {%- for option in my_product.options_with_values -%}
+                    <span class="text-[1rem]">{{ option.name | escape }}:</span>
+                    {%- endfor -%}
+                </div>
+                {% for variant in my_product.variants %}
+                    {% if variant.available %}
+                    {% assign add_price = variant.price | minus: my_product.price %}
+                    <div class="variant-input-wrapper ml-s2">
+                        <input type="radio"
+                        id="{{variant.id}}"
+                        name="id"
+                        data-sku="{{variant.sku}}"
+                        value="{{variant.id}}"
+                        class="variant-input hidden"
+                        data-index="{{forloop.index0}}"
+                        data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+                        data-img-id="{{ home_grid_img_id }}"
+                        data-productid="{{my_product.id}}"
+                        {% if forloop.first == true %}
+                            checked="true"
+                        {% endif %}
+                        >
+                        <label for="{{variant.id}}" class="form-control text-[.825rem] font-bold py-[2px] px-s2 border-2 border-primary-500 uppercase">
+                        {{variant.title}}
+                        {% if add_price > 0 %}
+                        &nbsp;(add {{add_price | money_with_currency}})
+                        {% endif %}
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="variant-input-wrapper">
+                        <input type="radio"
+                            class="variant-input"
+                            disabled>
+                        <label class="form-control out-of-stock">
+                        {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+                        </label>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% else %}
+            {% comment %}
+                for only one variant, need to choose the id to add to cart
+            {% endcomment %}
+            <div class="variant-placeholder {{my_product.handle}}"></div>
+            {% for variant in my_product.variants %}
+                <input type="hidden"
+                id="{{variant.id}}"
+                name="id"
+                data-sku="{{variant.sku}}"
+                value="{{variant.id}}"
+                class="variant-input"
+                data-index="{{forloop.index0}}"
+                data-productid="{{my_product.id}}"
+                {% if forloop.first == true %}
+                    checked="true"
+                {% endif %}
+                >
+            {% endfor %}
+            {% endif %}
+            {% comment %}
+            Note: forcing the quantities to be hidden
+            {% endcomment %}
+            <div class="visually-hidden">
+            <label for="{{my_product.id}}Quantity">Quantity</label>
+            <input type="number" id="{{my_product.id}}Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            </div>
+
+            <div>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Add To Cart
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-xs:hidden md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy Now
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn xs:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy
+                {% endif %}
+                </span>
+                </button>
+            </div>
+        </form>
+        </div>
+        <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
+        {% for product in collections.all.products %}
+            {% case product.id %}
+                {% when 3500363841601 %}
+                    {% assign my_product = product %}
+            {% endcase %}
+        {% endfor %}
+        <form action="/cart/add" data-productid="{{ my_product.id }}" method="post" enctype="multipart/form-data" id="{{my_product.id}}AddToCartForm" class="AddToCartForm form-vertical">
+            {% if my_product.variants.size > 1 %}
+                {% comment %}
+                Hiding this because nobody actually wants a variant selector on this
+                component _BUT_ apparently there's some logic in here that selects the
+                variant that's not out of stock?
+                {% endcomment %}
+                <div class="flex items-center hidden">
+                <div class="variant-title">
+                    {%- for option in my_product.options_with_values -%}
+                    <span class="text-[1rem]">{{ option.name | escape }}:</span>
+                    {%- endfor -%}
+                </div>
+                {% for variant in my_product.variants %}
+                    {% if variant.available %}
+                    {% assign add_price = variant.price | minus: my_product.price %}
+                    <div class="variant-input-wrapper ml-s2">
+                        <input type="radio"
+                        id="{{variant.id}}"
+                        name="id"
+                        data-sku="{{variant.sku}}"
+                        value="{{variant.id}}"
+                        class="variant-input hidden"
+                        data-index="{{forloop.index0}}"
+                        data-img-url="{{variant.featured_image.src | img_url: 'large'}}"
+                        data-img-id="{{ home_grid_img_id }}"
+                        data-productid="{{my_product.id}}"
+                        {% if forloop.first == true %}
+                            checked="true"
+                        {% endif %}
+                        >
+                        <label for="{{variant.id}}" class="form-control text-[.825rem] font-bold py-[2px] px-s2 border-2 border-primary-500 uppercase">
+                        {{variant.title}}
+                        {% if add_price > 0 %}
+                        &nbsp;(add {{add_price | money_with_currency}})
+                        {% endif %}
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="variant-input-wrapper">
+                        <input type="radio"
+                            class="variant-input"
+                            disabled>
+                        <label class="form-control out-of-stock">
+                        {{ variant.title }} ({{ 'products.product.sold_out' | t }})
+                        </label>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% else %}
+            {% comment %}
+                for only one variant, need to choose the id to add to cart
+            {% endcomment %}
+            <div class="variant-placeholder {{my_product.handle}}"></div>
+            {% for variant in my_product.variants %}
+                <input type="hidden"
+                id="{{variant.id}}"
+                name="id"
+                data-sku="{{variant.sku}}"
+                value="{{variant.id}}"
+                class="variant-input"
+                data-index="{{forloop.index0}}"
+                data-productid="{{my_product.id}}"
+                {% if forloop.first == true %}
+                    checked="true"
+                {% endif %}
+                >
+            {% endfor %}
+            {% endif %}
+            {% comment %}
+            Note: forcing the quantities to be hidden
+            {% endcomment %}
+            <div class="visually-hidden">
+            <label for="{{my_product.id}}Quantity">Quantity</label>
+            <input type="number" id="{{my_product.id}}Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            </div>
+
+            <div>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Add To Cart
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn to-xs:hidden md:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy Now
+                {% endif %}
+                </span>
+                </button>
+                <button type="submit" name="add" id="{{my_product.id}}" class="btn xs:hidden" {% if sold_out %}disabled{% endif %}>
+                <span id="AddToCartText">
+                {% if sold_out %}
+                {{ 'products.product.sold_out' | t }}
+                {% else %}
+                Buy
+                {% endif %}
+                </span>
+                </button>
+            </div>
+        </form>
+        </div>
+    
+        {% comment %} Table {% endcomment %}
+        <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3 to-lg:h-s10">
+            <p class="text-left text-primary-800 to-lg:pt-s4">Leads</p>
+        </div>
+    
+        <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead</p></div>
+        <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead</p></div>
+        <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead & 6-Lead</p></div>
+        <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
+            <p class="text-left text-primary-800">No WiFi required</p>
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
+            <p class="text-left text-primary-800">Audio connection</p>
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
+            <p class="text-left text-primary-800">Bluetooth enabled</p>
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
+            <p class="text-left text-primary-800">Replaceable battery</p>
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="border-b-[2px] border-primary-50 cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+    
+        <div class="to-lg:border-b-[2px] to-lg:border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
+            <p class="text-left text-primary-800">Tested for durability</p>
+        </div>
+        <div class="cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="cell">
+            <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+        <div class="cell">
+            <img src="{{ 'device-table-close.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
+            <img src="{{ 'device-table-close-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .device-info-grid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .device-info-grid>div{
+        height:100%;
+    }
+    div.cell{
+        height:60px;
+        width:100%;
+        display:flex;
+        align-items:center;
+        padding:0px 12px;
+    }
+    @media screen and (min-width: 1024px){
+        .device-info-grid{
+            grid-template-columns: 1fr 1fr min(25%, 256px) min(25%, 256px) min(25%, 256px);
+        }
+        div.cell{
+            padding: 0 20px;
+        }
+    }
+    img.symbol{
+        margin: 0 auto;
+    }
+
+    {% if section.settings.highlighted_device == "km" %}
+        #app .device-info-grid>:nth-child(4n + 6){
+            background-color: rgba(225, 230, 239, .5);
+        }
+        #app .device-info-grid>:nth-child(2){
+            background: linear-gradient(0deg, rgba(225, 230, 239, .5) 0%, rgba(225, 230, 239, .5) 31%, rgba(255,255,255,1) 31%, rgba(255,255,255,1) 100%);
+        }
+        #app .device-info-grid>:nth-child(4n + 6) h5{
+            color:var(--primary-600);
+        }
+        #app .device-info-grid>:nth-child(4n + 6) button:not(:hover){
+            background-color:var(--primary-600);
+        }
+
+    {% elsif section.settings.highlighted_device == "km-card" %}
+        #app .device-info-grid>:nth-child(4n + 7){
+            background-color: rgba(225, 230, 239, .5)
+        }
+        #app .device-info-grid>:nth-child(3){
+            background: linear-gradient(0deg, rgba(225, 230, 239, .5) 0%, rgba(225, 230, 239, .5) 31%, rgba(255,255,255,1) 31%, rgba(255,255,255,1) 100%);
+        }
+        #app .device-info-grid>:nth-child(4n + 7) h5{
+            color:var(--primary-600);
+        }
+        #app .device-info-grid>:nth-child(4n + 7) button:not(:hover){
+            background-color:var(--primary-700);
+        }
+    {% elsif section.settings.highlighted_device == "km-6l" %}
+        #app .device-info-grid>:nth-child(4n + 8){
+            background-color: rgba(225, 230, 239, .5)
+        }
+        #app .device-info-grid>:nth-child(4){
+            background: linear-gradient(0deg, rgba(225, 230, 239, .5) 0%, rgba(225, 230, 239, .5) 31%, rgba(255,255,255,1) 31%, rgba(255,255,255,1) 100%);
+        }
+        #app .device-info-grid>:nth-child(4n + 8) h5:not(:hover){
+            color:var(--primary-600);
+        }
+        #app .device-info-grid>:nth-child(4n + 8) button{
+            background-color: var(--primary-700);
+        }
+    {% endif %}
+
+
+    @media screen and (max-width:767px){
+        div.cell:nth-of-type(4n + 1){
+            height:49px;
+        }
+        div.cell{
+            height:71px;
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "device-info-module",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "highlighted_device",
+      "options": [
+        {
+          "value": "km",
+          "label": "KardiaMobile"
+        },
+        {
+          "value": "km-card",
+          "label": "KardiaMobile Card"
+        },
+        {
+          "value": "km-6l",
+          "label": "KardiaMobile 6L"
+        }
+      ],
+      "default": "km",
+      "label": "Highlighted Device"
+    }
+  ]
+}
+{% endschema %}

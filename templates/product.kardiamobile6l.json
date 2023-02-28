@@ -94,11 +94,6 @@
         "subtitle": "Taking an EKG is easy with KardiaMobile 6L from AliveCor."
       }
     },
-    "devices-three-column": {
-      "type": "devices-three-column",
-      "settings": {
-      }
-    },
     "content-accurate": {
       "type": "content-accurate",
       "settings": {
@@ -135,15 +130,16 @@
         "padding_bottom": 36
       }
     },
-    "stay-in-the-know": {
-      "type": "stay-in-the-know",
-      "settings": {
-      }
-    },
     "additional-info-6l": {
       "type": "additional-info-6l",
       "settings": {
       }
+    },
+    "device-info-module": {
+        "type": "device-info-module",
+        "settings": {
+          "highlighted_device": "km-6l"
+        }
     }
   },
   "order": [
@@ -153,11 +149,10 @@
     "content-six-lead",
     "content-trust",
     "content-accurate",
-    "devices-three-column",
+    "device-info-module",
     "how-to-video-section",
     "additional-info-6l",
     "kardiacare-membership-module",
-    "product-recommendations",
-    "stay-in-the-know"
+    "product-recommendations"
   ]
 }
