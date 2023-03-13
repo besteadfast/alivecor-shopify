@@ -823,8 +823,10 @@
         let mobileAddToCart = document.getElementById('mobile-add-to-cart')
         if (addToCartButton.getBoundingClientRect().top < 0) {
             mobileAddToCart.classList.remove("hidden");
+            document.querySelector('#adas-init-access-tool .adas-access-tool-general-button').style.setProperty('bottom','100px','important')
         } else {
             mobileAddToCart.classList.add("hidden");
+            document.querySelector('#adas-init-access-tool .adas-access-tool-general-button').style.setProperty('bottom','7px','important')
         }
     });
   document.addEventListener('DOMContentLoaded', function() {

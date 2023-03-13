@@ -135,6 +135,11 @@
       "settings": {
       }
     },
+    "devices-three-column": {
+      "type": "devices-three-column",
+      "settings": {
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -151,11 +156,10 @@
         "padding_bottom": 36
       }
     },
-    "device-info-module": {
-        "type": "device-info-module",
-        "settings": {
-          "highlighted_device": "km-card"
-        }
+    "stay-in-the-know": {
+      "type": "stay-in-the-know",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -165,10 +169,11 @@
     "content-convenient",
     "content-accurate-card",
     "content-durable",
-    "device-info-module",
+    "devices-three-column",
     "how-to-video-section",
     "additional-info-km-card",
     "kardiacare-membership-module",
-    "product-recommendations"
+    "product-recommendations",
+    "stay-in-the-know"
   ]
 }

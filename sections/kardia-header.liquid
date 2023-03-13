@@ -34,7 +34,7 @@
 <div class="grid grid-main">
     <header class="main-header">
         <div class="header__int w-full">
-            <a aria-label="return home" class="header-logo" href="https://kardia.com">
+            <a aria-label="Kardia by Alivecor (return to homepage)" class="header-logo" href="https://kardia.com">
                 <svg fill="none" preserveaspectratio="xMinYMid" role="presentation" viewbox="0 0 340 95" xmlns="http://www.w3.org/2000/svg">
                     <path d="M51.11 54.568h10.866s-4.203-10.834-10.061-24.475C46.056 16.45 42.256 8.024 42.256 8.024c-1.61-4.013-3.22-5.858-4.83-6.821l-4.673 9.228a997.846 997.846 0 0 1 6.686 15.247c5.232 12.238 11.67 28.889 11.67 28.889Z" fill="#6386C4"></path>
                     <path d="M14.89 54.568H4.024s4.203-10.833 10.061-24.475c5.859-13.642 9.659-22.068 9.659-22.068 1.61-4.013 3.22-5.858 4.83-6.821 2.011-1.605 6.438-1.605 8.853 0 0 0-5.634 12.237-10.866 24.475-5.232 12.238-11.67 28.889-11.67 28.889Z" fill="#95AEDA"></path>
@@ -48,7 +48,10 @@
                     <div body-scroll-lock-ignore="" class="header__nav-container-int">
                         <ul class="nav-primary list-none">
                             <li class="menu__item level--1 has-dropdown">
-                                <a class="menu__link flex items-center relative link-level--1 is-active" href="/" rel="noopener" target="">Products</a>
+                                <a class="menu__link flex items-center relative link-level--1 is-active" href="/" rel="noopener" target="" aria-label="Products Menu">Products</a>
+                                <button aria-controls="collapse2" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Products Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                                 <div class="submenu-items-wrapper">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
@@ -70,12 +73,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <button aria-controls="collapse2" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
                                 <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Professionals</a>
+                                <button aria-controls="collapse4" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Professionals Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                                 <div class="submenu-items-wrapper">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
@@ -100,12 +103,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <button aria-controls="collapse4" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
                                 <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Resources</a>
+                                <button aria-controls="collapse4" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Resources Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                                 <div class="submenu-items-wrapper">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
@@ -118,9 +121,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <button aria-controls="collapse4" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
                             </li>
                             <li class="menu__item text-center">
 								<a class="btn" href="/cart" rel="" target="">
