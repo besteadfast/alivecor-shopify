@@ -2,119 +2,48 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 <script src="//unpkg.com/alpinejs" defer></script>
 <script>
-  let kcFrequency = 12;
-  let kcVariantId = 32194082472001;
 
-  let tableData = {
-    sections: [
-      {
-        title: 'Devices',
-        rows: [
-          {
-            title: 'Blood Pressure Cuff',
-            details: `Track your blood pressure from the with the Kardia app to manage your recordings and share them with your doctor.<br><br>*The Blood Pressure cuff is a one-time gift with purchase for new subscribers only. `,
-            basic: false,
-            kc: false,
-            kcPlus: 'Included* ($89 Value)',
-          },
-          {
-            title: 'KardiaMobile 6L',
-            details: `Get more data and deeper insights with our most advanced personal EKG. Records EKG leads I, II, III, aVL, aVR, and aVF.<br><br>*KardiaMobile 6L is a one-time gift with purchase for new subscribers only. `,
-            basic: false,
-            kc: false,
-            kcPlus: 'Included* ($129 Value)',
-          },
-        ],
-      },
-      {
-        title: 'Care Team',
-        rows: [
-          {
-            title: 'Automatic EKG Sharing',
-            details: `Set up automatic sharing of your EKGs with family or caregivers using Inner Circle.`,
-            basic: false,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'Cardiologist EKG Reviews',
-            details: `Get your EKGs reviewed by a board-certified cardiologist.`,
-            basic: false,
-            kc: '4 Reviews Annually ($100 Value)',
-            kcPlus: '12 Reviews Annually ($300 Value)',
-          },
-        ],
-      },
-      {
-        title: 'Advanced Features',
-        rows: [
-          {
-            title: 'Arrhythmia Determinations',
-            details: `Detect more arrhythmias than any other personal EKG. Get 3 more detections: Sinus Rhythm with Premature Ventricular Contractions (PVCs), Sinus Rhythm with Supraventricular Ectopy (SVE), and Sinus Rhythm with Wide QRS.`,
-            basic: '3 Detections',
-            kc: '6 Detections',
-            kcPlus: '6 Detections',
-          },
-          {
-            title: 'Heart Health Summary Report',
-            details: `Track your heart health over time. Generate a summary of your EKG, blood pressure, and weight data.`,
-            basic: false,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'Medication Tracking',
-            details: `Set reminders to take specific medication at your doctor’s recommendation and track your medication history.`,
-            basic: false,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'Cloud Storage and Security',
-            details: `Enjoy secure access to all of your EKG recordings on any device with unlimited cloud storage.`,
-            basic: false,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'Device Replacement',
-            details: `Receive discounted device replacement on KardiaMobile 6L if lost or stolen for just $19.99. - US only, replacement eligible one time annually. Does not apply to Omron blood pressure cuff.`,
-            basic: false,
-            kc: true,
-            kcPlus: true,
-          },
-        ],
-      },
-      {
-        title: 'Standard Access',
-        rows: [
-          {
-            title: 'Unlimited EKGs',
-            details: `Take unlimited EKGs. Detect AFib, Bradycardia, Tachycardia or Normal Heart Rhythm in just 30 seconds.`,
-            basic: true,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'EKG storage on your phone',
-            details: `Store your EKGs on your phone or email them to your doctor.`,
-            basic: true,
-            kc: true,
-            kcPlus: true,
-          },
-          {
-            title: 'Weight and blood pressure monitoring',
-            details: `Enter your weight and blood pressure so you can track it over time.`,
-            basic: true,
-            kc: true,
-            kcPlus: true,
-          },
-        ],
-      },
-    ],
-  };
+    let kcFrequency = 12
+    let kcVariantId = 32194082472001
 
-  let tableHTML = `
+    let tableData = {
+        sections: [
+            {
+                title: 'Devices',
+                rows: [
+                    { title: 'Blood Pressure Cuff', details: `Track your blood pressure from the with the Kardia app to manage your recordings and share them with your doctor.<br><br>*The Blood Pressure cuff is a one-time gift with purchase for new subscribers only. `, basic: false, kc: false, kcPlus: 'Included* ($89 Value)' },
+                    { title: 'KardiaMobile 6L', details: `Get more data and deeper insights with our most advanced personal EKG. Records EKG leads I, II, III, aVL, aVR, and aVF.<br><br>*KardiaMobile 6L is a one-time gift with purchase for new subscribers only. `, basic: false, kc: false, kcPlus: 'Included* ($129 Value)' },
+                ]
+            },
+            {
+                title: 'Care Team',
+                rows: [
+                    { title: 'Automatic EKG Sharing', details: `Set up automatic sharing of your EKGs with family or caregivers using Inner Circle.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Cardiologist EKG Reviews', details: `Get your EKGs reviewed by a board-certified cardiologist.`, basic: false, kc: '4 Reviews Annually ($100 Value)', kcPlus: '12 Reviews Annually ($300 Value)' },
+                ]
+            },
+            {
+                title: 'Advanced Features',
+                rows: [
+                    { title: 'Arrhythmia Determinations', details: `Detect more arrhythmias than any other personal EKG. Get 3 more detections: Sinus Rhythm with Premature Ventricular Contractions (PVCs), Sinus Rhythm with Supraventricular Ectopy (SVE), and Sinus Rhythm with Wide QRS.`, basic: '3 Detections', kc: '6 Detections', kcPlus: '6 Detections' },
+                    { title: 'Heart Health Summary Report', details: `Track your heart health over time. Generate a summary of your EKG, blood pressure, and weight data.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Medication Tracking', details: `Set reminders to take specific medication at your doctor’s recommendation and track your medication history.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Cloud Storage and Security', details: `Enjoy secure access to all of your EKG recordings on any device with unlimited cloud storage.`, basic: false, kc: true, kcPlus: true },
+                    { title: 'Device Replacement', details: `Receive discounted device replacement on KardiaMobile 6L if lost or stolen for just $19.99. - US only, replacement eligible one time annually. Does not apply to Omron blood pressure cuff.`, basic: false, kc: true, kcPlus: true },
+                ]
+            },
+            {
+                title: 'Standard Access',
+                rows: [
+                    { title: 'Unlimited EKGs', details: `Take unlimited EKGs. Detect AFib, Bradycardia, Tachycardia or Normal Heart Rhythm in just 30 seconds.`, basic: true, kc: true, kcPlus: true },
+                    { title: 'EKG storage on your phone', details: `Store your EKGs on your phone or email them to your doctor.`, basic: true, kc: true, kcPlus: true },
+                    { title: 'Weight and blood pressure monitoring', details: `Enter your weight and blood pressure so you can track it over time.`, basic: true, kc: true, kcPlus: true },
+                ]
+            },
+        ]
+    }
+
+    let tableHTML = `
     <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
         <div class="!block"></div>
             <h6 class="text-kc-500 p-s3">Save 17% Annually</h6>
@@ -161,20 +90,15 @@
         <div class="!block"></div>
             <div onclick="kardiaCareCartAdd(kcVariantId, kcFrequency, 'Months')" class="p-s4 text-kc-800 faux-h6"><button class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
                 <div class="p-s4 text-kc-800 faux-h6"><button onclick="kcpAddToCart()" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
-    `;
+    `
 
-  tableHTML += tableData.sections
-    .map(
-      (section, index) => `
+    tableHTML += tableData.sections.map((section, index) => `
 
-        ${
-          index
-            ? `
+        ${index ? `
             <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block p-s4"></div>
             <div class="!block p-s4"></div>
             <div class="!block p-s4"></div>
-            <div class="!block p-s4"></div>`
-            : ''
+            <div class="!block p-s4"></div>` : ''
         }
 
         <div class="lg:col-span-2 shadow-table-left lg:shadow-none faux-h6 text-black-400 py-s4">${section.title}</div>
@@ -182,211 +106,129 @@
         <div class="!block"></div>
         <div class="!block"></div>
 
-        ${section.rows
-          .map(
-            (row, index) => `
-            <div class="lg:col-span-2 shadow-table-left lg:shadow-none text-[1.25rem] ${
-              index ? '' : 'lg:border-t-0'
-            } border-t-2 border-black-100 text-kc-800 py-s4"><details><summary class="faux-p-sm text-left flex"><img src="{{ 'table-down.svg' | asset_url }}" class="mr-s6 open:hidden hidden lg:!block"><span>${
-              row.title
-            }</span></summary><div class="details my-s4 opacity-60">${row.details}</div></details></div>
-            <div class="text-[1.25rem] ${
-              index ? '' : 'lg:border-t-0'
-            } border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${
-              typeof row.basic == 'boolean'
-                ? `<img src="${
-                    row.basic ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`
-                  }" />`
-                : `<div>${row.basic.split('(')[0].trim()}</div>${
-                    row.basic.split('(')[1]
-                      ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.basic
-                          .split('(')[1]
-                          .replace(')', '')}</div>`
-                      : ''
-                  }`
-            }</div>
-            <div class="text-[1.25rem] ${
-              index ? '' : 'lg:border-t-0'
-            } border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${
-              typeof row.kc == 'boolean'
-                ? `<img src="${
-                    row.kc ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`
-                  }" />`
-                : `<div>${row.kc.split('(')[0].trim()}</div>${
-                    row.kc.split('(')[1]
-                      ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kc
-                          .split('(')[1]
-                          .replace(')', '')}</div>`
-                      : ''
-                  }`
-            }</div>
-            <div class="text-[1.25rem] ${
-              index ? '' : 'lg:border-t-0'
-            } border-t-2 border-kc-75 text-kc-800 py-s4 flex flex-col">${
-              typeof row.kcPlus == 'boolean'
-                ? `<img src="${
-                    row.kcPlus ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`
-                  }" />`
-                : `<div>${row.kcPlus.split('(')[0].trim()}</div>${
-                    row.kcPlus.split('(')[1]
-                      ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kcPlus
-                          .split('(')[1]
-                          .replace(')', '')}</div>`
-                      : ''
-                  }`
-            }</div>
-        `
-          )
-          .join('')}
+        ${section.rows.map((row, index) => `
+            <div class="lg:col-span-2 shadow-table-left lg:shadow-none text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4"><details><summary class="faux-p-sm text-left flex"><img src="{{ 'table-down.svg' | asset_url }}" class="mr-s6 open:hidden hidden lg:!block"><span>${row.title}</span></summary><div class="details my-s4 opacity-60">${row.details}</div></details></div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${typeof(row.basic) == 'boolean' ? `<img src="${row.basic ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.basic.split('(')[0].trim()}</div>${row.basic.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.basic.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-black-100 text-kc-800 py-s4 flex flex-col">${typeof(row.kc) == 'boolean' ? `<img src="${row.kc ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.kc.split('(')[0].trim()}</div>${row.kc.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kc.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+            <div class="text-[1.25rem] ${index ? '' : 'lg:border-t-0'} border-t-2 border-kc-75 text-kc-800 py-s4 flex flex-col">${typeof(row.kcPlus) == 'boolean' ? `<img src="${row.kcPlus ? `{{ 'table-check.svg' | asset_url }}` : `{{ 'table-close.svg' | asset_url }}`}" />` : `<div>${row.kcPlus.split('(')[0].trim()}</div>${row.kcPlus.split('(')[1] ? `<div class="btn text-[.75rem] rounded-[7px] text-white bg-kc-800 !py-s1 !px-s3 !mt-s1">${row.kcPlus.split('(')[1].replace(')','')}</div>` : ''}`}</div>
+        `).join('')}
 
-    `
-    )
-    .join('');
+    `).join('')
 </script>
 
+
 <section class="w-full flex flex-col items-center">
-  <div class="w-full bg-gradient-to-b from-kc-50 flex justify-center px-s8">
-    <div class="w-full max-w-[1400px] flex flex-col md:flex-row py-s10 md:py-s14 items-center space-y-s8 md:space-y-0 md:space-x-s10">
-      <div class="w-full md:w-1/2">
-        <img src="{{ 'kcplus-bundle.png' | asset_url }}" class="w-full">
-      </div>
-      <div class="w-full md:w-1/2 flex justify-end flex-col space-y-s8">
-        <h4 class="text-kc-500">Kardiacare™</h4>
-        <h2 class="text-kc-800">Our one-of-a-kind heart health membership</h2>
-        <p class="text-kc-800">
-          KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more
-          personalized insights about your heart health.
-        </p>
-        <div class="flex">
-          <button
-            class="bg-kc-500 text-white rounded btn"
-            onclick="document.getElementById('plans').scrollIntoView({behavior: 'smooth'});"
-          >
-            Shop Plans Below
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="w-full max-w-content flex pb-s10 md:pb-s14 items-center md:space-x-s10 px-s8">
-    <div class="flex flex-col space-y-s8 md:max-w-[75%] w-full">
-      <h4 class="text-kc-500">Compare KardiaCare Plans</h4>
-      <h2 class="">Get the most out of your Kardia device with deeper insights into your heart health.</h2>
-      <p class="">
-        We provide 3 unique service options allowing you to choose the features and benefits that best fit your specific
-        needs and health goals.
-      </p>
-    </div>
-    <div class="h-[2px] bg-black-100 flex-grow !block"></div>
-  </div>
-  <div class="w-full xl:flex justify-center overflow-x-scroll lg:px-s8" id="plans">
-    <div class="max-w-content min-w-[700px]">
-      <div
-        x-data="{tableData, tableHTML}"
-        x-html="tableHTML"
-        class="grid grid-cols-4 lg:grid-cols-5 !gap-0 pb-s14 items-start text-center"
-      ></div>
-    </div>
-  </div>
-  {% include 'additional-info-kcp' %}
-  <div class="w-full flex justify-center">
-    <div class="w-full flex flex-col lg:flex-row text-white">
-      <div class="w-full lg:w-1/2 px-s8 bg-primary-500 items-center flex justify-center lg:justify-end lg:py-s8 xl:py-0">
-        <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
-          <img src="{{ 'km-6l.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2">
-          <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
-            <h3 class="text-white whitespace-nowrap">KardiaMobile® 6L</h3>
-            <p class="text-primary-100">The world's only six-lead personal EKG</p>
-            <div class="pt-s6">
-              <a href="/products/kardiamobile6l" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+    <div class="w-full bg-gradient-to-b from-kc-50 flex justify-center px-s8">
+        <div class="w-full max-w-[1400px] flex flex-col md:flex-row py-s10 md:py-s14 items-center space-y-s8 md:space-y-0 md:space-x-s10">
+            <div class="w-full md:w-1/2">
+                <img src="{{ 'kcplus-bundle.png' | asset_url }}" class="w-full" />
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full lg:w-1/2 px-s8 bg-primary-600 items-center flex justify-center lg:justify-start lg:py-s8 xl:py-0">
-        <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
-          <img src="{{ 'km-card.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2">
-          <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
-            <h3 class="text-white whitespace-nowrap">KardiaMobile® Card</h3>
-            <p class="text-primary-100">A personal EKG that fits perfectly in your wallet</p>
-            <div class="pt-s6">
-              <a href="/products/kardiamobile-card" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+            <div class="w-full md:w-1/2 flex justify-end flex-col space-y-s8">
+                <h4 class="text-kc-500">Kardiacare™</h4>
+                <h2 class="text-kc-800">Our one-of-a-kind heart health membership</h2>
+                <p class="text-kc-800">KardiaCare is designed to help you get the most out of your Kardia device and provide you with deeper, more personalized insights about your heart health.</p>
+                <div class="flex">
+                    <button class="bg-kc-500 text-white rounded btn" onclick="document.getElementById('plans').scrollIntoView({behavior: 'smooth'});">Shop Plans Below</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="newsletter borders is-visible w-full" data-is-visible="false">
-    <div class="newsletter__int">
-      <div class="newsletter__info">
-        <h2 class="text-primary-400 loadui-slide-up delay--1">Stay in-the-know</h2>
-        <p class="loadui-fade-in delay--2">
-          Sign up for Kardia news, updates, and other exclusive content—straight to your inbox.
-        </p>
-        <div class="newsletter-form">
-          <form action="https://cl.s12.exct.net/DEManager.aspx" name="subscribeForm" method="post">
-            <input type="hidden" name="_clientID" value="526001161"
-            ><input type="hidden" name="_deExternalKey" value="8AA51E40-D344-46E6-BE9B-D1DEC58AE2BE"
-            ><input type="hidden" name="_action" value="add"><input type="hidden" name="_returnXML" value="0"
-            ><input type="hidden" name="_successURL" value="https://kardia.com/subscribe-success"
-            ><input type="hidden" name="_errorURL" value="https://cloud.kardia.alivecor.com/signup-error"
-            ><input type="email" name="Email" id="newsletter-email" placeholder=" " autocomplete="email" required=""
-            ><label for="newsletter-email">Please enter your email</label><button type="submit" value="Submit">Subscribe</button>
-          </form>
+    <div class="w-full max-w-content flex pb-s10 md:pb-s14 items-center md:space-x-s10 px-s8">
+        <div class="flex flex-col space-y-s8 md:max-w-[75%] w-full">
+            <h4 class="text-kc-500">Compare KardiaCare Plans</h4>
+            <h2 class="">Get the most out of your Kardia device with deeper insights into your heart health.</h2>
+            <p class="">We provide 3 unique service options allowing you to choose the features and benefits that best fit your specific needs and health goals.</p>
         </div>
-      </div>
-      <div class="newsletter__image-container loadui-fade-in">
-        <picture class="image__wrapper  ">
-          <img
-            data-src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png"
-            width="480"
-            height="640"
-            src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png"
-            alt=""
-            class="newsletter__image lazy-img lazyloaded"
-          >
-        </picture>
-      </div>
+        <div class="h-[2px] bg-black-100 flex-grow !block"></div>
     </div>
-  </div>
+    <div class="w-full xl:flex justify-center overflow-x-scroll lg:px-s8" id="plans">
+        <div class="max-w-content min-w-[700px]">
+            <div x-data="{tableData, tableHTML}" x-html="tableHTML" class="grid grid-cols-4 lg:grid-cols-5 !gap-0 pb-s14 items-start text-center"></div>
+        </div>
+    </div>
+    {% include 'additional-info-kcp' %}
+    <div class="w-full flex justify-center">
+        <div class="w-full flex flex-col lg:flex-row text-white">
+            <div class="w-full lg:w-1/2 px-s8 bg-primary-500 items-center flex justify-center lg:justify-end lg:py-s8 xl:py-0">
+                <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
+                    <img src="{{ 'km-6l.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2" />
+                    <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
+                        <h3 class="text-white whitespace-nowrap">KardiaMobile® 6L</h3>
+                        <p class="text-primary-100">The world's only six-lead personal EKG</p>
+                        <div class="pt-s6">
+                            <a href="/products/kardiamobile6l" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-s8 bg-primary-600 items-center flex justify-center lg:justify-start lg:py-s8 xl:py-0">
+                <div class="flex flex-col xs:flex-row pb-s10 pt-s4 xs:py-0 xs:justify-between xs:space-x-s8 items-center w-full md:max-w-[66%] lg:max-w-[576px]">
+                    <img src="{{ 'km-card.png' | asset_url }}" class="w-1/2 lg:w-[30%] xl:w-1/2" />
+                    <div class="w-full xs:w-1/2 flex-grow text-center xs:text-left">
+                        <h3 class="text-white whitespace-nowrap">KardiaMobile® Card</h3>
+                        <p class="text-primary-100">A personal EKG that fits perfectly in your wallet</p>
+                        <div class="pt-s6">
+                            <a href="/products/kardiamobile-card" class="faux-h6 border-b-2 border-white pb-s2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter borders is-visible w-full" data-is-visible="false">
+        <div class="newsletter__int">
+            <div class="newsletter__info">
+                <h2 class="text-primary-400 loadui-slide-up delay--1">    Stay in-the-know</h2>
+                <p class="loadui-fade-in delay--2">    Sign up for Kardia news, updates, and other exclusive content—straight to your inbox.</p>
+                <div class="newsletter-form">
+                    <form action="https://cl.s12.exct.net/DEManager.aspx" name="subscribeForm" method="post"><input type="hidden" name="_clientID" value="526001161"><input type="hidden" name="_deExternalKey" value="8AA51E40-D344-46E6-BE9B-D1DEC58AE2BE"><input type="hidden" name="_action" value="add"><input type="hidden" name="_returnXML" value="0"><input type="hidden" name="_successURL" value="https://kardia.com/subscribe-success"><input type="hidden" name="_errorURL" value="https://cloud.kardia.alivecor.com/signup-error"><input type="email" name="Email" placeholder=" " required=""><label for="Email">Please enter your email</label><button type="submit" value="Submit">Subscribe</button></form>
+                </div>
+            </div>
+            <div class="newsletter__image-container loadui-fade-in">
+                <picture class="image__wrapper  ">
+                    <img data-src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" width="480" height="640" src="https://www.kardia.com/assets/images/_480x640_crop_center-center_95_none/newsletter-hand.png" alt="" class="newsletter__image lazy-img lazyloaded">
+                </picture>
+            </div>
+        </div>
+    </div>
 </section>
 
 <style>
-  .grid > * {
-    margin: 0px !important;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: white;
-    padding: 0px 10px;
-  }
-  .grid > *:nth-child(4n-3) {
-    text-align: left;
-    justify-content: start;
-    position: sticky;
-    z-index: 100;
-    left: 0;
-    padding: 24px 0px;
-  }
-  @media (max-width: 1023px) {
-    .grid > *:nth-child(4n-3) {
-      padding: 24px;
+
+    .grid > * {
+        margin: 0px!important;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: white;
+        padding: 0px 10px;
     }
-  }
-  .grid > *:nth-child(4n) {
-    background-color: #ebe6ef;
-  }
-  template {
-    display: none !important;
-  }
-  details > div.details,
-  details > div.details > ul > li,
-  details > div.details > ul > ul > li {
-    font-size: 0.8rem !important;
-  }
+    .grid > *:nth-child(4n-3) {
+        text-align: left;
+        justify-content: start;
+        position: sticky;
+        z-index: 100;
+        left: 0;
+        padding: 24px 0px;
+    }
+    @media (max-width: 1023px) {
+        .grid > *:nth-child(4n-3) {
+            padding: 24px;
+        }
+    }
+    .grid > *:nth-child(4n) {
+        background-color: #EBE6EF;
+    }
+    template {
+        display: none!important;
+    }
+    details > div.details,
+    details > div.details > ul > li,
+    details > div.details > ul > ul > li {
+        font-size: 0.8rem!important;
+    }
 </style>
 
 {% schema %}

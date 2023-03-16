@@ -112,11 +112,6 @@
       "settings": {
       }
     },
-    "stay-in-the-know": {
-      "type": "stay-in-the-know",
-      "settings": {
-      }
-    },
     "content-kardiamobile": {
       "type": "content-kardiamobile",
       "settings": {
@@ -138,9 +133,10 @@
         "subtitle": "Taking an EKG is easy with KardiaMobile from AliveCor."
       }
     },
-    "devices-three-column": {
-      "type": "devices-three-column",
+    "device-info-module": {
+      "type": "device-info-module",
       "settings": {
+        "highlighted_device": "km"
       }
     }
   },
@@ -151,10 +147,9 @@
     "product-recommendations",
     "content-convenience",
     "content-credible-km",
-    "devices-three-column",
+    "device-info-module",
     "how-to-video-section",
     "additional-info-km",
-    "kardiacare-membership-module",
-    "stay-in-the-know"
+    "kardiacare-membership-module"
   ]
 }
