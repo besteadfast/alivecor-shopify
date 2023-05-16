@@ -86,8 +86,8 @@
   <h3 class="faux-h3 text-primary-500 mt-s9">
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
   </h3>
-  <div class="flex items-center justify-between  mt-s5">
-      <p class="mb-s1 font-dm">
+  <div class="flex items-center justify-between  mt-s5 h-s8">
+      <p class="font-dm">
         {% comment %}
           You can show a leading 'from' or 'up to' by checking 'product.price_varies'
           if your variants have different prices.
@@ -158,7 +158,7 @@
       View Details
     </a>
   {% elsif product.handle contains 'steth' %}
-  <a class="btn mt-s8" style="float:left;" href="https://store.kardia.com/products/steth-io-spot-device">
+  <a class="btn my-s5" style="float:left;" href="https://store.kardia.com/products/steth-io-spot-device">
     <span id="AddToCartText">
     Learn More
     </span>
@@ -233,7 +233,6 @@
            {% endif %}
         >
       {% endfor %}
-      <div class="spacer block h-[46px] w-full"></div>
     {% endif %}
     {% comment %}
       Note: forcing the quantities to be hidden

@@ -422,5 +422,11 @@
       "copy_code_success": "Kod je uspješno kopiran",
       "print_gift_card": "Ispiši"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

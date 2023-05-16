@@ -2421,12 +2421,20 @@ video {
   z-index: 10;
 }
 
+#app .z-50 {
+  z-index: 50;
+}
+
 #app .col-span-2 {
   grid-column: span 2 / span 2;
 }
 
 #app .col-span-1 {
   grid-column: span 1 / span 1;
+}
+
+#app .col-span-3 {
+  grid-column: span 3 / span 3;
 }
 
 #app .m-0 {
@@ -2678,6 +2686,10 @@ video {
   margin-top: 2px;
 }
 
+#app .ml-s4 {
+  margin-left: 16px;
+}
+
 #app .block {
   display: block;
 }
@@ -2786,6 +2798,14 @@ video {
   height: 46px;
 }
 
+#app .h-s6 {
+  height: 24px;
+}
+
+#app .h-s10 {
+  height: 64px;
+}
+
 #app .max-h-full {
   max-height: 100%;
 }
@@ -2883,6 +2903,10 @@ video {
   width: 300px;
 }
 
+#app .w-s6 {
+  width: 24px;
+}
+
 #app .min-w-\[700px\] {
   min-width: 700px;
 }
@@ -2905,6 +2929,10 @@ video {
 
 #app .max-w-\[586px\] {
   max-width: 586px;
+}
+
+#app .max-w-\[768px\] {
+  max-width: 768px;
 }
 
 #app .flex-shrink {
@@ -3331,6 +3359,10 @@ video {
   border-top-width: 0px;
 }
 
+#app .border-b-\[2px\] {
+  border-bottom-width: 2px;
+}
+
 #app .border-solid {
   border-style: solid;
 }
@@ -3507,6 +3539,10 @@ video {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
 }
 
+#app .bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
 #app .from-kc-50 {
   --tw-gradient-from: #EBE6EF;
   --tw-gradient-to: rgb(235 230 239 / 0);
@@ -3560,6 +3596,10 @@ video {
 
 #app .to-\[\#F8FAFC\] {
   --tw-gradient-to: #F8FAFC;
+}
+
+#app .to-primary-50 {
+  --tw-gradient-to: var(--primary-50);
 }
 
 #app .object-contain {
@@ -3777,6 +3817,11 @@ video {
 #app .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+#app .px-\[15px\] {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #app .pl-s12 {
@@ -4142,6 +4187,15 @@ video {
   color: rgb(128 128 128 / var(--tw-text-opacity));
 }
 
+#app .text-black-800 {
+  --tw-text-opacity: 1;
+  color: rgb(51 51 51 / var(--tw-text-opacity));
+}
+
+#app .text-primary-600 {
+  color: var(--primary-600);
+}
+
 #app .underline {
   text-decoration-line: underline;
 }
@@ -4280,6 +4334,10 @@ video {
   color: var(--primary-900);
 }
 
+#app .hover\/focus\:text-primary-50:hover {
+  color: var(--primary-50);
+}
+
 #app .hover\/focus\:opacity-80:hover {
   opacity: 0.8;
 }
@@ -4313,6 +4371,10 @@ video {
 }
 
 @media (min-width: 560px) {
+  #app .xs\:hidden {
+    display: none;
+  }
+
   #app .xs\:w-1\/2 {
     width: 50%;
   }
@@ -4524,6 +4586,11 @@ video {
   #app .sm\:px-s8 {
     padding-left: 40px;
     padding-right: 40px;
+  }
+
+  #app .sm\:px-\[30px\] {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   #app .sm\:pb-s10 {
@@ -9250,6 +9317,10 @@ video {
     display: none;
   }
 
+  #app .md\:\!hidden {
+    display: none !important;
+  }
+
   #app .md\:w-1\/2 {
     width: 50%;
   }
@@ -9410,6 +9481,10 @@ video {
 
   #app .lg\:max-w-\[586px\] {
     max-width: 586px;
+  }
+
+  #app .lg\:max-w-\[1160px\] {
+    max-width: 1160px;
   }
 
   :is(h6:not([class*='faux-']),.lg\:faux-h6) + :is(.faux-sh) {
@@ -9618,6 +9693,11 @@ video {
   #app .lg\:px-s10 {
     padding-left: 64px;
     padding-right: 64px;
+  }
+
+  #app .lg\:px-s5 {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   #app .lg\:pt-s5 {
@@ -14388,9 +14468,23 @@ video {
   #app .xl\:pr-s13 {
     padding-right: 120px;
   }
+
+  #app .xl\:pr-s11 {
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 559px) {
+  #app .to-xs\:hidden {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
+  #app .to-md\:hidden {
+    display: none;
+  }
+
   #app .to-md\:max-w-\[500px\] {
     max-width: 500px;
   }
@@ -14405,7 +14499,35 @@ video {
 }
 
 @media (max-width: 1023px) {
+  #app .to-lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
   #app .to-lg\:hidden {
     display: none;
+  }
+
+  #app .to-lg\:\!hidden {
+    display: none !important;
+  }
+
+  #app .to-lg\:h-s10 {
+    height: 64px;
+  }
+
+  #app .to-lg\:border-b-\[2px\] {
+    border-bottom-width: 2px;
+  }
+
+  #app .to-lg\:border-primary-50 {
+    border-color: var(--primary-50);
+  }
+
+  #app .to-lg\:pb-s3 {
+    padding-bottom: 12px;
+  }
+
+  #app .to-lg\:pt-s4 {
+    padding-top: 16px;
   }
 }

@@ -429,5 +429,11 @@
       "copy_code_success": "Kodą pavyko nukopijuoti",
       "print_gift_card": "Spausdinti"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

@@ -48,7 +48,7 @@
 
 <div class="form">
     {% comment %} <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaCareBundleAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}"> {% endcomment %}
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaMobileAddToCartForm" class="AddToCartForm form-vertical mt-s7" data-productid="{{product.id}}">
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="kardiaMobileAddToCartForm" class="AddToCartForm form-vertical mt-s5" data-productid="{{product.id}}">
       {% capture year_title %}
           1-Year Plan
         {% endcapture %}
@@ -242,7 +242,7 @@
     function initKcUpsell(event) {
         var event = event || window.event;
         event.preventDefault();
-        if (event.submitter.classList.contains('reviews')) return
+        if (event.submitter && event.submitter.classList.contains('reviews')) return
         window.modalProduct = 20036084615;
         kcOpen()
     }

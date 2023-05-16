@@ -415,5 +415,11 @@
       "copy_code_success": "Đã sao chép mã thành công",
       "print_gift_card": "In"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

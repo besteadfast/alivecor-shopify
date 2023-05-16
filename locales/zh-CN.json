@@ -415,5 +415,11 @@
       "copy_code_success": "已成功复制代码",
       "print_gift_card": "打印"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

@@ -429,5 +429,11 @@
       "copy_code_success": "Kód sa úspešne skopíroval",
       "print_gift_card": "Tlačiť"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

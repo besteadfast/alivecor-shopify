@@ -415,5 +415,11 @@
       "copy_code_success": "คัดลอกรหัสสำเร็จ",
       "print_gift_card": "พิมพ์"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

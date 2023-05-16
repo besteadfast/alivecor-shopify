@@ -415,5 +415,11 @@
       "copy_code_success": "Kode berhasil disalin",
       "print_gift_card": "Cetak"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }

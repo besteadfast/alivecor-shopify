@@ -166,7 +166,7 @@
     function initKcUpsell(event) {
         var event = event || window.event;
         event.preventDefault();
-        if (event.submitter.classList.contains('reviews')) return
+        if (event.submitter && event.submitter.classList.contains('reviews')) return
         window.modalProduct = 39719661371457;
         kcOpen()
     }

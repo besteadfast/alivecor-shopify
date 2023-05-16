@@ -422,5 +422,11 @@
       "copy_code_success": "Codul a fost copiat cu succes",
       "print_gift_card": "Imprimați"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }
