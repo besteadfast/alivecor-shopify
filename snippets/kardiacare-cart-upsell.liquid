@@ -34,79 +34,34 @@
 </div>
 {% endif %}
 {% if shop.domain == 'store.kardia.com' %}
-<div class="w-full h-screen fixed inset-0 bg-black/70 justify-center items-center p-s4" onclick="this.style.display = 'none';" id="kc-modal-overlay" style="display: none; z-index: 99999;">
-    <div onclick="event.stopPropagation()" class="kc-upsell w-full bg-gradient-to-t from-kc-75 to-white via-white sm:bg-white sm:from-white max-w-text px-s4 sm:px-0 sm:py-s10 max-h-full overflow-scroll relative">
+<div class="w-full h-screen fixed inset-0 bg-black/70 justify-center items-center p-s4" onclick="this.style.display = 'none';" id="kc-modal-overlay" role="dialog" style="display: none; z-index: 99999;">
+    <div onclick="event.stopPropagation()" class="kc-upsell w-full max-w-text max-h-full overflow-scroll relative bg-white">
 
-        <button class="absolute top-s3 right-s2" onclick="kcModalContinue()"><img width="20" src="{{ 'table-close.svg' | asset_url }}" /></button>
+        <button class="absolute top-s3 right-s2" aria-label="close dialog" id="kc-upsell-close-button" onclick="kcModalContinue()"><img alt="close" width="20" src="{{ 'modal-close.svg' | asset_url }}" /></button>
 
-        <h4 class="faux-h4 sm:faux-sh !font-semibold text-center text-black-500 sm:text-kc-500 py-s6 sm:pb-s10 sm:pt-s6 border-b sm:border-0 border-black-200 mx-s6">Choose Your Plan</h4>
+        <h2 class="faux-h4 !font-semibold text-center text-black-600 py-s7 border-b-2 border-black-50 mx-s8">Choose Your Plan</h2>
 
-        <div class="hidden sm:!grid kcp-options w-full grid-cols-2 !gap-0 items-start text-center">
+        <div class="flex kc-upsell">
 
-            {% comment %} <div class="hidden md:!block p-s2">Basic</div> {% endcomment %}
-                <div class="border-r-2 border-kc-50 p-s2 text-kc-500">KardiaCare</div>
-                    <div class="p-s2 text-kc-500 whitespace-nowrap">KardiaCare Plus</div>
-
-            {% comment %} <div class="hidden md:!flex justify-center p-s2 text-kc-800 faux-h2"><div class="!block w-s8 h-[2px] bg-kc-800"></div></div> {% endcomment %}
-                <div class="border-r-2 border-kc-50 p-s2 text-kc-800 faux-h2 font-semibold flex whitespace-nowrap"><span class="">$</span><span class="flex" id="kcPriceDesktop">99</span></div>
-                    <div class="p-s2 text-kc-800 faux-h2 font-[1100] flex whitespace-nowrap"><span class="">$</span>299</div>
-
-            {% comment %} <h6 class="hidden md:!block text-kc-500 faux-h6">Included In App</h6> {% endcomment %}
-                {% comment %} <h6 class="border-r-2 border-kc-50 text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6> {% endcomment %}
-                <div class="border-r-2 border-kc-50 flex justify-center w-full p-s2">
-                    <div class="flex flex-col xl:flex-row justify-center rounded-[5px] text-center xl:rounded-[8px] border border-kc-500 text-[1rem] overflow-hidden text-kc-500">
-                        <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="toggleMonthly(false)">
-                            <input type="radio" name="kc-interval" value="year" class="mr-s1 hidden peer" checked />
-                            <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
-                            <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
-                            <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
-                            <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
-                        </label>
-                        <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="toggleMonthly(true)">
-                            <input type="radio" name="kc-interval" value="month" class="mr-s1 hidden peer" />
-                            <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
-                            <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
-                            <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
-                            <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
-                        </label>
-                    </div>
-                </div>
-                    <h6 class="text-kc-800 faux-h6"><span class="py-s2 px-s3 rounded-[5px] bg-white lg:bg-transparent">Yearly</span></h6>
-
-            {% comment %} <div class="hidden md:!block"></div> {% endcomment %}
-                {% comment %} <h6 class="border-r-2 border-kc-50 text-kc-500 text-[.75rem]">Save 17% Annually</h6> {% endcomment %}
-                    {% comment %} <div class="!block"></div> {% endcomment %}
-
-            {% comment %} <p class="hidden md:!block p-s4 faux-p-sm text-kc-800 !items-start">Detect and monitor basic arrhythmias using the included features in the Kardia<sup>™</sup> App.</p> {% endcomment %}
-                <div class="border-r-2 border-kc-50 p-s4 sm:px-s8 !justify-start items-center flex-col">
-                    <p class="faux-p-xs text-kc-400">Self-monitor and manage heart health with exclusive  tools and advanced arryhthmia detection.</p>
-                    <p class="faux-p-xs text-kc-200">Starting at $9.99/month</p>
-                </div>
-                    <p class="p-s4 sm:px-s8 faux-p-xs text-kc-400 !items-start"><span>Everything KardiaCare has to offer plus more support from medical professionals. Includes a KardiaMobile<sup>®</sup> 6L and an Omron Evolv blood pressure cuff as a one-time gift.</span></p>
-
-            {% comment %} <div class="hidden md:!flex justify-center !items-start"><button onclick="kcModalContinue()" class="faux-h6 border-b-2 border-kc-800 pb-s2">Continue</button></div> {% endcomment %}
-                <div class="border-r-2 border-kc-50 flex flex-col !justify-start">
-                    <button onclick="addKcToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button>
-                    {% comment %} <a href="/products/kardiacare" class="faux-h6 border-b-2 border-primary-500 pb-s2 text-primary-500 !mt-s8">Compare Plans</a> {% endcomment %}
-                </div>
-                    <div class="text-kc-800 faux-h6 !items-start"><button onclick="addKcpToCart()" class="rounded-[8px] p-s3 btn btn-sm text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6">Select Plan</button></div>
-        </div>
-
-        <div class="sm:hidden flex flex-col kc-upsell">
-
-            <div class="space-y-s5 flex flex-col items-center text-center py-s8">
+            <div class="space-y-s5 flex flex-col items-center text-center p-s8 sm:w-1/2 bg-gradient-to-t from-kc-75 to-white via-white">
                 <div class="flex flex-col">
-                    <div class="text-kc-400 leading-tight faux-h2">KardiaCare<br>Membership</div>
-                    <h4 class="text-kc-200 font-bold">$99/year</h4>
+                    <h3 class="text-kc-400 leading-tight faux-h2 font-normal">KardiaCare<br>Membership</h3>
+                    <h4 class="text-kc-200 font-bold !mt-s6">$9.99/month</h4>
                 </div>
-                <p class="p-s4 faux-p-sm text-kc-800 !items-start text-left"><span>For the person who wants our most advanced arrhythmia detection, and access to tools to help self-monitor and manage their heart health.</span></p>
-                <div class="text-kc-800 !items-start"><button onclick="toggleMonthly(false); addKcToCart()" class="rounded-[8px] px-s5 py-s3 btn btn-sm text-white faux-h4 bg-kc-500 text-[.75rem] font-bold">Get Kardiacare</button></div>
-                <div><button class="faux-p-xs text-kc-600 underline pb-s2" onclick="kcModalContinue()">No thanks,<br>I don't want a membership</button></div>
+                <p class="p-s4 !mt-s8 faux-p-sm text-kc-800 !items-start text-center"><span>For the person who wants our most advanced arrhythmia detection, and access to tools to help self-monitor and manage their heart health.</span></p>
+                <div class="text-kc-800 !items-start"><button onclick="addKcToCart()" class="rounded-[8px] px-s5 py-s3 btn btn-sm text-white faux-h4 bg-kc-500 text-[1rem] font-bold">Get Kardiacare</button></div>
+                <div class="sm:hidden"><button class="faux-p-xs text-black-800 underline pb-s2" onclick="kcModalContinue()">No thanks</button></div>
+            </div>
+
+            <div class="hidden sm:!flex space-y-s5 flex-col items-center text-center p-s8 sm:w-1/2 justify-between">
+                <div class="flex flex-col justify-center h-[105px]">
+                    <h3 class="text-tertiary-800 leading-tight faux-h2 font-normal">No Membership</h3>
+                </div>
+                <p class="p-s4 !mt-s8 faux-p-sm text-kc-800 !items-start text-center text-tertiary-800 flex-grow"><span>For the person who wants to detect and monitor basic arrhythmias.</span></p>
+                <div class="text-kc-800 !items-start"><button onclick="kcModalContinue()" aria-label="Continue without KardiaCare" class="rounded-[8px] px-s5 py-s3 btn btn-sm text-tertiary-800 faux-h4 bg-tertiary-100 text-[1rem] font-bold">Continue</button></div>
             </div>
 
         </div>
-
-        <div class="w-full justify-center mt-s10 mb-s6 sm:mb-0 hidden sm:!flex"><button class="faux-p-xs text-kc-600 border-b-2 border-kc-600 pb-s2" onclick="kcModalContinue()">No thanks, I don't want a membership</button></div>
 
     </div>
 </div>
@@ -114,7 +69,7 @@
 <script>
 
     let kcFrequency = 12
-    let kcVariantId = 32194082472001
+    let kcVariantId = 32283254751297
 
     function toggleMonthly(monthly) {
         if (monthly) {
@@ -137,6 +92,7 @@
     function kcOpen() {
         document.getElementById('kc-modal-overlay').style.display = 'flex';
         document.getElementsByTagName('body')[0].className += ' overflow-hidden h-screen'
+        document.getElementById('kc-upsell-close-button').focus()
     }
 
     /*
@@ -189,8 +145,6 @@
         margin: 0px!important;
         height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
         text-align: center;
         background: white;
     }

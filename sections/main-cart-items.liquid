@@ -43,6 +43,17 @@
   .cart__row th, .cart__row td{
     padding:15px;
   }
+  thead.hidden {
+    display: block!important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
 {% endstyle %}
 
   <form action="/cart" method="post" novalidate class="cart table-wrap" id="cartform">
@@ -52,7 +63,7 @@
     <div class="cart-header px-s8 bg-primary-75">
       <div class="wrapper lg:flex items-center justify-between max-w-content mx-auto py-s9">
         <div class="cart-title">
-          <h2 class="cart faux-h3">Shopping Cart</h2>
+          <h1 class="cart faux-h3">Shopping Cart</h1>
         </div>
         {% if shop.locale == 'en' %}
           {% include 'benefit-icons-cart' %}
@@ -63,7 +74,7 @@
       </div>
     </div>
     <table class="wrapper cart-table w-full max-w-content mx-auto table--responsive gap-s5 lg:mt-s10">
-      <thead class="cart__header-labels hidden !md:table-header-group text-left border-y-2 border-primary-75">
+      <thead class="cart__header-labels hidden md:!table-header-group text-left border-y-2 border-primary-75">
         <th colspan="2" class="faux-p-sm px-s8 py-s5">Product</th>
         <th class="faux-p-sm px-s8 py-s5">Price</th>
         <th class="faux-p-sm px-s8 py-s5">Quantity</th>
@@ -138,13 +149,13 @@
           <tr class="border-b-2 border-primary-75 table__section flex lg:table-row flex-col pb-s5" id="{{ item.id }}">
             <td data-label="{{ 'customer.order.product' | t }}" data-layout="mobile-column" class="px-s8 py-s3 lg:py-s5">
               {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and item.product.handle != 'kardiamobile6l' and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
-                <a href="{{ kardiaCareUrl }}">
+                <a href="{{ kardiaCareUrl }}" class="block">
               {% elsif kc6lBundleKardiaCare == true %}
-                <a href="{{ kardiamobile6lUrl }}">
+                <a href="{{ kardiamobile6lUrl }}" class="block">
               {% elsif kcCardBundleKardiaCare == true %}
-                <a href="{{ kardiamobileCardUrl }}">
+                <a href="{{ kardiamobileCardUrl }}" class="block">
               {% else %}
-                <a href="{{ item.url }}">
+                <a href="{{ item.url }}" class="block">
               {% endif %}
               {% comment %}
                 More image size options at:
@@ -173,7 +184,7 @@
               {% endcomment %}
             </td>
             <td class="px-s8 py-s5">
-              <h4 class="faux-h5 text-24 font-dm">
+              <p class="faux-h5 text-24 font-dm">
                 {% if item.title contains "KardiaCare" and shop.domain != 'store.alivecor.co.uk' and kc6lBundleKardiaCare == false and kcCardBundleKardiaCare == false and item.product.handle != 'kardiamobile-card-member' %}
                   <a href="{{ kardiaCareUrl }}">
                     {{ item.product.title }}
@@ -191,7 +202,7 @@
                     {{ item.product.title }}
                   </a>
                 {% endif %}
-              </h4>
+            </p>
               {% unless item.variant.title contains 'Default' %}
                 <small class="cart_variant block mt-s4 faux-p-sm font-dm my-0">{{ item.variant.title }}</small>
               {% endunless %}
@@ -244,18 +255,18 @@
               {% endif %}
               {% if kc6lBundle == true %}
                 {% if item.product.handle == 'kardiamobile6l' %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="kc6lBundleRemove(event)">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-400 hover:text-primary-500" aria-label="Remove {{ item.product.title }}" onclick="kc6lBundleRemove(event)">
                   Remove
                 </a>
                 {% endif %}
               {% elsif kcCardBundle == true %}
                 {% if item.product.handle == 'kardiamobile-card' %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="kcCardBundleRemove(event)">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-400 hover:text-primary-500" aria-label="Remove {{ item.product.title }}" onclick="kcCardBundleRemove(event)">
                   Remove
                 </a>
                 {% endif %}
               {% else %}
-                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-300 hover:text-primary-500" onclick="remove(event, '{{ item.product.handle }}')">
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove faux-p-sm my-0 before:hidden after:hidden text-primary-400 hover:text-primary-500" aria-label="Remove {{ item.product.title }}" onclick="remove(event, '{{ item.product.handle }}')">
                   Remove
                 </a>
               {% endif %}
@@ -286,15 +297,17 @@
 							<span class="faux-p font-dm">
 								<span class="lg:hidden">Qty: </span>
                                 {% comment %} <input type="number" name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-icon-64 inline-block" value="{{ item.quantity }}" min="0" data-id="{{ item.key }}"> {% endcomment %}
-                                <select name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-[75px] inline-block" data-id="{{ item.key }}">
-                                    {% for i in (1..5) %}
-                                        {% if i == item.quantity %}
-                                            <option value="{{ i }}" selected>{{ i }}</option>
-                                        {% else %}
-                                            <option value="{{ i }}">{{ i }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
+                                <label for="updates_{{ item.key }}" aria-label="Select quantity">
+                                    <select name="updates[]" id="updates_{{ item.key }}" class="cart__product-qty quantity qty-updater border-2 border-primary-75 w-[75px] inline-block" data-id="{{ item.key }}" aria-labelledby="updates_{{ item.key }}-label">
+                                        {% for i in (1..5) %}
+                                            {% if i == item.quantity %}
+                                                <option value="{{ i }}" selected>{{ i }}</option>
+                                            {% else %}
+                                                <option value="{{ i }}">{{ i }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </label>
 							</span>
             </td>
 
@@ -324,78 +337,52 @@
       {% endif %}
       <div class="text-right">
         {% if kcare_in_cart %}
-          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="aDiscount">
-            <span class="mobile-left">3 months free with code 3FREE:</span>
-            <span class="right font-dm">(-$25.00)</span>
-          </p>
-          <p class="cart-totals mt-s5 font-dm hidden text-primary-500" id="bDiscount">
-            <span class="mobile-left">FREE KardiaMobile Card:</span>
-            <span class="right font-dm">(-$99.00)</span>
-          </p>
-          {% comment %}
-          {% if km6l_in_cart or km_in_cart %}
-            {% if km_in_cart and kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5" id="discount" data-amount="29">
-                <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right font-dm">$29.00</span>
-              </p>
-              <p class="cart-totals mt-s5">
-                <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
-                <span class="right cart__subtotal font-bold font-dm" id="subtotal">${{ cart.total_price | minus: 2900 | money_without_currency }}</span>
-              </p>
-            {% elsif kcare_in_cart_1_2_year %}
-              <p class="cart-totals mt-s5" id="discount" data-amount="9">
-                <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right font-dm">$9.00</span>
-              </p>
-              <p class="cart-totals mt-s5">
-                <span class="mobile-left cart__subtotal-title font-dm">Subtotal:</span>
-                <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 900 | money_without_currency }}</span>
-              </p>
+            <dl class="" id="discounts">
+              <div class="faux-p cart-totals mt-s5 font-dm hidden text-primary-500">
+                <dt class="inline mobile-left">3 months free with code 3FREE:</dt>
+                <dd class="inline right font-dm">(-$25.00)</dd>
+              </div>
+              <div class="faux-p cart-totals mt-s5 font-dm hidden text-primary-500">
+                <dt class="inline mobile-left">FREE KardiaMobile Card:</dt>
+                <dd class="inline right font-dm">(-$99.00)</dd>
+              </div>
+              <div class="faux-p cart-totals">
+                <dt class="inline {% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</dt>
+                <dd class="inline right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</dd>
+              </div>
+            </dl>
             {% else %}
-              <p class="cart-totals mt-s5 font-dm" id="discount" data-amount="10">
-                <span class="mobile-left">Device + Membership Discount:</span>
-                <span class="right font-dm">$9.99</span>
-              </p>
-               <p class="cart-totals mt-s5 font-dm">
-                <span class="mobile-left cart__subtotal-title">Subtotal:</span>
-                  <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | minus: 999 | money_without_currency }}</span>
-              </p>
+            <dl>
+              <div class="faux-p cart-totals">
+                <dt class="inline {% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</dt>
+                <dd class="inline right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</dd>
+              </div>
+            </dl>
             {% endif %}
-          {% else %}
-            <p class="cart-totals">
-              <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
-              <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
-            </p>
-          {% endif %}
-          {% endcomment %}
-          <p class="cart-totals">
-            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
-            <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
-          </p>
-        {% else %}
-          <p class="cart-totals">
-            <span class="{% if shop.locale == 'en' %}mobile-left {% endif %}cart__subtotal-title">Subtotal:</span>
-            <span class="right cart__subtotal font-bold font-dm">${{ cart.total_price | money_without_currency }}</span>
-          </p>
-        {% endif %}
-        {% if shop.locale == 'en' %}
-          <p class="cart-totals mt-s5">
-            <span class="mobile-left">Taxes:</span>
-            <span class="right">Calculated at checkout</span>
-          </p>
-          <p class="cart-totals mt-s5">
-            <span class="mobile-left">Shipping:</span>
-            <span class="right">FREE{% if canadaShop %}*{% endif %}</span>
-          </p>
-          <span class="shipping-desc block faux-p-xs mt-s5">
-          {% if km-oos == false and km-six-oos == false and canadaShop == false %}
-            2-5 business days (USPS First Class)
-          {% endif %}
-          </span>
-        {% else %}
-          <p class="ous-cart-text">{{ 'cart.general.shipping_at_checkout' | t }}</p>
-        {% endif %}
+
+            {% if shop.locale == 'en' %}
+            <dl>
+              <div class="faux-p cart-totals mt-s5">
+                <dt class="inline mobile-left">Taxes:</dt>
+                <dd class="inline right">Calculated at checkout</dd>
+              </div>
+              <div class="faux-p cart-totals mt-s5">
+                <dt class="inline mobile-left">Shipping:</dt>
+                <dd class="inline right">FREE{% if canadaShop %}*{% endif %}</dd>
+              </div>
+              {% if km-oos == false and km-six-oos == false and canadaShop == false %}
+              <span class="shipping-desc block faux-p-xs mt-s5">
+                <div class="cart-totals mt-s5">
+                  <dt class="inline">Estimated delivery time:</dt>
+                  <dd class="inline">2-5 business days (USPS First Class)</dd>
+                </div>
+              </span>
+              {% endif %}
+            </dl>
+            {% else %}
+            <p class="ous-cart-text">{{ 'cart.general.shipping_at_checkout' | t }}</p>
+            {% endif %}
+
         <!-- marketizator start -->
         <input id="mktz_custom" name="attributes[mktz_custom]" type="hidden" value="" />
         <!-- marketizator end -->
@@ -416,7 +403,7 @@
     <div class="cart-header px-s8 bg-primary-75">
       <div class="wrapper flex items-center justify-between max-w-content mx-auto py-s9">
         <div class="cart-title">
-          <h2 class="cart faux-h3">Shopping Cart</h2>
+          <h1 class="cart faux-h3">Shopping Cart</h1>
         </div>
         {% if shop.locale == 'en' %}
           {% include 'benefit-icons-cart' %}
@@ -433,7 +420,7 @@
 {% endif %}
 
 <!-- DataLayer pushes -->
-<script type="text/javascript">
+<script>
   var productsArray = [];
   {% for item in cart.items %}
     productsArray.push({

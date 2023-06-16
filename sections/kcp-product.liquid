@@ -66,16 +66,16 @@
                 <div class="flex flex-col xl:flex-row justify-center rounded-[5px] text-center xl:rounded-[8px] border border-kc-500 text-[1rem] overflow-hidden text-kc-500">
                     <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kcPrice').innerHTML='99'">
                         <input type="radio" name="kc-interval" value="year" class="mr-s1 hidden peer" checked />
-                        <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
-                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
-                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
+                        <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" alt="checked" />
+                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" alt="unchecked" />
                         <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
                     </label>
                     <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kcPrice').innerHTML='9<span class=\\\'faux-p mt-s4\\\'>.99</span>'">
                         <input type="radio" name="kc-interval" value="month" class="mr-s1 hidden peer" />
-                        <div class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></div>
-                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" />
-                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" />
+                        <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+                        <img src="{{ 'kcp-check.svg' | asset_url }}" class="mr-s1 hidden peer-checked:!block z-10" alt="checked" />
+                        <img src="{{ 'kcp-uncheck.svg' | asset_url }}" class="mr-s1 peer-checked:!hidden z-10" alt="unchecked" />
                         <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
                     </label>
                 </div>

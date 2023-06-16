@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
   (function(){
     var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
     window.criteo_q = window.criteo_q || [];
@@ -52,7 +52,7 @@
                   window.criteo_q.push({
                     event: "addToCart",
                     ecpplugin: "shopify-cg",
-                    product: basketData 
+                    product: basketData
                   });
                 });
               } catch (err) {
@@ -89,7 +89,7 @@
                     window.criteo_q.push({
                       event: "addToCart",
                       ecpplugin: "shopify-cg",
-                      product: basketData 
+                      product: basketData
                     });
                   });
                 } catch (err) {

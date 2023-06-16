@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:299e>{% endcomment -%}
+{%- comment %}<locksmith:d71c>{% endcomment -%}
   {%- include 'locksmith' -%}
-{%- comment %}</locksmith:299e>{% endcomment -%}
+{%- comment %}</locksmith:d71c>{% endcomment -%}
 
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
@@ -34,10 +34,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:ae7a>{% endcomment -%}
+      {%- comment %}<locksmith:059f>{% endcomment -%}
         {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
         {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:ae7a>{% endcomment -%}
+      {%- comment %}</locksmith:059f>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -81,9 +81,9 @@
     {{ content_for_header }}
 
     <!-- start Omniconvert.com code -->
-      <link rel="dns-prefetch" href="//app.omniconvert.com"/>
-      <script type="text/javascript">window._mktz=window._mktz||[];</script>
-      <script type="text/javascript" src="//cdn.omniconvert.com/js/k192b35.js"></script>
+      <link rel="dns-prefetch" href="//app.omniconvert.com">
+      <script>window._mktz=window._mktz||[];</script>
+      <script src="//cdn.omniconvert.com/js/k192b35.js"></script>
     <!-- end Omniconvert.com code -->
 
     <!-- Start of Littledata - Fix Google Analytics Script -->
@@ -241,6 +241,10 @@
         height: 100%;
       }
 
+      html .test {
+        font-family: 'DM Sans', sans-serif !important;
+      }
+
       body {
         display: grid;
         grid-template-rows: auto auto 1fr auto;
@@ -279,13 +283,14 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-    <script src="https://www.dwin1.com/19038.js" type="text/javascript" defer="defer"></script>
+    <script src="https://www.dwin1.com/19038.js" defer="defer"></script>
     {% if template == 'cart' %}{% include "revy-bundle-script" %}{% endif %}
 
     <script src="https://adasitecompliancetools.com/ADApter.asp?cid=ALVCOR" defer></script>
 
   </head>
 <body class="gradient" id="app">
+  <div class="test">
     <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QSJ3W"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -351,7 +356,7 @@
 
     {% section 'kardia-header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none" tabindex="-1">
       {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}
     </main>
 
@@ -403,5 +408,6 @@
 {% render 'criteo-tracking' %}
 <!-- CRITEO END -->
   {% include 'revy-bundle-script' %}
+  </div>
 </body>
 </html>

@@ -781,12 +781,12 @@ summary::-webkit-details-marker {
   Focus ring - default (with offset)
 */
 
-*:focus {
+*:focus:not(.focus-override) {
   outline: 0;
   box-shadow: none;
 }
 
-*:focus-visible {
+*:focus-visible:not(.focus-override) {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.3rem;
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
@@ -3586,7 +3586,7 @@ html, body {
         height: 16px; } }
   .kardiacare-table table.upsell .premium svg {
     height: 30px;
-    width: 30px; 
+    width: 30px;
     margin: 0 auto;
   }
     @media (min-width: 768px) {

@@ -45,93 +45,93 @@
             </a>
             <div class="h-full">
                 <nav class="header__nav-container">
-                    <div body-scroll-lock-ignore="" class="header__nav-container-int">
+                    <div class="header__nav-container-int" id="mobile-nav-menu">
                         <ul class="nav-primary list-none">
                             <li class="menu__item level--1 has-dropdown">
-                                <a class="menu__link flex items-center relative link-level--1 is-active" href="/" rel="noopener" target="" aria-label="Products Menu">Products</a>
-                                <button aria-controls="collapse2" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Products Menu" aria-expanded="false">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
-                                <div class="submenu-items-wrapper">
+                                <a class="menu__link flex items-center relative link-level--1 is-active" href="/" rel="noopener"  aria-label="Products Menu">Products</a>
+                                <div class="submenu-items-wrapper" id="products-submenu">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile-card" rel="noopener" target="">KardiaMobile Card</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile-card" rel="noopener" >KardiaMobile Card</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile6l" rel="noopener" target="">KardiaMobile 6L</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile6l" rel="noopener" >KardiaMobile 6L</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile" rel="noopener" target="">KardiaMobile</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiamobile" rel="noopener" >KardiaMobile</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiacare" rel="noopener" target="">KardiaCare</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/products/kardiacare" rel="noopener" >KardiaCare</a>
                                             </li>
                                             <li class="menu__item level--2 last-item ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/" rel="noopener" target="">Shop All Products</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://store.kardia.com/" rel="noopener" >Shop All Products</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                                <button aria-controls="products-submenu" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Products Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
-                                <a class="menu__link flex items-center relative link-level--1" rel="noopener" target="">Technology & Services</a>
-                                <div class="submenu-items-wrapper">
+                                <a href="javascript:void(0)" class="menu__link flex items-center relative link-level--1" rel="noopener" >Technology & Services</a>
+                                <div class="submenu-items-wrapper" id="tech-service-submenu">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/clinician-reviews" rel="noopener" target="">Clinician EKG Review</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/clinician-reviews" rel="noopener" >Clinician EKG Review</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/teleconnect" rel="noopener" target="">TeleConnect</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/teleconnect" rel="noopener" >TeleConnect</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/detections" rel="noopener" target="">Arrhythmia Detections</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/detections" rel="noopener" >Arrhythmia Detections</a>
+                                            </li>
+                                            <li class="menu__item level--2  ">
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://kardia.com/insights" rel="noopener" >KardiaCare Insights</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <button aria-controls="collapse2" aria-label="toggle submenu" class="submenu-btn to-lg:hidden">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                <button aria-controls="tech-service-submenu" aria-label="Technology Menu" class="submenu-btn to-lg:hidden">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
                                 </button>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
-                                <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Professionals</a>
-                                <button aria-controls="collapse4" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Professionals Menu" aria-expanded="false">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
-                                <div class="submenu-items-wrapper">
+                                <a href="javascript:void(0)" class="menu__link flex items-center relative link-level--1 " rel="noopener" >Professionals</a>
+                                <div class="submenu-items-wrapper" id="professionals-submenu">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/health-systems" rel="noopener" target="">For Health Systems</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/health-systems" rel="noopener" >For Health Systems</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/biopharma" rel="noopener" target="">For BioPharma</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/biopharma" rel="noopener" >For BioPharma</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/payers-employers" rel="noopener" target="">For Payers &amp; Employers</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/payers-employers" rel="noopener" >For Payers &amp; Employers</a>
                                             </li>
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/data-integration" rel="noopener" target="">Data Integration Solutions</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/data-integration" rel="noopener" >Data Integration Solutions</a>
                                             </li>
                                             <li class="menu__item level--2 last-item ">
-                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/oems" rel="noopener" target="">For OEMs</a>
+                                                <a class="menu__link flex items-center relative link-level--2 " href="https://www.kardia.com/professional/oems" rel="noopener" >For OEMs</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                                <button aria-controls="professionals-submenu" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Professionals Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                             </li>
                             <li class="menu__item level--1 has-dropdown">
-                                <a class="menu__link flex items-center relative link-level--1 " rel="noopener" target="">Resources</a>
-                                <button aria-controls="collapse4" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Resources Menu" aria-expanded="false">
-                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" id="icon-definition" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
-                                </button>
-                                <div class="submenu-items-wrapper">
+                                <a href="javascript:void(0)" class="menu__link flex items-center relative link-level--1 " rel="noopener" >Resources</a>
+                                <div class="submenu-items-wrapper" id="resources-submenu">
                                     <div class="submenu-items-wrapper-int">
                                         <ul class="submenu-items level--1 list-none">
                                             <li class="menu__item level--2  ">
-                                                <a class="menu__link flex items-center relative link-level--1 " href="https://www.kardia.com/blog" rel="noopener" target="">Blog</a>
+                                                <a class="menu__link flex items-center relative link-level--1 " href="https://www.kardia.com/blog" rel="noopener" >Blog</a>
                                             </li>
                                             <li class="menu__item level--2  ">
                                                 <a class="menu__link flex items-center relative link-level--1 " href="https://alivecor.zendesk.com/hc/en-us" rel="noopener" target="_blank">Support</a>
@@ -139,10 +139,13 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <button aria-controls="resources-submenu" class="nav-submenu-button submenu-btn to-lg:hidden" aria-label="Resources Menu" aria-expanded="false">
+                                    <svg class="share__icon w-icon-24 h-icon-24" color="currentColor" role="presentation" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 10l-4 4-4-4" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"/></svg>
+                                </button>
                             </li>
                             <li class="menu__item text-center">
-								<a class="btn" href="/cart" rel="" target="">
-                                    <svg class="w-icon-20 h-icon-20 text-white" color="currentColor" id="icon-definition" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<a class="btn" href="/cart" rel="" aria-label="Cart" >
+                                    <svg class="w-icon-20 h-icon-20 text-white" color="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <g class="nc-icon-wrapper" fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2" stroke="currentColor"><path d="M4 4h18l-3 10H4"/><circle cx="4" cy="22" fill="currentColor" r="2" stroke="none"/><circle cx="20" cy="22" fill="currentColor" r="2" stroke="none"/><path d="M1 1l3 3v10l-2 4h21" data-cap="butt" stroke-linecap="butt"/></g>
                                     </svg>
 									{% if cart.item_count > 0 %}
@@ -154,7 +157,7 @@
                     </div>
                 </nav>
                 <div class="h-full flex items-center lg:hidden">
-                    <button aria-controls="collapse6" aria-label="toggle main navigation" class="menu-btn lg:hidden" onclick="toggleHeader(event)">
+                    <button aria-controls="mobile-nav-menu" aria-label="toggle main navigation" class="menu-btn lg:hidden" onclick="toggleHeader(event)">
                         <span class="menu__bar menu__bar--1"></span>
                         <span class="menu__bar menu__bar--2"></span>
                         <span class="menu__bar menu__bar--3"></span>

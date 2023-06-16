@@ -562,7 +562,8 @@
       "settings": {
         "product_list": [
           "kardiamobile-carrypod",
-          "steth-io-spot-device"
+          "steth-io-spot-device",
+          "omron-evolv"
         ]
       }
     }

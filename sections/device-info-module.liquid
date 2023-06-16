@@ -4,29 +4,29 @@
         <div class="to-lg:!hidden lg:col-span-2 !block"></div>
         <div>
             <picture class="image__wrapper  compare__image-wrapper">
-                <a href="/products/kardiamobile"><img width="256" src="{{ 'km-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+                <img width="256" src="{{ 'km-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded">
             </picture>
         </div>
         <div>
             <picture class="image__wrapper  compare__image-wrapper">
-                <a href="/products/kardiamobile-card"><img width="256" src="{{ 'km-card-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+                <img width="256" src="{{ 'km-card-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded">
             </picture>
         </div>
         <div>
             <picture class="image__wrapper  compare__image-wrapper">
-                <a href="/products/kardiamobile6l"><img width="256" src="{{ 'km-6l-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded"></a>
+                <img width="256" src="{{ 'km-6l-angled-transparent.png' | asset_url }}" alt="" class="compare__image lazy-img ls-is-cached lazyloaded">
             </picture>
         </div>
         {% comment %} Row 2: Titles {% endcomment %}
         <div class="to-lg:!hidden lg:col-span-2 !block"></div>
         <div class="py-s3 px-s2 lg:px-s5">
-            <h5 class="text-primary-300">Kardia<wbr>Mobile®</h5>
+            <a href="/products/kardiamobile"><h5 class="text-primary-300">Kardia<wbr>Mobile®</h5></a>
         </div>
         <div class="py-s3 px-s2 lg:px-s5">
-            <h5 class="text-primary-300">Kardia<wbr>Mobile® Card</h5>
+            <a href="/products/kardiamobile-card"><h5 class="text-primary-300">Kardia<wbr>Mobile® Card</h5></a>
         </div>
         <div class="py-s3 px-s2 lg:px-s5">
-            <h5 class="text-primary-300">Kardia<wbr>Mobile® 6L</h5>
+            <a href="/products/kardiamobile6l"><h5 class="text-primary-300">Kardia<wbr>Mobile® 6L</h5></a>
         </div>
     {% comment %} Row 3: Prices {% endcomment %}
         <div class="to-lg:!hidden lg:col-span-2 !block"></div>
@@ -34,10 +34,10 @@
             <h1 class="text-primary-800">$79</h1>
         </div>
         <div class="py-s5 to-lg:pb- px-s2 lg:px-s5">
-            <h1 class="text-primary-800">$89</h1>
+            <h1 class="text-primary-800">$99</h1>
         </div>
         <div class="py-s5 to-lg:pb- px-s2 lg:px-s5">
-            <h1 class="text-primary-800">$129</h1>
+            <h1 class="text-primary-800">$149</h1>
         </div>
         {% comment %} Row 4: Descriptions {% endcomment %}
         <div class="to-lg:!hidden lg:col-span-2 !block"></div>
@@ -54,6 +54,9 @@
         <div class="to-lg:!hidden lg:col-span-2 !block"></div>
         <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
         {% for product in collections.all.products %}
+            {%- comment %}<locksmith:c6ff>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections.all, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:c6ff>{% endcomment -%}
             {% case product.id %}
                 {% when 3791664071 %}
                     {% assign my_product = product %}
@@ -170,6 +173,9 @@
         </div>
         <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
         {% for product in collections.all.products %}
+            {%- comment %}<locksmith:605e>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections.all, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:605e>{% endcomment -%}
             {% case product.id %}
                 {% when 6736353263681 %}
                     {% assign my_product = product %}
@@ -286,6 +292,9 @@
         </div>
         <div class="py-s6 to-lg:pb-s3 px-s2 lg:px-s5">
         {% for product in collections.all.products %}
+            {%- comment %}<locksmith:9ef7>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collections.all, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:9ef7>{% endcomment -%}
             {% case product.id %}
                 {% when 3500363841601 %}
                     {% assign my_product = product %}
@@ -400,12 +409,12 @@
             </div>
         </form>
         </div>
-    
+
         {% comment %} Table {% endcomment %}
         <div class="border-b-[2px] border-primary-50 lg:col-span-2 cell to-lg:col-span-3 to-lg:h-s10">
             <p class="text-left text-primary-800 to-lg:pt-s4">Leads</p>
         </div>
-    
+
         <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead</p></div>
         <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead</p></div>
         <div class="border-b-[2px] border-primary-50 cell"><p class="w-full text-center text-primary-600">Single-Lead & 6-Lead</p></div>
@@ -469,7 +478,7 @@
             <img src="{{ 'device-table-check.svg' | asset_url }}" class="symbol !hidden md:!block z-10" />
             <img src="{{ 'device-table-check-sm.svg' | asset_url }}" class="symbol !block md:!hidden z-10" />
         </div>
-    
+
         <div class="to-lg:border-b-[2px] to-lg:border-primary-50 lg:col-span-2 cell to-lg:col-span-3">
             <p class="text-left text-primary-800">Tested for durability</p>
         </div>
