@@ -233,10 +233,11 @@
 
 
           {%- when 'price' -%}
-                      <div class="bundle-price-display mb-0">
+                      <span class="bundle-price-display mb-0">
               <span id="ProductPrice" class="h2Price noFloat red">
                 $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
-            </div>
+            </span>
+                      </span>
             {% comment %}
             <div>
                 <span id="KardiaCareProductPrice" class="h2Price noFloat">$179/2 years</span>
@@ -492,7 +493,6 @@
         {{ product.description }}
       </div>
     </div>
-  </div>
 
   <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
     <div class="product-media-modal__dialog" role="dialog" aria-label="{{ 'products.modal.label' | t }}" aria-modal="true" tabindex="-1">

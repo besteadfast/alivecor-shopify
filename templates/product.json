@@ -71,21 +71,22 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 36
-      } 
+      }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
       }
     },
-    "additional-info":{
-      "type": "additional-info-default"
+    "additional-info": {
+      "type": "additional-info-default",
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
     "additional-info",
     "product-recommendations"
-
   ]
 }
