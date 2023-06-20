@@ -974,12 +974,25 @@ function addToCartKardiaCareDeviceBundle(event, form, device, page) {
 }
 
 function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
+    const sellingPlansByVariantId = {
+      // yearly
+      32194082472001: 854982721,
+
+      // monthly
+      32283254751297: 855015489
+    }
+
+    const sellingPlan = sellingPlansByVariantId[kardiacare_id]
+
+    console.log({ sellingPlan })
+  
     $.ajax({
         type: 'POST',
         url: '/cart/add.js',
         data: {
             'quantity': 1,
             'id': kardiacare_id,
+            "selling_plan": sellingPlan,
             "properties": {
                 "shipping_interval_frequency": frequency,
                 "shipping_interval_unit_type": unit
@@ -1002,13 +1015,15 @@ function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
 }
 
 function kcpAddToCart() {
-    console.log('adding kcp')
+    const sellingPlan = 855048257
+    
     $.ajax({
         type: 'POST',
         url: '/cart/add.js',
         data: {
             quantity: 1,
             id: 40291632349249,
+            selling_plan: 855048257,
             properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }
         },
         dataType: 'json',

@@ -68,26 +68,26 @@
 
 <script>
 
-    let kcFrequency = 12
+    let kcFrequency = 1
     let kcVariantId = 32283254751297
 
-    function toggleMonthly(monthly) {
-        if (monthly) {
-            kcFrequency = 1
-            kcVariantId = 32283254751297
-            document.getElementById('kcPriceDesktop').innerHTML = '9<span class=\\\'faux-p mt-s4\\\'>.99</span>'
-            document.querySelectorAll('[name=kc-interval]').forEach((el) => {
-                el.checked = el.value == 'month' ? true : false
-            })
-        } else {
-            kcFrequency = 12
-            kcVariantId = 32194082472001
-            document.getElementById('kcPriceDesktop').innerHTML = '99'
-            document.querySelectorAll('[name=kc-interval]').forEach((el) => {
-                el.checked = el.value == 'month' ? false : true
-            })
-        }
-    }
+    // function toggleMonthly(monthly) {
+    //     if (monthly) {
+    //         kcFrequency = 1
+    //         kcVariantId = 32283254751297
+    //         document.getElementById('kcPriceDesktop').innerHTML = '9<span class=\\\'faux-p mt-s4\\\'>.99</span>'
+    //         document.querySelectorAll('[name=kc-interval]').forEach((el) => {
+    //             el.checked = el.value == 'month' ? true : false
+    //         })
+    //     } else {
+    //         kcFrequency = 12
+    //         kcVariantId = 32194082472001
+    //         document.getElementById('kcPriceDesktop').innerHTML = '99'
+    //         document.querySelectorAll('[name=kc-interval]').forEach((el) => {
+    //             el.checked = el.value == 'month' ? false : true
+    //         })
+    //     }
+    // }
 
     function kcOpen() {
         document.getElementById('kc-modal-overlay').style.display = 'flex';
@@ -103,7 +103,9 @@
         $.ajax({
             type: 'POST',
             url: '/cart/add.js',
-            data: { items: products},
+            data: {
+                items: products,
+            },
             dataType: 'json',
             success: function () {
                 const promo = new URL(window.location.href).searchParams.get("promo")
@@ -116,7 +118,7 @@
                 } else {
                     window.location.href = '/cart';
                 }
-            }
+            },
         });
     }
 
@@ -125,10 +127,30 @@
         addProductsToCart(products)
     }
     function addKcToCart() {
+        console.log({ kcFrequency })
+      
+       const sellingPlansByVariantId = {
+            // yearly
+            32194082472001: 854982721,
+      
+            // monthly
+            32283254751297: 855015489
+        }
+        const sellingPlan = sellingPlansByVariantId[kcVariantId]
+      
         let products = [
             { quantity: 1, id: window.modalProduct },
-            { quantity: 1, id: kcVariantId, properties: { shipping_interval_frequency: kcFrequency, shipping_interval_unit_type: "Months" }}
+            {
+                quantity: 1,
+                id: kcVariantId,
+                selling_plan: sellingPlan,
+                properties: {
+                  shipping_interval_frequency: kcFrequency,
+                  shipping_interval_unit_type: "Months"
+                }
+            }
         ]
+      
         addProductsToCart(products)
     }
     function addKcpToCart() {
