@@ -77,6 +77,7 @@ exports.icons = {
 exports.shadows = {
 	none: 'none',
 	nav: '0px 0px 10px rgba(0, 0, 0, 0.15)',
+	table: '0px 10px 100px 0px rgba(0,0,0,0.10);'
 }
 
 
