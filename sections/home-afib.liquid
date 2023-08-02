@@ -1,0 +1,38 @@
+<section class="page-width">
+    <div class="bg-mindful-blue-900 rounded mb-s8 md:mb-s11 p-s6 pt-s14 md:px-s11 md:py-s9 relative overflow-hidden">
+        <img src="https://cdn.shopify.com/s/files/1/0368/7037/files/detect-afib-feature-desktop_2x_d8428de1-46d4-42b5-8e42-e43f3afbf2ac.jpg?v=1690558690"
+             class="absolute inset-0 object-cover w-full h-full z-10"
+             alt="KardiaMobile in use">
+        <img src="https://cdn.shopify.com/s/files/1/0368/7037/files/detect-afib-feature-mobile_2x_d52ac791-f0a1-4f9a-867f-bcbd6739965f.jpg?v=1690558689"
+             class="md:hidden absolute inset-0 object-cover w-full h-full z-10"
+             alt="KardiaMobile in use">
+        <div class="block absolute top-0 left-0 w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-mindful-blue-800 md:from-mindful-blue-800/50 to-transparent z-20"></div>
+        <h4 class="relative faux-h2 md:text-[48px] mt-s6 text-white max-w-[295px] md:max-w-[640px] mb-s6 md:mb-s9 z-30">{{ section.settings.heading }}</h4>
+        <a href="https://store.kardia.com/products/kardiamobile-card" class="relative inline-block btn btn--lg btn--inverse z-30">{{ section.settings.button-label }}</a>
+    </div>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Home AFib",
+        "settings": [
+            {
+                "id": "heading",
+                "type": "text",
+                "label": "Heading"
+            },
+            {
+                "id": "button-label",
+                "type": "text",
+                "label": "Button Label"
+            }
+        ],
+        "presets": [
+        {
+            "name": "Home Afib",
+            "category": "Custom"
+        }
+        ]
+    }
+{% endschema %}

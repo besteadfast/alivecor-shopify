@@ -258,6 +258,7 @@
     },
     "16451441909619ef84": {
       "type": "featured-product",
+      "disabled": true,
       "blocks": {
         "16451441903511f686-0": {
           "type": "text",
@@ -341,6 +342,7 @@
     },
     "16451442507aa8905f": {
       "type": "featured-product",
+      "disabled": true,
       "blocks": {
         "1645144250219adb72-0": {
           "type": "text",
@@ -448,6 +450,7 @@
     },
     "16536006262e46746f": {
       "type": "featured-product",
+      "disabled": true,
       "blocks": {
         "16536006261dd6f93b-0": {
           "type": "text",
@@ -557,8 +560,43 @@
       "settings": {
       }
     },
+    "home-product-categories": {
+      "type": "home-product-categories",
+      "settings": {}
+    },
+    "home-devices": {
+      "type": "home-devices",
+      "settings": {
+        "heading": "Kardia Devices",
+        "product_list": [
+          "kardiamobile6l",
+          "kardiamobile-card",
+          "kardiamobile"
+        ]
+      }
+    },
+    "home-companion-devices": {
+      "type": "home-devices",
+      "settings": {
+        "heading": "Companion Devices",
+        "product_list": [
+          "steth-io-spot-device",
+          "omron-evolv"
+        ]
+      }
+    },
+    "home-accessories": {
+      "type": "home-devices",
+      "settings": {
+        "heading": "Accessories",
+        "product_list": [
+          "kardiamobile-carrypod"
+        ]
+      }
+    },
     "home-grid": {
       "type": "home-grid",
+      "disabled": true,
       "settings": {
         "product_list": [
           "kardiamobile-carrypod",
@@ -566,9 +604,22 @@
           "omron-evolv"
         ]
       }
+    },
+    "home-afib": {
+      "type": "home-afib",
+        "settings": {
+            "heading": "Detect AFib from home with KardiaMobile®.",
+            "button-label": "Learn More"
+        }
     }
   },
   "order": [
+    "home-product-categories",
+    "home-devices",
+    "home-afib",
+    "membership-section",
+    "home-companion-devices",
+    "home-accessories",
     "image_banner",
     "rich_text",
     "featured_products",
@@ -579,7 +630,6 @@
     "16451441909619ef84",
     "16451442507aa8905f",
     "16536006262e46746f",
-    "membership-section",
     "home-grid"
   ]
 }

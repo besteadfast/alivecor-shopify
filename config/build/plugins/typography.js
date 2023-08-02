@@ -20,6 +20,15 @@ const typographyElements = {
 	'list-2':         ":is(ul, ol):not(.list-none) :is(ul, ol) > li",
 	'list-3':         ":is(ul, ol):not(.list-none) :is(ul, ol) :is(ul, ol) > li",
 	'blockquote':   [ "blockquote:not([class*='faux-'])", ".faux-blockquote" ],
+	'text-btn-sm': 	[ ".text-btn-sm", ":is(button).text-btn-sm" ],
+	'text-btn-sm-caps':	[ ".text-btn-sm-caps" ],
+	'text-btn': 	[ ".text-btn" ],
+	'text-btn-caps':	[ ".text-btn-caps" ],
+	'text-btn-lg': 	[ ".text-btn-lg" ],
+	'text-btn-lg-caps':	[ ".text-btn-lg-caps" ],
+	'text-price':	[ ".text-price" ],
+	'text-price-2':	[ ".text-price-2" ],
+	'text-product': [".text-product"]
 }
 
 let ruleSetsByScreen = {};

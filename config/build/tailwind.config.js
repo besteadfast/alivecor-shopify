@@ -44,7 +44,7 @@ module.exports = {
 		},
 		screens: {
 			...generateScreens({
-				tiny:  375,
+				tiny:  376,
 				xs:    560,
 				sm:    640,
 				md:    768,
@@ -84,6 +84,9 @@ module.exports = {
 			'5':  '.05em',
 			'10':  '.1em',
 			'20': '.20em',
+			'15r': '.15rem',
+			'175r': '.175rem',
+			'225r': '.225rem',
 		},
 		dropShadow: {
 			...shadows,
@@ -119,7 +122,6 @@ module.exports = {
 	corePlugins: {
 		container:false,
 	},
-	content: ["./**/*.liquid"],
 	plugins: [
 		require('tw-elements/dist/plugin'),
 		hoverFocusPlugin,

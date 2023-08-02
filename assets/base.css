@@ -470,6 +470,12 @@ h6,
   margin-block-end: 1.67em;
 }
 
+.outofstock{
+  font-weight: bold;
+  color: #CF1F1F;
+  text-align: center;
+}
+
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);

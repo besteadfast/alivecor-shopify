@@ -1,0 +1,137 @@
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% comment %}
+  Check if the product is sold out and set a variable to be used below.
+{% endcomment %}
+{% assign sold_out = true %}
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% comment %}
+  Check tags
+{% endcomment %}
+{% assign lateship = false %}
+  {% for tag in product.tags %}
+    {% if tag == 'lateship' %}
+      {% assign lateship = true %}
+    {% endif %}
+  {% endfor%}
+
+
+{% style %}
+    @media(max-width:767px){
+        .product-card-rating{
+            transform: scale(0.75);
+            transform-origin: left;
+        }
+    }
+
+{%endstyle%}
+
+
+
+<div class="relative bg-gradient-to-b from-mindful-blue-50 to-white flex flex-col justify-between pt-s6">
+    {% if on_sale %}
+        <div class="absolute top-0 flex items-center justify-center w-full h-s6 bg-secondary-600">
+            <span class="text-btn-sm-caps text-white">
+                Sale
+            </span>
+        </div>
+    {% endif %}
+    <div class="mt-s3 md:pt-s6">
+        <div class="px-s3 md:px-s8">
+            <p class="block faux-h6 text-black-500 !tracking-[2px] mb-s3 md:mb-s5">{{ product.metafields.product.quick_description }}</p>
+            <a href="{{ product.url | within: collection }}" class="block text-product text-mindful-blue-500 hover:text-mindful-blue-800 md:mb-s2">{{ product.title }}</a>
+
+            {% comment %} Rating {% endcomment %}
+            <div class="product-card-rating" data-bv-show="inline_rating"  data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
+
+            {% comment %} Price {% endcomment %}
+            <div class="mt-s2 flex flex-col md:flex-row space-y-s2 md:space-y-0 md:mt-s2 md:space-x-s2">
+                    <span class="block whitespace-nowrap text-price text-mindful-blue-800">
+                      {{ product.price | money }}
+                    </span>
+
+                    {% if on_sale and product.handle != 'kardiacare' %}
+                        <span class="block whitespace-nowrap text-price line-through text-mindful-blue-800 opacity-75">
+                            {{ product.compare_at_price | money }}
+                        </span>
+                    {% endif %}
+            </div>
+        </div>
+        <div class="md:px-s8">
+            <img src="{{ product.metafields.product.card_image.value | default: product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </div>
+
+    </div>
+
+
+
+
+    <div class="md:px-s8">
+        {% if product.handle contains 'steth' %}
+            <a class="mb-[50px] w-full btn btn--sm" href="https://store.kardia.com/products/steth-io-spot-device">
+                <span id="AddToCartText" class="whitespace-nowrap">
+                Learn More
+                </span>
+            </a>
+        {% else %}
+        <form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" id="{{product.id}}AddToCartForm" class="AddToCartForm">
+            {% comment %}
+              for only one variant, need to choose the id to add to cart
+            {% endcomment %}
+            <div class="variant-placeholder {{product.handle}}"></div>
+            {% for variant in product.variants %}
+                <input type="hidden"
+                       id="{{variant.id}}"
+                       name="id"
+                       data-sku="{{variant.sku}}"
+                       value="{{variant.id}}"
+                       class="variant-input"
+                       data-index="{{forloop.index0}}"
+                       data-productid="{{product.id}}"
+                        {% if forloop.first == true %}
+                            checked="true"
+                        {% endif %}
+                >
+            {% endfor %}
+
+            {% comment %}
+              Note: forcing the quantities to be hidden
+            {% endcomment %}
+            <div class="visually-hidden">
+                <label for="{{product.id}}Quantity">Quantity</label>
+                <input type="number" id="{{product.id}}Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+            </div>
+
+            <div class="">
+                <button type="submit" name="add" id="{{product.id}}" class="w-full btn btn--sm" {% if sold_out %}disabled{% endif %}>
+                  <span id="AddToCartText" class="whitespace-nowrap">
+                  {% if sold_out %}
+                      {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                  {% endif %}
+                  </span>
+                </button>
+            </div>
+        </form>
+        <a href="{% if product.handle =='kardiacare-monthly' %}/products/kardiacare{% else %}{{ product.url }}{% endif %}" class="h-[40px] lg:h-[50px] text-mindful-blue-500 hover:text-mindful-blue-800 flex justify-center items-center space-x-s3">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 8.25022L9 12.7502M17.25 9.00022C17.25 13.5566 13.5563 17.2502 9 17.2502C4.44365 17.2502 0.749998 13.5566 0.749999 9.00021C0.749999 4.44386 4.44365 0.750214 9 0.750215C13.5563 0.750216 17.25 4.44387 17.25 9.00022Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square"/>
+                <path d="M9 6.00021C9.41421 6.00021 9.75 5.66443 9.75 5.25021C9.75 4.836 9.41421 4.50021 9 4.50021C8.58579 4.50021 8.25 4.836 8.25 5.25021C8.25 5.66443 8.58579 6.00021 9 6.00021Z" fill="currentColor"/>
+            </svg>
+            <span class="text-btn-sm-caps lg:text-btn-caps">Learn More</span>
+        </a>
+        {% endif %}
+    </div>
+
+</div>

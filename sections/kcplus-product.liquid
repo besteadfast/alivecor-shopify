@@ -82,7 +82,10 @@
                 <p class="text-kc-800 text-center md:text-left">Take a comprehensive approach to monitoring your heart health with KardiaCare Plus. Track EKGs, blood pressure, and more to identify health trends over time, help reduce your risk of stroke, and help prevent heart disease.</p>
                 <p class="text-kc-800 text-center md:text-left">Become a member today.</p>
                 <div class="flex justify-center md:justify-start">
+                    {% comment %}
                     <button onclick="kcpAddToCart()" class="bg-kc-500 text-white rounded btn" aria-expanded="false">Buy Now</button>
+                    {% endcomment %}
+                    <p class="outofstock">OUT OF STOCK</p>
                 </div>
             </div>
         </div>
@@ -121,7 +124,10 @@
                 <div x-data="{tableData, tableHTML}" x-html="tableHTML" class="product-grid grid grid-cols-2 lg:grid-cols-4 !gap-0 items-start text-center"></div>
             </div>
             <div class="flex flex-col items-center justify-center">
+                {% comment %}
                 <button onclick="kcpAddToCart()" class="bg-kc-500 text-white rounded btn" aria-expanded="false">Buy Now</button>
+                {% endcomment %}
+                <p class="outofstock">OUT OF STOCK</p>
                 <a href="https://store.kardia.com/products/kardiacare" class="faux-p-sm text-kc-800 mt-s8">See All KardiaCare Plans</a>
             </div>
             <p class="faux-p-xs mx-s5 lg:mx-s0 mb-s1 mt-s10 text-black-400 italic">* A one-time gift with purchase for new subscribers only.</p>
