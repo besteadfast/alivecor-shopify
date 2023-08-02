@@ -1042,6 +1042,53 @@ function kcpAddToCart() {
     });
 }
 
+function newKCPbundleAdd() {
+    // Create an array with three product objects, each containing the required data
+    const productsToAdd = [
+      {
+        quantity: 1,
+        id: 6914794356801,
+        properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }
+      },
+      {
+        quantity: 1,
+        id: 4430033715265,
+      },
+      {
+        quantity: 1,
+        id: 3500363841601,
+      },
+    ];
+
+    // Loop through the array and add each product to the cart
+    productsToAdd.forEach(product => {
+        $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: product,
+            dataType: 'json',
+            success: function () {
+                const promo = new URL(window.location.href).searchParams.get("promo");
+                if (promo) {
+                    if (promo == "freegift") {
+                        return;
+                    } else {
+                        window.location.href = `/cart?promo=${promo}`;
+                    }
+                } else {
+                    window.location.href = '/cart';
+                }
+            },
+            error: function (error) {
+                console.error('Failed to add product to cart:', error);
+                // Handle the error and show an appropriate message to the user
+            }
+        });
+    });
+}
+
+
+
 function addToCartKardiaCare6lBundleEmailPromo(event, form) {
     var event = event || window.event;
     event.preventDefault();
