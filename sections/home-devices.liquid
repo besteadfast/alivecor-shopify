@@ -1,0 +1,40 @@
+<section class="page-width" id="{{ section.settings.heading |  remove: " " }}">
+    <h2 class="flex items-center after:border after:border-mindful-blue-75 after:w-full">
+        <span class="whitespace-nowrap pr-s8">{{ section.settings.heading }}</span>
+    </h2>
+    <div class="py-s8 md:py-s11 grid grid-cols-1 tiny:grid-cols-2 md:grid-cols-3 gap-s4 md:gap-s6">
+        {%- assign products = section.settings.product_list -%}
+        {% for product in products %}
+            {%- comment %}<locksmith:d275>{% endcomment -%}
+              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+            {%- comment %}</locksmith:d275>{% endcomment -%}
+            {% assign product_collection = product.collections | map: 'handle' | join: ' ' %}
+            {% include 'product-card' %}
+        {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Home Devices",
+        "settings": [
+            {
+                "id": "heading",
+                "type": "text",
+                "label": "Heading"
+            },
+            {
+                "id": "product_list",
+                "type": "product_list",
+                "label": "Products",
+                "limit": 4
+            }
+        ],
+        "presets": [
+        {
+            "name": "Home Devices",
+            "category": "Custom"
+        }
+        ]
+    }
+{% endschema %}
