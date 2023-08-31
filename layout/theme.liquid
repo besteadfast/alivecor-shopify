@@ -110,6 +110,18 @@
       {% include 'LittledataLayer' %}
     <!-- End of Littledata - Fix Google Analytics Script -->
 
+    <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+    <script>
+      analytics.subscribe("checkout_completed", event => {
+        console.log("checkout completed");
+        if (typeof TTDUniversalPixelApi === 'function') {
+          var universalPixelApi = new TTDUniversalPixelApi();
+          universalPixelApi.init("quo2ou5", ["1oupr87"], "https://insight.adsrvr.org/track/up");
+        }
+      });
+    </script>
+    
+
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'

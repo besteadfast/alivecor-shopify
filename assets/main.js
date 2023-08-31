@@ -1042,49 +1042,56 @@ function kcpAddToCart() {
     });
 }
 
-function newKCPbundleAdd() {
-    // Create an array with three product objects, each containing the required data
-    const productsToAdd = [
-      {
-        quantity: 1,
-        id: 6914794356801,
-        properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }
-      },
-      {
-        quantity: 1,
-        id: 4430033715265,
-      },
-      {
-        quantity: 1,
-        id: 3500363841601,
-      },
-    ];
+function kcpAddToCartWorkaround(sellingPlan) {
+  
+  const productsToAdd = [
+    {
+      quantity: 1,
+      id: 40286929289281,
+      selling_plan: sellingPlan,
+      properties: { shipping_interval_frequency: 12, shipping_interval_unit_type: "Months" }
+    }, 
+    {
+      quantity: 1,
+      id: 28007532101697,
+    },
+    {
+      quantity: 1,
+      id: 31667890454593,
+    },
+  ];
 
-    // Loop through the array and add each product to the cart
-    productsToAdd.forEach(product => {
-        $.ajax({
-            type: 'POST',
-            url: '/cart/add.js',
-            data: product,
-            dataType: 'json',
-            success: function () {
-                const promo = new URL(window.location.href).searchParams.get("promo");
-                if (promo) {
-                    if (promo == "freegift") {
-                        return;
-                    } else {
-                        window.location.href = `/cart?promo=${promo}`;
-                    }
-                } else {
-                    window.location.href = '/cart';
-                }
-            },
-            error: function (error) {
-                console.error('Failed to add product to cart:', error);
-                // Handle the error and show an appropriate message to the user
-            }
-        });
+  // Function to add a single product to the cart
+  function addProductToCart(product) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: product,
+        dataType: 'json',
+        success: resolve,
+        error: reject
+      });
     });
+  }
+
+  // Function to add all products to the cart one by one in sequence
+  async function addProductsSequentially() {
+    for (const product of productsToAdd) {
+      try {
+        await addProductToCart(product);
+      } catch (error) {
+        console.error('Failed to add product to cart:', error);
+        // Handle the error and show an appropriate message to the user
+        return;
+      }
+    }
+    // All products added successfully, redirect to the cart
+    window.location.href = '/cart';
+  }
+
+  // Start adding products sequentially
+  addProductsSequentially();
 }
 
 

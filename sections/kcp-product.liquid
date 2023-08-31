@@ -90,8 +90,10 @@
     <div class="lg:col-span-2 shadow-table-left lg:shadow-none !block"></div>
         <div class="!block"></div>
             <div onclick="kardiaCareCartAdd(kcVariantId, kcFrequency, 'Months')" class="p-s4 text-kc-800 faux-h6"><button class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
-                <div class="p-s4 text-kc-800 faux-h6"><p>Sold Out</p></div>
-                {% comment %}<button onclick="kcpAddToCart()" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Selet Plan</button></div> {% endcomment %}
+            {% assign product_id_to_search = 6914794356801 | times: 1 %}
+            {% assign products_obj_to_return = collections.all.products | where: 'id', product_id_to_search %}
+            {% assign product_plan_id = products_obj_to_return[0] %}
+            <div><button onclick="kcpAddToCartWorkaround({{product_plan_id.selling_plan_groups[0].selling_plans[0].id}})" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold">Select Plan</button></div>
     `
 
     tableHTML += tableData.sections.map((section, index) => `
