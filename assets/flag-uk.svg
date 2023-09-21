@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.8.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1"
+	 id="svg2" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 500"
+	 style="enable-background:new 0 0 800 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#000066;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#CC0000;}
+</style>
+<rect id="rect124" class="st0" width="800" height="500"/>
+<polygon class="st1" points="800,393.4 679.6,333.3 800,333.3 800,166.7 679.6,166.7 800,106.6 800,0 788.3,0 483.3,152.2 483.3,0 
+	316.7,0 316.7,152.2 11.7,0 0,0 0,106.6 120.4,166.7 0,166.7 0,333.3 120.4,333.3 0,393.4 0,500 11.7,500 316.7,347.8 316.7,500 
+	483.3,500 483.3,347.8 788.3,500 800,500 "/>
+<g>
+	<polygon class="st2" points="800,50 800,12.5 491.7,166.7 566.7,166.7 	"/>
+	<polygon class="st2" points="0,450 0,487.5 308.3,333.3 233.3,333.3 	"/>
+	<polygon class="st2" points="233.3,166.7 0,50 0,87 158.3,166.7 	"/>
+	<polygon class="st2" points="800,200 450,200 450,0 350,0 350,200 0,200 0,300 350,300 350,500 450,500 450,300 800,300 	"/>
+	<polygon class="st2" points="800,413 641.7,333.3 566.7,333.3 800,450 	"/>
+</g>
+</svg>

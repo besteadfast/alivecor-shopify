@@ -1,0 +1,101 @@
+{% style %}
+  .customGradient {
+    background: linear-gradient(to bottom, #6B4E89, white);
+  }
+  .rechargePageWidth {
+    min-width: auto;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .kardiacarePlan {
+    width: 300px;
+  }
+
+  .kardiacarePlanLeft {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  label {
+    background-color: white;
+  }
+{% endstyle %}
+
+{% include 'domainDetect' %}
+{% if siteDomain == "gb" %}
+  {% assign kmYearlyPrice = "£81.00" %}
+  {% assign kmMonthlyPrice = "£9.00" %}
+  {% assign currentCountry = "United Kingdom" %}
+  {% assign flagName = "flag-uk.svg" %}
+{% elsif siteDomain == "ca" %}
+  {% assign kmYearlyPrice = "$135.00" %}
+  {% assign kmMonthlyPrice = "$14.00" %}
+  {% assign currentCountry = "Canada" %}
+  {% assign flagName = "flag-canada.svg" %}
+{% elsif siteDomain == "au" %}
+  {% assign kmYearlyPrice = "$156.00" %}
+  {% assign kmMonthlyPrice = "$16.00" %}
+  {% assign currentCountry = "Australia" %}
+  {% assign flagName = "flag-australia.svg" %}
+{% else %}
+  {% assign kmYearlyPrice = "$99.99" %}
+  {% assign kmMonthlyPrice = "$9.99" %}
+  {% assign currentCountry = "Australia" %}
+  {% assign flagName = "flag-australia.svg" %}
+{% endif %}
+
+<section class="w-full flex items-center customGradient py-s10">
+  <div class="grid grid-cols-2 gap-s4 rechargePageWidth">
+    <img src="{{ 'kardiacare-featured-opaque.png' | asset_url }}" class="col-start-1 col-span-1 w-full" />
+    <div class="flex flex-col  w-full h-full justify-between pt-s4">
+      <div>
+        <h1 class="mt-s0 text-white">KardiaCare</h1>
+        <h2 class="mt-s8 text-white">Acheive your heart health goals</h2>
+      </div>
+
+      <div class="flex flex-col gap-s6 pb-s10">
+        <div class="flex gap-s4">
+          <h3 class="faux-h1 text-kc-800" id="kcPrice">{{ kmYearlyPrice }}</h3>
+          <div class="flex flex-col">
+            <p class="font-bold text-kc-800">Per</p>
+            <p class="font-bold mt-s1 text-kc-800">Month</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-s5 kardiacarePlan">
+          <div class="flex mt-s6">
+            <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanLeft" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kcPrice').innerHTML='{{ kmYearlyPrice }}'">
+              <input
+                type="radio"
+                name="kc-interval"
+                value="year"
+                class="mr-s1 hidden peer"
+                checked />
+              <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+
+              <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
+            </label>
+            <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanRight" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kcPrice').innerHTML='{{ kmMonthlyPrice }}'">
+              <input
+                type="radio"
+                name="kc-interval"
+                value="month"
+                class="mr-s1 hidden peer" />
+              <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+
+              <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
+            </label>
+          </div>
+
+          <button onclick="kardiaCareCartAddRecharge(kcVariantId, kcFrequency, 'Months', 'en-{{ siteDomain }}')" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold" aria-expanded="false">Select Plan</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    let kcVariantId = 32194082472001;
+    let kcFrequency = 12;
+  </script>
+</section>

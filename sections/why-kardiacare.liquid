@@ -1,0 +1,30 @@
+<h3 class="col-span-1 row-start-1 mt-0">{{ section.settings.header }}</h3>
+<p class="col-span-3 row-start-1 mt-0">{{ section.settings.text }}</p>
+
+{% style %}
+  .centerDiv {
+    padding: 40px 24px 32px;
+    max-width: 1160px;
+    min-width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "FourColumn",
+    "class": "grid grid-cols-4 centerDiv",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }, {
+        "type": "text",
+        "id": "text",
+        "label": "Description"
+      }
+    ]
+  }
+{% endschema %}

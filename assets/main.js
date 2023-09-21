@@ -1014,6 +1014,48 @@ function kardiaCareCartAdd(kardiacare_id, frequency, unit) {
     });
 }
 
+function kardiaCareCartAddRecharge(kardiacare_id, frequency, unit, local) {
+    console.log(local);
+    const sellingPlansByVariantId = {
+      // yearly
+      32194082472001: 854982721,
+
+      // monthly
+      32283254751297: 855015489
+    }
+
+    const sellingPlan = sellingPlansByVariantId[kardiacare_id]
+
+    console.log({ sellingPlan })
+  
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+            'quantity': 1,
+            'id': kardiacare_id,
+            "selling_plan": sellingPlan,
+            "properties": {
+                "shipping_interval_frequency": frequency,
+                "shipping_interval_unit_type": unit
+            }
+        },
+        dataType: 'json',
+        success: function () {
+            const promo = new URL(window.location.href).searchParams.get("promo")
+            if (promo) {
+                if (promo == "freegift") {
+                    return
+                } else {
+                    window.location.href = `/cart?promo=${promo}`
+                }
+            } else {
+                window.location.href = '/' + local + '/cart';;
+            }
+        }
+    });
+}
+
 function kcpAddToCart() {
     const sellingPlan = 855048257
     

@@ -1,0 +1,15 @@
+{% assign urlSegments = request.path | split: '/' %}
+{% assign siteDomain = "US" %}
+
+{% for segment in urlSegments %}
+  {% if segment == 'en-gb' %}
+    {% assign siteDomain = "gb" %}
+    {% break %} {# Stop the loop when a match is found. #}
+  {% elsif segment == 'en-ca' %}
+    {% assign siteDomain = "ca" %}
+    {% break %}
+  {% elsif segment == 'en-au' %}
+    {% assign siteDomain = "au" %}
+    {% break %}
+  {% endif %}
+{% endfor %}

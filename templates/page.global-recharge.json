@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "global-recharge-page",
+      "settings": {
+      }
+    },
+    "why-kardiacare": {
+      "type": "why-kardiacare",
+      "settings": {
+        "header": "Why KardiaCare?",
+        "text": "The more you know about your heart, the more likely you'll be to reach your heart health goals. Become a KardiaCare member and accurately track your heart metrics, identify trends over time, and learn more about your heart. Get KardiaCare today."
+      }
+    },
+    "kardiacare-benefits-table": {
+      "type": "kardiacare-benefits-table",
+      "settings": {
+      }
+    },
+    "nav": {
+      "type": "global-recharge-nav",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "nav",
+    "main",
+    "why-kardiacare",
+    "kardiacare-benefits-table"
+  ]
+}
