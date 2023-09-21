@@ -395,7 +395,7 @@
               <span id="ProductPrice" class="h2Price noFloat {% if product.compare_at_price %} text-primary-500 {% endif %}">
                 $<span id="kc-card-price">{{ product.price | money_without_currency }}</span>
               </span>{% if product.compare_at_price %}<span class="line-through old-price totalBundlePrice">${{ product.compare_at_price | money_without_currency }}</span>{% endif %}
-              <p class="faux-p-xs mt-s3" style="color:rgba(var(--color-foreground),.7);">FREE month of KardiaCare included in box.</p>
+              {% comment %}<p class="faux-p-xs mt-s3" style="color:rgba(var(--color-foreground),.7);">FREE month of KardiaCare included in box.</p> {% endcomment %}
             </div>
             {% comment %}
             <div class="font-dm !mb-0" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

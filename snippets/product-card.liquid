@@ -55,7 +55,8 @@
             <div class="product-card-rating" data-bv-show="inline_rating"  data-bv-seo="false" data-bv-product-Id="{{product.id}}" data-bv-redirect-url="{{ product.url }}/#reviews"></div>
 
             {% comment %} Price {% endcomment %}
-            <div class="mt-s2 flex flex-col md:flex-row space-y-s2 md:space-y-0 md:mt-s2 md:space-x-s2">
+            <div class="mt-s2 flex flex-wrap space-y-s2">
+                <div class="flex flex-col md:flex-row space-y-s2 md:space-y-0 md:mt-s2 md:space-x-s2">
                     <span class="block whitespace-nowrap text-price text-mindful-blue-800">
                       {{ product.price | money }}
                     </span>
@@ -65,6 +66,14 @@
                             {{ product.compare_at_price | money }}
                         </span>
                     {% endif %}
+                </div>
+                {% comment %} Temporary double price slash {% endcomment %}
+                {% if product.handle == 'kardiamobile6l' %}
+                    
+                    <p class="text-black opacity-100 font-bold faux-p-xs">
+                        $109.00 with code AFIBMONTH
+                    </p>
+                {% endif %}
             </div>
         </div>
         <div class="md:px-s8">
