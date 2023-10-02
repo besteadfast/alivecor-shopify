@@ -12,13 +12,72 @@
     width: 300px;
   }
 
-  .kardiacarePlanLeft {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-  }
-
   label {
     background-color: white;
+  }
+
+  .rechargeCoverImage {
+    grid-column: 1 /span 1;
+    grid-row: 1 /span 2;
+  }
+
+  .rechargeHeroContent {
+    grid-column: 2 /span 1;
+    grid-row: 1 /span 1;
+  }
+
+  #rechargePageGradient {
+    padding-top: 32px;
+  }
+
+  #rechargePriceSection {
+    grid-column: 2 /span 1;
+    grid-row: 2 /span 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  @media screen and (max-width: 1000px) {
+    #kch2 {
+      font-size: 1em;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    #kch1,
+    #kch2 {
+      width: 100%;
+      text-align: center;
+    }
+
+    #rechargePriceSection {
+      align-items: center;
+      justify-content: center;
+      grid-column: 1 /span 2;
+      grid-row: 3 /span 1;
+    }
+
+    .kcPricingContainer {
+      margin-top: 32px;
+      color: white;
+    }
+
+    #rechargePageGradient {
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 24px;
+    }
+    .rechargeCoverImage {
+      grid-column: 1 /span 2;
+      grid-row: 2 / span 1;
+    }
+
+    .rechargeHeroContent {
+      grid-column: 1 /span 2;
+      grid-row: 1 / span 1;
+    }
   }
 {% endstyle %}
 
@@ -26,72 +85,77 @@
 {% if siteDomain == "gb" %}
   {% assign kmYearlyPrice = "£81.00" %}
   {% assign kmMonthlyPrice = "£9.00" %}
-  {% assign currentCountry = "United Kingdom" %}
-  {% assign flagName = "flag-uk.svg" %}
 {% elsif siteDomain == "ca" %}
   {% assign kmYearlyPrice = "$135.00" %}
   {% assign kmMonthlyPrice = "$14.00" %}
-  {% assign currentCountry = "Canada" %}
-  {% assign flagName = "flag-canada.svg" %}
 {% elsif siteDomain == "au" %}
   {% assign kmYearlyPrice = "$156.00" %}
   {% assign kmMonthlyPrice = "$16.00" %}
-  {% assign currentCountry = "Australia" %}
-  {% assign flagName = "flag-australia.svg" %}
 {% else %}
   {% assign kmYearlyPrice = "$99.99" %}
   {% assign kmMonthlyPrice = "$9.99" %}
-  {% assign currentCountry = "Australia" %}
-  {% assign flagName = "flag-australia.svg" %}
 {% endif %}
 
-<section class="w-full flex items-center customGradient py-s10">
+{% for product in collections.all.products %}
+  {% if product.id == 6776608489575 %}
+    {% assign monthlySubscription = product %}
+  {% elsif product.id == 6776608424039 %}
+    {% assign yearlySubscription = product %}
+  {% endif %}
+{% endfor %}
+
+<section id="rechargePageGradient" class="w-full flex items-center customGradient mb-s8">
   <div class="grid grid-cols-2 gap-s4 rechargePageWidth">
-    <img src="{{ 'kardiacare-featured-opaque.png' | asset_url }}" class="col-start-1 col-span-1 w-full" />
-    <div class="flex flex-col  w-full h-full justify-between pt-s4">
+    <img
+      class="rechargeCoverImage"
+      src="{{ 'kardiacare-featured-opaque.png' | asset_url }}"
+      class="col-start-1 col-span-1 w-full" />
+    <div class="rechargeHeroContent flex flex-col w-full h-full justify-between pt-s4">
       <div>
-        <h1 class="mt-s0 text-white">KardiaCare</h1>
-        <h2 class="mt-s8 text-white">Acheive your heart health goals</h2>
+        <h1 id="kch1" class="mt-s0 text-white">KardiaCare</h1>
+        <h2 id="kch2" class="mt-s6 text-white">Acheive your heart health goals</h2>
       </div>
+    </div>
 
-      <div class="flex flex-col gap-s6 pb-s10">
-        <div class="flex gap-s4">
-          <h3 class="faux-h1 text-kc-800" id="kcPrice">{{ kmYearlyPrice }}</h3>
-          <div class="flex flex-col">
-            <p class="font-bold text-kc-800">Per</p>
-            <p class="font-bold mt-s1 text-kc-800">Month</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-s5 kardiacarePlan">
-          <div class="flex mt-s6">
-            <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanLeft" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kcPrice').innerHTML='{{ kmYearlyPrice }}'">
-              <input
-                type="radio"
-                name="kc-interval"
-                value="year"
-                class="mr-s1 hidden peer"
-                checked />
-              <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
-
-              <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
-            </label>
-            <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanRight" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kcPrice').innerHTML='{{ kmMonthlyPrice }}'">
-              <input
-                type="radio"
-                name="kc-interval"
-                value="month"
-                class="mr-s1 hidden peer" />
-              <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
-
-              <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
-            </label>
-          </div>
-
-          <button onclick="kardiaCareCartAddRecharge(kcVariantId, kcFrequency, 'Months', 'en-{{ siteDomain }}')" class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold" aria-expanded="false">Select Plan</button>
+    <div id="rechargePriceSection" class="gap-s4 pb-s5 sm:pb-0">
+      <div class="flex gap-s4 kcPricingContainer">
+        <h3 class="faux-h1 text-kc-800" id="kcPrice">{{ kmYearlyPrice }}</h3>
+        <div class="flex flex-col">
+          <p id="kmPerUnit" class="font-bold text-kc-800">Per</p>
+          <p id="kmFrequency" class="font-bold mt-s1 text-kc-800">Year</p>
         </div>
       </div>
 
+      <div class="flex flex-col gap-s5 kardiacarePlan">
+        <div class="flex mt-s4">
+          <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanLeft" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kmFrequency').innerHTML='year'; document.getElementById('kcPrice').innerHTML='{{ kmYearlyPrice }}'">
+            <input
+              type="radio"
+              name="kc-interval"
+              value="year"
+              class="mr-s1 hidden peer"
+              checked />
+            <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+
+            <span class="peer-checked:text-white z-10 font-bold">Yearly</span>
+          </label>
+          <label class="p-s2 justify-center !m-0 faux-h6 flex relative cursor-pointer w-1/2 kardiacarePlanRight" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kmFrequency').innerHTML='month'; document.getElementById('kcPrice').innerHTML='{{ kmMonthlyPrice }}'">
+            <input
+              type="radio"
+              name="kc-interval"
+              value="month"
+              class="mr-s1 hidden peer" />
+            <span class="absolute w-full h-full inset-0 peer-checked:bg-kc-500 !block z-10"></span>
+
+            <span class="peer-checked:text-white z-10 font-bold">Monthly</span>
+          </label>
+        </div>
+
+        <button
+          onclick="kardiaCareCartAddRecharge(kcVariantId, kcFrequency, 'Months', 'en-{{ siteDomain }}')"
+          class="rounded-[8px] p-s3 btn text-white faux-h6 bg-kc-800 text-[.75rem] lg:faux-h6 font-bold"
+          aria-expanded="false">Select Plan</button>
+      </div>
     </div>
   </div>
   <script>

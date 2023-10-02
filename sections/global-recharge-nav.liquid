@@ -1,11 +1,18 @@
 {% style %}
   .country-dropdown {
     position: relative;
+    left: 0;
+  }
+
+  .country-dropdown-mobile {
+    display: none;
+    position: relative;
+    width: 100%;
   }
 
   .selected-country-option {
     display: flex;
-    gap: 4px;
+    gap: 8px;
     align-items: center;
     padding: 4px;
     border: 1px solid #ccc;
@@ -15,12 +22,20 @@
   }
 
   .country-options {
+    background-color: #fff;
+  }
+
+  .country-options-mobile {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .country-options,
+  .country-options-mobile {
     display: none;
     position: absolute;
     top: 100%;
     left: -18px;
     width: 100%;
-    background-color: #fff;
     border: 1px solid #ccc;
     border-top: none;
     list-style: none;
@@ -29,19 +44,27 @@
     margin-right: 0;
   }
 
-  .country-options li {
+  .country-options li,
+  .country-options-mobile li {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .country-options li a {
+  .country-options li a,
+  .country-options-mobile li a {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .country-options li img,
+  .country-options li a p,
+  .country-options-mobile li a p {
+    style: none;
+    color: black;
+  }
+
+  .country-options li a img,
   .selected-country-option img {
     position: relative;
     height: 18px;
@@ -62,11 +85,11 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 8px 32px;
+    padding: 16px 32px;
   }
 
   .show-options {
-    display: block; /* Add this rule to show the options when needed */
+    display: block;
     margin: 0;
   }
 
@@ -80,30 +103,48 @@
   #shopify-section-kardia-header {
     display: none;
   }
+
+  @media screen and (max-width: 800px) {
+
+    .selected-country-option img {
+      position: relative;
+      height: 24px;
+      width: auto;
+    }
+    .selected-country-option p {
+      display: none;
+    }
+    .selected-country-option {
+      width: auto;
+      padding: 4px;
+      border-radius: 0;
+      border: 0;
+    }
+
+    .country-dropdown-mobile {
+      display: block;
+    }
+
+    .country-dropdown ul {
+      display: none;
+    }
+  }
 {% endstyle %}
 
 {% include 'domainDetect' %}
 
 {% if siteDomain == "gb" %}
-  {% assign kmYearlyPrice = "£81.00" %}
-  {% assign kmMonthlyPrice = "£9.00" %}
   {% assign currentCountry = "United Kingdom" %}
   {% assign flagName = "flag-uk.svg" %}
 {% elsif siteDomain == "ca" %}
-  {% assign kmYearlyPrice = "$135.00" %}
-  {% assign kmMonthlyPrice = "$14.00" %}
   {% assign currentCountry = "Canada" %}
   {% assign flagName = "flag-canada.svg" %}
 {% elsif siteDomain == "ay" %}
-  {% assign kmYearlyPrice = "$156.00" %}
-  {% assign kmMonthlyPrice = "$16.00" %}
   {% assign currentCountry = "Australia" %}
   {% assign flagName = "flag-australia.svg" %}
 {% else %}
-  {% assign kmYearlyPrice = "$99.99" %}
-  {% assign kmMonthlyPrice = "$9.99" %}
-  {% assign currentCountry = "Australia" %}
-  {% assign flagName = "flag-australia.svg" %}
+  {% assign currentCountry = "America" %}
+  {% assign flagName = "flag-america.svg" %}
 {% endif %}
 
 <div id="country-selector-holder-wrapper">
@@ -115,36 +156,29 @@
         <p>{{ currentCountry }}</p>
       </div>
       <ul class="country-options">
-        <li data-value="au">
-          <a href="https://store.kardia.com/en-au/pages/globalrechargetest">
-            <img src="{{ 'flag-australia.svg'| asset_url }}" />
-            <p>Australia</p>
-          </a>
-        </li>
-        <li data-value="ca">
-          <a href="https://store.kardia.com/en-ca/pages/globalrechargetest">
-            <img src="{{ 'flag-canada.svg'| asset_url }}" />
-            <p>Canada</p>
-          </a>
-        </li>
-        <li data-value="gb" class="pb-s3">
-          <a href="https://store.kardia.com/en-gb/pages/globalrechargetest">
-            <img src="{{ 'flag-uk.svg'| asset_url }}" />
-            <p>United Kingdom</p>
-          </a>
-        </li>
+        {% include 'country-dropdowns' %}
       </ul>
     </div>
   </div>
 </div>
+<div class="country-dropdown-mobile px-s5">
+  <ul class="country-options-mobile px-s5">
+    {% include 'country-dropdowns' %}
+  </ul>
+</div>
 
 <script>
   const customDropdown = document.querySelector(".country-dropdown");
+  const mobileDropdown = document.querySelector(".country-dropdown-mobile"); // Change the selector
   const selectedOption = customDropdown.querySelector(".selected-country-option");
   const optionsList = customDropdown.querySelector(".country-options");
+  const optionsListMobile = mobileDropdown.querySelector(".country-options-mobile"); // Change the selector
+
   selectedOption.addEventListener("click", () => {
     optionsList.classList.toggle("show-options");
+    optionsListMobile.classList.toggle("show-options");
   });
+
   optionsList.addEventListener("click", (e) => {
     if (e.target.tagName === "LI") {
       const selectedValue = e.target.getAttribute("data-value");
@@ -152,6 +186,7 @@
       const selectedFlag = e.target.querySelector("img").src;
       selectedOption.innerHTML = `<img src="${selectedFlag}" alt="${selectedValue} Flag">${selectedText}`;
       optionsList.classList.remove("show-options");
+
 // Use the selectedValue for further processing
       console.log("Selected Value:", selectedValue);
     }
