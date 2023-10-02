@@ -3,7 +3,7 @@
   Check if the product is on sale and set a variable to be used below.
 {% endcomment %}
 {% assign on_sale = false %}
-{% if product.compare_at_price > product.price %}
+{% if product.compare_at_price > product.price or product.handle == 'kardiamobile' %}
   {% assign on_sale = true %}
 {% endif %}
 
@@ -69,9 +69,13 @@
                 </div>
                 {% comment %} Temporary double price slash {% endcomment %}
                 {% if product.handle == 'kardiamobile6l' %}
-                    
                     <p class="text-black opacity-100 font-bold faux-p-xs">
                         $109.00 with code AFIBMONTH
+                    </p>
+                {% elsif product.handle == 'kardiamobile' %}
+              
+                    <p style="width: 100%" class="text-black opacity-100 font-bold faux-p-xs whitespace-pre">
+                        $74.00 with code FALL5
                     </p>
                 {% endif %}
             </div>
