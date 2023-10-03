@@ -16,15 +16,9 @@
       "type": "kardiacare-benefits-table",
       "settings": {
       }
-    },
-    "nav": {
-      "type": "global-recharge-nav",
-      "settings": {
-      }
     }
   },
   "order": [
-    "nav",
     "main",
     "why-kardiacare",
     "kardiacare-benefits-table"

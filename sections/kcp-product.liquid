@@ -6,6 +6,87 @@
     let kcFrequency = 12
     let kcVariantId = 32194082472001
 
+    //let basicFeatures = {
+    //    "Unlimited EKGs": "test",
+    //    "EKG storage on your phone": "test",
+    //    "Weight and blood pressure monitoring": "test",
+    //    "Arrhythmia Determinations: 3 Detections": "test",
+    //}
+
+    //let basicFeaturesHtml = Object.keys(basicFeatures).map((key, index) => `<p>${key}</p>`).join();
+
+    //window.onload = () => {
+    //    console.log
+    //    document.querySelector('#basicFeatures').innerHtml = basicFeaturesHtml;
+    //}
+
+    let toggleDisplay = (identifier) => {
+        let elt = document.querySelector(identifier)
+        elt.classList.toggle('to-lg:hidden');
+    }
+
+    let toggleTooltip = (event) => {
+        let button = event.target;
+        let tooltipLabelId = '#' + button.dataset.tooltip + 'Label';
+        let tooltipId = '#' + button.dataset.tooltip;
+        let tooltip = document.querySelector(tooltipId);
+        let allTooltips = document.querySelectorAll('.tooltip')
+        allTooltips.forEach((elt) => {
+            if(elt.id != button.dataset.tooltip){
+                elt.classList.add('hidden')
+            }
+            else{
+                elt.classList.toggle('hidden')
+            }
+        })
+
+        //modal tooltips
+        const tooltipLabel = document.querySelector(tooltipLabelId);
+        const modal = document.querySelector('#modal');
+        const modalLabel = modal.querySelector('.modal-label')
+        const modalTooltip = modal.querySelector('.modal-tooltip')
+        console.log(modalLabel)
+        modalLabel.innerHTML = tooltipLabel.innerHTML;
+        modalTooltip.innerHTML = tooltip.innerHTML;
+        modal.classList.toggle('hidden')
+        document.querySelector('body').classList.toggle('mobile-body-lock')
+    }
+
+    document.querySelectorAll('button.feature-toggle').forEach((elt) => {
+
+        let toggles = '#' + elt.dataset.toggles;
+        let arrow = elt.querySelector('.table-arrow');
+        elt.addEventListener('click', (event) => {
+            toggleDisplay(toggles)
+            arrow.classList.toggle('flip')
+        })
+    })
+
+    function toggleActive(event) {
+
+        // Get the checkbox
+        let checkBox = event.target;
+        // Get the output text
+        let selector = checkBox.parentElement;
+        console.log(selector)
+
+        document.querySelectorAll('.selector').forEach((elt) => elt.classList.remove('active'))
+        selector.classList.add('active')
+
+    }
+
+    document.querySelectorAll('.selector input').forEach((elt) => {
+        elt.addEventListener('click', (event) => {
+            toggleActive(event)
+        })
+    })
+
+    document.querySelectorAll('.tooltip-toggle').forEach((elt) => {
+        elt.addEventListener('click', (event) => {
+            toggleTooltip(event)
+        })
+    })
+
     let tableData = {
         sections: [
             {
@@ -120,7 +201,7 @@
     `).join('')
 </script>
 
-<section class="w-full flex flex-col items-center">
+<section class="w-full flex flex-col items-center ">
     <div class="w-full bg-gradient-to-b from-kc-50 flex justify-center px-s8">
         <div class="w-full max-w-[1400px] flex flex-col md:flex-row py-s10 md:py-s14 items-center space-y-s8 md:space-y-0 md:space-x-s10">
             <div class="w-full md:w-1/2">
@@ -144,9 +225,210 @@
         </div>
         <div class="h-[2px] bg-black-100 flex-grow !block"></div>
     </div>
-    <div class="w-full xl:flex justify-center overflow-x-scroll lg:px-s8" id="plans">
-        <div class="max-w-content min-w-[700px]">
-            <div x-data="{tableData, tableHTML}" x-html="tableHTML" class="grid grid-cols-4 lg:grid-cols-5 !gap-0 pb-s14 items-start text-center"></div>
+    <div class="w-full lg:px-s8" id="plans">
+        <div class="comparison-chart " >
+            <div class="comparison-grid" style="gap:10px;">
+                <div >
+                    <div class="product-column">
+                        <div class="flex items-center justify-center product-name" >Basic</div>
+                        <div class="flex items-center justify-center to-lg:hidden">
+                            <div class="bg-kc-800" style="width:35px; height:3px;">&nbsp;</div>
+                        </div>
+                        <div class="flex items-center justify-center included-text billing-period" ><p class="faux-h6 text-kc-500">included in app</p></div>
+                        <div class="p-[10px]">
+                        </div>
+                        <div id="basicFeatures" class="to-lg:hidden">
+                            <div class="bg-kc-800 py-s4 px-s3 to-lg:hidden">
+                                <p class="text-white faux-p-sm">Features</p>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip1Label" class="faux-p-sm text-kc-800 font-medium feature-name">Unlimited EKGs</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip1"></button>
+                                    <div class="tooltip hidden faux-p-xs to-lg:hidden" id="tooltip1">Take unlimited EKGs. Detect AFib, Bradycardia, Tachycardia or Normal Heart Rhythm in just 30 seconds.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip2Label" class="faux-p-sm text-kc-800 font-medium ">EKG storage on your phone</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip2"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip2">Store your EKGs on your phone or email them to your doctor.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip3Label" class="faux-p-sm text-kc-800 font-medium">Weight and blood pressure <br>monitoring</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip3"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip3">Enter your weight and blood pressure so you can track it over time.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip4Label" class="faux-p-sm text-kc-800 font-medium">Arrhythmia Determinations:<br>3 Detections</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip4"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip4">Detect 3 of the most common arrhythmias: Atrial Fibrillation, Bradycardia, Tachycardia and Normal Sinus Rhythm.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="flex items-center justify-between feature-toggle lg:hidden" style="padding:10px;" data-toggles="basicFeatures">
+                            <p>What's Included</p>
+                            <img src="{{'table-down.svg' | asset_url}}" class="table-arrow">
+                        </button>
+                    </div>
+                </div>
+                <div >
+                    <div class="product-column relative">
+                        <div class="absolute bg-primary-500 pill" style=""><p class="faux-h6 text-white">Most Popular</p></div>
+                        <div class="flex items-center justify-center text-kc-300 product-name">KardiaCare</div>
+                        <div class="flex items-center justify-center price"><p id="kcPrice" class="flex items-center faux-h1 text-kc-800" style="font-size:3rem;"><sup>$</sup>99</p></div>
+                        <div class="flex items-center justify-center billing-period">
+                            <div class="flex" style="border-radius:8px;">
+                                <label class="selector yearly active  hover:cursor-pointer" data-target-input="yearly"  for="card-plan-selector-yearly-input" onclick="kcFrequency = 12; kcVariantId = 32194082472001; document.getElementById('kcPrice').innerHTML='<sup>$</sup>99'">
+                                    <input type="radio" checked id="card-plan-selector-yearly-input" name="card-plan-selector-inputs">
+                                    <span class="faux-h6">Yearly</span>
+                                </label>
+                                <label class="selector monthly hover:cursor-pointer" data-target-input="monthly" for="card-plan-selector-monthly-input" onclick="kcFrequency = 1; kcVariantId = 32283254751297; document.getElementById('kcPrice').innerHTML='<sup>$</sup>9<span>.99</span>'">
+                                    <input type="radio" id="card-plan-selector-monthly-input" name="card-plan-selector-inputs">
+                                    <span class="faux-h6" onclick="">Monthly</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center plan-button" style="padding:0px 10px;">
+                            <button class="btn w-full bg-kc-800 plan-select-btn" style="padding:10px 0; font-size:12px;" onclick="kardiaCareCartAdd(kcVariantId, kcFrequency, 'Months')">Select Plan</button>
+                        </div>
+                        <div id="kcFeatures" class="to-lg:hidden">
+                            <div class="bg-kc-800 py-s4 px-s3 to-lg:hidden">
+                                <p class="text-white faux-p-sm">Features</p>
+                            </div>
+                            <div class="feature">
+                                <p class="faux-p-sm text-kc-800 font-medium">Everything in Basic, and:</p>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip13Label" class="faux-p-sm text-kc-800 font-medium">Insights</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip13"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip13">Dive deeper into your EKG and blood pressure with Insights. View month-to-month or time of day comparisons, discover your top tags, and find trends in your data.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip5Label" class="faux-p-sm text-kc-800 font-medium">Heart Health Summary<br>Report</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip5"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip5">Track your heart health over time. Generate a summary of your EKG, blood pressure, and weight data.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip6Label" class="faux-p-sm text-kc-800 font-medium">Medication Tracking</p>
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip6"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip6">Set reminders to take specific medication at your doctor’s recommendation and track your medication history.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip7Label" class="faux-p-sm text-kc-800 font-medium">Cloud Storage and Security</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip7"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip7">Enjoy secure access to all of your EKG recordings on any device with unlimited cloud storage.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip8Label" class="faux-p-sm text-kc-800 font-medium">Device Replacement</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip8"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip8">Receive discounted device replacement on KardiaMobile 6L if lost or stolen for just $19.99. - US only, replacement eligible one time annually. Does not apply to Omron blood pressure cuff.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip9Label" class="faux-p-sm text-kc-800 font-medium">Automatic EKG Sharing</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip9"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip9">Set up automatic sharing of your EKGs with family or caregivers using Inner Circle.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip10Label" class="faux-p-sm text-kc-800 font-medium">Arrhythmia Determinations:<br>6 Detections</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip10"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip10">Detect more arrhythmias than any other personal EKG. Get 3 more detections: Sinus Rhythm with Premature Ventricular Contractions (PVCs), Sinus Rhythm with Supraventricular Ectopy (SVE), and Sinus Rhythm with Wide QRS.</div>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip11Label" class="faux-p-sm text-kc-800 font-medium">Cardiologist EKG Reviews<br>4 Reviews Annually</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip11"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip11">Get your EKGs reviewed by a board-certified cardiologist.</div>
+                                </div>
+                                <div class="value-box bg-secondary-600"><p class="text-white faux-h6 text-center">Value<br>$100</p></div>
+                            </div>
+                        </div>
+                        <button class="flex items-center justify-between feature-toggle lg:hidden" style="padding:10px;" data-toggles="kcFeatures">
+                            <p>What's Included</p>
+                            <img src="{{'table-down.svg' | asset_url}}" class="table-arrow">
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-column bg-kc-50">
+                        <div class="absolute bg-secondary-600 pill" style=""><p class="faux-h6 text-white">Best Value</p></div>
+                        <div class="flex items-center justify-center text-kc-300 product-name">KardiaCare Plus</div>
+                        <div class="flex items-center justify-center price"><p class="faux-h1 text-kc-800" style="font-size:3rem;"><sup>$</sup>299</p></div>
+                        <div class="flex items-center justify-center billing-period"><p class="faux-h6 text-kc-500">yearly</p></div>
+                        <div class="flex items-center justify-center plan-button" style="padding: 0 10px;">
+                            {% assign product_id_to_search = 6914794356801 | times: 1 %}
+                            {% assign products_obj_to_return = collections.all.products | where: 'id', product_id_to_search %}
+                            {% assign product_plan_id = products_obj_to_return[0] %}
+                            <button  onclick="kcpAddToCartWorkaround({{product_plan_id.selling_plan_groups[0].selling_plans[0].id}})" class="btn w-full bg-kc-800 plan-select-btn" style="padding:10px 0; font-size:12px;">Select Plan</button>
+                        </div>
+                        <div id="kcpFeatures" class="to-lg:hidden">
+                            <div class="bg-kc-800 py-s4 px-s3 to-lg:hidden">
+                                <p class="text-white faux-p-sm">Features</p>
+                            </div>
+                            <div class="feature">
+                                <p class="faux-p-sm text-kc-800 font-medium">Everything in KardiaCare, and:</p>
+                            </div>
+                            <div class="feature">
+                                <p id="tooltip12Label" class="faux-p-sm text-kc-800 font-medium">Cardiologist EKG Reviews<br>12 Reviews Annually</p>
+
+                                <div class="info-button relative" style="background-image:url('{{ "feature-info-icon.png" | asset_url }}');background-size:100%;">
+                                    <button class="w-full h-full tooltip-toggle" data-tooltip="tooltip12"></button>
+                                    <div class="tooltip hidden faux-p-xs" id="tooltip12">Get your EKGs reviewed by a board-certified cardiologist.</div>
+                                </div>
+                                <div class="value-box bg-secondary-600"><p class="text-white faux-h6 text-center">Value<br>$300</p></div>
+                            </div>
+                            <div class="feature relative py-s6">
+                                <div>
+                                    <p class="faux-p-sm text-kc-800 font-medium">KardiaMobile 6L device</p>
+                                    <p class="faux-p-xs text-kc-800 font-medium" style="font-size:13px; line-height:normal; margin-top:5px;">Get more data and deeper insights with our most advanced personal EKG. Records EKG leads I, II, III, aVL, aVR, and aVF.<br>*KardiaMobile 6L is a one-time gift with purchase for new subscribers only.</p>
+                                </div>
+                                <img width='121px' src="{{'km-6l-angled-transparent.png' | asset_url}}" alt="6l device" class="" style="width:140px; margin-right:18px; margin-left:-20px;">
+                                <div class="absolute top-0 bottom-0 flex items-center" style="right:10px">
+                                    <div class="value-box bg-secondary-600"><p class="text-white faux-h6 text-center">Value<br>$129</p></div>
+                                </div>
+                            </div>
+                            <div class="feature relative py-s6">
+                                <div>
+                                    <p class="faux-p-sm text-kc-800 font-medium">Blood Pressure Cuff</p>
+                                    <p class="faux-p-xs text-kc-800 font-medium" style="font-size:13px; line-height:normal; margin-top:5px;">Track your blood pressure from the with the Kardia app to manage your recordings and share them with your doctor.<br>*The Blood Pressure cuff is a one-time gift with purchase for new subscribers only.</p>
+                                </div>
+                                <img width='121px' src="{{'cuff.png' | asset_url}}" alt="cuff" class="" style="width:140px; margin-right:0px; margin-right:-10px; align-self:flex-end;">
+                                <div class="absolute top-0 bottom-0 flex items-center" style="right:10px">
+                                    <div class="value-box bg-secondary-600"><p class="text-white faux-h6 text-center">Value<br>$89</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="flex items-center justify-between feature-toggle lg:hidden" style="padding:10px;" data-toggles="kcpFeatures">
+                            <p>What's Included</p>
+                            <img src="{{'table-down.svg' | asset_url}}" class="table-arrow">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% include 'additional-info-kcp' %}
@@ -194,35 +476,236 @@
             </div>
         </div>
     </div>
+    <div id="modal" class="fixed flex items-center justify-center top-0 left-0 right-0 bottom-0 hidden lg:hidden" style="background: rgba(0, 0, 0, 0.20); z-index:100; padding:32px;" onclick="document.querySelector('#modal').classList.toggle('hidden'); document.querySelector('body').classList.toggle('mobile-body-lock')">
+        <div class="bg-kc-50 " style="padding:25px;  max-width:700px;" onclick="event.stopPropagation();">
+            <p class="text-kc-800 font-bold faux-p-lg modal-label">Unlimited EKGs</p>
+            <p class="text-kc-800 modal-tooltip" style="margin-top:20px;">Take unlimited EKGs. Detect AFib, Bradycardia, Tachycardia or Normal Heart Rhythm in just 30 seconds.</p>
+        </div>
+        <div class="absolute hover:cursor-pointer" style="top:10px; right:10px;">
+            <img src="{{ 'close-kc.svg' | asset_url }}">
+        </div>
+    </div>
 </section>
 
 <style>
 
-    .grid > * {
-        margin: 0px!important;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background: white;
-        padding: 0px 10px;
+    //.grid > * {
+    //    margin: 0px!important;
+    //   height: 100%;
+    //    display: flex;
+    //    align-items: center;
+    //    justify-content: center;
+    //    text-align: center;
+    //    background: white;
+    //    padding: 0px 10px;
+    //}
+    //.grid > *:nth-child(4n-3) {
+    //    text-align: left;
+    //    justify-content: start;
+    //    position: sticky;
+    //    z-index: 100;
+    //    left: 0;
+    //    padding: 24px 0px;
+    //}
+    //@media (max-width: 1023px) {//
+    //    .grid > *:nth-child(4n-3) {
+    //        padding: 24px;
+    //    }
+    //}
+    //.grid > *:nth-child(4n) {
+    //    background-color: #EBE6EF;
+    //}
+
+    .comparison-chart{
+        max-width:600px;
+        margin:0 auto;
+        padding: 0 40px;
     }
-    .grid > *:nth-child(4n-3) {
-        text-align: left;
-        justify-content: start;
-        position: sticky;
-        z-index: 100;
-        left: 0;
-        padding: 24px 0px;
+
+    .comparison-grid{
+        display:grid;
     }
-    @media (max-width: 1023px) {
-        .grid > *:nth-child(4n-3) {
-            padding: 24px;
+
+    .product-column{
+        position:relative;
+        overflow:visible;
+        display:grid;
+        border: 1px solid #dbdbdb;
+        margin-top:25px;
+
+    }
+
+    .product-column .pill{
+        transform:translateY(-50%);
+        border-radius:8px;
+        padding: 8px 12px;
+        left:0;
+        right:0;
+        width:max-content;
+        margin:auto;
+    }
+
+    .product-column .product-name{
+        height:51px;
+        padding-top:12px;
+    }
+
+    .product-column .billing-period{
+        height: 48px;
+    }
+
+    .product-column .price{
+        height:100px;
+    }
+
+    .product-column .plan-button{
+        height:55px;
+    }
+    .selector{
+        display:flex;
+        align-items:center;
+        gap:5px;
+        padding:8px;
+        border: 1px solid #8860a6;
+    }
+    .selector.yearly{
+        border-radius: 8px 0 0 8px;
+    }
+
+    .selector.monthly{
+        border-radius: 0 8px 8px 0;
+    }
+
+    .selector input{
+        background-image: url({{ 'unchecked.png' | asset_url }}) !important;
+        background-size: contain !important;
+        background-repeat:no-repeat;
+        appearance:none;
+        -webkit-appearance:none;
+        pointer-events:none;
+        outline:none !important;
+        box-shadow:none !important;
+        border:0;
+        color:transparent !important;
+        background-color:transparent !important;
+    }
+    .selector.active{
+        background-color:#8860a6;
+        color:white;
+    }
+
+    .selector input:checked {
+        background-image: url({{ 'selected-icon.png' | asset_url }}) !important;
+    }
+    .feature{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding: 10px;
+
+    }
+
+    .feature p:before{
+        margin-top:0 !important;
+    }
+    .feature p:after{
+        margin-bottom:0 !important;
+    }
+
+    .info-button{
+        width:30px;
+        height:30px;
+        background-repeat:none;
+        background-size:100%;
+        flex-shrink:0;
+        z-index:10
+    }
+
+    .comparison-chart .tooltip{
+        position:absolute;
+        top:0;
+        left:-40.5px;
+        padding:25px;
+        transform:translateY(calc(-100% - 11px));
+        width:184px;
+        background-color:#EBE6EF;
+        color:#573D6A;
+        font-size:12px;
+    }
+
+    .comparison-chart .tooltip:after{
+        content:"";
+        background-color:#EBE6EF;
+        clip-path: polygon(49% 100%, 0 0, 100% 0);
+        position:absolute;
+        width:24px;
+        height:20px;
+        top:calc(100% - 5px);
+        left:44px;
+    }
+
+    .value-box{
+        border-radius:8px;
+        padding:5px 10px;
+    }
+
+    .mobile-body-lock{
+        overflow-y:hidden;
+    }
+
+    .plan-select-btn:hover{
+        background-color: rgb(107 79 137) !important;
+    }
+
+    @media screen and (min-width: 1024px){
+        .comparison-chart{
+            max-width:1245px;
+        }
+
+        .comparison-grid{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .product-column{
+            grid-template-rows: 87px 105px 48px 55px;
+            margin-top:0;
+        }
+
+        .product-column .pill{
+            left:50px;
+            right:unset;
+            margin:0;
+            padding: 12px;
+        }
+
+        .product-column .product-name{
+            padding-top:0;
+        }
+
+        .product-column .product-name, .product-column .price, .product-column .billing-period, .product-column .button-container, .product-column{
+            height:auto
+        }
+
+        .feature{
+            border-top: 1px solid  #dbdbdb;
+        }
+
+        .mobile-body-lock{
+            overflow-y: scroll;
         }
     }
-    .grid > *:nth-child(4n) {
-        background-color: #EBE6EF;
+
+    .flip{
+        transform:rotate(180deg);
+    }
+
+    #kcPrice span{
+            position: relative;
+    display: block;
+    content: ".99";
+    margin-top: -16px;
+    font-size: 20px;
+    line-height: 1.4;
     }
     template {
         display: none!important;
