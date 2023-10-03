@@ -27,7 +27,7 @@
 	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	  <link media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
 
-    <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+    <!-- <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
     <script>
       analytics.subscribe("checkout_completed", event => {
         console.log("checkout completed");
@@ -37,7 +37,7 @@
           universalPixelApi.init("quo2ou5", ["1oupr87"], "https://insight.adsrvr.org/track/up");
         }
       });
-    </script>
+    </script> -->
     
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -387,7 +387,22 @@
         }
       </script>
 
-    {% section 'kardia-header' %}
+    {% include 'domainDetect' %}
+      {% assign cartSegment = request.path | split: '/' %}
+      {% assign cart = false %}
+
+      {% for segment in cartSegment %}
+        {% if segment == 'cart' %}
+          {% assign cart = true %}
+          {% break %} {# Stop the loop when a match is found. #}
+        {% endif %}
+      {% endfor %}
+
+      {% if siteDomain == "us" %}
+        {% section 'kardia-header' %}
+      {% else %}
+        {% section 'global-recharge-nav' %}
+      {% endif %}
 
     <main id="MainContent" class="content-for-layout focus-none" tabindex="-1">
       {{ content_for_layout }}{{ locksmith_content_for_layout_addenda }}

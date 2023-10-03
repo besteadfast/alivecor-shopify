@@ -1,24 +1,14 @@
 <section class="page-width">
-    <div class="flex justify-center items-center md:justify-start bg-gradient-to-b lg:bg-gradient-to-r from-[#6B84BF] via-[#936D8D] to-[#DC6351] rounded mb-s8 lg:mb-s11 p-s6 lg:px-s11 lg:py-s9 relative overflow-hidden">
-
-        <svg class="hidden md:!block absolute right-0 top-0 transform translate-x-[30%] lg:translate-x-[20%] xl:translate-x-[25%]" viewBox="0 0 1088 888" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M544 0H1088V399.337V888H0L544 0Z" fill="#C6B1D6" fill-opacity="0.18"/>
-        </svg>
-
-        <svg class="md:hidden absolute bottom-0 left-0 right-0 w-full transform translate-y-[25%]" viewBox="0 0 980 1035" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M980 0V1035H-4.80351e-06L0 369.73L980 0Z" fill="#C6B1D6" fill-opacity="0.18"/>
-        </svg>
-
-        <img class="absolute bottom-0 md:bottom-auto md:top-0 md:right-0 left-1/2 md:left-auto max-h-[380px] lg:w-auto lg:h-full transform translate-y-[25%] -translate-x-1/2 md:translate-x-0 md:translate-y-0 lg:scale-150 xl:-translate-x-[25%]" src="https://cdn.shopify.com/s/files/1/0368/7037/files/world-heart-day-devices-mobile_2x_5d68bd7c-837a-4db0-98df-67061f0d1f59.png?v=1695296042" alt="Kardia Devices">
-
-        <div class="flex flex-col items-center md:items-start mb-[240px] md:mb-0">
-            <h4 class="relative text-center md:text-left faux-h2 lg:text-[48px] mt-s6 text-white mx-auto z-30">A healthier heart <span class="block md:inline">starts here</span></h4>
-            <p class="relative text-center md:text-left faux-p-lg text-white md:max-w-[416px] lg:max-w-[516px] z-30">This World Heart Day, save $20 on KardiaMobile® Card.</p>
-            <div class="flex md:justify-start">
-                <a href="https://store.kardia.com/products/kardiamobile-card" class="relative mx-auto mt-s9 inline-block btn--inverse btn btn--lg z-30">Shop Now</a>
-            </div>
-        </div>
-
+    <div class="bg-mindful-blue-900 rounded mb-s8 md:mb-s11 p-s6 pt-s14 md:px-s11 md:py-s9 relative overflow-hidden">
+        <img src="https://cdn.shopify.com/s/files/1/0368/7037/files/detect-afib-feature-desktop_2x_d8428de1-46d4-42b5-8e42-e43f3afbf2ac.jpg?v=1690558690"
+             class="absolute inset-0 object-cover w-full h-full z-10"
+             alt="KardiaMobile in use">
+        <img src="https://cdn.shopify.com/s/files/1/0368/7037/files/detect-afib-feature-mobile_2x_d52ac791-f0a1-4f9a-867f-bcbd6739965f.jpg?v=1690558689"
+             class="md:hidden absolute inset-0 object-cover w-full h-full z-10"
+             alt="KardiaMobile in use">
+        <div class="block absolute top-0 left-0 w-full h-full bg-gradient-to-t md:bg-gradient-to-r from-mindful-blue-800 md:from-mindful-blue-800/50 to-transparent z-20"></div>
+        <h4 class="relative faux-h2 md:text-[48px] mt-s6 text-white max-w-[295px] md:max-w-[640px] mb-s6 md:mb-s9 z-30">{{ section.settings.heading }}</h4>
+        <a href="https://store.kardia.com/products/kardiamobile-card" class="relative inline-block btn btn--lg btn--inverse z-30">{{ section.settings.button-label }}</a>
     </div>
 
 </section>

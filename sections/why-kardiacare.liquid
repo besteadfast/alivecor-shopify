@@ -1,7 +1,7 @@
-<h3 class="col-span-1 row-start-1 mt-0">{{ section.settings.header }}</h3>
-<p class="col-span-3 row-start-1 mt-0">{{ section.settings.text }}</p>
-
 {% style %}
+  .kardiacarePlanMobile {
+    width: 100%;
+  }
   .centerDiv {
     padding: 40px 24px 32px;
     max-width: 1160px;
@@ -9,12 +9,44 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .fourColumnColumn1 {
+    grid-column: 1 /span 1;
+    grid-row: 1 /span 1;
+  }
+
+  .fourColumnColumn2 {
+    grid-column: 2 /span 3;
+    grid-row: 1 /span 1;
+  }
+
+  .fourColContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 800px) {
+
+    .fourColumnColumn1 {
+      grid-column: 1 /span 4;
+      grid-row: 1 /span 1;
+    }
+
+    .fourColumnColumn2 {
+      grid-column: 1 /span 4;
+      grid-row: 2 /span 1;
+    }
+  }
 {% endstyle %}
+
+<h3 class="fourColumnColumn1 text-kc-800">{{ section.settings.header }}</h3>
+<p class="fourColumnColumn2 mt-0">{{ section.settings.text }}</p>
 
 {% schema %}
   {
     "name": "FourColumn",
-    "class": "grid grid-cols-4 centerDiv",
+    "class": "fourColContainer centerDiv",
     "settings": [
       {
         "type": "text",
